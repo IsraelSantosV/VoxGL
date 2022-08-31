@@ -11,6 +11,11 @@ workspace "VoxGL"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "VoxGL/ThirdParty/GLFW/include"
+
+include "VoxGL/ThirdParty/GLFW"
+
 project "VoxGL"
 	location "VoxGL"
 	kind "SharedLib"
@@ -31,13 +36,20 @@ project "VoxGL"
 	includedirs
 	{
 		"%{prj.name}/Source",
-		"%{prj.name}/ThirdParty/spdlog/include"
+		"%{prj.name}/ThirdParty/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "latest"
+		systemversion "10.0"
 
 		defines
 		{
@@ -90,7 +102,7 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "latest"
+		systemversion "10.0"
 
 		defines
 		{

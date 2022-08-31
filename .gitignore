@@ -2,6 +2,6 @@
 bin/
 bin-int/
 
-.user
-.filters
-**.sln
+*.user
+*.filters
+*.sln

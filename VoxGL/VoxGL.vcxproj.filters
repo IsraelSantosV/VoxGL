@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Vox">
       <UniqueIdentifier>{822F880B-EE38-887C-77B4-9E7CE3BC937C}</UniqueIdentifier>
     </Filter>
@@ -9,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Platform\Windows\WinWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox.h" />
     <ClInclude Include="Source\Vox\Application.h">
       <Filter>Vox</Filter>
@@ -34,9 +43,15 @@
     <ClInclude Include="Source\Vox\Log.h">
       <Filter>Vox</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Window.h">
+      <Filter>Vox</Filter>
+    </ClInclude>
     <ClInclude Include="Source\VoxPch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Platform\Windows\WinWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Vox\Application.cpp">
       <Filter>Vox</Filter>
     </ClCompile>
