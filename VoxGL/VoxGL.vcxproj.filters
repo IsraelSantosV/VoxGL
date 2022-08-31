@@ -4,6 +4,9 @@
     <Filter Include="Vox">
       <UniqueIdentifier>{822F880B-EE38-887C-77B4-9E7CE3BC937C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Vox\Events">
+      <UniqueIdentifier>{2615819D-12CD-C2EA-7BD4-9B4667AB5DDB}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Vox.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="Source\Vox\EntryPoint.h">
       <Filter>Vox</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Events\AplicationEvent.h">
+      <Filter>Vox\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Events\Event.h">
+      <Filter>Vox\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Events\KeyEvent.h">
+      <Filter>Vox\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Events\MouseEvent.h">
+      <Filter>Vox\Events</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Log.h">
       <Filter>Vox</Filter>
