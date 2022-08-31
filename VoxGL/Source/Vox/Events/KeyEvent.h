@@ -2,8 +2,6 @@
 
 #include "Vox/Events/Event.h"
 
-#include <sstream>
-
 namespace Vox {
 
 	class KeyEvent : public Event

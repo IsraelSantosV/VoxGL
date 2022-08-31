@@ -19,6 +19,9 @@ project "VoxGL"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "VoxPch.h"
+	pchsource "VoxGL/Source/VoxPch.cpp"
+
 	files
 	{
 		"%{prj.name}/Source/**.h",
