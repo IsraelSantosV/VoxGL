@@ -27,6 +27,7 @@ project "VoxGL"
 
 	includedirs
 	{
+		"%{prj.name}/Source",
 		"%{prj.name}/ThirdParty/spdlog/include"
 	}
 
