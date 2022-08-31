@@ -1,0 +1,3 @@
+[submodule "VoxGL/ThirdParty/spdlog"]
+	path = VoxGL/ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog
