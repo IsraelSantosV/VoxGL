@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -109,6 +110,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -135,6 +137,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -158,6 +161,8 @@
     <ClInclude Include="Source\Vox\Events\Event.h" />
     <ClInclude Include="Source\Vox\Events\KeyEvent.h" />
     <ClInclude Include="Source\Vox\Events\MouseEvent.h" />
+    <ClInclude Include="Source\Vox\Layer.h" />
+    <ClInclude Include="Source\Vox\LayerStack.h" />
     <ClInclude Include="Source\Vox\Log.h" />
     <ClInclude Include="Source\Vox\Window.h" />
     <ClInclude Include="Source\VoxPch.h" />
@@ -165,6 +170,8 @@
   <ItemGroup>
     <ClCompile Include="Source\Platform\Windows\WinWindow.cpp" />
     <ClCompile Include="Source\Vox\Application.cpp" />
+    <ClCompile Include="Source\Vox\Layer.cpp" />
+    <ClCompile Include="Source\Vox\LayerStack.cpp" />
     <ClCompile Include="Source\Vox\Log.cpp" />
     <ClCompile Include="Source\VoxPch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
