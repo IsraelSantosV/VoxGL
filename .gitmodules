@@ -1,3 +1,6 @@
 [submodule "VoxGL/ThirdParty/spdlog"]
 	path = VoxGL/ThirdParty/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "VoxGL/ThirdParty/GLFW"]
+	path = VoxGL/ThirdParty/GLFW
+	url = https://github.com/theCherno/glfw
