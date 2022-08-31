@@ -1,8 +1,6 @@
 #include "VoxPch.h"
 #include "Application.h"
 
-#include "Vox/Events/AplicationEvent.h"
-
 #include <GLFW/glfw3.h>
 
 namespace Vox
@@ -22,7 +20,10 @@ namespace Vox
 
 	void Application::OnEvent(Event& e)
 	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
+		LOG_CORE_TRACE("{0}", e);
 	}
 
 	void Application::Run()
@@ -33,6 +34,12 @@ namespace Vox
 			glClear(GL_COLOR_BUFFER_BIT);
 			m_Window->OnUpdate();
 		}
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 }
 
