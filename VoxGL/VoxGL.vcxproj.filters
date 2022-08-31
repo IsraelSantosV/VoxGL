@@ -40,6 +40,12 @@
     <ClInclude Include="Source\Vox\Events\MouseEvent.h">
       <Filter>Vox\Events</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Layer.h">
+      <Filter>Vox</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\LayerStack.h">
+      <Filter>Vox</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Log.h">
       <Filter>Vox</Filter>
     </ClInclude>
@@ -53,6 +59,12 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Application.cpp">
+      <Filter>Vox</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Layer.cpp">
+      <Filter>Vox</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\LayerStack.cpp">
       <Filter>Vox</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Log.cpp">
