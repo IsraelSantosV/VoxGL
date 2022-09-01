@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef VOX_PLATFORM_WINDOWS
+#if VOX_DYNAMIC_LINK
 	#ifdef VOX_BUILD_DLL
 		#define VOX_API __declspec(dllexport)
 	#else
 		#define VOX_API __declspec(dllimport)
 	#endif
+#else
+	#define VOX_API
+#endif
 #else
 	#error VoxGL only supports Windows!
 #endif
