@@ -1,16 +1,24 @@
-[19:29:14] [info] Vox: Creating window VoxGL Engine (1280, 720)
-[19:29:15] [info] Vox: OpenGL Info:
-[19:29:15] [info] Vox:   Vendor: Intel
-[19:29:15] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
-[19:29:15] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
-[19:29:15] [info] App: MouseMovedEvent: 1191, 103
-[19:29:15] [info] App: MouseMovedEvent: 1191, 102
-[19:29:15] [info] App: MouseMovedEvent: 1229, 69
-[19:29:15] [info] App: MouseMovedEvent: 1231, 69
-[19:29:15] [info] App: MouseMovedEvent: 1234, 66
-[19:29:15] [info] App: MouseMovedEvent: 1235, 64
-[19:29:15] [info] App: MouseMovedEvent: 1238, 62
-[19:29:15] [info] App: MouseMovedEvent: 1245, 55
-[19:29:15] [info] App: MouseMovedEvent: 1248, 52
-[19:29:15] [info] App: MouseMovedEvent: 1252, 46
-[19:29:15] [info] App: MouseMovedEvent: 1272, 6
+[20:17:21] [info] Vox: Creating window VoxGL Engine (1280, 720)
+[20:17:21] [info] Vox: OpenGL Info:
+[20:17:21] [info] Vox:   Vendor: Intel
+[20:17:21] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[20:17:21] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[20:17:22] [info] App: MouseMovedEvent: 1276, 37
+[20:17:22] [info] App: MouseMovedEvent: 1271, 37
+[20:17:22] [info] App: MouseMovedEvent: 1256, 37
+[20:17:22] [info] App: MouseMovedEvent: 1254, 37
+[20:17:22] [info] App: MouseMovedEvent: 1252, 37
+[20:17:22] [info] App: MouseMovedEvent: 1243, 37
+[20:17:22] [info] App: MouseMovedEvent: 1242, 37
+[20:17:22] [info] App: MouseMovedEvent: 1242, 33
+[20:17:22] [info] App: MouseMovedEvent: 1242, 32
+[20:17:22] [info] App: MouseMovedEvent: 1242, 27
+[20:17:22] [info] App: MouseMovedEvent: 1242, 25
+[20:17:22] [info] App: MouseMovedEvent: 1242, 23
+[20:17:22] [info] App: MouseMovedEvent: 1242, 22
+[20:17:22] [info] App: MouseMovedEvent: 1243, 16
+[20:17:22] [info] App: MouseMovedEvent: 1243, 15
+[20:17:22] [info] App: MouseMovedEvent: 1245, 8
+[20:17:22] [info] App: MouseMovedEvent: 1246, 2
+[20:17:22] [info] App: MouseMovedEvent: 1246, 1
+[20:17:22] [info] App: MouseMovedEvent: 1246, 0
