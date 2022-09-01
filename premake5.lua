@@ -109,6 +109,7 @@ project "Sandbox"
 	{
 		"VoxGL/ThirdParty/spdlog/include",
 		"VoxGL/Source",
+		"VoxGL/ThirdParty",
 		"%{IncludeDir.glm}"
 	}
 

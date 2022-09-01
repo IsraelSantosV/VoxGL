@@ -1,5 +1,7 @@
 #include <Vox.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public Vox::Layer
 {
 public:
@@ -7,7 +9,13 @@ public:
 
 	void OnUpdate() override
 	{
-		LOG_INFO("ExampleLayer::Update");
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		//ImGui::Begin("Test");
+		//ImGui::Text("Hello World");
+		//ImGui::End();
 	}
 
 	void OnEvent(Vox::Event& event) override
@@ -22,7 +30,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Vox::ImGuiLayer());
 	}
 
 	~Sandbox()
