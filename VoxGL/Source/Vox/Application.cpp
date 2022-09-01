@@ -14,7 +14,6 @@ namespace Vox
 		VOX_CORE_ASSERT(!m_Instance, "Application aleady exists!");
 		m_Instance = this;
 
-		Log::Init();
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
