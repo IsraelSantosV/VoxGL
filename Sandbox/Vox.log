@@ -1,12 +1,43 @@
-[13:39:09] [info] Vox: Creating window VoxGL Engine (1280, 720)
-[13:39:09] [info] App: MouseMovedEvent: 1176, 31
-[13:39:09] [info] App: MouseMovedEvent: 1172, 31
-[13:39:09] [info] App: MouseMovedEvent: 1171, 31
-[13:39:09] [info] App: MouseMovedEvent: 1156, 29
-[13:39:09] [info] App: MouseMovedEvent: 1136, 26
-[13:39:09] [info] App: MouseMovedEvent: 1115, 22
-[13:39:09] [info] App: MouseMovedEvent: 1109, 21
-[13:39:09] [info] App: MouseMovedEvent: 1106, 20
-[13:39:09] [info] App: MouseMovedEvent: 1102, 19
-[13:39:09] [info] App: MouseMovedEvent: 1084, 18
-[13:39:09] [info] App: MouseMovedEvent: 1035, 9
+[18:50:01] [info] Vox: Creating window VoxGL Engine (1280, 720)
+[18:50:01] [info] Vox: OpenGL Info:
+[18:50:01] [info] Vox:   Vendor: Intel
+[18:50:01] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[18:50:01] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[18:50:01] [info] App: MouseMovedEvent: 620, 2
+[18:50:01] [info] App: MouseMovedEvent: 619, 2
+[18:50:01] [info] App: MouseMovedEvent: 619, 1
+[18:50:01] [info] App: MouseMovedEvent: 618, 1
+[18:50:07] [info] App: MouseMovedEvent: 964, 14
+[18:50:07] [info] App: MouseMovedEvent: 968, 14
+[18:50:07] [info] App: MouseMovedEvent: 970, 14
+[18:50:07] [info] App: MouseMovedEvent: 974, 15
+[18:50:07] [info] App: MouseMovedEvent: 975, 15
+[18:50:07] [info] App: MouseMovedEvent: 978, 15
+[18:50:07] [info] App: MouseMovedEvent: 979, 15
+[18:50:07] [info] App: MouseMovedEvent: 989, 13
+[18:50:07] [info] App: MouseMovedEvent: 992, 13
+[18:50:07] [info] App: MouseMovedEvent: 994, 12
+[18:50:07] [info] App: MouseMovedEvent: 997, 12
+[18:50:07] [info] App: MouseMovedEvent: 1008, 11
+[18:50:07] [info] App: MouseMovedEvent: 1014, 10
+[18:50:07] [info] App: MouseMovedEvent: 1018, 10
+[18:50:07] [info] App: MouseMovedEvent: 1021, 10
+[18:50:07] [info] App: MouseMovedEvent: 1025, 9
+[18:50:07] [info] App: MouseMovedEvent: 1028, 9
+[18:50:07] [info] App: MouseMovedEvent: 1032, 9
+[18:50:07] [info] App: MouseMovedEvent: 1035, 9
+[18:50:07] [info] App: MouseMovedEvent: 1038, 9
+[18:50:07] [info] App: MouseMovedEvent: 1041, 9
+[18:50:07] [info] App: MouseMovedEvent: 1044, 9
+[18:50:07] [info] App: MouseMovedEvent: 1049, 9
+[18:50:07] [info] App: MouseMovedEvent: 1056, 9
+[18:50:07] [info] App: MouseMovedEvent: 1057, 9
+[18:50:07] [info] App: MouseMovedEvent: 1065, 8
+[18:50:07] [info] App: MouseMovedEvent: 1067, 8
+[18:50:07] [info] App: MouseMovedEvent: 1069, 8
+[18:50:07] [info] App: MouseMovedEvent: 1070, 7
+[18:50:07] [info] App: MouseMovedEvent: 1074, 6
+[18:50:07] [info] App: MouseMovedEvent: 1079, 6
+[18:50:07] [info] App: MouseMovedEvent: 1087, 4
+[18:50:07] [info] App: MouseMovedEvent: 1089, 4
+[18:50:07] [info] App: MouseMovedEvent: 1102, 1
