@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vox/Window.h"
+#include "Vox/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -31,6 +32,7 @@ namespace Vox
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{
