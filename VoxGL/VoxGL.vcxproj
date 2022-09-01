@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOX_PLATFORM_WINDOWS;VOX_BUILD_DLL;GLFW_INCLUDE_NONE;VOX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOX_PLATFORM_WINDOWS;VOX_BUILD_DLL;GLFW_INCLUDE_NONE;VOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOX_PLATFORM_WINDOWS;VOX_BUILD_DLL;GLFW_INCLUDE_NONE;VOX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="Source\Platform\Windows\WinWindow.h" />
     <ClInclude Include="Source\Vox.h" />
     <ClInclude Include="Source\Vox\Application.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Source\Vox\Events\Event.h" />
     <ClInclude Include="Source\Vox\Events\KeyEvent.h" />
     <ClInclude Include="Source\Vox\Events\MouseEvent.h" />
+    <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h" />
     <ClInclude Include="Source\Vox\Layer.h" />
     <ClInclude Include="Source\Vox\LayerStack.h" />
     <ClInclude Include="Source\Vox\Log.h" />
@@ -168,8 +170,10 @@
     <ClInclude Include="Source\VoxPch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinWindow.cpp" />
     <ClCompile Include="Source\Vox\Application.cpp" />
+    <ClCompile Include="Source\Vox\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="Source\Vox\Layer.cpp" />
     <ClCompile Include="Source\Vox\LayerStack.cpp" />
     <ClCompile Include="Source\Vox\Log.cpp" />
@@ -183,6 +187,9 @@
     </ProjectReference>
     <ProjectReference Include="ThirdParty\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ThirdParty\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

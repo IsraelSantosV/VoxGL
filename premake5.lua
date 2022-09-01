@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "VoxGL/ThirdParty/GLFW/include"
 IncludeDir["Glad"] = "VoxGL/ThirdParty/Glad/include"
+IncludeDir["ImGui"] = "VoxGL/ThirdParty/imgui"
 
 include "VoxGL/ThirdParty/GLFW"
 include "VoxGL/ThirdParty/Glad"
+include "VoxGL/ThirdParty/imgui"
 
 project "VoxGL"
 	location "VoxGL"
@@ -40,13 +42,15 @@ project "VoxGL"
 		"%{prj.name}/Source",
 		"%{prj.name}/ThirdParty/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
