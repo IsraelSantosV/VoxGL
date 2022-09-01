@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "VoxGL/ThirdParty/GLFW/include"
 IncludeDir["Glad"] = "VoxGL/ThirdParty/Glad/include"
 IncludeDir["ImGui"] = "VoxGL/ThirdParty/imgui"
+IncludeDir["glm"] = "VoxGL/ThirdParty/glm"
 
 include "VoxGL/ThirdParty/GLFW"
 include "VoxGL/ThirdParty/Glad"
@@ -36,6 +37,8 @@ project "VoxGL"
 	{
 		"%{prj.name}/Source/**.h",
 		"%{prj.name}/Source/**.cpp",
+		"%{prj.name}/ThirdParty/glm/glm/**.hpp",
+		"%{prj.name}/ThirdParty/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -44,7 +47,8 @@ project "VoxGL"
 		"%{prj.name}/ThirdParty/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -104,7 +108,8 @@ project "Sandbox"
 	includedirs
 	{
 		"VoxGL/ThirdParty/spdlog/include",
-		"VoxGL/Source"
+		"VoxGL/Source",
+		"%{IncludeDir.glm}"
 	}
 
 	links

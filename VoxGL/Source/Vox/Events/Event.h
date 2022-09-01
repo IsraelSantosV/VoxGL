@@ -82,5 +82,4 @@ namespace Vox {
 	{
 		return os << e.ToString();
 	}
-
 }
