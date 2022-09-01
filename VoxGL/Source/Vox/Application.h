@@ -9,6 +9,8 @@
 
 #include "Vox/ImGui/ImGuiLayer.h"
 
+#include "Vox/Renderer/Shader.h"
+
 namespace Vox
 {
 	class VOX_API Application
@@ -34,6 +36,7 @@ namespace Vox
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* m_Instance;
 	};
