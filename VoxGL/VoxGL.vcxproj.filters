@@ -65,6 +65,10 @@
       <Filter>Vox</Filter>
     </ClInclude>
     <ClInclude Include="Source\VoxPch.h" />
+    <ClInclude Include="Source\Vox\Input.h" />
+    <ClInclude Include="Source\Platform\Windows\WinInput.h" />
+    <ClInclude Include="Source\Vox\KeyCodes.h" />
+    <ClInclude Include="Source\Vox\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
@@ -89,5 +93,6 @@
       <Filter>Vox</Filter>
     </ClCompile>
     <ClCompile Include="Source\VoxPch.cpp" />
+    <ClCompile Include="Source\Platform\Windows\WinInput.cpp" />
   </ItemGroup>
 </Project>
