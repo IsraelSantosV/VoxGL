@@ -23,9 +23,10 @@ include "VoxGL/ThirdParty/imgui"
 
 project "VoxGL"
 	location "VoxGL"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -39,6 +40,11 @@ project "VoxGL"
 		"%{prj.name}/Source/**.cpp",
 		"%{prj.name}/ThirdParty/glm/glm/**.hpp",
 		"%{prj.name}/ThirdParty/glm/glm/**.inl"
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -60,8 +66,7 @@ project "VoxGL"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		systemversion "10.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -70,31 +75,27 @@ project "VoxGL"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-		}
-
 	filter "configurations:Debug"
 		defines "VOX_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 	
 	filter "configurations:Release"
 		defines "VOX_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "VOX_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -119,8 +120,7 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		systemversion "10.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -130,14 +130,14 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "VOX_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 	
 	filter "configurations:Release"
 		defines "VOX_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "VOX_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
