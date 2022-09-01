@@ -159,6 +159,7 @@
     <ClInclude Include="Source\Vox\Log.h" />
     <ClInclude Include="Source\Vox\MouseButtonCodes.h" />
     <ClInclude Include="Source\Vox\Renderer\GraphicsContext.h" />
+    <ClInclude Include="Source\Vox\Renderer\Shader.h" />
     <ClInclude Include="Source\Vox\Window.h" />
     <ClInclude Include="Source\VoxPch.h" />
     <ClInclude Include="ThirdParty\glm\glm\common.hpp" />
@@ -590,6 +591,7 @@
     <ClCompile Include="Source\VoxPch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Renderer\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ThirdParty\GLFW\GLFW.vcxproj">
