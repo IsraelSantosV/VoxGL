@@ -4,6 +4,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -13,8 +16,14 @@
     <Filter Include="Vox\Events">
       <UniqueIdentifier>{2615819D-12CD-C2EA-7BD4-9B4667AB5DDB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Vox\ImGui">
+      <UniqueIdentifier>{2CBECA0C-9828-7F83-E166-30294D105DD8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Platform\Windows\WinWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -40,6 +49,9 @@
     <ClInclude Include="Source\Vox\Events\MouseEvent.h">
       <Filter>Vox\Events</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h">
+      <Filter>Vox\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Layer.h">
       <Filter>Vox</Filter>
     </ClInclude>
@@ -55,11 +67,17 @@
     <ClInclude Include="Source\VoxPch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Platform\Windows\WinWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Application.cpp">
       <Filter>Vox</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\ImGui\ImGuiLayer.cpp">
+      <Filter>Vox\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Layer.cpp">
       <Filter>Vox</Filter>

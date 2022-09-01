@@ -1,185 +1,4046 @@
-[21:07:59] [info] Vox: Creating window VoxGL Engine (1280, 720)
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: MouseMovedEvent: 1184, 7
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: ExampleLayer::Update
-[21:07:59] [info] App: MouseMovedEvent: 1183, 7
-[21:07:59] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: MouseMovedEvent: 1170, 9
-[21:08:00] [info] App: MouseMovedEvent: 1163, 11
-[21:08:00] [info] App: MouseMovedEvent: 1159, 11
-[21:08:00] [info] App: MouseMovedEvent: 1155, 12
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: MouseMovedEvent: 1139, 14
-[21:08:00] [info] App: MouseMovedEvent: 1133, 15
-[21:08:00] [info] App: MouseMovedEvent: 1126, 15
-[21:08:00] [info] App: MouseMovedEvent: 1118, 15
-[21:08:00] [info] App: MouseMovedEvent: 1110, 15
-[21:08:00] [info] App: MouseMovedEvent: 1103, 15
-[21:08:00] [info] App: MouseMovedEvent: 1094, 15
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: MouseMovedEvent: 1064, 14
-[21:08:00] [info] App: MouseMovedEvent: 1055, 13
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:00] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: MouseMovedEvent: 892, 0
-[21:08:01] [info] App: MouseMovedEvent: 907, 1
-[21:08:01] [info] App: MouseMovedEvent: 915, 1
-[21:08:01] [info] App: MouseMovedEvent: 923, 1
-[21:08:01] [info] App: MouseMovedEvent: 931, 1
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: MouseMovedEvent: 958, 1
-[21:08:01] [info] App: MouseMovedEvent: 973, 1
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: MouseMovedEvent: 1019, 0
-[21:08:01] [info] App: MouseMovedEvent: 1026, 0
-[21:08:01] [info] App: MouseMovedEvent: 1032, 0
-[21:08:01] [info] App: MouseMovedEvent: 1038, 0
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:01] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:02] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: ExampleLayer::Update
-[21:08:03] [info] App: WindowClose
+[22:59:37] [info] Vox: Creating window VoxGL Engine (1280, 720)
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1195, 233
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1194, 232
+[22:59:37] [info] App: MouseMovedEvent: 1194, 231
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1192, 229
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1189, 225
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1186, 222
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1185, 222
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1185, 221
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1184, 221
+[22:59:37] [info] App: MouseMovedEvent: 1183, 221
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1183, 220
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1181, 219
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1175, 217
+[22:59:37] [info] App: MouseMovedEvent: 1173, 216
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1164, 211
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1153, 204
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1141, 195
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1128, 185
+[22:59:37] [info] App: MouseMovedEvent: 1122, 182
+[22:59:37] [info] App: MouseMovedEvent: 1121, 181
+[22:59:37] [info] App: ExampleLayer::Update
+[22:59:37] [info] App: MouseMovedEvent: 1099, 167
+[22:59:38] [info] App: MouseMovedEvent: 1096, 165
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 1065, 148
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 1003, 115
+[22:59:38] [info] App: MouseMovedEvent: 976, 103
+[22:59:38] [info] App: MouseMovedEvent: 972, 101
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 947, 89
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 924, 80
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 905, 73
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 888, 68
+[22:59:38] [info] App: MouseMovedEvent: 886, 68
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 868, 63
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 850, 59
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 833, 57
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 817, 54
+[22:59:38] [info] App: MouseMovedEvent: 815, 54
+[22:59:38] [info] App: MouseMovedEvent: 813, 54
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 802, 52
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 791, 51
+[22:59:38] [info] App: MouseMovedEvent: 790, 50
+[22:59:38] [info] App: MouseMovedEvent: 788, 50
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 783, 50
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 774, 50
+[22:59:38] [info] App: MouseMovedEvent: 772, 49
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 768, 49
+[22:59:38] [info] App: MouseMovedEvent: 765, 49
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 760, 48
+[22:59:38] [info] App: MouseMovedEvent: 759, 48
+[22:59:38] [info] App: MouseMovedEvent: 757, 48
+[22:59:38] [info] App: MouseMovedEvent: 755, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 754, 48
+[22:59:38] [info] App: MouseMovedEvent: 753, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 751, 48
+[22:59:38] [info] App: MouseMovedEvent: 750, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 749, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 746, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 742, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 735, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 727, 48
+[22:59:38] [info] App: MouseMovedEvent: 726, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 721, 48
+[22:59:38] [info] App: MouseMovedEvent: 720, 48
+[22:59:38] [info] App: MouseMovedEvent: 719, 48
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 716, 47
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 712, 47
+[22:59:38] [info] App: MouseMovedEvent: 711, 47
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 707, 45
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 701, 44
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 697, 44
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseMovedEvent: 695, 43
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseButtonPressedEvent: 0
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: MouseButtonReleasedEvent: 0
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:38] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 695, 44
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 695, 48
+[22:59:39] [info] App: MouseMovedEvent: 695, 49
+[22:59:39] [info] App: MouseMovedEvent: 696, 49
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 52
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 55
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 57
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 59
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 60
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 62
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 63
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 64
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 66
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 67
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 69
+[22:59:39] [info] App: MouseMovedEvent: 696, 70
+[22:59:39] [info] App: MouseMovedEvent: 696, 71
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 74
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 696, 77
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 695, 80
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 694, 83
+[22:59:39] [info] App: MouseMovedEvent: 694, 84
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 693, 86
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 691, 89
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 690, 93
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 689, 94
+[22:59:39] [info] App: MouseMovedEvent: 688, 94
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 688, 96
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 687, 96
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 687, 97
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseButtonPressedEvent: 0
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseButtonReleasedEvent: 0
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 685, 98
+[22:59:39] [info] App: MouseMovedEvent: 684, 98
+[22:59:39] [info] App: MouseMovedEvent: 682, 99
+[22:59:39] [info] App: MouseMovedEvent: 681, 99
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 666, 104
+[22:59:39] [info] App: MouseMovedEvent: 658, 106
+[22:59:39] [info] App: MouseMovedEvent: 653, 107
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 637, 111
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 587, 121
+[22:59:39] [info] App: MouseMovedEvent: 576, 123
+[22:59:39] [info] App: MouseMovedEvent: 569, 125
+[22:59:39] [info] App: MouseMovedEvent: 564, 126
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:39] [info] App: MouseMovedEvent: 544, 130
+[22:59:39] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 501, 136
+[22:59:40] [info] App: MouseMovedEvent: 498, 137
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 484, 138
+[22:59:40] [info] App: MouseMovedEvent: 481, 138
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 467, 139
+[22:59:40] [info] App: MouseMovedEvent: 464, 139
+[22:59:40] [info] App: MouseMovedEvent: 463, 139
+[22:59:40] [info] App: MouseMovedEvent: 462, 139
+[22:59:40] [info] App: MouseMovedEvent: 461, 139
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 459, 139
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 454, 139
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 451, 139
+[22:59:40] [info] App: MouseMovedEvent: 450, 139
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 448, 139
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 443, 139
+[22:59:40] [info] App: MouseMovedEvent: 440, 139
+[22:59:40] [info] App: MouseMovedEvent: 439, 138
+[22:59:40] [info] App: MouseMovedEvent: 438, 138
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 436, 138
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 430, 135
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 422, 131
+[22:59:40] [info] App: MouseMovedEvent: 421, 129
+[22:59:40] [info] App: MouseMovedEvent: 420, 129
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 419, 128
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 413, 123
+[22:59:40] [info] App: MouseMovedEvent: 413, 122
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 409, 119
+[22:59:40] [info] App: MouseMovedEvent: 408, 118
+[22:59:40] [info] App: MouseMovedEvent: 406, 117
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 404, 116
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 402, 115
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseMovedEvent: 401, 115
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseButtonPressedEvent: 0
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: MouseButtonReleasedEvent: 0
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: KeyPressedEvent: 68 (repeat = 0)
+[22:59:40] [info] App: KeyTypedEvent: 100
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: KeyPressedEvent: 83 (repeat = 0)
+[22:59:40] [info] App: KeyTypedEvent: 115
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:40] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 70 (repeat = 0)
+[22:59:41] [info] App: KeyTypedEvent: 102
+[22:59:41] [info] App: KeyReleasedEvent: 83
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyReleasedEvent: 68
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 83 (repeat = 0)
+[22:59:41] [info] App: KeyTypedEvent: 115
+[22:59:41] [info] App: KeyPressedEvent: 68 (repeat = 0)
+[22:59:41] [info] App: KeyTypedEvent: 100
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyReleasedEvent: 70
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 71 (repeat = 0)
+[22:59:41] [info] App: KeyTypedEvent: 103
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyReleasedEvent: 68
+[22:59:41] [info] App: KeyReleasedEvent: 83
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 68 (repeat = 0)
+[22:59:41] [info] App: KeyTypedEvent: 100
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyReleasedEvent: 71
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 70 (repeat = 0)
+[22:59:41] [info] App: KeyTypedEvent: 102
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyReleasedEvent: 70
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 71 (repeat = 0)
+[22:59:41] [info] App: KeyTypedEvent: 103
+[22:59:41] [info] App: KeyReleasedEvent: 68
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyReleasedEvent: 71
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyReleasedEvent: 259
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:41] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:41] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyPressedEvent: 259 (repeat = 1)
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: KeyReleasedEvent: 259
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:42] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:43] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 401, 113
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 401, 109
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 401, 104
+[22:59:44] [info] App: MouseMovedEvent: 401, 102
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 402, 98
+[22:59:44] [info] App: MouseMovedEvent: 402, 97
+[22:59:44] [info] App: MouseMovedEvent: 402, 96
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 402, 89
+[22:59:44] [info] App: MouseMovedEvent: 402, 87
+[22:59:44] [info] App: MouseMovedEvent: 402, 84
+[22:59:44] [info] App: MouseMovedEvent: 402, 83
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 402, 79
+[22:59:44] [info] App: MouseMovedEvent: 402, 78
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 403, 64
+[22:59:44] [info] App: MouseMovedEvent: 403, 62
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 403, 58
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 405, 46
+[22:59:44] [info] App: MouseMovedEvent: 405, 44
+[22:59:44] [info] App: MouseMovedEvent: 405, 43
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 406, 39
+[22:59:44] [info] App: MouseMovedEvent: 406, 38
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 29
+[22:59:44] [info] App: MouseMovedEvent: 407, 27
+[22:59:44] [info] App: MouseMovedEvent: 407, 26
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 23
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 19
+[22:59:44] [info] App: MouseMovedEvent: 407, 17
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 14
+[22:59:44] [info] App: MouseMovedEvent: 407, 13
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 12
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 11
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 10
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 9
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 7
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 407, 4
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: MouseMovedEvent: 405, 0
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:44] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: MouseMovedEvent: 394, 7
+[22:59:45] [info] App: MouseMovedEvent: 392, 8
+[22:59:45] [info] App: MouseMovedEvent: 377, 19
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: MouseMovedEvent: 374, 22
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: MouseMovedEvent: 327, 59
+[22:59:45] [info] App: MouseMovedEvent: 319, 66
+[22:59:45] [info] App: MouseMovedEvent: 250, 121
+[22:59:45] [info] App: MouseMovedEvent: 238, 130
+[22:59:45] [info] App: MouseMovedEvent: 229, 138
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: MouseMovedEvent: 178, 181
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: MouseMovedEvent: 65, 269
+[22:59:45] [info] App: MouseMovedEvent: 15, 306
+[22:59:45] [info] App: MouseMovedEvent: 6, 312
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:45] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:46] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:47] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:48] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 681, 174
+[22:59:49] [info] App: MouseMovedEvent: 687, 171
+[22:59:49] [info] App: MouseMovedEvent: 697, 167
+[22:59:49] [info] App: MouseMovedEvent: 708, 163
+[22:59:49] [info] App: MouseMovedEvent: 711, 161
+[22:59:49] [info] App: MouseMovedEvent: 717, 159
+[22:59:49] [info] App: MouseMovedEvent: 722, 156
+[22:59:49] [info] App: MouseMovedEvent: 724, 154
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 726, 154
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 732, 150
+[22:59:49] [info] App: MouseMovedEvent: 735, 148
+[22:59:49] [info] App: MouseMovedEvent: 737, 146
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 738, 145
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 742, 144
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 743, 144
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 745, 145
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 747, 152
+[22:59:49] [info] App: MouseMovedEvent: 747, 154
+[22:59:49] [info] App: MouseMovedEvent: 748, 156
+[22:59:49] [info] App: MouseMovedEvent: 748, 160
+[22:59:49] [info] App: MouseMovedEvent: 748, 162
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 750, 170
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 757, 211
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 766, 262
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 776, 319
+[22:59:49] [info] App: MouseMovedEvent: 777, 324
+[22:59:49] [info] App: MouseMovedEvent: 779, 342
+[22:59:49] [info] App: MouseMovedEvent: 780, 349
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 783, 365
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 791, 397
+[22:59:49] [info] App: MouseMovedEvent: 792, 401
+[22:59:49] [info] App: MouseMovedEvent: 794, 404
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 794, 406
+[22:59:49] [info] App: MouseMovedEvent: 794, 408
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 795, 409
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 795, 410
+[22:59:49] [info] App: MouseButtonPressedEvent: 0
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseButtonReleasedEvent: 0
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 789, 409
+[22:59:49] [info] App: MouseMovedEvent: 788, 408
+[22:59:49] [info] App: MouseMovedEvent: 785, 407
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 780, 407
+[22:59:49] [info] App: MouseMovedEvent: 778, 406
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 749, 402
+[22:59:49] [info] App: MouseMovedEvent: 737, 400
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 694, 393
+[22:59:49] [info] App: MouseMovedEvent: 685, 392
+[22:59:49] [info] App: MouseMovedEvent: 678, 391
+[22:59:49] [info] App: MouseMovedEvent: 671, 389
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 638, 382
+[22:59:49] [info] App: ExampleLayer::Update
+[22:59:49] [info] App: MouseMovedEvent: 558, 359
+[22:59:49] [info] App: MouseMovedEvent: 550, 356
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 485, 332
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 402, 299
+[22:59:50] [info] App: MouseMovedEvent: 394, 296
+[22:59:50] [info] App: MouseMovedEvent: 385, 292
+[22:59:50] [info] App: MouseMovedEvent: 377, 288
+[22:59:50] [info] App: MouseMovedEvent: 369, 284
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 346, 274
+[22:59:50] [info] App: MouseMovedEvent: 339, 270
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 288, 243
+[22:59:50] [info] App: MouseMovedEvent: 284, 240
+[22:59:50] [info] App: MouseMovedEvent: 279, 237
+[22:59:50] [info] App: MouseMovedEvent: 274, 234
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 253, 220
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 235, 207
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 223, 196
+[22:59:50] [info] App: MouseMovedEvent: 220, 194
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 218, 191
+[22:59:50] [info] App: MouseMovedEvent: 217, 191
+[22:59:50] [info] App: MouseMovedEvent: 217, 189
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 214, 186
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 210, 180
+[22:59:50] [info] App: MouseMovedEvent: 209, 179
+[22:59:50] [info] App: MouseMovedEvent: 208, 178
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 205, 175
+[22:59:50] [info] App: MouseMovedEvent: 203, 174
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 191, 163
+[22:59:50] [info] App: MouseMovedEvent: 189, 162
+[22:59:50] [info] App: MouseMovedEvent: 183, 157
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 175, 151
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 156, 139
+[22:59:50] [info] App: MouseMovedEvent: 154, 137
+[22:59:50] [info] App: MouseMovedEvent: 151, 135
+[22:59:50] [info] App: MouseMovedEvent: 148, 134
+[22:59:50] [info] App: MouseMovedEvent: 147, 133
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 143, 131
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 131, 123
+[22:59:50] [info] App: MouseMovedEvent: 131, 122
+[22:59:50] [info] App: MouseMovedEvent: 129, 122
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 127, 120
+[22:59:50] [info] App: MouseMovedEvent: 126, 120
+[22:59:50] [info] App: MouseMovedEvent: 125, 119
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 124, 119
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 124, 118
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 127, 119
+[22:59:50] [info] App: MouseMovedEvent: 128, 120
+[22:59:50] [info] App: MouseMovedEvent: 130, 120
+[22:59:50] [info] App: MouseMovedEvent: 131, 120
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 132, 120
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 136, 121
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 140, 121
+[22:59:50] [info] App: MouseMovedEvent: 141, 121
+[22:59:50] [info] App: MouseMovedEvent: 143, 121
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 144, 121
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 148, 121
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 150, 121
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 151, 121
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 152, 121
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 151, 120
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 149, 119
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 147, 118
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 144, 118
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 140, 117
+[22:59:50] [info] App: MouseMovedEvent: 139, 117
+[22:59:50] [info] App: MouseMovedEvent: 137, 117
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 136, 116
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 134, 116
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 132, 115
+[22:59:50] [info] App: MouseMovedEvent: 131, 115
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 130, 115
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 129, 115
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 127, 115
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 124, 114
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 123, 114
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 122, 114
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: ExampleLayer::Update
+[22:59:50] [info] App: MouseMovedEvent: 122, 113
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 122, 112
+[22:59:51] [info] App: MouseMovedEvent: 125, 110
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 126, 110
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 132, 106
+[22:59:51] [info] App: MouseMovedEvent: 135, 104
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 136, 104
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 140, 102
+[22:59:51] [info] App: MouseMovedEvent: 141, 100
+[22:59:51] [info] App: MouseMovedEvent: 142, 100
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 142, 99
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 144, 98
+[22:59:51] [info] App: MouseMovedEvent: 144, 97
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseMovedEvent: 145, 96
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseButtonPressedEvent: 0
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseButtonReleasedEvent: 0
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseButtonPressedEvent: 0
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseButtonReleasedEvent: 0
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseButtonPressedEvent: 0
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: ExampleLayer::Update
+[22:59:51] [info] App: MouseButtonReleasedEvent: 0
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 153, 97
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 176, 101
+[22:59:52] [info] App: MouseMovedEvent: 181, 102
+[22:59:52] [info] App: MouseMovedEvent: 211, 106
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 217, 107
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 257, 111
+[22:59:52] [info] App: MouseMovedEvent: 263, 112
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 302, 114
+[22:59:52] [info] App: MouseMovedEvent: 314, 115
+[22:59:52] [info] App: MouseMovedEvent: 316, 115
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 319, 115
+[22:59:52] [info] App: MouseMovedEvent: 322, 115
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 335, 115
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 341, 113
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 342, 112
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 343, 111
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 344, 110
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseMovedEvent: 344, 109
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseButtonPressedEvent: 0
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: MouseButtonReleasedEvent: 0
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:52] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: KeyPressedEvent: 72 (repeat = 0)
+[22:59:53] [info] App: KeyTypedEvent: 104
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: KeyReleasedEvent: 72
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: KeyPressedEvent: 69 (repeat = 0)
+[22:59:53] [info] App: KeyTypedEvent: 101
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:53] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: KeyReleasedEvent: 69
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: KeyPressedEvent: 76 (repeat = 0)
+[22:59:54] [info] App: KeyTypedEvent: 108
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: KeyReleasedEvent: 76
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: KeyPressedEvent: 76 (repeat = 0)
+[22:59:54] [info] App: KeyTypedEvent: 108
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: KeyReleasedEvent: 76
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: KeyPressedEvent: 79 (repeat = 0)
+[22:59:54] [info] App: KeyTypedEvent: 111
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: KeyReleasedEvent: 79
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:54] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyPressedEvent: 32 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 32
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyReleasedEvent: 32
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyPressedEvent: 68 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 100
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyPressedEvent: 70 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 102
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyPressedEvent: 83 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 115
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyReleasedEvent: 68
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyReleasedEvent: 70
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyPressedEvent: 70 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 102
+[22:59:55] [info] App: KeyPressedEvent: 71 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 103
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyReleasedEvent: 83
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyPressedEvent: 68 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 100
+[22:59:55] [info] App: KeyReleasedEvent: 71
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyPressedEvent: 71 (repeat = 0)
+[22:59:55] [info] App: KeyTypedEvent: 103
+[22:59:55] [info] App: KeyReleasedEvent: 70
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: KeyReleasedEvent: 68
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:55] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 71
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 259
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 259
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 259
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 259
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 259
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 259
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: ExampleLayer::Update
+[22:59:56] [info] App: KeyReleasedEvent: 259
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: KeyReleasedEvent: 259
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:57] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: KeyReleasedEvent: 259
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: KeyReleasedEvent: 259
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: KeyReleasedEvent: 259
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:58] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyReleasedEvent: 259
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyReleasedEvent: 259
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyPressedEvent: 49 (repeat = 0)
+[22:59:59] [info] App: KeyTypedEvent: 49
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyReleasedEvent: 49
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyPressedEvent: 51 (repeat = 0)
+[22:59:59] [info] App: KeyTypedEvent: 51
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyReleasedEvent: 51
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: KeyPressedEvent: 46 (repeat = 0)
+[22:59:59] [info] App: KeyTypedEvent: 46
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[22:59:59] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: KeyReleasedEvent: 46
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: KeyPressedEvent: 56 (repeat = 0)
+[23:00:00] [info] App: KeyTypedEvent: 56
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: KeyReleasedEvent: 56
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:00] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: MouseMovedEvent: 338, 110
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: MouseMovedEvent: 315, 119
+[23:00:01] [info] App: MouseMovedEvent: 300, 127
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: MouseMovedEvent: 276, 141
+[23:00:01] [info] App: MouseMovedEvent: 271, 145
+[23:00:01] [info] App: MouseMovedEvent: 264, 149
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: MouseMovedEvent: 213, 188
+[23:00:01] [info] App: MouseMovedEvent: 203, 194
+[23:00:01] [info] App: MouseMovedEvent: 172, 215
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: MouseMovedEvent: 126, 250
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: MouseMovedEvent: 31, 331
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:01] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:02] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:03] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:04] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:05] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:06] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:07] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 668, 217
+[23:00:08] [info] App: MouseMovedEvent: 686, 214
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 727, 204
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 759, 192
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 769, 185
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 772, 182
+[23:00:08] [info] App: MouseMovedEvent: 772, 181
+[23:00:08] [info] App: MouseMovedEvent: 773, 181
+[23:00:08] [info] App: MouseMovedEvent: 773, 180
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 774, 179
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 775, 178
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 775, 180
+[23:00:08] [info] App: MouseMovedEvent: 775, 181
+[23:00:08] [info] App: MouseMovedEvent: 775, 183
+[23:00:08] [info] App: MouseMovedEvent: 775, 184
+[23:00:08] [info] App: MouseMovedEvent: 774, 188
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 774, 190
+[23:00:08] [info] App: MouseMovedEvent: 774, 194
+[23:00:08] [info] App: MouseMovedEvent: 774, 198
+[23:00:08] [info] App: MouseMovedEvent: 774, 204
+[23:00:08] [info] App: MouseMovedEvent: 774, 206
+[23:00:08] [info] App: MouseMovedEvent: 774, 209
+[23:00:08] [info] App: MouseMovedEvent: 774, 213
+[23:00:08] [info] App: MouseMovedEvent: 774, 216
+[23:00:08] [info] App: MouseMovedEvent: 774, 220
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 776, 243
+[23:00:08] [info] App: MouseMovedEvent: 777, 248
+[23:00:08] [info] App: ExampleLayer::Update
+[23:00:08] [info] App: MouseMovedEvent: 790, 296
+[23:00:09] [info] App: MouseMovedEvent: 792, 303
+[23:00:09] [info] App: MouseMovedEvent: 796, 317
+[23:00:09] [info] App: MouseMovedEvent: 800, 332
+[23:00:09] [info] App: MouseMovedEvent: 802, 340
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 807, 358
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 835, 427
+[23:00:09] [info] App: MouseMovedEvent: 841, 439
+[23:00:09] [info] App: MouseMovedEvent: 845, 448
+[23:00:09] [info] App: MouseMovedEvent: 848, 452
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 851, 458
+[23:00:09] [info] App: MouseMovedEvent: 852, 461
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 855, 469
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseButtonPressedEvent: 0
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseButtonReleasedEvent: 0
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 846, 465
+[23:00:09] [info] App: MouseMovedEvent: 845, 463
+[23:00:09] [info] App: MouseMovedEvent: 844, 462
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 840, 459
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 813, 433
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 771, 381
+[23:00:09] [info] App: MouseMovedEvent: 765, 372
+[23:00:09] [info] App: MouseMovedEvent: 760, 366
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 729, 324
+[23:00:09] [info] App: MouseMovedEvent: 721, 315
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 662, 243
+[23:00:09] [info] App: MouseMovedEvent: 656, 235
+[23:00:09] [info] App: MouseMovedEvent: 638, 218
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 595, 178
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 515, 119
+[23:00:09] [info] App: MouseMovedEvent: 497, 106
+[23:00:09] [info] App: MouseMovedEvent: 472, 89
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 447, 76
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 398, 52
+[23:00:09] [info] App: MouseMovedEvent: 393, 51
+[23:00:09] [info] App: MouseMovedEvent: 390, 50
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 375, 49
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 371, 52
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 369, 54
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 369, 55
+[23:00:09] [info] App: MouseMovedEvent: 368, 56
+[23:00:09] [info] App: MouseMovedEvent: 368, 58
+[23:00:09] [info] App: MouseMovedEvent: 367, 59
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 364, 68
+[23:00:09] [info] App: MouseMovedEvent: 362, 73
+[23:00:09] [info] App: MouseMovedEvent: 361, 76
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 360, 78
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 354, 94
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 350, 108
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 345, 119
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 343, 123
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 342, 123
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 340, 123
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 339, 123
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 339, 122
+[23:00:09] [info] App: MouseMovedEvent: 339, 121
+[23:00:09] [info] App: MouseMovedEvent: 340, 121
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 340, 120
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 341, 118
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 342, 117
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseButtonPressedEvent: 0
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 337, 117
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 323, 119
+[23:00:09] [info] App: MouseMovedEvent: 320, 119
+[23:00:09] [info] App: MouseMovedEvent: 318, 120
+[23:00:09] [info] App: MouseMovedEvent: 315, 120
+[23:00:09] [info] App: MouseMovedEvent: 306, 120
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 303, 120
+[23:00:09] [info] App: MouseMovedEvent: 300, 120
+[23:00:09] [info] App: ExampleLayer::Update
+[23:00:09] [info] App: MouseMovedEvent: 275, 121
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 235, 121
+[23:00:10] [info] App: MouseMovedEvent: 226, 121
+[23:00:10] [info] App: MouseMovedEvent: 217, 120
+[23:00:10] [info] App: MouseMovedEvent: 213, 120
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 205, 120
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 170, 116
+[23:00:10] [info] App: MouseMovedEvent: 167, 116
+[23:00:10] [info] App: MouseMovedEvent: 157, 116
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 151, 116
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 141, 115
+[23:00:10] [info] App: MouseMovedEvent: 140, 115
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 142, 115
+[23:00:10] [info] App: MouseMovedEvent: 144, 114
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 145, 114
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 146, 114
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseButtonReleasedEvent: 0
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 146, 113
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 143, 113
+[23:00:10] [info] App: MouseMovedEvent: 142, 113
+[23:00:10] [info] App: MouseMovedEvent: 141, 113
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 139, 113
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: MouseMovedEvent: 139, 111
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: KeyPressedEvent: 259 (repeat = 0)
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: KeyReleasedEvent: 259
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:10] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 138, 111
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 136, 117
+[23:00:11] [info] App: MouseMovedEvent: 135, 121
+[23:00:11] [info] App: MouseMovedEvent: 132, 130
+[23:00:11] [info] App: MouseMovedEvent: 131, 132
+[23:00:11] [info] App: MouseMovedEvent: 130, 134
+[23:00:11] [info] App: MouseMovedEvent: 130, 137
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 129, 140
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 124, 159
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 117, 183
+[23:00:11] [info] App: MouseMovedEvent: 112, 189
+[23:00:11] [info] App: MouseMovedEvent: 110, 191
+[23:00:11] [info] App: MouseMovedEvent: 106, 195
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 104, 197
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 93, 207
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 54, 227
+[23:00:11] [info] App: MouseMovedEvent: 44, 230
+[23:00:11] [info] App: MouseMovedEvent: 29, 232
+[23:00:11] [info] App: MouseMovedEvent: 25, 234
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: MouseMovedEvent: 20, 235
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:11] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:12] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: MouseMovedEvent: 656, 388
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: MouseMovedEvent: 660, 388
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:13] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 663, 388
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 669, 388
+[23:00:14] [info] App: MouseMovedEvent: 672, 388
+[23:00:14] [info] App: MouseMovedEvent: 673, 388
+[23:00:14] [info] App: MouseMovedEvent: 674, 388
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 677, 388
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 683, 388
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 689, 388
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 691, 388
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseButtonPressedEvent: 0
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseButtonReleasedEvent: 0
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 691, 387
+[23:00:14] [info] App: MouseMovedEvent: 692, 387
+[23:00:14] [info] App: MouseMovedEvent: 693, 385
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 694, 385
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 697, 379
+[23:00:14] [info] App: MouseMovedEvent: 698, 377
+[23:00:14] [info] App: MouseMovedEvent: 702, 369
+[23:00:14] [info] App: MouseMovedEvent: 703, 368
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 715, 346
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 725, 324
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 730, 306
+[23:00:14] [info] App: MouseMovedEvent: 731, 295
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 731, 292
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 729, 282
+[23:00:14] [info] App: MouseMovedEvent: 729, 280
+[23:00:14] [info] App: MouseMovedEvent: 728, 280
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 728, 277
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 727, 272
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 724, 263
+[23:00:14] [info] App: MouseMovedEvent: 723, 259
+[23:00:14] [info] App: MouseMovedEvent: 720, 255
+[23:00:14] [info] App: ExampleLayer::Update
+[23:00:14] [info] App: MouseMovedEvent: 716, 248
+[23:00:14] [info] App: MouseMovedEvent: 713, 244
+[23:00:14] [info] App: MouseMovedEvent: 712, 241
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 692, 217
+[23:00:15] [info] App: MouseMovedEvent: 689, 213
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 671, 194
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 646, 170
+[23:00:15] [info] App: MouseMovedEvent: 641, 166
+[23:00:15] [info] App: MouseMovedEvent: 634, 160
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 628, 155
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 613, 140
+[23:00:15] [info] App: MouseMovedEvent: 612, 139
+[23:00:15] [info] App: MouseMovedEvent: 604, 130
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 603, 127
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 594, 114
+[23:00:15] [info] App: MouseMovedEvent: 590, 106
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 586, 99
+[23:00:15] [info] App: MouseMovedEvent: 584, 97
+[23:00:15] [info] App: MouseMovedEvent: 584, 95
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 576, 81
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 571, 72
+[23:00:15] [info] App: MouseMovedEvent: 570, 70
+[23:00:15] [info] App: MouseMovedEvent: 569, 70
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 568, 68
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 567, 64
+[23:00:15] [info] App: MouseMovedEvent: 566, 64
+[23:00:15] [info] App: MouseMovedEvent: 565, 62
+[23:00:15] [info] App: MouseMovedEvent: 565, 61
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 564, 60
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 560, 56
+[23:00:15] [info] App: MouseMovedEvent: 560, 55
+[23:00:15] [info] App: MouseMovedEvent: 557, 53
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 556, 52
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 555, 51
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 554, 51
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 553, 51
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 552, 51
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 551, 52
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 551, 53
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 549, 57
+[23:00:15] [info] App: MouseMovedEvent: 549, 58
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 549, 59
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 549, 62
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 549, 63
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 549, 64
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseButtonPressedEvent: 0
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseButtonReleasedEvent: 0
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 548, 64
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 545, 67
+[23:00:15] [info] App: MouseMovedEvent: 542, 69
+[23:00:15] [info] App: MouseMovedEvent: 539, 71
+[23:00:15] [info] App: MouseMovedEvent: 537, 73
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 536, 75
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 498, 122
+[23:00:15] [info] App: MouseMovedEvent: 486, 137
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 438, 194
+[23:00:15] [info] App: MouseMovedEvent: 427, 206
+[23:00:15] [info] App: MouseMovedEvent: 419, 216
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 359, 281
+[23:00:15] [info] App: MouseMovedEvent: 346, 293
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 230, 397
+[23:00:15] [info] App: MouseMovedEvent: 219, 407
+[23:00:15] [info] App: MouseMovedEvent: 199, 420
+[23:00:15] [info] App: MouseMovedEvent: 182, 434
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:15] [info] App: MouseMovedEvent: 102, 489
+[23:00:15] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:16] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:17] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:18] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:19] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:20] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:21] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:22] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:23] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 848, 452
+[23:00:24] [info] App: MouseMovedEvent: 886, 456
+[23:00:24] [info] App: MouseMovedEvent: 917, 461
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 969, 465
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1031, 466
+[23:00:24] [info] App: MouseMovedEvent: 1035, 466
+[23:00:24] [info] App: MouseMovedEvent: 1043, 466
+[23:00:24] [info] App: MouseMovedEvent: 1045, 466
+[23:00:24] [info] App: MouseMovedEvent: 1051, 464
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1054, 462
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1056, 461
+[23:00:24] [info] App: MouseMovedEvent: 1057, 461
+[23:00:24] [info] App: MouseMovedEvent: 1057, 460
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1058, 459
+[23:00:24] [info] App: MouseMovedEvent: 1059, 459
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseButtonPressedEvent: 0
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseButtonReleasedEvent: 0
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1060, 459
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1061, 458
+[23:00:24] [info] App: MouseMovedEvent: 1062, 457
+[23:00:24] [info] App: MouseMovedEvent: 1064, 456
+[23:00:24] [info] App: MouseMovedEvent: 1068, 454
+[23:00:24] [info] App: MouseMovedEvent: 1070, 453
+[23:00:24] [info] App: MouseMovedEvent: 1072, 451
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1074, 449
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1080, 441
+[23:00:24] [info] App: MouseMovedEvent: 1083, 437
+[23:00:24] [info] App: MouseMovedEvent: 1085, 434
+[23:00:24] [info] App: MouseMovedEvent: 1092, 421
+[23:00:24] [info] App: MouseMovedEvent: 1095, 416
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1097, 413
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1113, 378
+[23:00:24] [info] App: MouseMovedEvent: 1116, 372
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1139, 331
+[23:00:24] [info] App: MouseMovedEvent: 1143, 325
+[23:00:24] [info] App: MouseMovedEvent: 1150, 313
+[23:00:24] [info] App: MouseMovedEvent: 1154, 307
+[23:00:24] [info] App: MouseMovedEvent: 1158, 301
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1166, 289
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1199, 227
+[23:00:24] [info] App: MouseMovedEvent: 1201, 218
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1209, 170
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1210, 126
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1206, 104
+[23:00:24] [info] App: MouseMovedEvent: 1206, 102
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1204, 91
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1202, 81
+[23:00:24] [info] App: MouseMovedEvent: 1202, 80
+[23:00:24] [info] App: MouseMovedEvent: 1202, 79
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1201, 76
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1200, 71
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1200, 68
+[23:00:24] [info] App: MouseMovedEvent: 1200, 67
+[23:00:24] [info] App: MouseMovedEvent: 1200, 62
+[23:00:24] [info] App: MouseMovedEvent: 1200, 61
+[23:00:24] [info] App: MouseMovedEvent: 1200, 60
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1200, 54
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1200, 39
+[23:00:24] [info] App: MouseMovedEvent: 1200, 38
+[23:00:24] [info] App: MouseMovedEvent: 1200, 36
+[23:00:24] [info] App: MouseMovedEvent: 1200, 33
+[23:00:24] [info] App: MouseMovedEvent: 1200, 29
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1200, 27
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1201, 23
+[23:00:24] [info] App: MouseMovedEvent: 1201, 22
+[23:00:24] [info] App: MouseMovedEvent: 1201, 21
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1202, 19
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1202, 17
+[23:00:24] [info] App: ExampleLayer::Update
+[23:00:24] [info] App: MouseMovedEvent: 1203, 14
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1204, 10
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1204, 5
+[23:00:25] [info] App: MouseMovedEvent: 1204, 3
+[23:00:25] [info] App: MouseMovedEvent: 1204, 2
+[23:00:25] [info] App: MouseMovedEvent: 1204, 1
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: WindowResizeEvent: 1920, 1017
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1519, 109
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1519, 112
+[23:00:25] [info] App: MouseMovedEvent: 1519, 114
+[23:00:25] [info] App: MouseMovedEvent: 1519, 119
+[23:00:25] [info] App: MouseMovedEvent: 1519, 121
+[23:00:25] [info] App: MouseMovedEvent: 1518, 121
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1514, 125
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1512, 126
+[23:00:25] [info] App: MouseMovedEvent: 1511, 126
+[23:00:25] [info] App: MouseMovedEvent: 1510, 126
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1506, 132
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1501, 150
+[23:00:25] [info] App: MouseMovedEvent: 1501, 151
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1513, 153
+[23:00:25] [info] App: MouseMovedEvent: 1515, 153
+[23:00:25] [info] App: MouseMovedEvent: 1520, 151
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1532, 149
+[23:00:25] [info] App: MouseMovedEvent: 1535, 148
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1571, 138
+[23:00:25] [info] App: MouseMovedEvent: 1577, 136
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1621, 116
+[23:00:25] [info] App: MouseMovedEvent: 1627, 113
+[23:00:25] [info] App: MouseMovedEvent: 1639, 105
+[23:00:25] [info] App: MouseMovedEvent: 1645, 101
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1667, 85
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1713, 46
+[23:00:25] [info] App: MouseMovedEvent: 1718, 41
+[23:00:25] [info] App: MouseMovedEvent: 1723, 36
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: MouseMovedEvent: 1745, 11
+[23:00:25] [info] App: MouseMovedEvent: 1749, 6
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:25] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: WindowResizeEvent: 1280, 720
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 1248, 74
+[23:00:26] [info] App: MouseMovedEvent: 1223, 86
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 1186, 104
+[23:00:26] [info] App: MouseMovedEvent: 1177, 108
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 1093, 139
+[23:00:26] [info] App: MouseMovedEvent: 1082, 143
+[23:00:26] [info] App: MouseMovedEvent: 1071, 146
+[23:00:26] [info] App: MouseMovedEvent: 1058, 150
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 1011, 163
+[23:00:26] [info] App: MouseMovedEvent: 999, 166
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 901, 188
+[23:00:26] [info] App: MouseMovedEvent: 887, 192
+[23:00:26] [info] App: MouseMovedEvent: 851, 199
+[23:00:26] [info] App: MouseMovedEvent: 839, 202
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 802, 208
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 712, 221
+[23:00:26] [info] App: MouseMovedEvent: 700, 223
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 605, 231
+[23:00:26] [info] App: MouseMovedEvent: 592, 232
+[23:00:26] [info] App: MouseMovedEvent: 556, 236
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 509, 239
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 417, 244
+[23:00:26] [info] App: MouseMovedEvent: 399, 245
+[23:00:26] [info] App: MouseMovedEvent: 382, 245
+[23:00:26] [info] App: MouseMovedEvent: 366, 246
+[23:00:26] [info] App: MouseMovedEvent: 359, 246
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 351, 246
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 300, 247
+[23:00:26] [info] App: MouseMovedEvent: 296, 247
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 262, 245
+[23:00:26] [info] App: MouseMovedEvent: 257, 245
+[23:00:26] [info] App: MouseMovedEvent: 245, 242
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 239, 241
+[23:00:26] [info] App: MouseMovedEvent: 237, 241
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 214, 236
+[23:00:26] [info] App: MouseMovedEvent: 213, 235
+[23:00:26] [info] App: MouseMovedEvent: 211, 234
+[23:00:26] [info] App: MouseMovedEvent: 208, 234
+[23:00:26] [info] App: MouseMovedEvent: 204, 232
+[23:00:26] [info] App: MouseMovedEvent: 202, 232
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 200, 231
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 182, 226
+[23:00:26] [info] App: MouseMovedEvent: 180, 225
+[23:00:26] [info] App: MouseMovedEvent: 179, 225
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 173, 223
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 168, 221
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 166, 221
+[23:00:26] [info] App: MouseMovedEvent: 164, 221
+[23:00:26] [info] App: MouseMovedEvent: 159, 222
+[23:00:26] [info] App: MouseMovedEvent: 155, 223
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 154, 223
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 129, 227
+[23:00:26] [info] App: MouseMovedEvent: 124, 227
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 76, 232
+[23:00:26] [info] App: MouseMovedEvent: 62, 233
+[23:00:26] [info] App: MouseMovedEvent: 53, 234
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: MouseMovedEvent: 7, 237
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:26] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:27] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: MouseMovedEvent: 782, 251
+[23:00:28] [info] App: MouseMovedEvent: 852, 245
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: MouseMovedEvent: 980, 232
+[23:00:28] [info] App: ExampleLayer::Update
+[23:00:28] [info] App: MouseMovedEvent: 1101, 214
+[23:00:29] [info] App: MouseMovedEvent: 1115, 212
+[23:00:29] [info] App: MouseMovedEvent: 1146, 206
+[23:00:29] [info] App: MouseMovedEvent: 1173, 199
+[23:00:29] [info] App: MouseMovedEvent: 1194, 192
+[23:00:29] [info] App: MouseMovedEvent: 1200, 190
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1225, 178
+[23:00:29] [info] App: MouseMovedEvent: 1228, 175
+[23:00:29] [info] App: MouseMovedEvent: 1230, 174
+[23:00:29] [info] App: MouseMovedEvent: 1238, 167
+[23:00:29] [info] App: MouseMovedEvent: 1242, 162
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1244, 160
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1254, 139
+[23:00:29] [info] App: MouseMovedEvent: 1255, 137
+[23:00:29] [info] App: MouseMovedEvent: 1256, 130
+[23:00:29] [info] App: MouseMovedEvent: 1258, 125
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1258, 119
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1259, 107
+[23:00:29] [info] App: MouseMovedEvent: 1259, 104
+[23:00:29] [info] App: MouseMovedEvent: 1259, 102
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1259, 100
+[23:00:29] [info] App: MouseMovedEvent: 1258, 100
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1254, 96
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1254, 95
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1253, 92
+[23:00:29] [info] App: MouseMovedEvent: 1253, 91
+[23:00:29] [info] App: MouseMovedEvent: 1252, 90
+[23:00:29] [info] App: MouseMovedEvent: 1252, 89
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1251, 85
+[23:00:29] [info] App: MouseMovedEvent: 1251, 83
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1247, 74
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1242, 66
+[23:00:29] [info] App: MouseMovedEvent: 1241, 65
+[23:00:29] [info] App: MouseMovedEvent: 1240, 64
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1236, 58
+[23:00:29] [info] App: MouseMovedEvent: 1235, 57
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1233, 53
+[23:00:29] [info] App: MouseMovedEvent: 1233, 52
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1233, 49
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1233, 45
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1236, 39
+[23:00:29] [info] App: MouseMovedEvent: 1237, 37
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1240, 29
+[23:00:29] [info] App: MouseMovedEvent: 1240, 28
+[23:00:29] [info] App: MouseMovedEvent: 1241, 27
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1242, 22
+[23:00:29] [info] App: MouseMovedEvent: 1242, 21
+[23:00:29] [info] App: MouseMovedEvent: 1243, 20
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1244, 15
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1245, 10
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1246, 6
+[23:00:29] [info] App: MouseMovedEvent: 1247, 5
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1248, 3
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: MouseMovedEvent: 1249, 0
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
+[23:00:29] [info] App: ExampleLayer::Update
