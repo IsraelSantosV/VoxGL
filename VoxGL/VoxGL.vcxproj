@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Source\Platform\Windows\WinInput.h" />
     <ClInclude Include="Source\Platform\Windows\WinWindow.h" />
@@ -162,7 +163,10 @@
     <ClInclude Include="Source\Vox\MouseButtonCodes.h" />
     <ClInclude Include="Source\Vox\Renderer\Buffer.h" />
     <ClInclude Include="Source\Vox\Renderer\GraphicsContext.h" />
+    <ClInclude Include="Source\Vox\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="Source\Vox\Renderer\RenderCommand.h" />
     <ClInclude Include="Source\Vox\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Vox\Renderer\RendererAPI.h" />
     <ClInclude Include="Source\Vox\Renderer\Shader.h" />
     <ClInclude Include="Source\Vox\Renderer\VertexArray.h" />
     <ClInclude Include="Source\Vox\Window.h" />
@@ -586,6 +590,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinInput.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinWindow.cpp" />
@@ -599,7 +604,10 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\RenderCommand.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Renderer.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\RendererAPI.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Shader.cpp" />
     <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp" />
   </ItemGroup>
