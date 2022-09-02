@@ -8,12 +8,12 @@ namespace Vox
 {
 	VertexArray* VertexArray::Create()
 	{
-		switch (Renderer::GetApi())
+		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::None:
+			case RendererAPI::API::None:
 				VOX_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
 				return nullptr;
-			case RendererAPI::OpenGL:
+			case RendererAPI::API::OpenGL:
 				return new OpenGLVertexArray();
 		}
 
