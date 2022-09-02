@@ -1350,6 +1350,8 @@
     <ClInclude Include="Source\Vox\Renderer\Buffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="Source\Vox\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Vox\Renderer\VertexArray.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\Windows\WinInput.cpp">
@@ -1384,5 +1386,7 @@
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Renderer.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>

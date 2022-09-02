@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Source\Platform\Windows\WinInput.h" />
     <ClInclude Include="Source\Platform\Windows\WinWindow.h" />
     <ClInclude Include="Source\Vox.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Source\Vox\Renderer\GraphicsContext.h" />
     <ClInclude Include="Source\Vox\Renderer\Renderer.h" />
     <ClInclude Include="Source\Vox\Renderer\Shader.h" />
+    <ClInclude Include="Source\Vox\Renderer\VertexArray.h" />
     <ClInclude Include="Source\Vox\Window.h" />
     <ClInclude Include="Source\VoxPch.h" />
     <ClInclude Include="ThirdParty\glm\glm\common.hpp" />
@@ -584,6 +586,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinInput.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinWindow.cpp" />
     <ClCompile Include="Source\Vox\Application.cpp" />
@@ -598,6 +601,7 @@
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Renderer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Shader.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ThirdParty\GLFW\GLFW.vcxproj">
