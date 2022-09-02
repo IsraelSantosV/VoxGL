@@ -1,41 +1,37 @@
-[23:41:23] [info] Vox: Creating window VoxGL Engine (1280, 720)
-[23:41:23] [info] Vox: OpenGL Info:
-[23:41:23] [info] Vox:   Vendor: Intel
-[23:41:23] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
-[23:41:23] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
-[23:41:23] [info] App: MouseMovedEvent: 635, 155
-[23:41:23] [info] App: MouseMovedEvent: 635, 156
-[23:41:23] [info] App: MouseMovedEvent: 634, 157
-[23:41:24] [info] App: MouseMovedEvent: 641, 157
-[23:41:24] [info] App: MouseMovedEvent: 675, 157
-[23:41:24] [info] App: MouseMovedEvent: 682, 157
-[23:41:24] [info] App: MouseMovedEvent: 747, 152
-[23:41:24] [info] App: MouseMovedEvent: 853, 142
-[23:41:24] [info] App: MouseMovedEvent: 868, 141
-[23:41:24] [info] App: MouseMovedEvent: 1015, 125
-[23:41:24] [info] App: MouseMovedEvent: 1123, 109
-[23:41:24] [info] App: MouseMovedEvent: 1199, 93
-[23:41:24] [info] App: MouseMovedEvent: 1205, 91
-[23:41:24] [info] App: MouseMovedEvent: 1210, 90
-[23:41:24] [info] App: MouseMovedEvent: 1218, 87
-[23:41:24] [info] App: MouseMovedEvent: 1226, 84
-[23:41:24] [info] App: MouseMovedEvent: 1228, 83
-[23:41:24] [info] App: MouseMovedEvent: 1230, 83
-[23:41:24] [info] App: MouseMovedEvent: 1232, 82
-[23:41:24] [info] App: MouseMovedEvent: 1234, 81
-[23:41:24] [info] App: MouseMovedEvent: 1235, 80
-[23:41:24] [info] App: MouseMovedEvent: 1235, 79
-[23:41:24] [info] App: MouseMovedEvent: 1235, 78
-[23:41:24] [info] App: MouseMovedEvent: 1235, 77
-[23:41:24] [info] App: MouseMovedEvent: 1237, 69
-[23:41:24] [info] App: MouseMovedEvent: 1237, 68
-[23:41:24] [info] App: MouseMovedEvent: 1237, 65
-[23:41:24] [info] App: MouseMovedEvent: 1238, 46
-[23:41:24] [info] App: MouseMovedEvent: 1238, 44
-[23:41:24] [info] App: MouseMovedEvent: 1238, 40
-[23:41:24] [info] App: MouseMovedEvent: 1238, 33
-[23:41:24] [info] App: MouseMovedEvent: 1238, 31
-[23:41:24] [info] App: MouseMovedEvent: 1238, 21
-[23:41:24] [info] App: MouseMovedEvent: 1238, 12
-[23:41:24] [info] App: MouseMovedEvent: 1239, 7
-[23:41:24] [info] App: MouseMovedEvent: 1240, 5
+[10:14:58] [info] Vox: Creating window VoxGL Engine (1280, 720)
+[10:14:58] [info] Vox: OpenGL Info:
+[10:14:58] [info] Vox:   Vendor: Intel
+[10:14:58] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[10:14:58] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[10:14:59] [info] App: MouseMovedEvent: 1179, 200
+[10:14:59] [info] App: MouseMovedEvent: 1184, 199
+[10:14:59] [info] App: MouseMovedEvent: 1185, 199
+[10:14:59] [info] App: MouseMovedEvent: 1197, 195
+[10:14:59] [info] App: MouseMovedEvent: 1217, 188
+[10:14:59] [info] App: MouseMovedEvent: 1220, 186
+[10:14:59] [info] App: MouseMovedEvent: 1222, 184
+[10:14:59] [info] App: MouseMovedEvent: 1243, 168
+[10:14:59] [info] App: MouseMovedEvent: 1246, 167
+[10:14:59] [info] App: MouseMovedEvent: 1254, 155
+[10:14:59] [info] App: MouseMovedEvent: 1256, 152
+[10:14:59] [info] App: MouseMovedEvent: 1261, 132
+[10:14:59] [info] App: MouseMovedEvent: 1261, 112
+[10:14:59] [info] App: MouseMovedEvent: 1261, 109
+[10:14:59] [info] App: MouseMovedEvent: 1261, 101
+[10:14:59] [info] App: MouseMovedEvent: 1260, 77
+[10:14:59] [info] App: MouseMovedEvent: 1259, 73
+[10:14:59] [info] App: MouseMovedEvent: 1253, 52
+[10:14:59] [info] App: MouseMovedEvent: 1248, 44
+[10:14:59] [info] App: MouseMovedEvent: 1247, 42
+[10:14:59] [info] App: MouseMovedEvent: 1247, 41
+[10:14:59] [info] App: MouseMovedEvent: 1248, 33
+[10:14:59] [info] App: MouseMovedEvent: 1250, 24
+[10:14:59] [info] App: MouseMovedEvent: 1250, 23
+[10:14:59] [info] App: MouseMovedEvent: 1251, 17
+[10:14:59] [info] App: MouseMovedEvent: 1251, 14
+[10:14:59] [info] App: MouseMovedEvent: 1251, 13
+[10:14:59] [info] App: MouseMovedEvent: 1251, 11
+[10:14:59] [info] App: MouseMovedEvent: 1251, 8
+[10:14:59] [info] App: MouseMovedEvent: 1252, 4
+[10:14:59] [info] App: MouseMovedEvent: 1252, 3
+[10:14:59] [info] App: MouseMovedEvent: 1253, 0
