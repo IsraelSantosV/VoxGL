@@ -13,6 +13,8 @@
 #include "Vox/Renderer/Buffer.h"
 #include "Vox/Renderer/VertexArray.h"
 
+#include "Vox/Renderer/OrthographicCamera.h"
+
 namespace Vox
 {
 	class VOX_API Application
@@ -43,6 +45,7 @@ namespace Vox
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
 
+		OrthographicCamera m_Camera;
 	private:
 		static Application* m_Instance;
 	};
