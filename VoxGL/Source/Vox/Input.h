@@ -9,7 +9,7 @@ namespace Vox
 	public:
 		inline static bool IsKeyPressed(int keycode) 
 		{ 
-			return m_Instance->IsKeyPressed(keycode); 
+			return m_Instance->IsKeyPressedImpl(keycode); 
 		}
 
 		inline static bool IsMouseButtonPressed(int button)

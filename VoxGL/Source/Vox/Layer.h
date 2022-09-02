@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vox/Core.h"
+#include "Vox/Core/Timestep.h"
 #include "Vox/Events/Event.h"
 
 namespace Vox
@@ -13,7 +14,7 @@ namespace Vox
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

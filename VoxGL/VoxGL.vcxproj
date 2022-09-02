@@ -149,6 +149,7 @@
     <ClInclude Include="Source\Vox.h" />
     <ClInclude Include="Source\Vox\Application.h" />
     <ClInclude Include="Source\Vox\Core.h" />
+    <ClInclude Include="Source\Vox\Core\Timestep.h" />
     <ClInclude Include="Source\Vox\EntryPoint.h" />
     <ClInclude Include="Source\Vox\Events\AplicationEvent.h" />
     <ClInclude Include="Source\Vox\Events\Event.h" />
@@ -600,9 +601,6 @@
     <ClCompile Include="Source\Vox\Layer.cpp" />
     <ClCompile Include="Source\Vox\LayerStack.cpp" />
     <ClCompile Include="Source\Vox\Log.cpp" />
-    <ClCompile Include="Source\VoxPch.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="Source\Vox\Renderer\RenderCommand.cpp" />
@@ -610,6 +608,9 @@
     <ClCompile Include="Source\Vox\Renderer\RendererAPI.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Shader.cpp" />
     <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp" />
+    <ClCompile Include="Source\VoxPch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ThirdParty\GLFW\GLFW.vcxproj">

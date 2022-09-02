@@ -13,6 +13,8 @@
 #include "Vox/Renderer/Buffer.h"
 #include "Vox/Renderer/VertexArray.h"
 
+#include "Vox/Core/Timestep.h"
+
 #include "Vox/Renderer/OrthographicCamera.h"
 
 namespace Vox
@@ -34,18 +36,12 @@ namespace Vox
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_RGBShader;
-		std::shared_ptr<VertexArray> m_TriangleVA;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* m_Instance;
 	};
