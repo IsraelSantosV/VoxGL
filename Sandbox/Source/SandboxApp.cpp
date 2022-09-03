@@ -21,7 +21,7 @@ public:
 			0.0f, 0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f
 		};
 
-		std::shared_ptr<Vox::VertexBuffer> triangleVB;
+		Vox::Ref<Vox::VertexBuffer> triangleVB;
 		triangleVB.reset(Vox::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Vox::BufferLayout layout = {
 			{ Vox::ShaderDataType::Float3, "a_Position" },
@@ -32,7 +32,7 @@ public:
 		m_TriangleVA->AddVertexBuffer(triangleVB);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Vox::IndexBuffer> triangleIB;
+		Vox::Ref<Vox::IndexBuffer> triangleIB;
 		triangleIB.reset(Vox::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_TriangleVA->SetIndexBuffer(triangleIB);
 
@@ -45,7 +45,7 @@ public:
 			-0.5f, 0.5f, 0.0f
 		};
 
-		std::shared_ptr<Vox::VertexBuffer> squareVB;
+		Vox::Ref<Vox::VertexBuffer> squareVB;
 		squareVB.reset(Vox::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		squareVB->SetLayout({
@@ -54,7 +54,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Vox::IndexBuffer> squareIB;
+		Vox::Ref<Vox::IndexBuffer> squareIB;
 		squareIB.reset(Vox::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -199,11 +199,11 @@ public:
 	{
 	}
 private:
-	std::shared_ptr<Vox::Shader> m_RGBShader;
-	std::shared_ptr<Vox::VertexArray> m_TriangleVA;
+	Vox::Ref<Vox::Shader> m_RGBShader;
+	Vox::Ref<Vox::VertexArray> m_TriangleVA;
 
-	std::shared_ptr<Vox::Shader> m_FlatColorShader;
-	std::shared_ptr<Vox::VertexArray> m_SquareVA;
+	Vox::Ref<Vox::Shader> m_FlatColorShader;
+	Vox::Ref<Vox::VertexArray> m_SquareVA;
 
 	Vox::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
