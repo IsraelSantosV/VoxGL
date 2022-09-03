@@ -1387,6 +1387,7 @@
       <Filter>ThirdParty\glm\glm</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\Timestep.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1449,5 +1450,6 @@
     <ClCompile Include="Source\VoxPch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>
