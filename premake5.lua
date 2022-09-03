@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "VoxGL/ThirdParty/GLFW/include"
 IncludeDir["Glad"] = "VoxGL/ThirdParty/Glad/include"
 IncludeDir["ImGui"] = "VoxGL/ThirdParty/imgui"
 IncludeDir["glm"] = "VoxGL/ThirdParty/glm"
+IncludeDir["stb_image"] = "VoxGL/ThirdParty/stb_image"
 
 include "VoxGL/ThirdParty/GLFW"
 include "VoxGL/ThirdParty/Glad"
@@ -38,6 +39,8 @@ project "VoxGL"
 	{
 		"%{prj.name}/Source/**.h",
 		"%{prj.name}/Source/**.cpp",
+		"%{prj.name}/ThirdParty/stb_image/**.h",
+		"%{prj.name}/ThirdParty/stb_image/**.cpp",
 		"%{prj.name}/ThirdParty/glm/glm/**.hpp",
 		"%{prj.name}/ThirdParty/glm/glm/**.inl"
 	}
@@ -54,7 +57,8 @@ project "VoxGL"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links

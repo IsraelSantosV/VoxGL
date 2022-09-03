@@ -138,6 +138,9 @@
       <Project>{7521520E-E135-7ABF-AAB7-1D1F168B76F0}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\Checkerboard.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -16,6 +16,9 @@
     <Filter Include="Source\Vox">
       <UniqueIdentifier>{C2E8C236-AEA0-0484-17A8-DDDF037F9F74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Core">
+      <UniqueIdentifier>{5AD6D5B4-C661-4379-CF72-C66D3B7D9F79}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Vox\Events">
       <UniqueIdentifier>{66E6C646-D2FC-C4DC-1B74-50FE87C99564}</UniqueIdentifier>
     </Filter>
@@ -46,6 +49,9 @@
     <Filter Include="ThirdParty\glm\glm\gtx">
       <UniqueIdentifier>{9097D540-7C91-FE92-65FE-94A3519764FF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty\stb_image">
+      <UniqueIdentifier>{AAB50CD2-9644-969B-3F63-AA962BD1A641}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h">
@@ -55,6 +61,12 @@
       <Filter>Source\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="Source\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>Source\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLShader.h">
+      <Filter>Source\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLTexture.h">
       <Filter>Source\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h">
@@ -74,6 +86,9 @@
     </ClInclude>
     <ClInclude Include="Source\Vox\Core.h">
       <Filter>Source\Vox</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Core\Timestep.h">
+      <Filter>Source\Vox\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\EntryPoint.h">
       <Filter>Source\Vox</Filter>
@@ -130,6 +145,9 @@
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Shader.h">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Renderer\Texture.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\VertexArray.h">
@@ -1386,8 +1404,9 @@
     <ClInclude Include="ThirdParty\glm\glm\vector_relational.hpp">
       <Filter>ThirdParty\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Core\Timestep.h" />
-    <ClInclude Include="Source\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="ThirdParty\stb_image\stb_image.h">
+      <Filter>ThirdParty\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1397,6 +1416,12 @@
       <Filter>Source\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>Source\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>Source\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLTexture.cpp">
       <Filter>Source\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp">
@@ -1444,12 +1469,17 @@
     <ClCompile Include="Source\Vox\Renderer\Shader.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Renderer\Texture.cpp">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\VoxPch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
+      <Filter>ThirdParty\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

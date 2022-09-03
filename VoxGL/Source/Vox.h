@@ -16,8 +16,9 @@
 #include "Vox/Renderer/Renderer.h"
 #include "Vox/Renderer/RenderCommand.h"
 
-#include "Vox/Renderer/Shader.h"
 #include "Vox/Renderer/Buffer.h"
+#include "Vox/Renderer/Shader.h"
+#include "Vox/Renderer/Texture.h"
 #include "Vox/Renderer/VertexArray.h"
 
 #include "Vox/Renderer/OrthographicCamera.h"
