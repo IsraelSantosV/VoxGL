@@ -1,6 +1,11 @@
 #include <Vox.h>
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
+#include "imgui/imgui.h"
+
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public Vox::Layer
 {
@@ -88,9 +93,9 @@ public:
 			}
 		)";
 
-		m_RGBShader.reset(new Vox::Shader(vertexSrc, fragmentSrc));
+		m_RGBShader.reset(Vox::Shader::Create(vertexSrc, fragmentSrc));
 
-		std::string blueVertexSrc = R"(
+		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 
 			layout(location = 0) in vec3 a_Position;
@@ -107,40 +112,41 @@ public:
 			}
 		)";
 
-		std::string blueFragmentSrc = R"(
+		std::string flatColorShaderFragmentSrc = R"(
 			#version 330 core
 
 			layout(location = 0) out vec4 color;
 
 			in vec3 v_Position;
+			uniform vec3 u_Color;
 			
 			void main()
 			{
-				color = vec4(0.2, 0.3, 0.8, 1.0);
+				color = vec4(u_Color, 1.0);
 			}
 		)";
 
-		m_BlueShader.reset(new Vox::Shader(blueVertexSrc, blueFragmentSrc));
+		m_FlatColorShader.reset(Vox::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 	}
 
 	void OnUpdate(Vox::Timestep ts) override
 	{
 		if (Vox::Input::IsKeyPressed(IN_KEY_LEFT))
 		{
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		}
 		else if (Vox::Input::IsKeyPressed(IN_KEY_RIGHT))
 		{
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
 		}
 
 		if (Vox::Input::IsKeyPressed(IN_KEY_UP))
 		{
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 		}
 		else if (Vox::Input::IsKeyPressed(IN_KEY_DOWN))
 		{
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 		}
 
 		if (Vox::Input::IsKeyPressed(IN_KEY_A))
@@ -162,13 +168,16 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
+		std::dynamic_pointer_cast<Vox::OpenGLShader>(m_FlatColorShader)->Bind();
+		std::dynamic_pointer_cast<Vox::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+
 		for (int y = 0; y < 20; y++)
 		{
 			for (int x = 0; x < 20; x++)
 			{
 				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-				Vox::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+				Vox::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
 		
@@ -179,6 +188,11 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
+		ImGui::Begin("Settings");
+
+		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
+
+		ImGui::End();
 	}
 
 	void OnEvent(Vox::Event& event) override
@@ -188,7 +202,7 @@ private:
 	std::shared_ptr<Vox::Shader> m_RGBShader;
 	std::shared_ptr<Vox::VertexArray> m_TriangleVA;
 
-	std::shared_ptr<Vox::Shader> m_BlueShader;
+	std::shared_ptr<Vox::Shader> m_FlatColorShader;
 	std::shared_ptr<Vox::VertexArray> m_SquareVA;
 
 	Vox::OrthographicCamera m_Camera;
@@ -197,6 +211,8 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.7f };
 };
 
 class Sandbox : public Vox::Application
