@@ -2,7 +2,7 @@
 
 #include "VoxPch.h"
 
-#include "Vox/Core.h"
+#include "Vox/Core/Core.h"
 #include "Vox/Events/Event.h"
 
 namespace Vox

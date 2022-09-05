@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Vox/Core.h"
+#include "Vox/Core/Core.h"
 
 namespace Vox
 {

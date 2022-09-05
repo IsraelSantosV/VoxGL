@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Vox/Log.h"
+#include "Vox/Core/Log.h"
 
 #ifdef VOX_PLATFORM_WINDOWS
 	#include <Windows.h>
