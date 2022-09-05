@@ -24,7 +24,3 @@
 
 #include "Vox/Renderer/OrthographicCamera.h"
 //-------------------------------------------
-
-// ENTRY POINT ------------------------------
-#include "Vox/Core/EntryPoint.h"
-//-------------------------------------------
