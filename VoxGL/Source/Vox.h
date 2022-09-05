@@ -9,6 +9,7 @@
 #include "Vox/Input.h"
 #include "Vox/KeyCodes.h"
 #include "Vox/MouseButtonCodes.h"
+#include "Vox/OrthoCameraController.h"
 
 #include "Vox/ImGui/ImGuiLayer.h"
 
