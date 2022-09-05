@@ -94,7 +94,7 @@ public:
 			}
 		)";
 
-		m_RGBShader.reset(Vox::Shader::Create(vertexSrc, fragmentSrc));
+		m_RGBShader = Vox::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -127,14 +127,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Vox::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
-		m_TextureShader.reset(Vox::Shader::Create("Assets/Shaders/Texture.glsl"));
+		m_FlatColorShader = Vox::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
+		
+		auto textureShader = m_ShaderLibrary.Load("Assets/Shaders/Texture.glsl");
 		
 		m_Texture = Vox::Texture2D::Create("Assets/Textures/Checkerboard.png");
 		m_BlendingTexture = Vox::Texture2D::Create("Assets/Textures/LogoTest.png");
 	
-		std::dynamic_pointer_cast<Vox::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Vox::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Vox::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Vox::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(Vox::Timestep ts) override
@@ -188,12 +189,14 @@ public:
 				Vox::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
+
+		auto textureShader = m_ShaderLibrary.Get("Texture");
 		
 		m_Texture->Bind();
-		Vox::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		Vox::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_BlendingTexture->Bind();
-		Vox::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.0f)));
+		Vox::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.0f)));
 
 		//Vox::Renderer::Submit(m_RGBShader, m_TriangleVA);
 
@@ -213,11 +216,11 @@ public:
 	{
 	}
 private:
+	Vox::ShaderLibrary m_ShaderLibrary;
 	Vox::Ref<Vox::Shader> m_RGBShader;
 	Vox::Ref<Vox::VertexArray> m_TriangleVA;
 
 	Vox::Ref<Vox::Shader> m_FlatColorShader;
-	Vox::Ref<Vox::Shader> m_TextureShader;
 	Vox::Ref<Vox::VertexArray> m_SquareVA;
 
 	Vox::Ref<Vox::Texture2D> m_Texture;
