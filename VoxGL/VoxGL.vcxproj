@@ -164,6 +164,7 @@
     <ClInclude Include="Source\Vox\LayerStack.h" />
     <ClInclude Include="Source\Vox\Log.h" />
     <ClInclude Include="Source\Vox\MouseButtonCodes.h" />
+    <ClInclude Include="Source\Vox\OrthoCameraController.h" />
     <ClInclude Include="Source\Vox\Renderer\Buffer.h" />
     <ClInclude Include="Source\Vox\Renderer\GraphicsContext.h" />
     <ClInclude Include="Source\Vox\Renderer\OrthographicCamera.h" />
@@ -607,6 +608,7 @@
     <ClCompile Include="Source\Vox\Layer.cpp" />
     <ClCompile Include="Source\Vox\LayerStack.cpp" />
     <ClCompile Include="Source\Vox\Log.cpp" />
+    <ClCompile Include="Source\Vox\OrthoCameraController.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="Source\Vox\Renderer\RenderCommand.cpp" />
