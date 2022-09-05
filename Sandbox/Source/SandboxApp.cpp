@@ -164,6 +164,7 @@ public:
 		m_TextureShader.reset(Vox::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 		
 		m_Texture = Vox::Texture2D::Create("Assets/Textures/Checkerboard.png");
+		m_BlendingTexture = Vox::Texture2D::Create("Assets/Textures/LogoTest.png");
 	
 		std::dynamic_pointer_cast<Vox::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Vox::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -223,6 +224,10 @@ public:
 		
 		m_Texture->Bind();
 		Vox::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		m_BlendingTexture->Bind();
+		Vox::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.0f)));
+
 		//Vox::Renderer::Submit(m_RGBShader, m_TriangleVA);
 
 		Vox::Renderer::EndScene();
@@ -249,6 +254,7 @@ private:
 	Vox::Ref<Vox::VertexArray> m_SquareVA;
 
 	Vox::Ref<Vox::Texture2D> m_Texture;
+	Vox::Ref<Vox::Texture2D> m_BlendingTexture;
 
 	Vox::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
