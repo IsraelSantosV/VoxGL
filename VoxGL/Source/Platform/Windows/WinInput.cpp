@@ -1,7 +1,7 @@
 #include "VoxPch.h"
 #include "WinInput.h"
 
-#include "Vox/Application.h"
+#include "Vox/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Vox

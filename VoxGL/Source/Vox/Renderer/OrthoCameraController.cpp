@@ -1,8 +1,8 @@
 #include "VoxPch.h"
 #include "OrthoCameraController.h"
 
-#include "Vox/Input.h"
-#include "Vox/KeyCodes.h"
+#include "Vox/Core/Input.h"
+#include "Vox/Core/KeyCodes.h"
 
 namespace Vox
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vox/Layer.h"
+#include "Vox/Core/Layer.h"
 
 #include "Vox/Events/AplicationEvent.h"
 #include "Vox/Events/KeyEvent.h"

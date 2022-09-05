@@ -1,15 +1,14 @@
 #pragma once
 
-#include "Vox/Application.h"
-#include "Vox/Layer.h"
-#include "Vox/Log.h"
+#include "Vox/Core/Application.h"
+#include "Vox/Core/Layer.h"
+#include "Vox/Core/Log.h"
 
 #include "Vox/Core/Timestep.h"
 
-#include "Vox/Input.h"
-#include "Vox/KeyCodes.h"
-#include "Vox/MouseButtonCodes.h"
-#include "Vox/OrthoCameraController.h"
+#include "Vox/Core/Input.h"
+#include "Vox/Core/KeyCodes.h"
+#include "Vox/Core/MouseButtonCodes.h"
 
 #include "Vox/ImGui/ImGuiLayer.h"
 
@@ -21,10 +20,11 @@
 #include "Vox/Renderer/Shader.h"
 #include "Vox/Renderer/Texture.h"
 #include "Vox/Renderer/VertexArray.h"
+#include "Vox/Renderer/OrthoCameraController.h"
 
 #include "Vox/Renderer/OrthographicCamera.h"
 //-------------------------------------------
 
 // ENTRY POINT ------------------------------
-#include "Vox/EntryPoint.h"
+#include "Vox/Core/EntryPoint.h"
 //-------------------------------------------

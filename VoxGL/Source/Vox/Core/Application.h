@@ -3,8 +3,8 @@
 #include "Core.h"
 #include "Window.h"
 
-#include "Vox/LayerStack.h"
-#include "Events/Event.h"
+#include "Vox/Core/LayerStack.h"
+#include "Vox/Events/Event.h"
 #include "Vox/Events/AplicationEvent.h"
 
 #include "Vox/ImGui/ImGuiLayer.h"

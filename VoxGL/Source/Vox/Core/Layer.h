@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vox/Core.h"
+#include "Vox/Core/Core.h"
 #include "Vox/Core/Timestep.h"
 #include "Vox/Events/Event.h"
 
