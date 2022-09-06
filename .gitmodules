@@ -1,0 +1,12 @@
+[submodule "VoxGL/ThirdParty/spdlog"]
+	path = VoxGL/ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "VoxGL/ThirdParty/GLFW"]
+	path = VoxGL/ThirdParty/GLFW
+	url = https://github.com/theCherno/glfw
+[submodule "VoxGL/ThirdParty/imgui"]
+	path = VoxGL/ThirdParty/imgui
+	url = https://github.com/TheCherno/imgui
+[submodule "VoxGL/ThirdParty/glm"]
+	path = VoxGL/ThirdParty/glm
+	url = https://github.com/g-truc/glm
