@@ -1411,6 +1411,7 @@
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Renderer2D.h" />
+    <ClInclude Include="Source\Vox\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">

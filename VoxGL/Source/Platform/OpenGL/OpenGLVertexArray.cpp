@@ -28,26 +28,36 @@ namespace Vox
 
     OpenGLVertexArray::OpenGLVertexArray()
     {
+        VOX_PROFILE_FUNCTION();
+
         glCreateVertexArrays(1, &m_RendererId);
     }
 
     OpenGLVertexArray::~OpenGLVertexArray()
     {
+        VOX_PROFILE_FUNCTION();
+
         glDeleteVertexArrays(1, &m_RendererId);
     }
 
     void OpenGLVertexArray::Bind() const
     {
+        VOX_PROFILE_FUNCTION();
+
         glBindVertexArray(m_RendererId);
     }
 
     void OpenGLVertexArray::Unbind() const
     {
+        VOX_PROFILE_FUNCTION();
+
         glBindVertexArray(0);
     }
 
     void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
     {
+        VOX_PROFILE_FUNCTION();
+
         VOX_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
         glBindVertexArray(m_RendererId);
         vertexBuffer->Bind();
@@ -72,6 +82,8 @@ namespace Vox
 
     void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
     {
+        VOX_PROFILE_FUNCTION();
+
         glBindVertexArray(m_RendererId);
         indexBuffer->Bind();
         m_IndexBuffer = indexBuffer;

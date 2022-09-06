@@ -14,6 +14,7 @@
 #include <unordered_set>
 
 #include "Vox/Core/Log.h"
+#include "Vox/Debug/Instrumentor.h"
 
 #ifdef VOX_PLATFORM_WINDOWS
 	#include <Windows.h>

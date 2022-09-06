@@ -14,6 +14,8 @@ namespace Vox
 
 	void OrthoCameraController::OnUpdate(Timestep ts)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		if (Input::IsKeyPressed(IN_KEY_A))
 		{
 			m_CameraPosition.x -= m_CameraTranslationSpeed * ts;
@@ -52,6 +54,8 @@ namespace Vox
 
 	void OrthoCameraController::OnEvent(Event& e)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<MouseScrolledEvent>(VOX_BIND_EVENT_FN(OrthoCameraController::OnMouseScrolled));
 		dispatcher.Dispatch<WindowResizeEvent>(VOX_BIND_EVENT_FN(OrthoCameraController::OnWindowResized));
@@ -59,6 +63,8 @@ namespace Vox
 
 	bool OrthoCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_ZoomLevel -= e.GetYOffset() * 0.25f;
 		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
@@ -67,6 +73,8 @@ namespace Vox
 
 	bool OrthoCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;
