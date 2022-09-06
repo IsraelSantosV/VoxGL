@@ -1,4 +1,5 @@
 #include <Vox.h>
+#include <Vox/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,12 +8,14 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sandbox2D.h"
+
 class ExampleLayer : public Vox::Layer
 {
 public:
 	ExampleLayer() : Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_TriangleVA.reset(Vox::VertexArray::Create());
+		m_TriangleVA = Vox::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5, 0.0f, 0.8f, 0.8f, 0.1f, 1.0f,
@@ -35,7 +38,7 @@ public:
 		triangleIB.reset(Vox::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_TriangleVA->SetIndexBuffer(triangleIB);
 
-		m_SquareVA.reset(Vox::VertexArray::Create());
+		m_SquareVA = Vox::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -208,7 +211,8 @@ class Sandbox : public Vox::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()
