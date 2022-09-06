@@ -19,7 +19,7 @@ namespace Vox
 			: Title(title), Width(width), Height(height) {}
 	};
 
-	class VOX_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;

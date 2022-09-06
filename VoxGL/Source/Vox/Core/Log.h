@@ -9,7 +9,7 @@
 
 namespace Vox
 {
-	class VOX_API Log
+	class Log
 	{
 	public:
 		static void Init();

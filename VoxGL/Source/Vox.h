@@ -1,6 +1,8 @@
 #pragma once
 
 // CORE -------------------------------------
+#include "Vox/Core/Core.h"
+
 #include "Vox/Core/Application.h"
 #include "Vox/Core/Layer.h"
 #include "Vox/Core/Log.h"
@@ -9,7 +11,7 @@
 
 #include "Vox/Core/Input.h"
 #include "Vox/Core/KeyCodes.h"
-#include "Vox/Core/MouseButtonCodes.h"
+#include "Vox/Core/MouseCodes.h"
 
 #include "Vox/ImGui/ImGuiLayer.h"
 //-------------------------------------------

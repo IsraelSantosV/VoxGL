@@ -19,6 +19,9 @@
     <Filter Include="Source\Vox\Core">
       <UniqueIdentifier>{5AD6D5B4-C661-4379-CF72-C66D3B7D9F79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Debug">
+      <UniqueIdentifier>{B8FC9C4F-A4F5-BBA1-CD27-A126B97F9BAD}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Vox\Events">
       <UniqueIdentifier>{66E6C646-D2FC-C4DC-1B74-50FE87C99564}</UniqueIdentifier>
     </Filter>
@@ -105,7 +108,7 @@
     <ClInclude Include="Source\Vox\Core\Log.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Core\MouseButtonCodes.h">
+    <ClInclude Include="Source\Vox\Core\MouseCodes.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\Timestep.h">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\Window.h">
       <Filter>Source\Vox\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Debug\Instrumentor.h">
+      <Filter>Source\Vox\Debug</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Events\AplicationEvent.h">
       <Filter>Source\Vox\Events</Filter>
@@ -145,6 +151,9 @@
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Renderer.h">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Renderer\Renderer2D.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\RendererAPI.h">
@@ -1410,8 +1419,6 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Renderer\Renderer2D.h" />
-    <ClInclude Include="Source\Vox\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1439,6 +1446,9 @@
       <Filter>Source\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Core\Application.cpp">
+      <Filter>Source\Vox\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Core\Input.cpp">
       <Filter>Source\Vox\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Core\Layer.cpp">
@@ -1471,6 +1481,9 @@
     <ClCompile Include="Source\Vox\Renderer\Renderer.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Renderer\Renderer2D.cpp">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\RendererAPI.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
@@ -1489,6 +1502,5 @@
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Vox\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>
