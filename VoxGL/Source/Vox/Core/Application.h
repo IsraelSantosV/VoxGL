@@ -19,7 +19,7 @@
 
 namespace Vox
 {
-	class VOX_API Application
+	class Application
 	{
 	public:
 		Application();

@@ -1,5 +1,5 @@
 workspace "VoxGL"
-	architecture "x64"
+	architecture "x86_64"
 	startproject "Sandbox"
 
 	configurations
@@ -7,6 +7,11 @@ workspace "VoxGL"
 		"Debug",
 		"Release",
 		"Dist"
+	}
+
+	flags
+	{
+		"MultiProcessorCompile"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -18,9 +23,12 @@ IncludeDir["ImGui"] = "VoxGL/ThirdParty/imgui"
 IncludeDir["glm"] = "VoxGL/ThirdParty/glm"
 IncludeDir["stb_image"] = "VoxGL/ThirdParty/stb_image"
 
-include "VoxGL/ThirdParty/GLFW"
-include "VoxGL/ThirdParty/Glad"
-include "VoxGL/ThirdParty/imgui"
+group "Dependencies"
+	include "VoxGL/ThirdParty/GLFW"
+	include "VoxGL/ThirdParty/Glad"
+	include "VoxGL/ThirdParty/imgui"
+
+group ""
 
 project "VoxGL"
 	location "VoxGL"
@@ -74,7 +82,6 @@ project "VoxGL"
 
 		defines
 		{
-			"VOX_PLATFORM_WINDOWS",
 			"VOX_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
@@ -125,11 +132,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
-
-		defines
-		{
-			"VOX_PLATFORM_WINDOWS"
-		}
 
 	filter "configurations:Debug"
 		defines "VOX_DEBUG"
