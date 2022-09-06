@@ -21,5 +21,7 @@ private:
 	Vox::Ref<Vox::VertexArray> m_SquareVA;
 	Vox::Ref<Vox::Shader> m_FlatColorShader;
 
+	Vox::Ref<Vox::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.7f, 1.0f };
 };
