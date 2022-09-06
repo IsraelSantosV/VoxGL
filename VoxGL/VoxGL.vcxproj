@@ -160,6 +160,7 @@
     <ClInclude Include="Source\Vox\Core\MouseButtonCodes.h" />
     <ClInclude Include="Source\Vox\Core\Timestep.h" />
     <ClInclude Include="Source\Vox\Core\Window.h" />
+    <ClInclude Include="Source\Vox\Debug\Instrumentor.h" />
     <ClInclude Include="Source\Vox\Events\AplicationEvent.h" />
     <ClInclude Include="Source\Vox\Events\Event.h" />
     <ClInclude Include="Source\Vox\Events\KeyEvent.h" />

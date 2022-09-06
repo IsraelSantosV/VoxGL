@@ -14,6 +14,8 @@ namespace Vox
 
 	void OpenGLContext::Init()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		VOX_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -26,6 +28,8 @@ namespace Vox
 
 	void OpenGLContext::SwapBuffers()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 }

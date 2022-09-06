@@ -9,7 +9,7 @@
 
 namespace Vox
 {
-	static bool m_GLFWInitialized = false;
+	static uint8_t m_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
@@ -23,16 +23,22 @@ namespace Vox
 
 	WinWindow::WinWindow(const WindowProps& props)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WinWindow::~WinWindow() 
 	{
+		VOX_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WinWindow::Init(const WindowProps& props)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -40,18 +46,22 @@ namespace Vox
 		LOG_CORE_INFO("Creating window {0} ({1}, {2})",
 			props.Title, props.Width, props.Height);
 
-		if (!m_GLFWInitialized)
+		if (m_GLFWWindowCount == 0)
 		{
-			//glfw terminate on system shutdown 
+			VOX_PROFILE_SCOPE("GLFWInit");
+
 			int success = glfwInit();
 			VOX_CORE_ASSERT(success, "Could not initialize GLFW!");
 
 			glfwSetErrorCallback(GLFWErrorCallback);
-			m_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height,
-			m_Data.Title.c_str(), nullptr, nullptr);
+		{
+			VOX_PROFILE_SCOPE("GLFWCreateWindow");
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height,
+				m_Data.Title.c_str(), nullptr, nullptr);
+			++m_GLFWWindowCount;
+		}
 
 		m_Context = new OpenGLContext(m_Window);
 		m_Context->Init();
@@ -151,17 +161,23 @@ namespace Vox
 
 	void WinWindow::Shutdown() 
 	{
+		VOX_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
 	}
 
 	void WinWindow::OnUpdate()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WinWindow::SetVSync(bool enabled)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		if (enabled)
 		{
 			glfwSwapInterval(1);

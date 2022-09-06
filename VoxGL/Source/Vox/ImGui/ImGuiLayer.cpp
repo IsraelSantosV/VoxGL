@@ -23,6 +23,8 @@ namespace Vox
 
 	void ImGuiLayer::OnAttach()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -56,6 +58,8 @@ namespace Vox
 
 	void ImGuiLayer::OnDetach()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
@@ -63,6 +67,8 @@ namespace Vox
 
 	void ImGuiLayer::Begin()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
@@ -70,6 +76,8 @@ namespace Vox
 
 	void ImGuiLayer::End()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), 

@@ -20,6 +20,8 @@ namespace Vox
 
 	void Renderer2D::Init()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_Data = new Renderer2DStorage();
 		m_Data->QuadVertexArray = VertexArray::Create();
 
@@ -57,17 +59,22 @@ namespace Vox
 
 	void Renderer2D::Shutdown()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		delete m_Data;
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_Data->TextureShader->Bind();
 		m_Data->TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 	void Renderer2D::EndScene()
 	{
+		VOX_PROFILE_FUNCTION();
 	}
 
 	void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color)
@@ -77,6 +84,8 @@ namespace Vox
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_Data->TextureShader->SetFloat4("u_Color", color);
 		m_Data->WhiteTexture->Bind();
 
@@ -96,6 +105,8 @@ namespace Vox
 
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const Ref<Texture2D>& texture)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_Data->TextureShader->SetFloat4("u_Color", glm::vec4(1.0f));
 		texture->Bind();
 
