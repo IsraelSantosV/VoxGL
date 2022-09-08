@@ -16,6 +16,14 @@
 #include "Vox/ImGui/ImGuiLayer.h"
 //-------------------------------------------
 
+// SCENE ------------------------------------
+
+#include "Vox/Scene/Scene.h"
+#include "Vox/Scene/Entity.h"
+#include "Vox/Scene/Component.h"
+
+//-------------------------------------------
+
 // RENDERER ---------------------------------
 #include "Vox/Renderer/Renderer.h"
 #include "Vox/Renderer/Renderer2D.h"

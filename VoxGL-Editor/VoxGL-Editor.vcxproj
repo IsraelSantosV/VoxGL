@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\VoxGL\ThirdParty\spdlog\include;..\VoxGL\Source;..\VoxGL\ThirdParty;..\VoxGL\ThirdParty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\VoxGL\ThirdParty\spdlog\include;..\VoxGL\Source;..\VoxGL\ThirdParty;..\VoxGL\ThirdParty\glm;..\VoxGL\ThirdParty\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -97,7 +97,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\VoxGL\ThirdParty\spdlog\include;..\VoxGL\Source;..\VoxGL\ThirdParty;..\VoxGL\ThirdParty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\VoxGL\ThirdParty\spdlog\include;..\VoxGL\Source;..\VoxGL\ThirdParty;..\VoxGL\ThirdParty\glm;..\VoxGL\ThirdParty\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -118,7 +118,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>VOX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\VoxGL\ThirdParty\spdlog\include;..\VoxGL\Source;..\VoxGL\ThirdParty;..\VoxGL\ThirdParty\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\VoxGL\ThirdParty\spdlog\include;..\VoxGL\Source;..\VoxGL\ThirdParty;..\VoxGL\ThirdParty\glm;..\VoxGL\ThirdParty\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -135,16 +135,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VoxGL\VoxGL.vcxproj">
-      <Project>{7521520E-E135-7ABF-AAB7-1D1F168B76F0}</Project>
-    </ProjectReference>
+    <ClInclude Include="Source\EditorLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\EditorLayer.cpp" />
     <ClCompile Include="Source\VoxGLEditorApp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\EditorLayer.h" />
+    <ProjectReference Include="..\VoxGL\VoxGL.vcxproj">
+      <Project>{7521520E-E135-7ABF-AAB7-1D1F168B76F0}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
