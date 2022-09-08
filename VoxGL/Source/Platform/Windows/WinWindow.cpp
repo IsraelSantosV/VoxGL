@@ -1,38 +1,43 @@
 #include "VoxPch.h"
 #include "WinWindow.h"
 
+#include "Vox/Core/Input.h"
+
 #include "Vox/Events/AplicationEvent.h"
 #include "Vox/Events/MouseEvent.h"
 #include "Vox/Events/KeyEvent.h"
+
+#include "Vox/Renderer/Renderer.h"
 
 #include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Vox
 {
-	static bool m_GLFWInitialized = false;
+	static uint8_t m_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
 		LOG_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
 
-	Window* Window::Create(const WindowProps& props)
-	{
-		return new WinWindow(props);
-	}
-
 	WinWindow::WinWindow(const WindowProps& props)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WinWindow::~WinWindow() 
 	{
+		VOX_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WinWindow::Init(const WindowProps& props)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -40,20 +45,29 @@ namespace Vox
 		LOG_CORE_INFO("Creating window {0} ({1}, {2})",
 			props.Title, props.Width, props.Height);
 
-		if (!m_GLFWInitialized)
+		if (m_GLFWWindowCount == 0)
 		{
-			//glfw terminate on system shutdown 
+			VOX_PROFILE_SCOPE("GLFWInit");
+
 			int success = glfwInit();
 			VOX_CORE_ASSERT(success, "Could not initialize GLFW!");
 
 			glfwSetErrorCallback(GLFWErrorCallback);
-			m_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height,
-			m_Data.Title.c_str(), nullptr, nullptr);
+		{
+			VOX_PROFILE_SCOPE("GLFWCreateWindow");
 
-		m_Context = new OpenGLContext(m_Window);
+#if defined(VOX_DEBUG)
+			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+#endif
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height,
+				m_Data.Title.c_str(), nullptr, nullptr);
+			++m_GLFWWindowCount;
+		}
+
+		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
@@ -85,19 +99,19 @@ namespace Vox
 			{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(key, 0);
+					KeyPressedEvent event(static_cast<KeyCode>(key), 0);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					KeyReleasedEvent event(key);
+					KeyReleasedEvent event(static_cast<KeyCode>(key));
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(key, 1);
+					KeyPressedEvent event(static_cast<KeyCode>(key), 1);
 					data.EventCallback(event);
 					break;
 				}
@@ -107,7 +121,7 @@ namespace Vox
 		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int character)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			KeyTypedEvent event(character);
+			KeyTypedEvent event(static_cast<KeyCode>(character));
 			data.EventCallback(event);
 		});
 
@@ -119,13 +133,13 @@ namespace Vox
 			{
 				case GLFW_PRESS:
 				{
-					MouseButtonPressedEvent event(button);
+					MouseButtonPressedEvent event(static_cast<MouseCode>(button));
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					MouseButtonReleasedEvent event(button);
+					MouseButtonReleasedEvent event(static_cast<MouseCode>(button));
 					data.EventCallback(event);
 					break;
 				}
@@ -151,17 +165,29 @@ namespace Vox
 
 	void WinWindow::Shutdown() 
 	{
+		VOX_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
+		--m_GLFWWindowCount;
+
+		if (m_GLFWWindowCount == 0)
+		{
+			glfwTerminate();
+		}
 	}
 
 	void WinWindow::OnUpdate()
 	{
+		VOX_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
 	void WinWindow::SetVSync(bool enabled)
 	{
+		VOX_PROFILE_FUNCTION();
+
 		if (enabled)
 		{
 			glfwSwapInterval(1);

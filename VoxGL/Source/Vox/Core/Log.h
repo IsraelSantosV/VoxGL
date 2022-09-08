@@ -2,24 +2,22 @@
 
 #include "Core.h"
 
-#pragma warning(push, 0)
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
-#pragma warning(pop)
 
 namespace Vox
 {
-	class VOX_API Log
+	class Log
 	{
 	public:
 		static void Init();
 
-		static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return m_CoreLogger; }
-		static std::shared_ptr<spdlog::logger>& GetClientLogger() { return m_ClientLogger; }
+		inline static Ref<spdlog::logger>& GetCoreLogger() { return m_CoreLogger; }
+		inline static Ref<spdlog::logger>& GetClientLogger() { return m_ClientLogger; }
 		
 	private:
-		static std::shared_ptr<spdlog::logger> m_CoreLogger;
-		static std::shared_ptr<spdlog::logger> m_ClientLogger;
+		static Ref<spdlog::logger> m_CoreLogger;
+		static Ref<spdlog::logger> m_ClientLogger;
 	};
 }
 

@@ -7,22 +7,7 @@
 
 namespace Vox
 {
-	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size)
-	{
-		switch (Renderer::GetAPI())
-		{
-			case RendererAPI::API::None: 
-				VOX_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
-				return nullptr;
-			case RendererAPI::API::OpenGL:
-				return new OpenGLVertexBuffer(vertices, size);
-		}
-
-		VOX_CORE_ASSERT(false, "Unknown RendererApi!");
-		return nullptr;
-	}
-
-	IndexBuffer* IndexBuffer::Create(uint32_t* indices, uint32_t size)
+	Ref<VertexBuffer> VertexBuffer::Create(uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
@@ -30,7 +15,37 @@ namespace Vox
 				VOX_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
 				return nullptr;
 			case RendererAPI::API::OpenGL:
-				return new OpenGLIndexBuffer(indices, size);
+				return CreateRef<OpenGLVertexBuffer>(size);
+		}
+
+		VOX_CORE_ASSERT(false, "Unknown RendererApi!");
+		return nullptr;
+	}
+
+	Ref<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
+	{
+		switch (Renderer::GetAPI())
+		{
+			case RendererAPI::API::None: 
+				VOX_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
+				return nullptr;
+			case RendererAPI::API::OpenGL:
+				return CreateRef<OpenGLVertexBuffer>(vertices, size);
+		}
+
+		VOX_CORE_ASSERT(false, "Unknown RendererApi!");
+		return nullptr;
+	}
+
+	Ref<IndexBuffer> IndexBuffer::Create(uint32_t* indices, uint32_t count)
+	{
+		switch (Renderer::GetAPI())
+		{
+			case RendererAPI::API::None:
+				VOX_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
+				return nullptr;
+			case RendererAPI::API::OpenGL:
+				return CreateRef<OpenGLIndexBuffer>(indices, count);
 		}
 
 		VOX_CORE_ASSERT(false, "Unknown RendererApi!");

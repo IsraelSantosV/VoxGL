@@ -1,6 +1,8 @@
 #pragma once
 
 // CORE -------------------------------------
+#include "Vox/Core/Core.h"
+
 #include "Vox/Core/Application.h"
 #include "Vox/Core/Layer.h"
 #include "Vox/Core/Log.h"
@@ -9,7 +11,7 @@
 
 #include "Vox/Core/Input.h"
 #include "Vox/Core/KeyCodes.h"
-#include "Vox/Core/MouseButtonCodes.h"
+#include "Vox/Core/MouseCodes.h"
 
 #include "Vox/ImGui/ImGuiLayer.h"
 //-------------------------------------------
@@ -21,6 +23,7 @@
 
 #include "Vox/Renderer/Buffer.h"
 #include "Vox/Renderer/Shader.h"
+#include "Vox/Renderer/Framebuffer.h"
 #include "Vox/Renderer/Texture.h"
 #include "Vox/Renderer/VertexArray.h"
 #include "Vox/Renderer/OrthoCameraController.h"

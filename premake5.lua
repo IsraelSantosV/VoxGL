@@ -1,12 +1,17 @@
 workspace "VoxGL"
-	architecture "x64"
-	startproject "Sandbox"
+	architecture "x86_64"
+	startproject "VoxGL-Editor"
 
 	configurations
 	{
 		"Debug",
 		"Release",
 		"Dist"
+	}
+
+	flags
+	{
+		"MultiProcessorCompile"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -18,9 +23,12 @@ IncludeDir["ImGui"] = "VoxGL/ThirdParty/imgui"
 IncludeDir["glm"] = "VoxGL/ThirdParty/glm"
 IncludeDir["stb_image"] = "VoxGL/ThirdParty/stb_image"
 
-include "VoxGL/ThirdParty/GLFW"
-include "VoxGL/ThirdParty/Glad"
-include "VoxGL/ThirdParty/imgui"
+group "Dependencies"
+	include "VoxGL/ThirdParty/GLFW"
+	include "VoxGL/ThirdParty/Glad"
+	include "VoxGL/ThirdParty/imgui"
+
+group ""
 
 project "VoxGL"
 	location "VoxGL"
@@ -47,7 +55,8 @@ project "VoxGL"
 
 	defines
 	{
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
 	}
 
 	includedirs
@@ -74,9 +83,6 @@ project "VoxGL"
 
 		defines
 		{
-			"VOX_PLATFORM_WINDOWS",
-			"VOX_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"
@@ -126,10 +132,52 @@ project "Sandbox"
 	filter "system:windows"
 		systemversion "latest"
 
-		defines
-		{
-			"VOX_PLATFORM_WINDOWS"
-		}
+	filter "configurations:Debug"
+		defines "VOX_DEBUG"
+		runtime "Debug"
+		symbols "on"
+	
+	filter "configurations:Release"
+		defines "VOX_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "VOX_DIST"
+		runtime "Release"
+		optimize "on"
+
+project "VoxGL-Editor"
+	location "VoxGL-Editor"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/Source/**.h",
+		"%{prj.name}/Source/**.cpp",
+	}
+
+	includedirs
+	{
+		"VoxGL/ThirdParty/spdlog/include",
+		"VoxGL/Source",
+		"VoxGL/ThirdParty",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"VoxGL"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
 
 	filter "configurations:Debug"
 		defines "VOX_DEBUG"

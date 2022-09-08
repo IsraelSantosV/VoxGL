@@ -45,7 +45,6 @@ namespace Vox {
 	{
 	public:
 		virtual ~Event() = default;
-
 		bool Handled = false;
 
 		virtual EventType GetEventType() const = 0;
@@ -69,7 +68,7 @@ namespace Vox {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(static_cast<T&>(m_Event));
 				return true;
 			}
 			return false;

@@ -1,45 +1,46 @@
 #pragma once
 
 #include "Vox/Events/Event.h"
+#include "Vox/Core/Input.h"
 
 namespace Vox {
 
 	class KeyEvent : public Event
 	{
 	public:
-		unsigned int GetKeyCode() const { return m_KeyCode; }
+		inline KeyCode GetKeyCode() const { return m_KeyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(const unsigned int keycode) : m_KeyCode(keycode) {}
+		KeyEvent(KeyCode keycode) : m_KeyCode(keycode) {}
 
-		unsigned int m_KeyCode;
+		KeyCode m_KeyCode;
 	};
 
 	class KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(const unsigned int keycode, bool isRepeat = false)
-			: KeyEvent(keycode), m_IsRepeat(isRepeat) {}
+		KeyPressedEvent(KeyCode keycode, int repeatCount)
+			: KeyEvent(keycode), m_RepeatCount(repeatCount) {}
 
-		bool IsRepeat() const { return m_IsRepeat; }
+		inline int GetRepeatCount() const { return m_RepeatCount; }
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvent: " << m_KeyCode << " (repeat = " << m_IsRepeat << ")";
+			ss << "KeyPressedEvent: " << m_KeyCode << " (repeats = " << m_RepeatCount << ")";
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(KeyPressed)
 	private:
-		bool m_IsRepeat;
+		int m_RepeatCount;
 	};
 
 	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(const unsigned int keycode) : KeyEvent(keycode) {}
+		KeyReleasedEvent(KeyCode keycode) : KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{
@@ -54,7 +55,7 @@ namespace Vox {
 	class KeyTypedEvent : public KeyEvent
 	{
 	public:
-		KeyTypedEvent(const unsigned int keycode) : KeyEvent(keycode) {}
+		KeyTypedEvent(KeyCode keycode) : KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{

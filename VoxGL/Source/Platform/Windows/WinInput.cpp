@@ -1,44 +1,43 @@
 #include "VoxPch.h"
-#include "WinInput.h"
+#include "Vox/Core/Input.h"
 
 #include "Vox/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Vox
 {
-	Input* Input::m_Instance = new WinInput();
-
-	bool WinInput::IsKeyPressedImpl(int keycode)
+	bool Input::IsKeyPressed(KeyCode key)
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
-		auto state = glfwGetKey(window, keycode);
+		auto state = glfwGetKey(window, static_cast<int32_t>(key));
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
-	bool WinInput::IsMouseButtonPressedImpl(int button)
+	bool Input::IsMouseButtonPressed(MouseCode button)
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
-		auto state = glfwGetMouseButton(window, button);
+		auto state = glfwGetMouseButton(window, static_cast<int32_t>(button));
 		return state == GLFW_PRESS;
 	}
 
-	float WinInput::GetMouseXImpl()
+	std::pair<float, float> Input::GetMousePosition()
 	{
-		auto [x, y] = GetMousePositionImpl();
+		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+		double xpos, ypos;
+		glfwGetCursorPos(window, &xpos, &ypos);
+
+		return { (float)xpos, (float)ypos };
+	}
+
+	float Input::GetMouseX()
+	{
+		auto [x, y] = GetMousePosition();
 		return x;
 	}
 
-	float WinInput::GetMouseYImpl()
+	float Input::GetMouseY()
 	{
-		auto [x, y] = GetMousePositionImpl();
+		auto [x, y] = GetMousePosition();
 		return y;
-	}
-
-	std::pair<float, float> WinInput::GetMousePositionImpl()
-	{
-		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
-		double xPos, yPos;
-		glfwGetCursorPos(window, &xPos, &yPos);
-		return { (float)xPos, (float)yPos };
 	}
 }

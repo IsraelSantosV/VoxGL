@@ -1,33 +1,21 @@
 #pragma once
 
 #include "Vox/Core/Core.h"
+#include "Vox/Core/KeyCodes.h"
+#include "Vox/Core/MouseCodes.h"
 
 namespace Vox
 {
-	class VOX_API Input
+	class Input
 	{
-	public:
-		inline static bool IsKeyPressed(int keycode) 
-		{ 
-			return m_Instance->IsKeyPressedImpl(keycode); 
-		}
-
-		inline static bool IsMouseButtonPressed(int button)
-		{
-			return m_Instance->IsMouseButtonPressedImpl(button);
-		}
-
-		inline static std::pair<float, float> GetMousePosition() { return m_Instance->GetMousePositionImpl(); }
-		inline static float GetMouseX() { return m_Instance->GetMouseXImpl(); }
-		inline static float GetMouseY() { return m_Instance->GetMouseYImpl(); }
-
 	protected:
-		virtual bool IsKeyPressedImpl(int keycode) = 0;
-		virtual bool IsMouseButtonPressedImpl(int button) = 0;
-		virtual float GetMouseXImpl() = 0;
-		virtual float GetMouseYImpl() = 0;
-		virtual std::pair<float, float> GetMousePositionImpl() = 0;
-	private:
-		static Input* m_Instance;
+		Input() = default;
+	public:
+		static bool IsKeyPressed(KeyCode key);
+
+		static bool IsMouseButtonPressed(MouseCode button);
+		static std::pair<float, float> GetMousePosition();
+		static float GetMouseX();
+		static float GetMouseY();
 	};
 }
