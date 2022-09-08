@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLFramebuffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLTexture.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Source\Vox\Events\MouseEvent.h" />
     <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h" />
     <ClInclude Include="Source\Vox\Renderer\Buffer.h" />
+    <ClInclude Include="Source\Vox\Renderer\Framebuffer.h" />
     <ClInclude Include="Source\Vox\Renderer\GraphicsContext.h" />
     <ClInclude Include="Source\Vox\Renderer\OrthoCameraController.h" />
     <ClInclude Include="Source\Vox\Renderer\OrthographicCamera.h" />
@@ -602,6 +604,7 @@
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLFramebuffer.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLTexture.cpp" />
@@ -617,6 +620,7 @@
     <ClCompile Include="Source\Vox\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="Source\Vox\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\Framebuffer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="Source\Vox\Renderer\OrthoCameraController.cpp" />
     <ClCompile Include="Source\Vox\Renderer\OrthographicCamera.cpp" />

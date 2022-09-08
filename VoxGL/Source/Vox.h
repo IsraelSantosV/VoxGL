@@ -23,6 +23,7 @@
 
 #include "Vox/Renderer/Buffer.h"
 #include "Vox/Renderer/Shader.h"
+#include "Vox/Renderer/Framebuffer.h"
 #include "Vox/Renderer/Texture.h"
 #include "Vox/Renderer/VertexArray.h"
 #include "Vox/Renderer/OrthoCameraController.h"

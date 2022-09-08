@@ -20,6 +20,7 @@ private:
 	// Temporary
 	Vox::Ref<Vox::VertexArray> m_SquareVA;
 	Vox::Ref<Vox::Shader> m_FlatColorShader;
+	Vox::Ref<Vox::Framebuffer> m_Framebuffer;
 
 	Vox::Ref<Vox::Texture2D> m_CheckerboardTexture;
 
