@@ -1263,6 +1263,9 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Scene\Scene.h" />
+    <ClInclude Include="Source\Vox\Scene\Component.h" />
+    <ClInclude Include="Source\Vox\Scene\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1355,5 +1358,7 @@
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Scene\Scene.cpp" />
+    <ClCompile Include="Source\Vox\Scene\Entity.cpp" />
   </ItemGroup>
 </Project>

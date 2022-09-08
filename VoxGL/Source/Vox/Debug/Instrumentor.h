@@ -27,15 +27,9 @@ namespace Vox
 
 	class Instrumentor
 	{
-	private:
-		std::mutex m_Mutex;
-		InstrumentationSession* m_CurrentSession;
-		std::ofstream m_OutputStream;
 	public:
-		Instrumentor()
-			: m_CurrentSession(nullptr)
-		{
-		}
+		Instrumentor(const Instrumentor&) = delete;
+		Instrumentor(Instrumentor&&) = delete;
 
 		void BeginSession(const std::string& name, const std::string& filepath = "results.json")
 		{
@@ -100,6 +94,14 @@ namespace Vox
 		}
 
 	private:
+		Instrumentor() : m_CurrentSession(nullptr)
+		{
+		}
+
+		~Instrumentor()
+		{
+			EndSession();
+		}
 
 		void WriteHeader()
 		{
@@ -123,7 +125,10 @@ namespace Vox
 				m_CurrentSession = nullptr;
 			}
 		}
-
+	private:
+		std::mutex m_Mutex;
+		InstrumentationSession* m_CurrentSession;
+		std::ofstream m_OutputStream;
 	};
 
 	class InstrumentationTimer
@@ -209,8 +214,10 @@ namespace Vox
 
 	#define VOX_PROFILE_BEGIN_SESSION(name, filepath) ::Vox::Instrumentor::Get().BeginSession(name, filepath)
 	#define VOX_PROFILE_END_SESSION() ::Vox::Instrumentor::Get().EndSession()
-	#define VOX_PROFILE_SCOPE(name) constexpr auto fixedName = ::Vox::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
-										::Vox::InstrumentationTimer timer##__LINE__(fixedName.Data)
+	#define VOX_PROFILE_SCOPE_LINE2(name, line) constexpr auto fixedName##line = ::Vox::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
+											   ::Vox::InstrumentationTimer timer##line(fixedName##line.Data)
+	#define VOX_PROFILE_SCOPE_LINE(name, line) VOX_PROFILE_SCOPE_LINE2(name, line)
+	#define VOX_PROFILE_SCOPE(name) VOX_PROFILE_SCOPE_LINE(name, __LINE__)
 	#define VOX_PROFILE_FUNCTION() VOX_PROFILE_SCOPE(VOX_FUNC_SIG)
 #else
 	#define VOX_PROFILE_BEGIN_SESSION(name, filepath)

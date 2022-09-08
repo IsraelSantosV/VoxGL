@@ -22,6 +22,7 @@ IncludeDir["Glad"] = "VoxGL/ThirdParty/Glad/include"
 IncludeDir["ImGui"] = "VoxGL/ThirdParty/imgui"
 IncludeDir["glm"] = "VoxGL/ThirdParty/glm"
 IncludeDir["stb_image"] = "VoxGL/ThirdParty/stb_image"
+IncludeDir["entt"] = "VoxGL/ThirdParty/entt/include"
 
 group "Dependencies"
 	include "VoxGL/ThirdParty/GLFW"
@@ -67,7 +68,8 @@ project "VoxGL"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.entt}"
 	}
 
 	links
@@ -168,7 +170,8 @@ project "VoxGL-Editor"
 		"VoxGL/ThirdParty/spdlog/include",
 		"VoxGL/Source",
 		"VoxGL/ThirdParty",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}"
 	}
 
 	links
