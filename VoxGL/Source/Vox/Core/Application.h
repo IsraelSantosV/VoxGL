@@ -18,7 +18,7 @@ namespace Vox
 	class Application
 	{
 	public:
-		Application();
+		Application(const std::string& appName = "");
 		virtual ~Application();
 
 		void OnEvent(Event& e);
@@ -27,6 +27,8 @@ namespace Vox
 		void PushOverlay(Layer* overlay);
 
 		void Close();
+
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
 
 		inline static Application& Get() { return *m_Instance; }
 		inline Window& GetWindow() { return *m_Window; }

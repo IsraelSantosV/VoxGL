@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 	app->Run();
 	VOX_PROFILE_END_SESSION();
 
-	VOX_PROFILE_BEGIN_SESSION("Startup", "VoxProfile-Shutdown.json");
+	VOX_PROFILE_BEGIN_SESSION("Shutdown", "VoxProfile-Shutdown.json");
 	delete app;
 	VOX_PROFILE_END_SESSION();
 }

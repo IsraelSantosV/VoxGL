@@ -1,6 +1,6 @@
 workspace "VoxGL"
 	architecture "x86_64"
-	startproject "Sandbox"
+	startproject "VoxGL-Editor"
 
 	configurations
 	{
@@ -55,7 +55,8 @@ project "VoxGL"
 
 	defines
 	{
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
 	}
 
 	includedirs
@@ -82,8 +83,6 @@ project "VoxGL"
 
 		defines
 		{
-			"VOX_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"
@@ -103,6 +102,53 @@ project "VoxGL"
 
 project "Sandbox"
 	location "Sandbox"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/Source/**.h",
+		"%{prj.name}/Source/**.cpp",
+	}
+
+	includedirs
+	{
+		"VoxGL/ThirdParty/spdlog/include",
+		"VoxGL/Source",
+		"VoxGL/ThirdParty",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"VoxGL"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+
+	filter "configurations:Debug"
+		defines "VOX_DEBUG"
+		runtime "Debug"
+		symbols "on"
+	
+	filter "configurations:Release"
+		defines "VOX_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "VOX_DIST"
+		runtime "Release"
+		optimize "on"
+
+project "VoxGL-Editor"
+	location "VoxGL-Editor"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
