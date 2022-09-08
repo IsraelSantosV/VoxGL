@@ -13,13 +13,13 @@ namespace Vox
 {
 	Application* Application::m_Instance = nullptr; 
 	
-	Application::Application()
+	Application::Application(const std::string& appName)
 	{
 		VOX_PROFILE_FUNCTION();
 		VOX_CORE_ASSERT(!m_Instance, "Application aleady exists!");
 		m_Instance = this;
 
-		m_Window = Window::Create();
+		m_Window = Window::Create(WindowProps(appName));
 		m_Window->SetEventCallback(VOX_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
@@ -48,11 +48,11 @@ namespace Vox
 
 		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
 		{
-			(*it)->OnEvent(e);
 			if (e.Handled)
 			{
 				break;
 			}
+			(*it)->OnEvent(e);
 		}
 	}
 

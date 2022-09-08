@@ -7,7 +7,7 @@
 #include <string>
 #include <thread>
 
-namespace Vox
+namespace Vox 
 {
 	using FloatingPointMicroseconds = std::chrono::duration<double, std::micro>;
 
@@ -32,15 +32,17 @@ namespace Vox
 		InstrumentationSession* m_CurrentSession;
 		std::ofstream m_OutputStream;
 	public:
-		Instrumentor() : m_CurrentSession(nullptr)
+		Instrumentor()
+			: m_CurrentSession(nullptr)
 		{
 		}
 
-		void BeginSession(const std::string& name, const std::string& filepath = "Results.json")
+		void BeginSession(const std::string& name, const std::string& filepath = "results.json")
 		{
 			std::lock_guard lock(m_Mutex);
-			if (m_CurrentSession) {
-				if (Log::GetCoreLogger()) 
+			if (m_CurrentSession)
+			{
+				if (Log::GetCoreLogger())
 				{
 					LOG_CORE_ERROR("Instrumentor::BeginSession('{0}') when session '{1}' already open.", name, m_CurrentSession->Name);
 				}
@@ -48,13 +50,14 @@ namespace Vox
 			}
 			m_OutputStream.open(filepath);
 
-			if (m_OutputStream.is_open()) 
+			if (m_OutputStream.is_open())
 			{
 				m_CurrentSession = new InstrumentationSession({ name });
 				WriteHeader();
 			}
-			else {
-				if (Log::GetCoreLogger()) 
+			else
+			{
+				if (Log::GetCoreLogger())
 				{
 					LOG_CORE_ERROR("Instrumentor could not open results file '{0}'.", filepath);
 				}
@@ -71,14 +74,11 @@ namespace Vox
 		{
 			std::stringstream json;
 
-			std::string name = result.Name;
-			std::replace(name.begin(), name.end(), '"', '\'');
-
 			json << std::setprecision(3) << std::fixed;
 			json << ",{";
 			json << "\"cat\":\"function\",";
 			json << "\"dur\":" << (result.ElapsedTime.count()) << ',';
-			json << "\"name\":\"" << name << "\",";
+			json << "\"name\":\"" << result.Name << "\",";
 			json << "\"ph\":\"X\",";
 			json << "\"pid\":0,";
 			json << "\"tid\":" << result.ThreadID << ",";
@@ -86,13 +86,15 @@ namespace Vox
 			json << "}";
 
 			std::lock_guard lock(m_Mutex);
-			if (m_CurrentSession) {
+			if (m_CurrentSession)
+			{
 				m_OutputStream << json.str();
 				m_OutputStream.flush();
 			}
 		}
 
-		static Instrumentor& Get() {
+		static Instrumentor& Get()
+		{
 			static Instrumentor instance;
 			return instance;
 		}
@@ -111,8 +113,10 @@ namespace Vox
 			m_OutputStream.flush();
 		}
 
-		void InternalEndSession() {
-			if (m_CurrentSession) {
+		void InternalEndSession()
+		{
+			if (m_CurrentSession)
+			{
 				WriteFooter();
 				m_OutputStream.close();
 				delete m_CurrentSession;
@@ -151,7 +155,36 @@ namespace Vox
 		const char* m_Name;
 		std::chrono::time_point<std::chrono::steady_clock> m_StartTimepoint;
 		bool m_Stopped;
+	};
+
+	namespace InstrumentorUtils {
+
+		template <size_t N>
+		struct ChangeResult
+		{
+			char Data[N];
 		};
+
+		template <size_t N, size_t K>
+		constexpr auto CleanupOutputString(const char(&expr)[N], const char(&remove)[K])
+		{
+			ChangeResult<N> result = {};
+
+			size_t srcIndex = 0;
+			size_t dstIndex = 0;
+			while (srcIndex < N)
+			{
+				size_t matchIndex = 0;
+				while (matchIndex < K - 1 && srcIndex + matchIndex < N - 1 && expr[srcIndex + matchIndex] == remove[matchIndex])
+					matchIndex++;
+				if (matchIndex == K - 1)
+					srcIndex += matchIndex;
+				result.Data[dstIndex++] = expr[srcIndex] == '"' ? '\'' : expr[srcIndex];
+				srcIndex++;
+			}
+			return result;
+		}
+	}
 }
 
 #define VOX_PROFILE 0
@@ -160,7 +193,7 @@ namespace Vox
 		#define VOX_FUNC_SIG __PRETTY_FUNCTION__
 	#elif defined(__DMC__) && (__DMC__ >= 0x810)
 		#define VOX_FUNC_SIG __PRETTY_FUNCTION__
-	#elif defined(__FUNCSIG__)
+	#elif (defined(__FUNCSIG__) || (_MSC_VER))
 		#define VOX_FUNC_SIG __FUNCSIG__
 	#elif (defined(__INTEL_COMPILER) && (__INTEL_COMPILER >= 600)) || (defined(__IBMCPP__) && (__IBMCPP__ >= 500))
 		#define VOX_FUNC_SIG __FUNCTION__
@@ -176,7 +209,8 @@ namespace Vox
 
 	#define VOX_PROFILE_BEGIN_SESSION(name, filepath) ::Vox::Instrumentor::Get().BeginSession(name, filepath)
 	#define VOX_PROFILE_END_SESSION() ::Vox::Instrumentor::Get().EndSession()
-	#define VOX_PROFILE_SCOPE(name) ::Vox::InstrumentationTimer timer##__LINE__(name);
+	#define VOX_PROFILE_SCOPE(name) constexpr auto fixedName = ::Vox::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
+										::Vox::InstrumentationTimer timer##__LINE__(fixedName.Data)
 	#define VOX_PROFILE_FUNCTION() VOX_PROFILE_SCOPE(VOX_FUNC_SIG)
 #else
 	#define VOX_PROFILE_BEGIN_SESSION(name, filepath)

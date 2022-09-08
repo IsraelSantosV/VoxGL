@@ -65,6 +65,12 @@ namespace Vox
 		dispatcher.Dispatch<WindowResizeEvent>(VOX_BIND_EVENT_FN(OrthoCameraController::OnWindowResized));
 	}
 
+	void OrthoCameraController::OnResize(float width, float height)
+	{
+		m_AspectRatio = width / height;
+		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+	}
+
 	bool OrthoCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
 		VOX_PROFILE_FUNCTION();
@@ -79,8 +85,7 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
-		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+		OnResize((float)e.GetWidth(), (float)e.GetHeight());
 		return false;
 	}
 }

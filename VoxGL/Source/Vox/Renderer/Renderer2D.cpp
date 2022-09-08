@@ -105,6 +105,7 @@ namespace Vox
 	void Renderer2D::Shutdown()
 	{
 		VOX_PROFILE_FUNCTION();
+		delete[] m_Data.QuadVertexBufferBase;
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
@@ -124,7 +125,7 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		uint32_t dataSize = (uint8_t*)m_Data.QuadVertexBufferPtr - (uint8_t*)m_Data.QuadVertexBufferBase;
+		uint32_t dataSize = (uint32_t)((uint8_t*)m_Data.QuadVertexBufferPtr - (uint8_t*)m_Data.QuadVertexBufferBase);
 		m_Data.QuadVertexBuffer->SetData(m_Data.QuadVertexBufferBase, dataSize);
 
 		Flush();
@@ -132,6 +133,11 @@ namespace Vox
 
 	void Renderer2D::Flush()
 	{
+		if (m_Data.QuadIndexCount == 0)
+		{
+			return;
+		}
+
 		for (uint32_t i = 0; i < m_Data.TextureSlotIndex; i++)
 		{
 			m_Data.TextureSlots[i]->Bind(i);
@@ -158,46 +164,29 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
-		{
-			FlushAndReset();
-		}
-
-		const float texIndex = 0.0f;
+		constexpr size_t quadVertexCount = 4;
+		const float textureIndex = 0.0f;
+		constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
 		const float tilingFactor = 1.0f;
+
+		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
+			FlushAndReset();
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
 			* glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[0];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[1];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[2];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[3];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
+		for (size_t i = 0; i < quadVertexCount; i++)
+		{
+			m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[i];
+			m_Data.QuadVertexBufferPtr->Color = color;
+			m_Data.QuadVertexBufferPtr->TexCoord = textureCoords[i];
+			m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
+			m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
+			m_Data.QuadVertexBufferPtr++;
+		}
 
 		m_Data.QuadIndexCount += 6;
+
 		m_Data.Stats.QuadCount++;
 	}
 
@@ -210,12 +199,11 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
-		{
-			FlushAndReset();
-		}
+		constexpr size_t quadVertexCount = 4;
+		constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
 
-		constexpr glm::vec4 color = { 1.0f, 1.0f, 1.0f, 1.0f };
+		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
+			FlushAndReset();
 
 		float textureIndex = 0.0f;
 		for (uint32_t i = 1; i < m_Data.TextureSlotIndex; i++)
@@ -229,6 +217,9 @@ namespace Vox
 
 		if (textureIndex == 0.0f)
 		{
+			if (m_Data.TextureSlotIndex >= Renderer2DData::MaxTextureSlots)
+				FlushAndReset();
+
 			textureIndex = (float)m_Data.TextureSlotIndex;
 			m_Data.TextureSlots[m_Data.TextureSlotIndex] = texture;
 			m_Data.TextureSlotIndex++;
@@ -237,35 +228,18 @@ namespace Vox
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
 			* glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[0];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[1];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[2];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[3];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
+		for (size_t i = 0; i < quadVertexCount; i++)
+		{
+			m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[i];
+			m_Data.QuadVertexBufferPtr->Color = tintColor;
+			m_Data.QuadVertexBufferPtr->TexCoord = textureCoords[i];
+			m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
+			m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
+			m_Data.QuadVertexBufferPtr++;
+		}
 
 		m_Data.QuadIndexCount += 6;
+
 		m_Data.Stats.QuadCount++;
 	}
 
@@ -278,47 +252,30 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
-		{
-			FlushAndReset();
-		}
-
-		const float texIndex = 0.0f;
+		constexpr size_t quadVertexCount = 4;
+		const float textureIndex = 0.0f;
+		constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
 		const float tilingFactor = 1.0f;
+
+		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
+			FlushAndReset();
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
 			* glm::rotate(glm::mat4(1.0f), glm::radians(rotation), { 0.0f, 0.0f, 1.0f })
 			* glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[0];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[1];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[2];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[3];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = texIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
+		for (size_t i = 0; i < quadVertexCount; i++)
+		{
+			m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[i];
+			m_Data.QuadVertexBufferPtr->Color = color;
+			m_Data.QuadVertexBufferPtr->TexCoord = textureCoords[i];
+			m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
+			m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
+			m_Data.QuadVertexBufferPtr++;
+		}
 
 		m_Data.QuadIndexCount += 6;
+
 		m_Data.Stats.QuadCount++;
 	}
 
@@ -331,12 +288,11 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
-		{
-			FlushAndReset();
-		}
+		constexpr size_t quadVertexCount = 4;
+		constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
 
-		constexpr glm::vec4 color = { 1.0f, 1.0f, 1.0f, 1.0f };
+		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
+			FlushAndReset();
 
 		float textureIndex = 0.0f;
 		for (uint32_t i = 1; i < m_Data.TextureSlotIndex; i++)
@@ -350,6 +306,9 @@ namespace Vox
 
 		if (textureIndex == 0.0f)
 		{
+			if (m_Data.TextureSlotIndex >= Renderer2DData::MaxTextureSlots)
+				FlushAndReset();
+
 			textureIndex = (float)m_Data.TextureSlotIndex;
 			m_Data.TextureSlots[m_Data.TextureSlotIndex] = texture;
 			m_Data.TextureSlotIndex++;
@@ -359,35 +318,18 @@ namespace Vox
 			* glm::rotate(glm::mat4(1.0f), glm::radians(rotation), { 0.0f, 0.0f, 1.0f })
 			* glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[0];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[1];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 0.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[2];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 1.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
-
-		m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[3];
-		m_Data.QuadVertexBufferPtr->Color = color;
-		m_Data.QuadVertexBufferPtr->TexCoord = { 0.0f, 1.0f };
-		m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
-		m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
-		m_Data.QuadVertexBufferPtr++;
+		for (size_t i = 0; i < quadVertexCount; i++)
+		{
+			m_Data.QuadVertexBufferPtr->Position = transform * m_Data.QuadVertexPositions[i];
+			m_Data.QuadVertexBufferPtr->Color = tintColor;
+			m_Data.QuadVertexBufferPtr->TexCoord = textureCoords[i];
+			m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
+			m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
+			m_Data.QuadVertexBufferPtr++;
+		}
 
 		m_Data.QuadIndexCount += 6;
+
 		m_Data.Stats.QuadCount++;
 	}
 
