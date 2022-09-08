@@ -6,7 +6,6 @@ namespace Vox
 {
 	class WinInput : public Input
 	{
-	public:
 	protected:
 		virtual bool IsKeyPressedImpl(KeyCode key) override;
 

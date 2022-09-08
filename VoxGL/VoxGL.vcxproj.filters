@@ -1460,6 +1460,9 @@
     <ClCompile Include="Source\Vox\Core\Log.cpp">
       <Filter>Source\Vox\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Core\Window.cpp">
+      <Filter>Source\Vox\Core</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Vox\ImGui\ImGuiBuild.cpp">
       <Filter>Source\Vox\ImGui</Filter>
     </ClCompile>
@@ -1467,6 +1470,9 @@
       <Filter>Source\Vox\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Renderer\GraphicsContext.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\OrthoCameraController.cpp">

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RendererApi.h"
+#include "Vox/Renderer/RendererAPI.h"
 
 namespace Vox
 {
@@ -27,11 +27,11 @@ namespace Vox
 			m_RendererAPI->Clear();
 		}
 
-		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray)
+		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
 		{
-			m_RendererAPI->DrawIndexed(vertexArray);
+			m_RendererAPI->DrawIndexed(vertexArray, count);
 		}
 	private:
-		static RendererAPI* m_RendererAPI;
+		static Scope<RendererAPI> m_RendererAPI;
 	};
 }
