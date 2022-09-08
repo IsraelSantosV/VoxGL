@@ -17,10 +17,6 @@ namespace Vox
 	{
 	}
 
-	ImGuiLayer::~ImGuiLayer()
-	{
-	}
-
 	void ImGuiLayer::OnAttach()
 	{
 		VOX_PROFILE_FUNCTION();

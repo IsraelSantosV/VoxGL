@@ -154,7 +154,7 @@ namespace Vox
 		};
 }
 
-#define VOX_PROFILE 1
+#define VOX_PROFILE 0
 #if VOX_PROFILE
 	#if defined(__GNUC__) || (defined(__MWERKS__) && (__MWERKS__ >= 0x3000)) || (defined(__ICC) && (__ICC >= 600)) || defined(__ghs__)
 		#define VOX_FUNC_SIG __PRETTY_FUNCTION__

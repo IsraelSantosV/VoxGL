@@ -11,8 +11,6 @@
 
 namespace Vox
 {
-#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
-
 	Application* Application::m_Instance = nullptr; 
 	
 	Application::Application()
@@ -21,8 +19,8 @@ namespace Vox
 		VOX_CORE_ASSERT(!m_Instance, "Application aleady exists!");
 		m_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+		m_Window = Window::Create();
+		m_Window->SetEventCallback(VOX_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
 
@@ -40,8 +38,8 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
+		dispatcher.Dispatch<WindowCloseEvent>(VOX_BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(VOX_BIND_EVENT_FN(Application::OnWindowResize));
 
 		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
 		{

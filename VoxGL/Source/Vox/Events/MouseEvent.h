@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vox/Events/Event.h"
+#include "Vox/Core/Input.h"
 
 namespace Vox {
 
@@ -10,8 +11,8 @@ namespace Vox {
 		MouseMovedEvent(const float x, const float y)
 			: m_MouseX(x), m_MouseY(y) {}
 
-		float GetX() const { return m_MouseX; }
-		float GetY() const { return m_MouseY; }
+		inline float GetX() const { return m_MouseX; }
+		inline float GetY() const { return m_MouseY; }
 
 		std::string ToString() const override
 		{
@@ -32,8 +33,8 @@ namespace Vox {
 		MouseScrolledEvent(const float xOffset, const float yOffset)
 			: m_XOffset(xOffset), m_YOffset(yOffset) {}
 
-		float GetXOffset() const { return m_XOffset; }
-		float GetYOffset() const { return m_YOffset; }
+		inline float GetXOffset() const { return m_XOffset; }
+		inline float GetYOffset() const { return m_YOffset; }
 
 		std::string ToString() const override
 		{
@@ -51,19 +52,19 @@ namespace Vox {
 	class MouseButtonEvent : public Event
 	{
 	public:
-		unsigned int GetMouseButton() const { return m_Button; }
+		inline MouseCode GetMouseButton() const { return m_Button; }
 
-		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput | EventCategoryMouseButton)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	protected:
-		MouseButtonEvent(const unsigned int button) : m_Button(button) {}
+		MouseButtonEvent(MouseCode button) : m_Button(button) {}
 
-		unsigned int m_Button;
+		MouseCode m_Button;
 	};
 
 	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
-		MouseButtonPressedEvent(const unsigned int button) : MouseButtonEvent(button) {}
+		MouseButtonPressedEvent(MouseCode button) : MouseButtonEvent(button) {}
 
 		std::string ToString() const override
 		{
@@ -78,7 +79,7 @@ namespace Vox {
 	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
-		MouseButtonReleasedEvent(const unsigned int button) : MouseButtonEvent(button) {}
+		MouseButtonReleasedEvent(MouseCode button) : MouseButtonEvent(button) {}
 
 		std::string ToString() const override
 		{

@@ -30,10 +30,12 @@ namespace Vox
 
 		int width, height, channels;
 		stbi_set_flip_vertically_on_load(1);
-		stbi_uc* data = stbi_load(path.c_str(), &width, &height, &channels, 0);
-
+		stbi_uc* data = nullptr;
+		{
+			VOX_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std:string&)");
+			data = stbi_load(path.c_str(), &width, &height, &channels, 0);
+		}
 		VOX_CORE_ASSERT(data, "Failed to load image!");
-
 		m_Width = width;
 		m_Height = height;
 
@@ -43,7 +45,7 @@ namespace Vox
 			internalFormat = GL_RGBA8;
 			dataFormat = GL_RGBA;
 		}
-		else if(channels == 3)
+		else if (channels == 3)
 		{
 			internalFormat = GL_RGB8;
 			dataFormat = GL_RGB;

@@ -9,17 +9,17 @@ namespace Vox
     {
         switch (type)
         {
-            case Vox::ShaderDataType::Float:	return GL_FLOAT;
-            case Vox::ShaderDataType::Float2:	return GL_FLOAT;
-            case Vox::ShaderDataType::Float3:	return GL_FLOAT;
-            case Vox::ShaderDataType::Float4:	return GL_FLOAT;
-            case Vox::ShaderDataType::Mat3:		return GL_FLOAT;
-            case Vox::ShaderDataType::Mat4:		return GL_FLOAT;
-            case Vox::ShaderDataType::Int:		return GL_INT;
-            case Vox::ShaderDataType::Int2:		return GL_INT;
-            case Vox::ShaderDataType::Int3:		return GL_INT;
-            case Vox::ShaderDataType::Int4:		return GL_INT;
-            case Vox::ShaderDataType::Bool:		return GL_BOOL;
+            case ShaderDataType::Float:    return GL_FLOAT;
+            case ShaderDataType::Float2:   return GL_FLOAT;
+            case ShaderDataType::Float3:   return GL_FLOAT;
+            case ShaderDataType::Float4:   return GL_FLOAT;
+            case ShaderDataType::Mat3:     return GL_FLOAT;
+            case ShaderDataType::Mat4:     return GL_FLOAT;
+            case ShaderDataType::Int:      return GL_INT;
+            case ShaderDataType::Int2:     return GL_INT;
+            case ShaderDataType::Int3:     return GL_INT;
+            case ShaderDataType::Int4:     return GL_INT;
+            case ShaderDataType::Bool:     return GL_BOOL;
         }
 
         VOX_CORE_ASSERT(false, "Unknown ShaderDataType!");
@@ -62,19 +62,17 @@ namespace Vox
         glBindVertexArray(m_RendererId);
         vertexBuffer->Bind();
 
-
-        uint32_t index = 0;
         const auto& layout = vertexBuffer->GetLayout();
         for (const auto& element : layout)
         {
-            glEnableVertexAttribArray(index);
-            glVertexAttribPointer(index, element.GetComponentCount(),
+            glEnableVertexAttribArray(m_VertexBufferIndex);
+            glVertexAttribPointer(m_VertexBufferIndex,
+                element.GetComponentCount(),
                 ShaderDataTypeToOpenGLBaseType(element.Type),
                 element.Normalized ? GL_TRUE : GL_FALSE,
                 layout.GetStride(),
                 (const void*)element.Offset);
-
-            index++;
+            m_VertexBufferIndex++;
         }
 
         m_VertexBuffers.push_back(vertexBuffer);
@@ -86,6 +84,7 @@ namespace Vox
 
         glBindVertexArray(m_RendererId);
         indexBuffer->Bind();
+
         m_IndexBuffer = indexBuffer;
     }
 }

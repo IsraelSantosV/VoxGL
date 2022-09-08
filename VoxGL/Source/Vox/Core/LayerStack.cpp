@@ -3,14 +3,11 @@
 
 namespace Vox
 {
-	LayerStack::LayerStack()
-	{
-	}
-
 	LayerStack::~LayerStack()
 	{
 		for (Layer* layer : m_Layers)
 		{
+			layer->OnDetach();
 			delete layer;
 		}
 	}
@@ -31,6 +28,7 @@ namespace Vox
 		auto it = std::find(begin(), end(), layer);
 		if (it != m_Layers.end())
 		{
+			layer->OnDetach();
 			m_Layers.erase(it);
 			m_LayerInsertIndex--;
 		}
@@ -41,6 +39,7 @@ namespace Vox
 		auto it = std::find(begin(), end(), overlay);
 		if (it != m_Layers.end())
 		{
+			overlay->OnDetach();
 			m_Layers.erase(it);
 		}
 	}

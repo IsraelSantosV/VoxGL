@@ -1,21 +1,17 @@
 #pragma once
 
-#include "Core.h"
-#include "Window.h"
+#include "Vox/Core/Core.h"
+#include "Vox/Core/Window.h"
 
 #include "Vox/Core/LayerStack.h"
 #include "Vox/Events/Event.h"
 #include "Vox/Events/AplicationEvent.h"
 
-#include "Vox/ImGui/ImGuiLayer.h"
-
-#include "Vox/Renderer/Shader.h"
-#include "Vox/Renderer/Buffer.h"
-#include "Vox/Renderer/VertexArray.h"
-
 #include "Vox/Core/Timestep.h"
 
-#include "Vox/Renderer/OrthographicCamera.h"
+#include "Vox/ImGui/ImGuiLayer.h"
+
+int main(int argc, char** argv);
 
 namespace Vox
 {
@@ -25,7 +21,6 @@ namespace Vox
 		Application();
 		virtual ~Application();
 
-		void Run();
 		void OnEvent(Event& e);
 
 		void PushLayer(Layer* layer);
@@ -34,6 +29,7 @@ namespace Vox
 		inline static Application& Get() { return *m_Instance; }
 		inline Window& GetWindow() { return *m_Window; }
 	private:
+		void Run();
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
@@ -45,6 +41,7 @@ namespace Vox
 		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* m_Instance;
+		friend int ::main(int argc, char** argv);
 	};
 
 	Application* CreateApplication();
