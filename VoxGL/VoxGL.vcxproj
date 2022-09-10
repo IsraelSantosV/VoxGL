@@ -184,7 +184,7 @@
     <ClInclude Include="Source\Vox\Renderer\Shader.h" />
     <ClInclude Include="Source\Vox\Renderer\Texture.h" />
     <ClInclude Include="Source\Vox\Renderer\VertexArray.h" />
-    <ClInclude Include="Source\Vox\Scene\Component.h" />
+    <ClInclude Include="Source\Vox\Scene\Components.h" />
     <ClInclude Include="Source\Vox\Scene\Entity.h" />
     <ClInclude Include="Source\Vox\Scene\Scene.h" />
     <ClInclude Include="Source\Vox\Scene\SceneCamera.h" />

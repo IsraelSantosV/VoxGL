@@ -2,8 +2,6 @@
 
 #include "entt.hpp"
 
-#include "Vox/Scene/Component.h"
-
 #include "Vox/Core/Timestep.h"
 
 namespace Vox

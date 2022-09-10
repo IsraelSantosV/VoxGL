@@ -1,7 +1,7 @@
 #include "VoxPch.h"
 #include "Vox/Scene/Scene.h"
 
-#include "Vox/Scene/Component.h"
+#include "Vox/Scene/Components.h"
 #include "Vox/Renderer/Renderer2D.h"
 
 #include <glm/glm.hpp>

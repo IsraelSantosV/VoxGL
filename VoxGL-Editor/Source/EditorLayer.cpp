@@ -4,6 +4,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "CameraController.h"
+
 namespace Vox 
 {
 	EditorLayer::EditorLayer() : Layer("EditorLayer"), 
@@ -31,7 +33,7 @@ namespace Vox
 		m_CameraEntity = m_ActiveScene->CreateEntity("MainCamera");
 		m_CameraEntity.AddComponent<CameraComponent>();
 
-		m_CameraEntity.AddComponent<BehaviourComponent>();
+		m_CameraEntity.AddComponent<BehaviourComponent>().Bind<CameraController>();
 	}
 
 	void EditorLayer::OnDetach()

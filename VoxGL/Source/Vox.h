@@ -21,7 +21,7 @@
 #include "Vox/Scene/Scene.h"
 #include "Vox/Scene/Entity.h"
 #include "Vox/Scene/ScriptableEntity.h"
-#include "Vox/Scene/Component.h"
+#include "Vox/Scene/Components.h"
 
 //-------------------------------------------
 

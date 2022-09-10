@@ -49,6 +49,10 @@ project "VoxGL"
 	filter "system:windows"
 		systemversion "latest"
 
+		defines
+		{
+		}
+
 	filter "configurations:Debug"
 		defines "VOX_DEBUG"
 		runtime "Debug"

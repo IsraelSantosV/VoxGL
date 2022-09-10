@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\CameraController.h" />
     <ClInclude Include="Source\EditorLayer.h" />
   </ItemGroup>
   <ItemGroup>

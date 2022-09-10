@@ -180,7 +180,7 @@
     <ClInclude Include="Source\Vox\Renderer\VertexArray.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Scene\Component.h">
+    <ClInclude Include="Source\Vox\Scene\Components.h">
       <Filter>Source\Vox\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Scene\Entity.h">
