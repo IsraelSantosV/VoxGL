@@ -3,6 +3,7 @@
 #include <glm/glm.hpp>
 
 #include "Vox/Scene/SceneCamera.h"
+#include "Vox/Scene/ScriptableEntity.h"
 
 namespace Vox
 {
@@ -45,5 +46,20 @@ namespace Vox
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
+	};
+
+	struct BehaviourComponent
+	{
+		ScriptableEntity* Instance = nullptr;
+
+		ScriptableEntity*(*InstantiateScript)();
+		void(*DestroyScript)(BehaviourComponent*);
+
+		template<typename T>
+		void Bind()
+		{
+			InstantiateScript = []() { return static_cast<ScriptableEntity*>(new T()); };
+			DestroyScript = [](BehaviourComponent* behaviour) { delete behaviour->Instance; behaviour->Instance = nullptr; };
+		}
 	};
 }

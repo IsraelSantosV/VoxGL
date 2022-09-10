@@ -30,6 +30,8 @@ namespace Vox
 
 		m_CameraEntity = m_ActiveScene->CreateEntity("MainCamera");
 		m_CameraEntity.AddComponent<CameraComponent>();
+
+		m_CameraEntity.AddComponent<BehaviourComponent>();
 	}
 
 	void EditorLayer::OnDetach()

@@ -31,6 +31,20 @@ namespace Vox
 
 	void Scene::OnUpdate(Timestep ts)
 	{
+		//Update Behaviours
+		m_Registry.view<BehaviourComponent>().each([=](auto entity, auto& behaviour)
+		{
+			if(!behaviour.Instance)
+			{
+				behaviour.Instance = behaviour.InstantiateScript();
+				behaviour.Instance->m_Entity = Entity{ entity, this };
+
+				behaviour.Instance->OnCreate();
+			}
+
+			behaviour.Instance->OnUpdate(ts);
+		});
+
 		Camera* mainCamera = nullptr;
 		glm::mat4* cameraTransform = nullptr;
 
