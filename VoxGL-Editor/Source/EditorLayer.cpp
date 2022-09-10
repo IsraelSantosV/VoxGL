@@ -27,6 +27,9 @@ namespace Vox
 		auto square = m_ActiveScene->CreateEntity("Square");
 		square.AddComponent<SpriteRendererComponent>(glm::vec4{ 0.1f, 0.5f, 0.8f, 1.0f });
 		m_SquareEntity = square;
+
+		m_CameraEntity = m_ActiveScene->CreateEntity("MainCamera");
+		m_CameraEntity.AddComponent<CameraComponent>(glm::ortho(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 	}
 
 	void EditorLayer::OnDetach()
