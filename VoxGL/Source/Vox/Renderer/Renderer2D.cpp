@@ -113,6 +113,7 @@ namespace Vox
 		VOX_PROFILE_FUNCTION();
 
 		glm::mat4 viewProj = camera.GetProjection() * glm::inverse(transform);
+
 		m_Data.TextureShader->Bind();
 		m_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);
 
@@ -239,7 +240,7 @@ namespace Vox
 		float textureIndex = 0.0f;
 		for (uint32_t i = 1; i < m_Data.TextureSlotIndex; i++)
 		{
-			if (*m_Data.TextureSlots[i].get() == *texture.get())
+			if (*m_Data.TextureSlots[i] == *texture)
 			{
 				textureIndex = (float)i;
 				break;
