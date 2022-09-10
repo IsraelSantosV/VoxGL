@@ -2,6 +2,8 @@
 
 #include <glm/glm.hpp>
 
+#include "Vox/Renderer/Camera.h"
+
 namespace Vox
 {
 	struct TagComponent
@@ -32,5 +34,15 @@ namespace Vox
 		SpriteRendererComponent() = default;
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;
 		SpriteRendererComponent(const glm::vec4& color) : Color(color) {}
+	};
+
+	struct CameraComponent
+	{
+		Camera Camera;
+		bool MainCamera = true;
+
+		CameraComponent() = default;
+		CameraComponent(const CameraComponent&) = default;
+		CameraComponent(const glm::mat4& projection) : Camera(projection) {}
 	};
 }
