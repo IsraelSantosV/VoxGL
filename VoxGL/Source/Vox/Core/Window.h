@@ -1,6 +1,6 @@
 #pragma once
 
-#include "VoxPch.h"
+#include <sstream>
 
 #include "Vox/Core/Core.h"
 #include "Vox/Events/Event.h"

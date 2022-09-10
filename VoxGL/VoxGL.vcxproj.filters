@@ -114,6 +114,9 @@
     <ClInclude Include="Source\Vox\Core\MouseCodes.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Core\PlatformDetection.h">
+      <Filter>Source\Vox\Core</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Core\Timestep.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
@@ -187,6 +190,9 @@
       <Filter>Source\Vox\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Scene\SceneCamera.h">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Scene\ScriptableEntity.h">
       <Filter>Source\Vox\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\VoxPch.h">

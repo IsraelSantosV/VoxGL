@@ -162,6 +162,7 @@
     <ClInclude Include="Source\Vox\Core\LayerStack.h" />
     <ClInclude Include="Source\Vox\Core\Log.h" />
     <ClInclude Include="Source\Vox\Core\MouseCodes.h" />
+    <ClInclude Include="Source\Vox\Core\PlatformDetection.h" />
     <ClInclude Include="Source\Vox\Core\Timestep.h" />
     <ClInclude Include="Source\Vox\Core\Window.h" />
     <ClInclude Include="Source\Vox\Debug\Instrumentor.h" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Source\Vox\Scene\Entity.h" />
     <ClInclude Include="Source\Vox\Scene\Scene.h" />
     <ClInclude Include="Source\Vox\Scene\SceneCamera.h" />
+    <ClInclude Include="Source\Vox\Scene\ScriptableEntity.h" />
     <ClInclude Include="Source\VoxPch.h" />
     <ClInclude Include="ThirdParty\glm\glm\common.hpp" />
     <ClInclude Include="ThirdParty\glm\glm\detail\_features.hpp" />

@@ -1,6 +1,8 @@
 #pragma once
 
-#include "VoxPch.h"
+#include <functional>
+
+#include "Vox/Debug/Instrumentor.h"
 #include "Vox/Core/Core.h"
 
 namespace Vox {
