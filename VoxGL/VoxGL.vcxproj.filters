@@ -31,6 +31,9 @@
     <Filter Include="Source\Vox\Renderer">
       <UniqueIdentifier>{A826150B-1488-F218-9DF5-38CB095629D8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Scene">
+      <UniqueIdentifier>{5F5FAB50-4B58-CAA2-748A-AF2760E2A9AE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ThirdParty">
       <UniqueIdentifier>{107145F9-FC28-8746-6530-60A251072237}</UniqueIdentifier>
     </Filter>
@@ -138,6 +141,9 @@
     <ClInclude Include="Source\Vox\Renderer\Buffer.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Renderer\Camera.h">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Framebuffer.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
@@ -170,6 +176,18 @@
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\VertexArray.h">
       <Filter>Source\Vox\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Scene\Component.h">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Scene\Entity.h">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Scene\Scene.h">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Scene\SceneCamera.h">
+      <Filter>Source\Vox\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\VoxPch.h">
       <Filter>Source</Filter>
@@ -1263,9 +1281,6 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Scene\Scene.h" />
-    <ClInclude Include="Source\Vox\Scene\Component.h" />
-    <ClInclude Include="Source\Vox\Scene\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1352,13 +1367,20 @@
     <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Scene\Entity.cpp">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Scene\Scene.cpp">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Scene\SceneCamera.cpp">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="Source\VoxPch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Vox\Scene\Scene.cpp" />
-    <ClCompile Include="Source\Vox\Scene\Entity.cpp" />
   </ItemGroup>
 </Project>

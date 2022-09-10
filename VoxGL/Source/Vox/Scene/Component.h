@@ -2,7 +2,7 @@
 
 #include <glm/glm.hpp>
 
-#include "Vox/Renderer/Camera.h"
+#include "Vox/Scene/SceneCamera.h"
 
 namespace Vox
 {
@@ -38,11 +38,12 @@ namespace Vox
 
 	struct CameraComponent
 	{
-		Camera Camera;
+		SceneCamera Camera;
 		bool MainCamera = true;
+
+		bool FixedAspectRatio = false;
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
-		CameraComponent(const glm::mat4& projection) : Camera(projection) {}
 	};
 }
