@@ -52,14 +52,14 @@ namespace Vox
 	{
 		ScriptableEntity* Instance = nullptr;
 
-		ScriptableEntity*(*InstantiateScript)();
-		void(*DestroyScript)(BehaviourComponent*);
+		ScriptableEntity* (*InstantiateScript)();
+		void (*DestroyScript)(BehaviourComponent*);
 
 		template<typename T>
 		void Bind()
 		{
 			InstantiateScript = []() { return static_cast<ScriptableEntity*>(new T()); };
-			DestroyScript = [](BehaviourComponent* behaviour) { delete behaviour->Instance; behaviour->Instance = nullptr; };
+			DestroyScript = [](BehaviourComponent* nsc) { delete nsc->Instance; nsc->Instance = nullptr; };
 		}
 	};
 }

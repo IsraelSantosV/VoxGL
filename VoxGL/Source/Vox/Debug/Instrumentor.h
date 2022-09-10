@@ -6,6 +6,10 @@
 #include <iomanip>
 #include <string>
 #include <thread>
+#include <mutex>
+#include <sstream>
+
+#include "Vox/Core/Log.h"
 
 namespace Vox 
 {
@@ -215,7 +219,8 @@ namespace Vox
 	#define VOX_PROFILE_BEGIN_SESSION(name, filepath) ::Vox::Instrumentor::Get().BeginSession(name, filepath)
 	#define VOX_PROFILE_END_SESSION() ::Vox::Instrumentor::Get().EndSession()
 	#define VOX_PROFILE_SCOPE_LINE2(name, line) constexpr auto fixedName##line = ::Vox::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
-											   ::Vox::InstrumentationTimer timer##line(fixedName##line.Data)
+												   ::Vox::InstrumentationTimer timer##line(fixedName##line.Data)
+	#define VOX_PROFILE_SCOPE_LINE(name, line) VOX_PROFILE_SCOPE_LINE2(name, line)
 	#define VOX_PROFILE_SCOPE_LINE(name, line) VOX_PROFILE_SCOPE_LINE2(name, line)
 	#define VOX_PROFILE_SCOPE(name) VOX_PROFILE_SCOPE_LINE(name, __LINE__)
 	#define VOX_PROFILE_FUNCTION() VOX_PROFILE_SCOPE(VOX_FUNC_SIG)
