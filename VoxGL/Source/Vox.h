@@ -6,6 +6,7 @@
 #include "Vox/Core/Application.h"
 #include "Vox/Core/Layer.h"
 #include "Vox/Core/Log.h"
+#include "Vox/Core/Assert.h"
 
 #include "Vox/Core/Timestep.h"
 

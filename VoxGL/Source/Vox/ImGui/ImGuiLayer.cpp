@@ -7,6 +7,8 @@
 
 #include "Vox/Core/Application.h"
 
+#include "Vox/ImGui/ThemePalette.h"
+
 //Temporary
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
@@ -32,15 +34,23 @@ namespace Vox
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
+		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Bold.ttf", Window::m_HighDpiScaleFactor * 18.0f);
+		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Italic.ttf", Window::m_HighDpiScaleFactor * 18.0f);
+		io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Regular.ttf", Window::m_HighDpiScaleFactor * 18.0f);
+
 		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();
 
 		ImGuiStyle& style = ImGui::GetStyle();
+		style.ScaleAllSizes(Window::m_HighDpiScaleFactor);
+
 		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 		{
 			style.WindowRounding = 0.0f;
 			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
 		}
+
+		SetThemeColors();
 
 		Application& app = Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
@@ -48,6 +58,34 @@ namespace Vox
 		// Setup Platform/Renderer bindings
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		ImGui_ImplOpenGL3_Init("#version 410");
+	}
+
+	void ImGuiLayer::SetThemeColors()
+	{
+		auto& colors = ImGui::GetStyle().Colors;
+		colors[ImGuiCol_WindowBg] = ThemePalette::WindowColor;
+
+		colors[ImGuiCol_Header] = ThemePalette::HeaderColor;
+		colors[ImGuiCol_HeaderHovered] = ThemePalette::HeaderHoveredColor;
+		colors[ImGuiCol_HeaderActive] = ThemePalette::HeaderActiveColor;
+
+		colors[ImGuiCol_Button] = ThemePalette::ButtonColor;
+		colors[ImGuiCol_ButtonHovered] = ThemePalette::ButtonHoveredColor;
+		colors[ImGuiCol_ButtonActive] = ThemePalette::ButtonActiveColor;
+
+		colors[ImGuiCol_FrameBg] = ThemePalette::FrameColor;
+		colors[ImGuiCol_FrameBgHovered] = ThemePalette::FrameHoveredColor;
+		colors[ImGuiCol_FrameBgActive] = ThemePalette::FrameActiveColor;
+
+		colors[ImGuiCol_Tab] = ThemePalette::TabColor;
+		colors[ImGuiCol_TabHovered] = ThemePalette::TabHoveredColor;
+		colors[ImGuiCol_TabActive] = ThemePalette::TabActiveColor;
+		colors[ImGuiCol_TabUnfocused] = ThemePalette::TabUnfocusedColor;
+		colors[ImGuiCol_TabUnfocusedActive] = ThemePalette::TabUnfocusedActiveColor;
+
+		colors[ImGuiCol_TitleBg] = ThemePalette::TitleColor;
+		colors[ImGuiCol_TitleBgActive] = ThemePalette::TitleActiveColor;
+		colors[ImGuiCol_TitleBgCollapsed] = ThemePalette::TitleCollapseColor;
 	}
 
 	void ImGuiLayer::OnDetach()
