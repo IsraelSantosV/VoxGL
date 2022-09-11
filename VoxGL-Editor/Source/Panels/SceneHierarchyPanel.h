@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Vox/Core/Core.h"
-#include "Vox/Core/Log.h"
 #include "Vox/Scene/Scene.h"
 #include "Vox/Scene/Entity.h"
 

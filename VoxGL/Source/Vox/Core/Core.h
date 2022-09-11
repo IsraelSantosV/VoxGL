@@ -18,13 +18,9 @@
 	#define VOX_DEBUGBREAK()
 #endif
 
-#ifdef VOX_ENABLE_ASSERTS
-	#define VOX_ASSERT(x, ...) { if(!(x)) { LOG_ERROR("Assertion Failed: {0}", __VA_ARGS__); VOX_DEBUGBREAK(); } }
-	#define VOX_CORE_ASSERT(x, ...) { if(!(x)) { LOG_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); VOX_DEBUGBREAK(); } }
-#else
-	#define VOX_ASSERT(x, ...)
-	#define VOX_CORE_ASSERT(x, ...)
-#endif
+#define VOX_EXPAND_MACRO(x) x
+
+#define VOX_STRINGIFY_MACRO(x) #x
 
 #define BIT(x) (1 << x)
 
@@ -50,3 +46,6 @@ namespace Vox
 		return std::make_shared<T>(std::forward<Args>(args)...);
 	}
 }
+
+#include "Vox/Core/Log.h"
+#include "Vox/Core/Assert.h"

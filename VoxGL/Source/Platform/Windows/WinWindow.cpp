@@ -13,6 +13,7 @@
 
 namespace Vox
 {
+	float Window::m_HighDpiScaleFactor = 1.0f;
 	static uint8_t m_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)
@@ -57,6 +58,17 @@ namespace Vox
 
 		{
 			VOX_PROFILE_SCOPE("GLFWCreateWindow");
+
+			GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+			float xScale, yScale;
+			glfwGetMonitorContentScale(monitor, &xScale, &yScale);
+
+			if (xScale > 1.0f || yScale > 1.0f)
+			{
+				m_HighDpiScaleFactor = yScale;
+			}
+
+			glfwWindowHint(GLFW_SCALE_TO_MONITOR, GLFW_TRUE);
 
 #if defined(VOX_DEBUG)
 			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)

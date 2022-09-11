@@ -117,10 +117,7 @@ namespace Vox
 		m_Data.TextureShader->Bind();
 		m_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);
 
-		m_Data.QuadIndexCount = 0;
-		m_Data.QuadVertexBufferPtr = m_Data.QuadVertexBufferBase;
-
-		m_Data.TextureSlotIndex = 1;
+		StartBatch();
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
@@ -130,20 +127,21 @@ namespace Vox
 		m_Data.TextureShader->Bind();
 		m_Data.TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	
-		m_Data.QuadIndexCount = 0;
-		m_Data.QuadVertexBufferPtr = m_Data.QuadVertexBufferBase;
-
-		m_Data.TextureSlotIndex = 1;
+		StartBatch();
 	}
 
 	void Renderer2D::EndScene()
 	{
 		VOX_PROFILE_FUNCTION();
-
-		uint32_t dataSize = (uint32_t)((uint8_t*)m_Data.QuadVertexBufferPtr - (uint8_t*)m_Data.QuadVertexBufferBase);
-		m_Data.QuadVertexBuffer->SetData(m_Data.QuadVertexBufferBase, dataSize);
-
 		Flush();
+	}
+
+	void Renderer2D::StartBatch()
+	{
+		m_Data.QuadIndexCount = 0;
+		m_Data.QuadVertexBufferPtr = m_Data.QuadVertexBufferBase;
+
+		m_Data.TextureSlotIndex = 1;
 	}
 
 	void Renderer2D::Flush()
@@ -152,6 +150,9 @@ namespace Vox
 		{
 			return;
 		}
+
+		uint32_t dataSize = (uint32_t)((uint8_t*)m_Data.QuadVertexBufferPtr - (uint8_t*)m_Data.QuadVertexBufferBase);
+		m_Data.QuadVertexBuffer->SetData(m_Data.QuadVertexBufferBase, dataSize);
 
 		for (uint32_t i = 0; i < m_Data.TextureSlotIndex; i++)
 		{
@@ -162,12 +163,10 @@ namespace Vox
 		m_Data.Stats.DrawCalls++;
 	}
 
-	void Renderer2D::FlushAndReset()
+	void Renderer2D::NextBatch()
 	{
-		EndScene();
-		m_Data.QuadIndexCount = 0;
-		m_Data.QuadVertexBufferPtr = m_Data.QuadVertexBufferBase;
-		m_Data.TextureSlotIndex = 1;
+		Flush();
+		StartBatch();
 	}
 
 	void Renderer2D::DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color)
@@ -210,7 +209,7 @@ namespace Vox
 		const float tilingFactor = 1.0f;
 
 		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
-			FlushAndReset();
+			NextBatch();
 
 		for (size_t i = 0; i < quadVertexCount; i++)
 		{
@@ -235,7 +234,7 @@ namespace Vox
 		constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
 
 		if (m_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
-			FlushAndReset();
+			NextBatch();
 
 		float textureIndex = 0.0f;
 		for (uint32_t i = 1; i < m_Data.TextureSlotIndex; i++)
@@ -250,7 +249,7 @@ namespace Vox
 		if (textureIndex == 0.0f)
 		{
 			if (m_Data.TextureSlotIndex >= Renderer2DData::MaxTextureSlots)
-				FlushAndReset();
+				NextBatch();
 
 			textureIndex = (float)m_Data.TextureSlotIndex;
 			m_Data.TextureSlots[m_Data.TextureSlotIndex] = texture;

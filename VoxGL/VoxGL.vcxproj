@@ -154,6 +154,7 @@
     <ClInclude Include="Source\Platform\Windows\WinWindow.h" />
     <ClInclude Include="Source\Vox.h" />
     <ClInclude Include="Source\Vox\Core\Application.h" />
+    <ClInclude Include="Source\Vox\Core\Assert.h" />
     <ClInclude Include="Source\Vox\Core\Core.h" />
     <ClInclude Include="Source\Vox\Core\EntryPoint.h" />
     <ClInclude Include="Source\Vox\Core\Input.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Source\Vox\Events\KeyEvent.h" />
     <ClInclude Include="Source\Vox\Events\MouseEvent.h" />
     <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="Source\Vox\ImGui\ThemePalette.h" />
     <ClInclude Include="Source\Vox\Renderer\Buffer.h" />
     <ClInclude Include="Source\Vox\Renderer\Camera.h" />
     <ClInclude Include="Source\Vox\Renderer\Framebuffer.h" />
