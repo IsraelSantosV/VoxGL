@@ -34,6 +34,8 @@ namespace Vox
 		m_CameraEntity.AddComponent<CameraComponent>();
 
 		m_CameraEntity.AddComponent<BehaviourComponent>().Bind<CameraController>();
+
+		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 	}
 
 	void EditorLayer::OnDetach()
@@ -117,6 +119,8 @@ namespace Vox
 
 			ImGui::EndMenuBar();
 		}
+
+		m_SceneHierarchyPanel.OnRender();
 
 		ImGui::Begin("Settings");
 
