@@ -137,9 +137,11 @@
   <ItemGroup>
     <ClInclude Include="Source\CameraController.h" />
     <ClInclude Include="Source\EditorLayer.h" />
+    <ClInclude Include="Source\Panels\SceneHierarchyPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\EditorLayer.cpp" />
+    <ClCompile Include="Source\Panels\SceneHierarchyPanel.cpp" />
     <ClCompile Include="Source\VoxGLEditorApp.cpp" />
   </ItemGroup>
   <ItemGroup>
