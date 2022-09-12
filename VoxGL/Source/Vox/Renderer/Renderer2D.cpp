@@ -120,6 +120,18 @@ namespace Vox
 		StartBatch();
 	}
 
+	void Renderer2D::BeginScene(const EditorCamera& camera)
+	{
+		VOX_PROFILE_FUNCTION();
+
+		glm::mat4 viewProjection = camera.GetViewProjection();
+
+		m_Data.TextureShader->Bind();
+		m_Data.TextureShader->SetMat4("u_ViewProjection", viewProjection);
+
+		StartBatch();
+	}
+
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
 	{
 		VOX_PROFILE_FUNCTION();

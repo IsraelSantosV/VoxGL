@@ -1309,6 +1309,7 @@
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Math\Math.h" />
+    <ClInclude Include="Source\Vox\Renderer\EditorCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1420,5 +1421,6 @@
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Math\Math.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\EditorCamera.cpp" />
   </ItemGroup>
 </Project>
