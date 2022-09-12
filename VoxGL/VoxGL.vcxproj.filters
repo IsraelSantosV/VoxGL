@@ -1288,7 +1288,7 @@
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\Assert.h" />
-    <ClInclude Include="Source\Vox\ImGui\ThemePalette.h" />
+    <ClInclude Include="Source\Vox\Tools\ThemePalette.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">

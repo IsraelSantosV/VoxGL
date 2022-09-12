@@ -1,13 +1,12 @@
 #include "VoxPch.h"
 #include "ImGuiLayer.h"
 
-#include "imgui.h"
 #include "examples/imgui_impl_glfw.h"
 #include "examples/imgui_impl_opengl3.h"
 
 #include "Vox/Core/Application.h"
 
-#include "Vox/ImGui/ThemePalette.h"
+#include "Vox/Tools/ThemePalette.h"
 
 //Temporary
 #include <GLFW/glfw3.h>
@@ -63,29 +62,29 @@ namespace Vox
 	void ImGuiLayer::SetThemeColors()
 	{
 		auto& colors = ImGui::GetStyle().Colors;
-		colors[ImGuiCol_WindowBg] = ThemePalette::WindowColor;
+		colors[ImGuiCol_WindowBg] = Vox::Theme::WindowColor;
 
-		colors[ImGuiCol_Header] = ThemePalette::HeaderColor;
-		colors[ImGuiCol_HeaderHovered] = ThemePalette::HeaderHoveredColor;
-		colors[ImGuiCol_HeaderActive] = ThemePalette::HeaderActiveColor;
+		colors[ImGuiCol_Header] = Vox::Theme::HeaderColor;
+		colors[ImGuiCol_HeaderHovered] = Vox::Theme::HeaderHoveredColor;
+		colors[ImGuiCol_HeaderActive] = Vox::Theme::HeaderActiveColor;
 
-		colors[ImGuiCol_Button] = ThemePalette::ButtonColor;
-		colors[ImGuiCol_ButtonHovered] = ThemePalette::ButtonHoveredColor;
-		colors[ImGuiCol_ButtonActive] = ThemePalette::ButtonActiveColor;
+		colors[ImGuiCol_Button] = Vox::Theme::ButtonColor;
+		colors[ImGuiCol_ButtonHovered] = Vox::Theme::ButtonHoveredColor;
+		colors[ImGuiCol_ButtonActive] = Vox::Theme::ButtonActiveColor;
 
-		colors[ImGuiCol_FrameBg] = ThemePalette::FrameColor;
-		colors[ImGuiCol_FrameBgHovered] = ThemePalette::FrameHoveredColor;
-		colors[ImGuiCol_FrameBgActive] = ThemePalette::FrameActiveColor;
+		colors[ImGuiCol_FrameBg] = Vox::Theme::FrameColor;
+		colors[ImGuiCol_FrameBgHovered] = Vox::Theme::FrameHoveredColor;
+		colors[ImGuiCol_FrameBgActive] = Vox::Theme::FrameActiveColor;
 
-		colors[ImGuiCol_Tab] = ThemePalette::TabColor;
-		colors[ImGuiCol_TabHovered] = ThemePalette::TabHoveredColor;
-		colors[ImGuiCol_TabActive] = ThemePalette::TabActiveColor;
-		colors[ImGuiCol_TabUnfocused] = ThemePalette::TabUnfocusedColor;
-		colors[ImGuiCol_TabUnfocusedActive] = ThemePalette::TabUnfocusedActiveColor;
+		colors[ImGuiCol_Tab] = Vox::Theme::TabColor;
+		colors[ImGuiCol_TabHovered] = Vox::Theme::TabHoveredColor;
+		colors[ImGuiCol_TabActive] = Vox::Theme::TabActiveColor;
+		colors[ImGuiCol_TabUnfocused] = Vox::Theme::TabUnfocusedColor;
+		colors[ImGuiCol_TabUnfocusedActive] = Vox::Theme::TabUnfocusedActiveColor;
 
-		colors[ImGuiCol_TitleBg] = ThemePalette::TitleColor;
-		colors[ImGuiCol_TitleBgActive] = ThemePalette::TitleActiveColor;
-		colors[ImGuiCol_TitleBgCollapsed] = ThemePalette::TitleCollapseColor;
+		colors[ImGuiCol_TitleBg] = Vox::Theme::TitleColor;
+		colors[ImGuiCol_TitleBgActive] = Vox::Theme::TitleActiveColor;
+		colors[ImGuiCol_TitleBgCollapsed] = Vox::Theme::TitleCollapseColor;
 	}
 
 	void ImGuiLayer::OnDetach()
