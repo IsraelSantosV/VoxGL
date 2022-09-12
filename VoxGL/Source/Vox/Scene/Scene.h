@@ -3,6 +3,9 @@
 #include "entt.hpp"
 
 #include "Vox/Core/Timestep.h"
+#include "Vox/Renderer/EditorCamera.h"
+
+#include "entt.hpp"
 
 namespace Vox
 {
@@ -17,7 +20,8 @@ namespace Vox
 		Entity CreateEntity(const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
-		void OnUpdate(Timestep ts);
+		void OnUpdateRuntime(Timestep ts);
+		void OnUpdateEditor(Timestep ts, EditorCamera& camera);
 		void OnViewportResize(uint32_t width, uint32_t height);
 
 		Entity GetMainCameraEntity();

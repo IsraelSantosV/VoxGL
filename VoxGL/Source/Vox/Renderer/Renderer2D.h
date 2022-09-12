@@ -5,6 +5,7 @@
 #include "Texture.h"
 
 #include "Vox/Renderer/Camera.h"
+#include "Vox/Renderer/EditorCamera.h"
 
 namespace Vox
 {
@@ -15,6 +16,7 @@ namespace Vox
 		static void Shutdown();
 
 		static void BeginScene(const Camera& camera, const glm::mat4& transform);
+		static void BeginScene(const EditorCamera& camera);
 		static void BeginScene(const OrthographicCamera& camera);
 		static void EndScene();
 		static void Flush();
