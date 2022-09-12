@@ -4,6 +4,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Vox/Scene/SceneSerializer.h"
+
+#include "Vox/Tools/PlatformTools.h"
+
 #include "CameraController.h"
 
 namespace Vox 
@@ -17,7 +21,7 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
+		m_CheckerboardTexture = Texture2D::Create("Assets/Textures/Checkerboard.png");
 
 		FramebufferSpec fbSpec;
 		fbSpec.Width = 1600;
@@ -25,15 +29,6 @@ namespace Vox
 		m_Framebuffer = Framebuffer::Create(fbSpec);
 
 		m_ActiveScene = CreateRef<Scene>();
-
-		auto square = m_ActiveScene->CreateEntity("Square");
-		square.AddComponent<SpriteRendererComponent>(glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f });
-		m_SquareEntity = square;
-
-		m_CameraEntity = m_ActiveScene->CreateEntity("MainCamera");
-		m_CameraEntity.AddComponent<CameraComponent>();
-
-		m_CameraEntity.AddComponent<BehaviourComponent>().Bind<CameraController>();
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 	}
@@ -119,6 +114,21 @@ namespace Vox
 		{
 			if (ImGui::BeginMenu("File"))
 			{
+				if (ImGui::MenuItem("New Scene", "Ctrl+N"))
+				{
+					NewScene();
+				}
+
+				if (ImGui::MenuItem("Open Scene...", "Ctrl+O"))
+				{
+					OpenScene();
+				}
+
+				if (ImGui::MenuItem("Save Scene As...", "Ctrl+Shift+S"))
+				{
+					SaveSceneAs();
+				}
+
 				if (ImGui::MenuItem("Exit")) Application::Get().Close();
 				ImGui::EndMenu();
 			}
@@ -149,6 +159,74 @@ namespace Vox
 	void EditorLayer::OnEvent(Event& e)
 	{
 		m_CameraController.OnEvent(e);
+
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<KeyPressedEvent>(VOX_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
+	}
+
+	bool EditorLayer::OnKeyPressed(KeyPressedEvent& e)
+	{
+		if (e.GetRepeatCount() > 0)
+		{
+			return false;
+		}
+
+		bool control = Input::IsKeyPressed(Key::LeftControl) ||
+			Input::IsKeyPressed(Key::RightControl);
+
+		bool shift = Input::IsKeyPressed(Key::LeftShift) ||
+			Input::IsKeyPressed(Key::RightShift);
+
+		switch (e.GetKeyCode())
+		{
+		case Key::N:
+			if (control)
+			{
+				NewScene();
+			}
+			break;
+		case Key::O:
+			if (control)
+			{
+				OpenScene();
+			}
+			break;
+		case Key::S:
+			if (control && shift)
+			{
+				SaveSceneAs();
+			}
+			break;
+		}
+	}
+
+	void EditorLayer::NewScene()
+	{
+		m_ActiveScene = CreateRef<Scene>();
+		m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+
+		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+	}
+
+	void EditorLayer::OpenScene()
+	{
+		std::optional<std::string> filepath = FileDialogs::OpenFile("Scene (*.scene)\0*.scene\0");
+		if (filepath)
+		{
+			NewScene();
+			SceneSerializer serializer(m_ActiveScene);
+			serializer.Deserialize(*filepath);
+		}
+	}
+
+	void EditorLayer::SaveSceneAs()
+	{
+		std::optional<std::string> filepath = FileDialogs::SaveFile("Scene (*.scene)\0*.scene\0");
+		if (filepath)
+		{
+			SceneSerializer serializer(m_ActiveScene);
+			serializer.Serialize(*filepath);
+		}
 	}
 
 }

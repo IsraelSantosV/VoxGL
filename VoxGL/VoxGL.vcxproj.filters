@@ -34,6 +34,9 @@
     <Filter Include="Source\Vox\Scene">
       <UniqueIdentifier>{5F5FAB50-4B58-CAA2-748A-AF2760E2A9AE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Tools">
+      <UniqueIdentifier>{C236C450-AE2F-E3A2-D761-C827C3B9C2AE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ThirdParty">
       <UniqueIdentifier>{107145F9-FC28-8746-6530-60A251072237}</UniqueIdentifier>
     </Filter>
@@ -88,6 +91,9 @@
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\Application.h">
+      <Filter>Source\Vox\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Core\Assert.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\Core.h">
@@ -192,8 +198,17 @@
     <ClInclude Include="Source\Vox\Scene\SceneCamera.h">
       <Filter>Source\Vox\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Scene\SceneSerializer.h">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Scene\ScriptableEntity.h">
       <Filter>Source\Vox\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Tools\PlatformTools.h">
+      <Filter>Source\Vox\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Tools\ThemePalette.h">
+      <Filter>Source\Vox\Tools</Filter>
     </ClInclude>
     <ClInclude Include="Source\VoxPch.h">
       <Filter>Source</Filter>
@@ -1287,8 +1302,6 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Core\Assert.h" />
-    <ClInclude Include="Source\Vox\Tools\ThemePalette.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1313,6 +1326,9 @@
       <Filter>Source\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Source\Platform\Windows\WinInput.cpp">
+      <Filter>Source\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Platform\Windows\WinPlatformTools.cpp">
       <Filter>Source\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Source\Platform\Windows\WinWindow.cpp">
@@ -1382,6 +1398,9 @@
       <Filter>Source\Vox\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Scene\SceneCamera.cpp">
+      <Filter>Source\Vox\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Scene\SceneSerializer.cpp">
       <Filter>Source\Vox\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\VoxPch.cpp">
