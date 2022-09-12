@@ -60,6 +60,9 @@ namespace Vox
 		float m_NearClip = 0.1f;
 		float m_FarClip = 1000.0f;
 
+		float m_MaxPanSpeed = 2.4f;
+		float m_MaxZoomSpeed = 100.0f;
+
 		glm::mat4 m_ViewMatrix;
 		glm::vec3 m_Position = { 0.0f, 0.0f, 0.0f };
 		glm::vec3 m_FocalPoint = { 0.0f, 0.0f, 0.0f };

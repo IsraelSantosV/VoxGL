@@ -23,8 +23,15 @@ namespace Vox
 		VOX_PROFILE_FUNCTION();
 
 		FramebufferSpec fbSpec;
-		fbSpec.Width = 1600;
-		fbSpec.Height = 900;
+		fbSpec.Attachments =
+		{
+			FramebufferTextureFormat::RGBA8,
+			FramebufferTextureFormat::RED_INTEGER,
+			FramebufferTextureFormat::Depth
+		};
+
+		fbSpec.Width = 1280;
+		fbSpec.Height = 720;
 		m_Framebuffer = Framebuffer::Create(fbSpec);
 
 		m_ActiveScene = CreateRef<Scene>();
@@ -57,8 +64,24 @@ namespace Vox
 		m_Framebuffer->Bind();
 		RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		RenderCommand::Clear();
+		m_Framebuffer->ClearAttachment(1, -1);
 
 		m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
+
+		auto [mx, my] = ImGui::GetMousePos();
+		mx -= m_ViewportBounds[0].x;
+		my -= m_ViewportBounds[0].y;
+		glm::vec2 viewportSize = m_ViewportBounds[1] - m_ViewportBounds[0];
+		my = viewportSize.y - my;
+		int mouseX = (int)mx;
+		int mouseY = (int)my;
+
+		if (mouseX >= 0 && mouseY >= 0 && mouseX < (int)viewportSize.x && mouseY < (int)viewportSize.y)
+		{
+			int pixelData = m_Framebuffer->ReadPixel(1, mouseX, mouseY);
+			LOG_CORE_WARN("Pixel data = {0}", pixelData);
+		}
+
 		m_Framebuffer->Unbind();
 	}
 
@@ -138,6 +161,8 @@ namespace Vox
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
 		ImGui::Begin("Scene");
 
+		auto viewportOffset = ImGui::GetCursorPos();
+
 		m_ViewportFocused = ImGui::IsWindowFocused();
 		m_ViewportHovered = ImGui::IsWindowHovered();
 		Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportFocused && !m_ViewportHovered);
@@ -148,6 +173,15 @@ namespace Vox
 		uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererId();
 		ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
 		
+		ImVec2 minBound = ImGui::GetWindowPos();
+
+		minBound.x += viewportOffset.x;
+		minBound.y += viewportOffset.y;
+
+		ImVec2 maxBound = { minBound.x + m_ViewportSize.x, minBound.y + m_ViewportSize.y };
+		m_ViewportBounds[0] = { minBound.x, minBound.y };
+		m_ViewportBounds[1] = { maxBound.x, maxBound.y };
+
 		DrawGizmos();
 		
 		ImGui::End();
@@ -173,9 +207,8 @@ namespace Vox
 
 			float windowWidth = (float)ImGui::GetWindowWidth();
 			float windowHeight = (float)ImGui::GetWindowHeight();
-			ImVec2 windowPos = ImGui::GetWindowPos();
 
-			ImGuizmo::SetRect(windowPos.x, windowPos.y, windowWidth, windowHeight);
+			ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, windowWidth, windowHeight);
 
 			const glm::mat4& cameraProjection = m_EditorCamera.GetProjection();
 			glm::mat4 cameraView = m_EditorCamera.GetViewMatrix();
@@ -244,14 +277,17 @@ namespace Vox
 				break;
 
 			//Gizmos
-			case Key::Q:
-				m_GizmosType = ImGuizmo::OPERATION::TRANSLATE;
-				break;
 			case Key::W:
-				m_GizmosType = ImGuizmo::OPERATION::ROTATE;
+				if(!ImGuizmo::IsUsing())
+					m_GizmosType = ImGuizmo::OPERATION::TRANSLATE;
 				break;
 			case Key::E:
-				m_GizmosType = ImGuizmo::OPERATION::SCALE;
+				if (!ImGuizmo::IsUsing())
+					m_GizmosType = ImGuizmo::OPERATION::ROTATE;
+				break;
+			case Key::R:
+				if (!ImGuizmo::IsUsing())
+					m_GizmosType = ImGuizmo::OPERATION::SCALE;
 				break;
 		}
 	}
