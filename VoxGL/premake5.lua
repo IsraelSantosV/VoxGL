@@ -17,7 +17,9 @@ project "VoxGL"
 		"ThirdParty/stb_image/**.h",
 		"ThirdParty/stb_image/**.cpp",
 		"ThirdParty/glm/glm/**.hpp",
-		"ThirdParty/glm/glm/**.inl"
+		"ThirdParty/glm/glm/**.inl",
+		"ThirdParty/ImGuizmo/ImGuizmo.h",
+		"ThirdParty/ImGuizmo/ImGuizmo.cpp"
 	}
 
 	defines
@@ -36,7 +38,8 @@ project "VoxGL"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
-		"%{IncludeDir.yaml_cpp}"
+		"%{IncludeDir.yaml_cpp}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
@@ -47,6 +50,9 @@ project "VoxGL"
 		"yaml-cpp",
 		"opengl32.lib"
 	}
+
+	filter "files:ThirdParty/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"
