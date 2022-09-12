@@ -16,6 +16,8 @@ namespace Vox
 		glm::vec2 TexCoord;
 		float TexIndex;
 		float TilingFactor;
+
+		int _EntityId;
 	};
 
 	struct Renderer2DData
@@ -56,8 +58,9 @@ namespace Vox
 			{ ShaderDataType::Float4, "a_Color" },
 			{ ShaderDataType::Float2, "a_TexCoord" },
 			{ ShaderDataType::Float, "a_TexIndex" },
-			{ ShaderDataType::Float, "a_TilingFactor" }
-			});
+			{ ShaderDataType::Float, "a_TilingFactor" },
+			{ ShaderDataType::Int, "a_EntityId" },
+		});
 		m_Data.QuadVertexArray->AddVertexBuffer(m_Data.QuadVertexBuffer);
 
 		m_Data.QuadVertexBufferBase = new QuadVertex[m_Data.MaxVertices];
@@ -211,7 +214,7 @@ namespace Vox
 		DrawQuad(transform, texture, tilingFactor, tintColor);
 	}
 
-	void Renderer2D::DrawQuad(const glm::mat4& transform, const glm::vec4& color)
+	void Renderer2D::DrawQuad(const glm::mat4& transform, const glm::vec4& color, int entityId)
 	{
 		VOX_PROFILE_FUNCTION();
 
@@ -230,6 +233,7 @@ namespace Vox
 			m_Data.QuadVertexBufferPtr->TexCoord = textureCoords[i];
 			m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
 			m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
+			m_Data.QuadVertexBufferPtr->_EntityId = entityId;
 			m_Data.QuadVertexBufferPtr++;
 		}
 
@@ -238,7 +242,8 @@ namespace Vox
 		m_Data.Stats.QuadCount++;
 	}
 
-	void Renderer2D::DrawQuad(const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor, const glm::vec4& tintColor)
+	void Renderer2D::DrawQuad(const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor, 
+		const glm::vec4& tintColor, int entityId)
 	{
 		VOX_PROFILE_FUNCTION();
 
@@ -275,6 +280,7 @@ namespace Vox
 			m_Data.QuadVertexBufferPtr->TexCoord = textureCoords[i];
 			m_Data.QuadVertexBufferPtr->TexIndex = textureIndex;
 			m_Data.QuadVertexBufferPtr->TilingFactor = tilingFactor;
+			m_Data.QuadVertexBufferPtr->_EntityId = entityId;
 			m_Data.QuadVertexBufferPtr++;
 		}
 
@@ -313,6 +319,11 @@ namespace Vox
 			* glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
 		DrawQuad(transform, texture, tilingFactor, tintColor);
+	}
+
+	void Renderer2D::DrawSprite(const glm::mat4& transform, SpriteRendererComponent& component, int entityId)
+	{
+		DrawQuad(transform, component.Color, entityId);
 	}
 
 	void Renderer2D::ResetStats()
