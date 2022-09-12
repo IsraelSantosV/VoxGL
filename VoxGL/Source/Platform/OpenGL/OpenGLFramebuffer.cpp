@@ -1,10 +1,12 @@
 #include "VoxPch.h"
-#include "OpenGLFramebuffer.h"
+#include "Platform/OpenGL/OpenGLFramebuffer.h"
 
 #include <glad/glad.h>
 
 namespace Vox
 {
+	static const uint32_t m_MaxFramebufferSize = 8192;
+
 	OpenGLFramebuffer::OpenGLFramebuffer(const FramebufferSpec& spec) : m_Spec(spec)
 	{
 		Invalidate();
@@ -63,6 +65,12 @@ namespace Vox
 
 	void OpenGLFramebuffer::Resize(uint32_t width, uint32_t height)
 	{
+		if (width == 0 || height == 0 || width > m_MaxFramebufferSize || height > m_MaxFramebufferSize)
+		{
+			LOG_CORE_WARN("Attempted to rezize framebuffer to {0}, {1}", width, height);
+			return;
+		}
+
 		m_Spec.Width = width;
 		m_Spec.Height = height;
 

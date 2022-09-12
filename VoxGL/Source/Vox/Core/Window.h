@@ -1,6 +1,6 @@
 #pragma once
 
-#include "VoxPch.h"
+#include <sstream>
 
 #include "Vox/Core/Core.h"
 #include "Vox/Events/Event.h"
@@ -14,8 +14,8 @@ namespace Vox
 		uint32_t Height;
 
 		WindowProps(const std::string& title = "VoxGL Engine",
-			uint32_t width = 1280,
-			uint32_t height = 720)
+			uint32_t width = 1600,
+			uint32_t height = 900)
 			: Title(title), Width(width), Height(height) {}
 	};
 
@@ -37,5 +37,7 @@ namespace Vox
 		virtual void* GetNativeWindow() const = 0;
 
 		static Scope<Window> Create(const WindowProps& props = WindowProps());
+	public:
+		static float m_HighDpiScaleFactor;
 	};
 }

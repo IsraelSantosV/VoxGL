@@ -6,6 +6,7 @@
 #include "Vox/Core/Application.h"
 #include "Vox/Core/Layer.h"
 #include "Vox/Core/Log.h"
+#include "Vox/Core/Assert.h"
 
 #include "Vox/Core/Timestep.h"
 
@@ -14,6 +15,15 @@
 #include "Vox/Core/MouseCodes.h"
 
 #include "Vox/ImGui/ImGuiLayer.h"
+//-------------------------------------------
+
+// SCENE ------------------------------------
+
+#include "Vox/Scene/Scene.h"
+#include "Vox/Scene/Entity.h"
+#include "Vox/Scene/ScriptableEntity.h"
+#include "Vox/Scene/Components.h"
+
 //-------------------------------------------
 
 // RENDERER ---------------------------------

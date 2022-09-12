@@ -1,3 +1,5 @@
+include "./ThirdParty/premake/premake_customization/solution_items.lua"
+
 workspace "VoxGL"
 	architecture "x86_64"
 	startproject "VoxGL-Editor"
@@ -9,6 +11,11 @@ workspace "VoxGL"
 		"Dist"
 	}
 
+	solution_items
+	{
+		".editorconfig"
+	}
+
 	flags
 	{
 		"MultiProcessorCompile"
@@ -17,179 +24,24 @@ workspace "VoxGL"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "VoxGL/ThirdParty/GLFW/include"
-IncludeDir["Glad"] = "VoxGL/ThirdParty/Glad/include"
-IncludeDir["ImGui"] = "VoxGL/ThirdParty/imgui"
-IncludeDir["glm"] = "VoxGL/ThirdParty/glm"
-IncludeDir["stb_image"] = "VoxGL/ThirdParty/stb_image"
+IncludeDir["GLFW"] = "%{wks.location}/VoxGL/ThirdParty/GLFW/include"
+IncludeDir["Glad"] = "%{wks.location}/VoxGL/ThirdParty/Glad/include"
+IncludeDir["ImGui"] = "%{wks.location}/VoxGL/ThirdParty/imgui"
+IncludeDir["glm"] = "%{wks.location}/VoxGL/ThirdParty/glm"
+IncludeDir["stb_image"] = "%{wks.location}/VoxGL/ThirdParty/stb_image"
+IncludeDir["entt"] = "%{wks.location}/VoxGL/ThirdParty/entt/include"
+IncludeDir["yaml_cpp"] = "%{wks.location}/VoxGL/ThirdParty/yaml-cpp/include"
+IncludeDir["ImGuizmo"] = "%{wks.location}/VoxGL/ThirdParty/ImGuizmo"
 
 group "Dependencies"
+	include "ThirdParty/premake"
 	include "VoxGL/ThirdParty/GLFW"
 	include "VoxGL/ThirdParty/Glad"
 	include "VoxGL/ThirdParty/imgui"
+	include "VoxGL/ThirdParty/yaml-cpp"
 
 group ""
 
-project "VoxGL"
-	location "VoxGL"
-	kind "StaticLib"
-	language "C++"
-	cppdialect "C++17"
-	staticruntime "on"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-	pchheader "VoxPch.h"
-	pchsource "VoxGL/Source/VoxPch.cpp"
-
-	files
-	{
-		"%{prj.name}/Source/**.h",
-		"%{prj.name}/Source/**.cpp",
-		"%{prj.name}/ThirdParty/stb_image/**.h",
-		"%{prj.name}/ThirdParty/stb_image/**.cpp",
-		"%{prj.name}/ThirdParty/glm/glm/**.hpp",
-		"%{prj.name}/ThirdParty/glm/glm/**.inl"
-	}
-
-	defines
-	{
-		"_CRT_SECURE_NO_WARNINGS",
-		"GLFW_INCLUDE_NONE"
-	}
-
-	includedirs
-	{
-		"%{prj.name}/Source",
-		"%{prj.name}/ThirdParty/spdlog/include",
-		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
-	}
-
-	links
-	{
-		"GLFW",
-		"Glad",
-		"ImGui",
-		"opengl32.lib"
-	}
-
-	filter "system:windows"
-		systemversion "latest"
-
-		defines
-		{
-		}
-
-	filter "configurations:Debug"
-		defines "VOX_DEBUG"
-		runtime "Debug"
-		symbols "on"
-	
-	filter "configurations:Release"
-		defines "VOX_RELEASE"
-		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		defines "VOX_DIST"
-		runtime "Release"
-		optimize "on"
-
-project "Sandbox"
-	location "Sandbox"
-	kind "ConsoleApp"
-	language "C++"
-	cppdialect "C++17"
-	staticruntime "on"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-	files
-	{
-		"%{prj.name}/Source/**.h",
-		"%{prj.name}/Source/**.cpp",
-	}
-
-	includedirs
-	{
-		"VoxGL/ThirdParty/spdlog/include",
-		"VoxGL/Source",
-		"VoxGL/ThirdParty",
-		"%{IncludeDir.glm}"
-	}
-
-	links
-	{
-		"VoxGL"
-	}
-
-	filter "system:windows"
-		systemversion "latest"
-
-	filter "configurations:Debug"
-		defines "VOX_DEBUG"
-		runtime "Debug"
-		symbols "on"
-	
-	filter "configurations:Release"
-		defines "VOX_RELEASE"
-		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		defines "VOX_DIST"
-		runtime "Release"
-		optimize "on"
-
-project "VoxGL-Editor"
-	location "VoxGL-Editor"
-	kind "ConsoleApp"
-	language "C++"
-	cppdialect "C++17"
-	staticruntime "on"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-	files
-	{
-		"%{prj.name}/Source/**.h",
-		"%{prj.name}/Source/**.cpp",
-	}
-
-	includedirs
-	{
-		"VoxGL/ThirdParty/spdlog/include",
-		"VoxGL/Source",
-		"VoxGL/ThirdParty",
-		"%{IncludeDir.glm}"
-	}
-
-	links
-	{
-		"VoxGL"
-	}
-
-	filter "system:windows"
-		systemversion "latest"
-
-	filter "configurations:Debug"
-		defines "VOX_DEBUG"
-		runtime "Debug"
-		symbols "on"
-	
-	filter "configurations:Release"
-		defines "VOX_RELEASE"
-		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		defines "VOX_DIST"
-		runtime "Release"
-		optimize "on"
+include "VoxGL"
+include "Sandbox"
+include "VoxGL-Editor"

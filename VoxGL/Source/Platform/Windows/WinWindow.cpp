@@ -13,6 +13,7 @@
 
 namespace Vox
 {
+	float Window::m_HighDpiScaleFactor = 1.0f;
 	static uint8_t m_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)
@@ -58,6 +59,17 @@ namespace Vox
 		{
 			VOX_PROFILE_SCOPE("GLFWCreateWindow");
 
+			GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+			float xScale, yScale;
+			glfwGetMonitorContentScale(monitor, &xScale, &yScale);
+
+			if (xScale > 1.0f || yScale > 1.0f)
+			{
+				m_HighDpiScaleFactor = yScale;
+			}
+
+			glfwWindowHint(GLFW_SCALE_TO_MONITOR, GLFW_TRUE);
+
 #if defined(VOX_DEBUG)
 			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
@@ -99,19 +111,19 @@ namespace Vox
 			{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(static_cast<KeyCode>(key), 0);
+					KeyPressedEvent event(key, 0);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					KeyReleasedEvent event(static_cast<KeyCode>(key));
+					KeyReleasedEvent event(key);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(static_cast<KeyCode>(key), 1);
+					KeyPressedEvent event(key, 1);
 					data.EventCallback(event);
 					break;
 				}
@@ -133,13 +145,13 @@ namespace Vox
 			{
 				case GLFW_PRESS:
 				{
-					MouseButtonPressedEvent event(static_cast<MouseCode>(button));
+					MouseButtonPressedEvent event(button);
 					data.EventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					MouseButtonReleasedEvent event(static_cast<MouseCode>(button));
+					MouseButtonReleasedEvent event(button);
 					data.EventCallback(event);
 					break;
 				}

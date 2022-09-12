@@ -2,51 +2,29 @@
 
 #include <memory>
 
-#ifdef _WIN32
-	#ifdef _WIN64
-		#define VOX_PLATFORM_WINDOWS
-	#else
-		#error "x86 Builds are not supported!"
-	#endif
-#elif defined(__APPLE__) || defined(__MACH__)
-	#include <TargetConditionals.h>
-
-	#if TARGET_IPHONE_SIMULATOR == 1
-		#error "IOS simulator is not supported!"
-	#elif TARGET_OS_IPHONE == 1
-		#define VOX_PLATFORM_IOS
-		#error "IOS is not supported!"
-	#elif TARGET_OS_MAC == 1
-		#define VOX_PLATFORM_MACOS
-		#error "MacOS is not supported!"
-	#else
-		#error "Unknown Apple platform!"
-	#endif
-#elif defined(__ANDROID__)
-	#define VOX_PLATFORM_ANDROID
-	#error "Android is not supported!"
-#elif defined(__linux__)
-	#define VOX_PLATFORM_LINUX
-	#error "Linux is not supported!"
-#else
-	#error "Unknown platform!"
-#endif
+#include "Vox/Core/PlatformDetection.h"
 
 #ifdef VOX_DEBUG
+	#if defined(VOX_PLATFORM_WINDOWS)
+		#define VOX_DEBUGBREAK() __debugbreak()
+	#elif defined(VOX_PLATFORM_LINUX)
+		#include <signal.h>
+		#define VOX_DEBUGBREAK() raise(SIGTRAP)
+	#else
+		#error "Platform doesn't support debugbreak yet!"
+	#endif
 	#define VOX_ENABLE_ASSERTS
+#else
+	#define VOX_DEBUGBREAK()
 #endif
 
-#ifdef VOX_ENABLE_ASSERTS
-	#define VOX_ASSERT(x, ...) { if(!(x)) { LOG_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
-	#define VOX_CORE_ASSERT(x, ...) {if(!(x)) { LOG_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
-#else
-	#define VOX_ASSERT(x, ...)
-	#define VOX_CORE_ASSERT(x, ...)
-#endif
+#define VOX_EXPAND_MACRO(x) x
+
+#define VOX_STRINGIFY_MACRO(x) #x
 
 #define BIT(x) (1 << x)
 
-#define VOX_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+#define VOX_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
 namespace Vox
 {
@@ -68,3 +46,6 @@ namespace Vox
 		return std::make_shared<T>(std::forward<Args>(args)...);
 	}
 }
+
+#include "Vox/Core/Log.h"
+#include "Vox/Core/Assert.h"

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Vox/Events/Event.h"
-#include "Vox/Core/Input.h"
+#include "Vox/Core/KeyCodes.h"
 
 namespace Vox {
 
@@ -12,7 +12,7 @@ namespace Vox {
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(KeyCode keycode) : m_KeyCode(keycode) {}
+		KeyEvent(const KeyCode keycode) : m_KeyCode(keycode) {}
 
 		KeyCode m_KeyCode;
 	};
@@ -20,10 +20,10 @@ namespace Vox {
 	class KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(KeyCode keycode, int repeatCount)
+		KeyPressedEvent(const KeyCode keycode, const uint16_t repeatCount)
 			: KeyEvent(keycode), m_RepeatCount(repeatCount) {}
 
-		inline int GetRepeatCount() const { return m_RepeatCount; }
+		uint16_t GetRepeatCount() const { return m_RepeatCount; }
 
 		std::string ToString() const override
 		{
@@ -34,13 +34,13 @@ namespace Vox {
 
 		EVENT_CLASS_TYPE(KeyPressed)
 	private:
-		int m_RepeatCount;
+		uint16_t m_RepeatCount;
 	};
 
 	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(KeyCode keycode) : KeyEvent(keycode) {}
+		KeyReleasedEvent(const KeyCode keycode) : KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{
@@ -55,7 +55,7 @@ namespace Vox {
 	class KeyTypedEvent : public KeyEvent
 	{
 	public:
-		KeyTypedEvent(KeyCode keycode) : KeyEvent(keycode) {}
+		KeyTypedEvent(const KeyCode keycode) : KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{

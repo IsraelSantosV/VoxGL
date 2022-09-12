@@ -1,6 +1,8 @@
 #pragma once
 
-#include "VoxPch.h"
+#include <functional>
+
+#include "Vox/Debug/Instrumentor.h"
 #include "Vox/Core/Core.h"
 
 namespace Vox {
@@ -68,7 +70,7 @@ namespace Vox {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.Handled = func(static_cast<T&>(m_Event));
+				m_Event.Handled |= func(static_cast<T&>(m_Event));
 				return true;
 			}
 			return false;

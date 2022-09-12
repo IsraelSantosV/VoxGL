@@ -2,6 +2,10 @@
 
 #include "Vox.h"
 
+#include "Panels/SceneHierarchyPanel.h"
+
+#include "Vox/Renderer/EditorCamera.h"
+
 namespace Vox
 {
 	class EditorLayer : public Layer
@@ -17,18 +21,27 @@ namespace Vox
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
 	private:
-		OrthoCameraController m_CameraController;
+		void DrawGizmos();
+		bool OnKeyPressed(KeyPressedEvent& e);
 
-		// Temporary
-		Ref<VertexArray> m_SquareVA;
-		Ref<Shader> m_FlatColorShader;
+		void NewScene();
+		void OpenScene();
+		void SaveSceneAs();
+	private:
 		Ref<Framebuffer> m_Framebuffer;
+		Ref<Scene> m_ActiveScene;
 
-		Ref<Texture2D> m_CheckerboardTexture;
+		EditorCamera m_EditorCamera;
 
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
 
 		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
-		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.7f, 1.0f };
+
+		int m_GizmosType = 0;
+		int m_GizmosSpace = 0;
+		float m_SnapValue = 0.5f;
+		float m_RotationSnap = 15.0f;
+
+		SceneHierarchyPanel m_SceneHierarchyPanel;
 	};
 }

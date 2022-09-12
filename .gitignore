@@ -1,7 +1,11 @@
-.vs/
-bin/
+**/bin/
+!ThirdParty/premake/bin/
 bin-int/
 
-*.user
-*.filters
-*.sln
+*.log
+
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.user
+**.vcxproj.filters
