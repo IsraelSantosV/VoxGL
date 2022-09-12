@@ -21,8 +21,10 @@ namespace Vox
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
 	private:
+		void MousePicking();
 		void DrawGizmos();
 		bool OnKeyPressed(KeyPressedEvent& e);
+		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
 		void NewScene();
 		void OpenScene();
@@ -32,6 +34,8 @@ namespace Vox
 		Ref<Scene> m_ActiveScene;
 
 		EditorCamera m_EditorCamera;
+
+		Entity m_HoveredEntity;
 
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
 
