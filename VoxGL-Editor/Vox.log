@@ -1,5 +1,8 @@
-[21:17:30] [info] Vox: Creating window VoxGL-Editor (1600, 900)
-[21:17:31] [info] Vox: OpenGL Info:
-[21:17:31] [info] Vox:   Vendor: Intel
-[21:17:31] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
-[21:17:31] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[09:52:50] [info] Vox: Creating window VoxGL-Editor (1600, 900)
+[09:52:50] [info] Vox: OpenGL Info:
+[09:52:50] [info] Vox:   Vendor: Intel
+[09:52:50] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[09:52:50] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[09:52:53] [trace] Vox: Deserializing scene 'Untitled'
+[09:52:53] [trace] Vox: Deserialized entity with ID = 12837192831273, name = Square
+[09:52:53] [trace] Vox: Deserialized entity with ID = 12837192831273, name = MainCamera

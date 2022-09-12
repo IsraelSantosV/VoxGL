@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;VOX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\yaml-cpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -99,7 +99,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;VOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\yaml-cpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -124,7 +124,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;VOX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty\spdlog\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\imgui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\yaml-cpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -172,7 +172,6 @@
     <ClInclude Include="Source\Vox\Events\KeyEvent.h" />
     <ClInclude Include="Source\Vox\Events\MouseEvent.h" />
     <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="Source\Vox\Tools\ThemePalette.h" />
     <ClInclude Include="Source\Vox\Renderer\Buffer.h" />
     <ClInclude Include="Source\Vox\Renderer\Camera.h" />
     <ClInclude Include="Source\Vox\Renderer\Framebuffer.h" />
@@ -190,7 +189,10 @@
     <ClInclude Include="Source\Vox\Scene\Entity.h" />
     <ClInclude Include="Source\Vox\Scene\Scene.h" />
     <ClInclude Include="Source\Vox\Scene\SceneCamera.h" />
+    <ClInclude Include="Source\Vox\Scene\SceneSerializer.h" />
     <ClInclude Include="Source\Vox\Scene\ScriptableEntity.h" />
+    <ClInclude Include="Source\Vox\Tools\PlatformTools.h" />
+    <ClInclude Include="Source\Vox\Tools\ThemePalette.h" />
     <ClInclude Include="Source\VoxPch.h" />
     <ClInclude Include="ThirdParty\glm\glm\common.hpp" />
     <ClInclude Include="ThirdParty\glm\glm\detail\_features.hpp" />
@@ -565,6 +567,7 @@
     <ClCompile Include="Source\Platform\OpenGL\OpenGLTexture.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinInput.cpp" />
+    <ClCompile Include="Source\Platform\Windows\WinPlatformTools.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinWindow.cpp" />
     <ClCompile Include="Source\Vox\Core\Application.cpp" />
     <ClCompile Include="Source\Vox\Core\Layer.cpp" />
@@ -588,6 +591,7 @@
     <ClCompile Include="Source\Vox\Scene\Entity.cpp" />
     <ClCompile Include="Source\Vox\Scene\Scene.cpp" />
     <ClCompile Include="Source\Vox\Scene\SceneCamera.cpp" />
+    <ClCompile Include="Source\Vox\Scene\SceneSerializer.cpp" />
     <ClCompile Include="Source\VoxPch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
@@ -602,6 +606,9 @@
     </ProjectReference>
     <ProjectReference Include="ThirdParty\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="ThirdParty\yaml-cpp\yaml-cpp.vcxproj">
+      <Project>{88F1A057-74BE-FB62-9DD7-E90A890331F1}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
