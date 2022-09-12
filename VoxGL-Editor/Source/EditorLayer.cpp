@@ -8,7 +8,9 @@
 
 #include "Vox/Tools/PlatformTools.h"
 
-#include "CameraController.h"
+#include "ImGuizmo.h"
+
+#include "Vox/Math/Math.h"
 
 namespace Vox 
 {
@@ -143,13 +145,16 @@ namespace Vox
 
 		m_ViewportFocused = ImGui::IsWindowFocused();
 		m_ViewportHovered = ImGui::IsWindowHovered();
-		Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportFocused || !m_ViewportHovered);
+		Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportFocused && !m_ViewportHovered);
 
 		ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
 		m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
 
 		uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererId();
 		ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+		
+		DrawGizmos();
+		
 		ImGui::End();
 		ImGui::PopStyleVar();
 
@@ -162,6 +167,54 @@ namespace Vox
 
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<KeyPressedEvent>(VOX_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
+	}
+
+	void EditorLayer::DrawGizmos()
+	{
+		Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
+		if (selectedEntity && m_GizmosType >= 0)
+		{
+			ImGuizmo::SetOrthographic(false);
+			ImGuizmo::SetDrawlist();
+
+			float windowWidth = (float)ImGui::GetWindowWidth();
+			float windowHeight = (float)ImGui::GetWindowHeight();
+			ImVec2 windowPos = ImGui::GetWindowPos();
+
+			ImGuizmo::SetRect(windowPos.x, windowPos.y, windowWidth, windowHeight);
+
+			auto cameraEntity = m_ActiveScene->GetMainCameraEntity();
+			const auto& camera = cameraEntity.GetComponent<CameraComponent>().Camera;
+			const glm::mat4 cameraProjection = camera.GetProjection();
+			glm::mat4 cameraView = glm::inverse(cameraEntity.GetComponent<TransformComponent>().GetTransform());
+
+			auto& tc = selectedEntity.GetComponent<TransformComponent>();
+			glm::mat4 transform = tc.GetTransform();
+
+			float snapValue = m_SnapValue;
+			bool snap = Input::IsKeyPressed(Key::LeftControl);
+			if (m_GizmosType == ImGuizmo::OPERATION::ROTATE)
+			{
+				snapValue = m_RotationSnap;
+			}
+
+			float snapValues[3] = { snapValue, snapValue, snapValue };
+
+			ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
+				(ImGuizmo::OPERATION)m_GizmosType, (ImGuizmo::MODE)m_GizmosSpace, glm::value_ptr(transform),
+				nullptr, snap ? snapValues : nullptr);
+
+			if (ImGuizmo::IsUsing())
+			{
+				glm::vec3 position, rotation, scale;
+				Math::DecomposeTransform(transform, position, rotation, scale);
+
+				glm::vec3 deltaRotation = rotation - tc.Rotation;
+				tc.Position = position;
+				tc.Rotation += deltaRotation;
+				tc.Scale = scale;
+			}
+		}
 	}
 
 	bool EditorLayer::OnKeyPressed(KeyPressedEvent& e)
@@ -179,24 +232,35 @@ namespace Vox
 
 		switch (e.GetKeyCode())
 		{
-		case Key::N:
-			if (control)
-			{
-				NewScene();
-			}
-			break;
-		case Key::O:
-			if (control)
-			{
-				OpenScene();
-			}
-			break;
-		case Key::S:
-			if (control && shift)
-			{
-				SaveSceneAs();
-			}
-			break;
+			case Key::N:
+				if (control)
+				{
+					NewScene();
+				}
+				break;
+			case Key::O:
+				if (control)
+				{
+					OpenScene();
+				}
+				break;
+			case Key::S:
+				if (control && shift)
+				{
+					SaveSceneAs();
+				}
+				break;
+
+			//Gizmos
+			case Key::Q:
+				m_GizmosType = ImGuizmo::OPERATION::TRANSLATE;
+				break;
+			case Key::W:
+				m_GizmosType = ImGuizmo::OPERATION::ROTATE;
+				break;
+			case Key::E:
+				m_GizmosType = ImGuizmo::OPERATION::SCALE;
+				break;
 		}
 	}
 

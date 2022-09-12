@@ -19,6 +19,7 @@ namespace Vox
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
 	private:
+		void DrawGizmos();
 		bool OnKeyPressed(KeyPressedEvent& e);
 
 		void NewScene();
@@ -42,6 +43,11 @@ namespace Vox
 
 		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
 		glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.7f, 1.0f };
+
+		int m_GizmosType = 0;
+		int m_GizmosSpace = 0;
+		float m_SnapValue = 0.5f;
+		float m_RotationSnap = 45.0f;
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 	};

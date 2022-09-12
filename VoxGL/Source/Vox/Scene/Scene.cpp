@@ -98,6 +98,21 @@ namespace Vox
 		}
 	}
 
+	Entity Scene::GetMainCameraEntity()
+	{
+		auto view = m_Registry.view<CameraComponent>();
+		for (auto entity : view)
+		{
+			const auto& camera = view.get<CameraComponent>(entity);
+			if (camera.MainCamera)
+			{
+				return Entity{ entity, this };
+			}
+		}
+
+		return {};
+	}
+
 	template<typename T>
 	void Scene::OnComponentAdded(Entity entity, T& component)
 	{

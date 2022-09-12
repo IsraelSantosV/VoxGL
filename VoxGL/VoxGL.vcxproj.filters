@@ -40,6 +40,9 @@
     <Filter Include="ThirdParty">
       <UniqueIdentifier>{107145F9-FC28-8746-6530-60A251072237}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty\ImGuizmo">
+      <UniqueIdentifier>{7015E757-DC76-C465-65E4-0A18D144FB24}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ThirdParty\glm">
       <UniqueIdentifier>{5F03D311-4BD1-C617-3465-373E20D2A27C}</UniqueIdentifier>
     </Filter>
@@ -212,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="Source\VoxPch.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\ImGuizmo\ImGuizmo.h">
+      <Filter>ThirdParty\ImGuizmo</Filter>
     </ClInclude>
     <ClInclude Include="ThirdParty\glm\glm\common.hpp">
       <Filter>ThirdParty\glm\glm</Filter>
@@ -1302,6 +1308,7 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Math\Math.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1406,8 +1413,12 @@
     <ClCompile Include="Source\VoxPch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="ThirdParty\ImGuizmo\ImGuizmo.cpp">
+      <Filter>ThirdParty\ImGuizmo</Filter>
+    </ClCompile>
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Math\Math.cpp" />
   </ItemGroup>
 </Project>
