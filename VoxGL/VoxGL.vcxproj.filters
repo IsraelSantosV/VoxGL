@@ -1317,6 +1317,9 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Core\Timer.h" />
+    <ClInclude Include="Source\Vox\Renderer\UniformBuffer.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLUniformBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1433,5 +1436,7 @@
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Renderer\UniformBuffer.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
   </ItemGroup>
 </Project>

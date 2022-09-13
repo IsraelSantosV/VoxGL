@@ -1,11 +1,13 @@
 #include "VoxPch.h"
-#include "Renderer2D.h"
+#include "Vox/Renderer/Renderer2D.h"
 
-#include "VertexArray.h"
-#include "Shader.h"
-#include "RenderCommand.h"
+#include "Vox/Renderer/VertexArray.h"
+#include "Vox/Renderer/Shader.h"
+#include "Vox/Renderer/UniformBuffer.h"
+#include "Vox/Renderer/RenderCommand.h"
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace Vox
 {
@@ -42,6 +44,14 @@ namespace Vox
 		glm::vec4 QuadVertexPositions[4];
 
 		Renderer2D::Statistics Stats;
+
+		struct CameraData
+		{
+			glm::mat4 ViewProjection;
+		};
+
+		CameraData CameraBuffer;
+		Ref<UniformBuffer> CameraUniformBuffer;
 	};
 
 	static Renderer2DData m_Data;
@@ -93,16 +103,15 @@ namespace Vox
 		for (uint32_t i = 0; i < m_Data.MaxTextureSlots; i++)
 			samplers[i] = i;
 
-		m_Data.TextureShader = Shader::Create("assets/shaders/Texture.glsl");
-		m_Data.TextureShader->Bind();
-		m_Data.TextureShader->SetIntArray("u_Textures", samplers, m_Data.MaxTextureSlots);
-
+		m_Data.TextureShader = Shader::Create("Assets/Shaders/Texture.glsl");
 		m_Data.TextureSlots[0] = m_Data.WhiteTexture;
 
 		m_Data.QuadVertexPositions[0] = { -0.5f, -0.5f, 0.0f, 1.0f };
 		m_Data.QuadVertexPositions[1] = { 0.5f, -0.5f, 0.0f, 1.0f };
 		m_Data.QuadVertexPositions[2] = { 0.5f, 0.5f, 0.0f, 1.0f };
 		m_Data.QuadVertexPositions[3] = { -0.5f, 0.5f, 0.0f, 1.0f };
+		
+		m_Data.CameraUniformBuffer = UniformBuffer::Create(sizeof(Renderer2DData::CameraData), 0);
 	}
 
 	void Renderer2D::Shutdown()
@@ -115,10 +124,8 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		glm::mat4 viewProj = camera.GetProjection() * glm::inverse(transform);
-
-		m_Data.TextureShader->Bind();
-		m_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);
+		m_Data.CameraBuffer.ViewProjection = camera.GetProjection() * glm::inverse(transform);
+		m_Data.CameraUniformBuffer->SetData(&m_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
 
 		StartBatch();
 	}
@@ -127,10 +134,8 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		glm::mat4 viewProjection = camera.GetViewProjection();
-
-		m_Data.TextureShader->Bind();
-		m_Data.TextureShader->SetMat4("u_ViewProjection", viewProjection);
+		m_Data.CameraBuffer.ViewProjection = camera.GetViewProjection();
+		m_Data.CameraUniformBuffer->SetData(&m_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
 
 		StartBatch();
 	}
@@ -173,6 +178,8 @@ namespace Vox
 		{
 			m_Data.TextureSlots[i]->Bind(i);
 		}
+
+		m_Data.TextureShader->Bind();
 
 		RenderCommand::DrawIndexed(m_Data.QuadVertexArray, m_Data.QuadIndexCount);
 		m_Data.Stats.DrawCalls++;

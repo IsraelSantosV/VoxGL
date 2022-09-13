@@ -9,3 +9,7 @@ bin-int/
 **.vcxproj
 **.vcxproj.user
 **.vcxproj.filters
+
+VoxGL/ThirdParty/VulkanSDK
+VoxGL-Editor/Assets/Cache
+Scripts/__pycache__

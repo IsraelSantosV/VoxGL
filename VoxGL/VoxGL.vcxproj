@@ -150,6 +150,7 @@
     <ClInclude Include="Source\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLTexture.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLUniformBuffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Source\Platform\Windows\WinWindow.h" />
     <ClInclude Include="Source\Vox.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Source\Vox\Core\Log.h" />
     <ClInclude Include="Source\Vox\Core\MouseCodes.h" />
     <ClInclude Include="Source\Vox\Core\PlatformDetection.h" />
+    <ClInclude Include="Source\Vox\Core\Timer.h" />
     <ClInclude Include="Source\Vox\Core\Timestep.h" />
     <ClInclude Include="Source\Vox\Core\Window.h" />
     <ClInclude Include="Source\Vox\Debug\Instrumentor.h" />
@@ -186,6 +188,7 @@
     <ClInclude Include="Source\Vox\Renderer\RendererAPI.h" />
     <ClInclude Include="Source\Vox\Renderer\Shader.h" />
     <ClInclude Include="Source\Vox\Renderer\Texture.h" />
+    <ClInclude Include="Source\Vox\Renderer\UniformBuffer.h" />
     <ClInclude Include="Source\Vox\Renderer\VertexArray.h" />
     <ClInclude Include="Source\Vox\Scene\Components.h" />
     <ClInclude Include="Source\Vox\Scene\Entity.h" />
@@ -568,6 +571,7 @@
     <ClCompile Include="Source\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLTexture.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinInput.cpp" />
     <ClCompile Include="Source\Platform\Windows\WinPlatformTools.cpp" />
@@ -592,6 +596,7 @@
     <ClCompile Include="Source\Vox\Renderer\RendererAPI.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Shader.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Texture.cpp" />
+    <ClCompile Include="Source\Vox\Renderer\UniformBuffer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp" />
     <ClCompile Include="Source\Vox\Scene\Entity.cpp" />
     <ClCompile Include="Source\Vox\Scene\Scene.cpp" />
