@@ -9,6 +9,8 @@
 #include "Vox/Scene/SceneCamera.h"
 #include "Vox/Scene/ScriptableEntity.h"
 
+#include "Vox/Renderer/Texture.h"
+
 namespace Vox
 {
 	struct TagComponent
@@ -43,6 +45,9 @@ namespace Vox
 	struct SpriteRendererComponent
 	{
 		glm::vec4 Color { 1.0f, 1.0f, 1.0f, 1.0f };
+
+		Ref<Texture2D> Texture;
+		float TilingFactor = 1.0f;
 
 		SpriteRendererComponent() = default;
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;

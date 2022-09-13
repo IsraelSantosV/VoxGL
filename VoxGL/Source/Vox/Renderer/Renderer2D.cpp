@@ -323,7 +323,14 @@ namespace Vox
 
 	void Renderer2D::DrawSprite(const glm::mat4& transform, SpriteRendererComponent& component, int entityId)
 	{
-		DrawQuad(transform, component.Color, entityId);
+		if (component.Texture)
+		{
+			DrawQuad(transform, component.Texture, component.TilingFactor, component.Color, entityId);
+		}
+		else
+		{
+			DrawQuad(transform, component.Color, entityId);
+		}
 	}
 
 	void Renderer2D::ResetStats()

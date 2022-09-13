@@ -1,22 +1,24 @@
 #pragma once
 
+#include "EditorPanel.h"
+
 #include "Vox/Core/Core.h"
 #include "Vox/Scene/Scene.h"
-#include "Vox/Scene/Entity.h"
+#include "Vox/Scene/Components.h"
 
 namespace Vox
 {
-	class SceneHierarchyPanel
+	class SceneHierarchyPanel : public EditorPanel
 	{
 	public:
 		SceneHierarchyPanel() = default;
 		SceneHierarchyPanel(const Ref<Scene>& scene);
 
-		void SetContext(const Ref<Scene>& scene);
-		void OnRender();
-
 		Entity GetSelectedEntity() const { return m_SelectionContext; }
 		void SelectEntity(Entity entity);
+
+		void SetContext(const Ref<Scene>& scene);
+		virtual void OnRender() override;
 	private:
 		void DrawEntityNode(Entity entity);
 		void DrawComponents(Entity entity);
