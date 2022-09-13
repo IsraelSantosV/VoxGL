@@ -2,6 +2,8 @@
 
 namespace Vox::Theme
 {
+	static float FontSize = 18.0f;
+
 	static ImVec4 RgbColor(ImVec4 color)
 	{
 		return ImVec4{ color.x / 255.0f, color.y / 255.0f, color.z / 255.0f, color.w };

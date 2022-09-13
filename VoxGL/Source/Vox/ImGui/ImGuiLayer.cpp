@@ -35,9 +35,9 @@ namespace Vox
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
-		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Bold.ttf", Window::m_HighDpiScaleFactor * 18.0f);
-		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Italic.ttf", Window::m_HighDpiScaleFactor * 18.0f);
-		io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Regular.ttf", Window::m_HighDpiScaleFactor * 18.0f);
+		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Bold.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
+		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Italic.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
+		io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Regular.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
 
 		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();

@@ -14,6 +14,8 @@
 
 namespace Vox 
 {
+	extern const std::filesystem::path m_AssetPath;
+
 	EditorLayer::EditorLayer() : Layer("EditorLayer")
 	{
 	}
@@ -131,6 +133,11 @@ namespace Vox
 					OpenScene();
 				}
 
+				if (ImGui::MenuItem("Save Scene...", "Ctrl+S"))
+				{
+					SaveScene();
+				}
+
 				if (ImGui::MenuItem("Save Scene As...", "Ctrl+Shift+S"))
 				{
 					SaveSceneAs();
@@ -144,6 +151,7 @@ namespace Vox
 		}
 
 		m_SceneHierarchyPanel.OnRender();
+		m_ContentBrowserPanel.OnRender();
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
 		ImGui::Begin("Scene");
@@ -164,6 +172,17 @@ namespace Vox
 
 		uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererId();
 		ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
+			{
+				const wchar_t* path = (const wchar_t*)payload->Data;
+				OpenScene(std::filesystem::path(m_AssetPath) / path);
+			}
+
+			ImGui::EndDragDropTarget();
+		}
 
 		DrawGizmos();
 		
@@ -298,6 +317,8 @@ namespace Vox
 					m_GizmosType = ImGuizmo::OPERATION::SCALE;
 				break;
 		}
+
+		return false;
 	}
 
 	bool EditorLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
@@ -311,6 +332,8 @@ namespace Vox
 
 			return false;
 		}
+
+		return false;
 	}
 
 	void EditorLayer::NewScene()
@@ -326,9 +349,37 @@ namespace Vox
 		std::optional<std::string> filepath = FileDialogs::OpenFile("Scene (*.scene)\0*.scene\0");
 		if (filepath)
 		{
-			NewScene();
-			SceneSerializer serializer(m_ActiveScene);
-			serializer.Deserialize(*filepath);
+			OpenScene(filepath.value());
+		}
+	}
+
+	void EditorLayer::OpenScene(const std::filesystem::path& path)
+	{
+		if (path.extension().string() != ".scene")
+		{
+			LOG_WARN("Could not load {0} - not a scene file", path.filename().string());
+			return;
+		}
+
+		Ref<Scene> newScene = CreateRef<Scene>();
+		SceneSerializer serializer(newScene);
+		if (serializer.Deserialize(path.string()))
+		{
+			m_ActiveScene = newScene;
+			m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+			m_EditorScenePath = path;
+		}
+	}
+
+	void EditorLayer::SaveScene()
+	{
+		if (!m_EditorScenePath.empty())
+		{
+			SerializeScene(m_ActiveScene, m_EditorScenePath);
+		}
+		else
+		{
+			SaveSceneAs();
 		}
 	}
 
@@ -337,9 +388,15 @@ namespace Vox
 		std::optional<std::string> filepath = FileDialogs::SaveFile("Scene (*.scene)\0*.scene\0");
 		if (filepath)
 		{
-			SceneSerializer serializer(m_ActiveScene);
-			serializer.Serialize(*filepath);
+			SerializeScene(m_ActiveScene, filepath.value());
+			m_EditorScenePath = filepath.value();
 		}
+	}
+
+	void EditorLayer::SerializeScene(Ref<Scene> scene, const std::filesystem::path& path)
+	{
+		SceneSerializer serializer(scene);
+		serializer.Serialize(path.string());
 	}
 
 }

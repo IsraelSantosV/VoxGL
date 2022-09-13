@@ -28,6 +28,9 @@
     <Filter Include="Source\Vox\ImGui">
       <UniqueIdentifier>{6C67FB4F-5860-1AA2-8192-FF266DEAF9AD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Math">
+      <UniqueIdentifier>{DB16DBB4-47A2-4879-50B3-CB6DBCBDA479}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Vox\Renderer">
       <UniqueIdentifier>{A826150B-1488-F218-9DF5-38CB095629D8}</UniqueIdentifier>
     </Filter>
@@ -150,10 +153,16 @@
     <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h">
       <Filter>Source\Vox\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Math\Math.h">
+      <Filter>Source\Vox\Math</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Buffer.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Camera.h">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Renderer\EditorCamera.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Framebuffer.h">
@@ -1308,8 +1317,6 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Math\Math.h" />
-    <ClInclude Include="Source\Vox\Renderer\EditorCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1363,7 +1370,13 @@
     <ClCompile Include="Source\Vox\ImGui\ImGuiLayer.cpp">
       <Filter>Source\Vox\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Math\Math.cpp">
+      <Filter>Source\Vox\Math</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Renderer\EditorCamera.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\Framebuffer.cpp">
@@ -1420,7 +1433,5 @@
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Vox\Math\Math.cpp" />
-    <ClCompile Include="Source\Vox\Renderer\EditorCamera.cpp" />
   </ItemGroup>
 </Project>

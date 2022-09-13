@@ -3,6 +3,7 @@
 #include "Vox.h"
 
 #include "Panels/SceneHierarchyPanel.h"
+#include "Panels/ContentBrowserPanel.h"
 
 #include "Vox/Renderer/EditorCamera.h"
 
@@ -28,7 +29,11 @@ namespace Vox
 
 		void NewScene();
 		void OpenScene();
+		void OpenScene(const std::filesystem::path& path);
+		void SaveScene();
 		void SaveSceneAs();
+
+		void SerializeScene(Ref<Scene> scene, const std::filesystem::path& path);
 	private:
 		Ref<Framebuffer> m_Framebuffer;
 		Ref<Scene> m_ActiveScene;
@@ -36,6 +41,8 @@ namespace Vox
 		EditorCamera m_EditorCamera;
 
 		Entity m_HoveredEntity;
+
+		std::filesystem::path m_EditorScenePath;
 
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
 
@@ -48,5 +55,6 @@ namespace Vox
 		float m_RotationSnap = 15.0f;
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
+		ContentBrowserPanel m_ContentBrowserPanel;
 	};
 }
