@@ -7,7 +7,7 @@
 class Sandbox : public Vox::Application
 {
 public:
-	Sandbox()
+	Sandbox(Vox::AppCommandLineArgs args)
 	{
 		//PushLayer(new ExampleLayer());
 		PushLayer(new Sandbox2D());
@@ -18,7 +18,7 @@ public:
 	}
 };
 
-Vox::Application* Vox::CreateApplication()
+Vox::Application* Vox::CreateApplication(Vox::AppCommandLineArgs args)
 {
-	return new Sandbox();
+	return new Sandbox(args);
 }

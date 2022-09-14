@@ -1,5 +1,18 @@
-[22:45:36] [info] Vox: Creating window VoxGL-Editor (1600, 900)
-[22:45:36] [info] Vox: OpenGL Info:
-[22:45:36] [info] Vox:   Vendor: Intel
-[22:45:36] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
-[22:45:36] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[10:08:47] [info] Vox: Creating window VoxGL-Editor (1600, 900)
+[10:08:47] [info] Vox: OpenGL Info:
+[10:08:47] [info] Vox:   Vendor: Intel
+[10:08:47] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[10:08:47] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[10:08:47] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Texture.glsl
+[10:08:47] [trace] Vox:     1 uniform buffers
+[10:08:47] [trace] Vox:     0 resources
+[10:08:47] [trace] Vox: Uniform buffers:
+[10:08:47] [trace] Vox:   _46_48
+[10:08:47] [trace] Vox:     Size = 64
+[10:08:47] [trace] Vox:     Binding = 0
+[10:08:47] [trace] Vox:     Members = 1
+[10:08:47] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Texture.glsl
+[10:08:47] [trace] Vox:     0 uniform buffers
+[10:08:47] [trace] Vox:     1 resources
+[10:08:47] [trace] Vox: Uniform buffers:
+[10:08:47] [warning] Vox: Shader creation took 132.063 ms

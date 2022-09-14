@@ -144,8 +144,8 @@ namespace Vox
 	{
 		VOX_PROFILE_FUNCTION();
 
-		m_Data.TextureShader->Bind();
-		m_Data.TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
+		m_Data.CameraBuffer.ViewProjection = camera.GetViewProjectionMatrix();
+		m_Data.CameraUniformBuffer->SetData(&m_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
 	
 		StartBatch();
 	}

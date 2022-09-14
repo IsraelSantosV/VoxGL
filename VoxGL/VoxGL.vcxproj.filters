@@ -87,6 +87,9 @@
     <ClInclude Include="Source\Platform\OpenGL\OpenGLTexture.h">
       <Filter>Source\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLUniformBuffer.h">
+      <Filter>Source\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>Source\Platform\OpenGL</Filter>
     </ClInclude>
@@ -127,6 +130,9 @@
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\PlatformDetection.h">
+      <Filter>Source\Vox\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Core\Timer.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Core\Timestep.h">
@@ -193,6 +199,9 @@
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\Texture.h">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Renderer\UniformBuffer.h">
       <Filter>Source\Vox\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Renderer\VertexArray.h">
@@ -1317,9 +1326,6 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Core\Timer.h" />
-    <ClInclude Include="Source\Vox\Renderer\UniformBuffer.h" />
-    <ClInclude Include="Source\Platform\OpenGL\OpenGLUniformBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1338,6 +1344,9 @@
       <Filter>Source\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>Source\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLUniformBuffer.cpp">
       <Filter>Source\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp">
@@ -1412,6 +1421,9 @@
     <ClCompile Include="Source\Vox\Renderer\Texture.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Renderer\UniformBuffer.cpp">
+      <Filter>Source\Vox\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Vox\Renderer\VertexArray.cpp">
       <Filter>Source\Vox\Renderer</Filter>
     </ClCompile>
@@ -1436,7 +1448,5 @@
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Vox\Renderer\UniformBuffer.cpp" />
-    <ClCompile Include="Source\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
   </ItemGroup>
 </Project>
