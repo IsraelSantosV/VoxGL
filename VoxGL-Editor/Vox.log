@@ -1,18 +1,21 @@
-[10:28:24] [info] Vox: Creating window VoxGL-Editor (1600, 900)
-[10:28:24] [info] Vox: OpenGL Info:
-[10:28:24] [info] Vox:   Vendor: Intel
-[10:28:24] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
-[10:28:24] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
-[10:28:24] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Texture.glsl
-[10:28:24] [trace] Vox:     1 uniform buffers
-[10:28:24] [trace] Vox:     0 resources
-[10:28:24] [trace] Vox: Uniform buffers:
-[10:28:24] [trace] Vox:   _46_48
-[10:28:24] [trace] Vox:     Size = 64
-[10:28:24] [trace] Vox:     Binding = 0
-[10:28:24] [trace] Vox:     Members = 1
-[10:28:24] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Texture.glsl
-[10:28:24] [trace] Vox:     0 uniform buffers
-[10:28:24] [trace] Vox:     1 resources
-[10:28:24] [trace] Vox: Uniform buffers:
-[10:28:24] [warning] Vox: Shader creation took 97.8716 ms
+[11:35:11] [info] Vox: Creating window VoxGL-Editor (1600, 900)
+[11:35:12] [info] Vox: OpenGL Info:
+[11:35:12] [info] Vox:   Vendor: Intel
+[11:35:12] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[11:35:12] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[11:35:12] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Texture.glsl
+[11:35:12] [trace] Vox:     1 uniform buffers
+[11:35:12] [trace] Vox:     0 resources
+[11:35:12] [trace] Vox: Uniform buffers:
+[11:35:12] [trace] Vox:   _46_48
+[11:35:12] [trace] Vox:     Size = 64
+[11:35:12] [trace] Vox:     Binding = 0
+[11:35:12] [trace] Vox:     Members = 1
+[11:35:12] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Texture.glsl
+[11:35:12] [trace] Vox:     0 uniform buffers
+[11:35:12] [trace] Vox:     1 resources
+[11:35:12] [trace] Vox: Uniform buffers:
+[11:35:12] [warning] Vox: Shader creation took 120.187 ms
+[11:35:15] [trace] Vox: Deserializing scene 'Untitled'
+[11:35:15] [trace] Vox: Deserialized entity with ID = 12837192831273, name = Square
+[11:35:15] [trace] Vox: Deserialized entity with ID = 12837192831273, name = MainCamera

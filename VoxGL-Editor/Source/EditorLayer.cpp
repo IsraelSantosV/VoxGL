@@ -89,9 +89,7 @@ namespace Vox
 			break;
 		}
 
-		m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
 		MousePicking();
-
 		m_Framebuffer->Unbind();
 	}
 
@@ -454,11 +452,13 @@ namespace Vox
 	void EditorLayer::OnScenePlay()
 	{
 		m_SceneState = SceneState::Play;
+		m_ActiveScene->OnRuntimeStart();
 	}
 
 	void EditorLayer::OnSceneStop()
 	{
 		m_SceneState = SceneState::Edit;
+		m_ActiveScene->OnRuntimeStop();
 	}
 
 	void EditorLayer::SerializeScene(Ref<Scene> scene, const std::filesystem::path& path)

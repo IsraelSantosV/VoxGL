@@ -26,6 +26,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 group "Dependencies"
 	include "ThirdParty/premake"
+	include "VoxGL/ThirdParty/Box2D"
 	include "VoxGL/ThirdParty/GLFW"
 	include "VoxGL/ThirdParty/Glad"
 	include "VoxGL/ThirdParty/imgui"
