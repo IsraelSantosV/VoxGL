@@ -1,4 +1,5 @@
 include "./ThirdParty/premake/premake_customization/solution_items.lua"
+include "Dependencies.lua"
 
 workspace "VoxGL"
 	architecture "x86_64"
@@ -22,16 +23,6 @@ workspace "VoxGL"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
-
-IncludeDir = {}
-IncludeDir["GLFW"] = "%{wks.location}/VoxGL/ThirdParty/GLFW/include"
-IncludeDir["Glad"] = "%{wks.location}/VoxGL/ThirdParty/Glad/include"
-IncludeDir["ImGui"] = "%{wks.location}/VoxGL/ThirdParty/imgui"
-IncludeDir["glm"] = "%{wks.location}/VoxGL/ThirdParty/glm"
-IncludeDir["stb_image"] = "%{wks.location}/VoxGL/ThirdParty/stb_image"
-IncludeDir["entt"] = "%{wks.location}/VoxGL/ThirdParty/entt/include"
-IncludeDir["yaml_cpp"] = "%{wks.location}/VoxGL/ThirdParty/yaml-cpp/include"
-IncludeDir["ImGuizmo"] = "%{wks.location}/VoxGL/ThirdParty/ImGuizmo"
 
 group "Dependencies"
 	include "ThirdParty/premake"

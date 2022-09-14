@@ -13,7 +13,8 @@ namespace Vox
 {
 	Application* Application::m_Instance = nullptr; 
 	
-	Application::Application(const std::string& appName)
+	Application::Application(const std::string& appName, AppCommandLineArgs args)
+		: m_CommandLineArgs(args)
 	{
 		VOX_PROFILE_FUNCTION();
 		VOX_CORE_ASSERT(!m_Instance, "Application aleady exists!");

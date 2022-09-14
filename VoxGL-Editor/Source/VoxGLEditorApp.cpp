@@ -8,7 +8,7 @@ namespace Vox
 	class VoxGLEditorApp : public Application
 	{
 	public:
-		VoxGLEditorApp() : Application("VoxGL-Editor")
+		VoxGLEditorApp(AppCommandLineArgs args) : Application("VoxGL-Editor", args)
 		{
 			PushLayer(new EditorLayer());
 		}
@@ -18,8 +18,8 @@ namespace Vox
 		}
 	};
 
-	Application* CreateApplication()
+	Application* CreateApplication(AppCommandLineArgs args)
 	{
-		return new VoxGLEditorApp();
+		return new VoxGLEditorApp(args);
 	}
 }

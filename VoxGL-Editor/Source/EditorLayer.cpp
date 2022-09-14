@@ -37,6 +37,15 @@ namespace Vox
 		m_Framebuffer = Framebuffer::Create(fbSpec);
 
 		m_ActiveScene = CreateRef<Scene>();
+
+		auto commandLineArgs = Application::Get().GetCommandLineArgs();
+		if (commandLineArgs.Count > 1)
+		{
+			auto sceneFilePath = commandLineArgs[1];
+			SceneSerializer serializer(m_ActiveScene);
+			serializer.Deserialize(sceneFilePath);
+		}
+
 		m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
@@ -346,10 +355,10 @@ namespace Vox
 
 	void EditorLayer::OpenScene()
 	{
-		std::optional<std::string> filepath = FileDialogs::OpenFile("Scene (*.scene)\0*.scene\0");
-		if (filepath)
+		std::string filepath = FileDialogs::OpenFile("Scene (*.scene)\0*.scene\0");
+		if (!filepath.empty())
 		{
-			OpenScene(filepath.value());
+			OpenScene(filepath);
 		}
 	}
 
@@ -385,11 +394,11 @@ namespace Vox
 
 	void EditorLayer::SaveSceneAs()
 	{
-		std::optional<std::string> filepath = FileDialogs::SaveFile("Scene (*.scene)\0*.scene\0");
-		if (filepath)
+		std::string filepath = FileDialogs::SaveFile("Scene (*.scene)\0*.scene\0");
+		if (!filepath.empty())
 		{
-			SerializeScene(m_ActiveScene, filepath.value());
-			m_EditorScenePath = filepath.value();
+			SerializeScene(m_ActiveScene, filepath);
+			m_EditorScenePath = filepath;
 		}
 	}
 

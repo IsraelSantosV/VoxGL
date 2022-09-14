@@ -15,10 +15,23 @@ int main(int argc, char** argv);
 
 namespace Vox
 {
+	struct AppCommandLineArgs
+	{
+		int Count = 0;
+		char** Args = nullptr;
+
+		const char* operator[](int index) const
+		{
+			VOX_CORE_ASSERT(index < Count);
+			return Args[index];
+		}
+	};
+
 	class Application
 	{
 	public:
-		Application(const std::string& appName = "");
+		Application(const std::string& appName = "VoxGL Engine", 
+			AppCommandLineArgs args = AppCommandLineArgs());
 		virtual ~Application();
 
 		void OnEvent(Event& e);
@@ -32,11 +45,15 @@ namespace Vox
 
 		inline static Application& Get() { return *m_Instance; }
 		inline Window& GetWindow() { return *m_Window; }
+
+		AppCommandLineArgs GetCommandLineArgs() const { return m_CommandLineArgs; }
 	private:
 		void Run();
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
+		AppCommandLineArgs m_CommandLineArgs;
+
 		Scope<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
@@ -48,7 +65,7 @@ namespace Vox
 		friend int ::main(int argc, char** argv);
 	};
 
-	Application* CreateApplication();
+	Application* CreateApplication(AppCommandLineArgs args);
 }
 
 
