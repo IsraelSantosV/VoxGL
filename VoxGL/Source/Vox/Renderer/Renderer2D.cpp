@@ -22,6 +22,17 @@ namespace Vox
 		int _EntityId;
 	};
 
+	struct CircleVertex
+	{
+		glm::vec3 WorldPosition;
+		glm::vec3 LocalPosition;
+		glm::vec4 Color;
+		float Thickness;
+		float Fade;
+
+		int _EntityId;
+	};
+
 	struct Renderer2DData
 	{
 		static const uint32_t MaxQuads = 20000;
@@ -31,12 +42,21 @@ namespace Vox
 
 		Ref<VertexArray> QuadVertexArray;
 		Ref<VertexBuffer> QuadVertexBuffer;
-		Ref<Shader> TextureShader;
+
+		Ref<Shader> QuadShader;
 		Ref<Texture2D> WhiteTexture;
+
+		Ref<VertexArray> CircleVertexArray;
+		Ref<VertexBuffer> CircleVertexBuffer;
+		Ref<Shader> CircleShader;
 
 		uint32_t QuadIndexCount = 0;
 		QuadVertex* QuadVertexBufferBase = nullptr;
 		QuadVertex* QuadVertexBufferPtr = nullptr;
+
+		uint32_t CircleIndexCount = 0;
+		CircleVertex* CircleVertexBufferBase = nullptr;
+		CircleVertex* CircleVertexBufferPtr = nullptr;
 
 		std::array<Ref<Texture2D>, MaxTextureSlots> TextureSlots;
 		uint32_t TextureSlotIndex = 1;
@@ -95,15 +115,33 @@ namespace Vox
 		m_Data.QuadVertexArray->SetIndexBuffer(quadIB);
 		delete[] quadIndices;
 
+		m_Data.CircleVertexArray = VertexArray::Create();
+
+		m_Data.CircleVertexBuffer = VertexBuffer::Create(m_Data.MaxVertices * sizeof(CircleVertex));
+		m_Data.CircleVertexBuffer->SetLayout({
+			{ ShaderDataType::Float3, "a_WorldPosition" },
+			{ ShaderDataType::Float3, "a_LocalPosition" },
+			{ ShaderDataType::Float4, "a_Color"         },
+			{ ShaderDataType::Float,  "a_Thickness"     },
+			{ ShaderDataType::Float,  "a_Fade"          },
+			{ ShaderDataType::Int,    "a_EntityId"      }
+		});
+		m_Data.CircleVertexArray->AddVertexBuffer(m_Data.CircleVertexBuffer);
+		m_Data.CircleVertexArray->SetIndexBuffer(quadIB);
+		m_Data.CircleVertexBufferBase = new CircleVertex[m_Data.MaxVertices];
+
 		m_Data.WhiteTexture = Texture2D::Create(1, 1);
 		uint32_t whiteTextureData = 0xffffffff;
 		m_Data.WhiteTexture->SetData(&whiteTextureData, sizeof(uint32_t));
 
 		int32_t samplers[m_Data.MaxTextureSlots];
 		for (uint32_t i = 0; i < m_Data.MaxTextureSlots; i++)
+		{
 			samplers[i] = i;
-
-		m_Data.TextureShader = Shader::Create("Assets/Shaders/Texture.glsl");
+		}
+			
+		m_Data.QuadShader = Shader::Create("Assets/Shaders/Renderer2D_Quad.glsl");
+		m_Data.CircleShader = Shader::Create("Assets/Shaders/Renderer2D_Circle.glsl");
 		m_Data.TextureSlots[0] = m_Data.WhiteTexture;
 
 		m_Data.QuadVertexPositions[0] = { -0.5f, -0.5f, 0.0f, 1.0f };
@@ -161,28 +199,37 @@ namespace Vox
 		m_Data.QuadIndexCount = 0;
 		m_Data.QuadVertexBufferPtr = m_Data.QuadVertexBufferBase;
 
+		m_Data.CircleIndexCount = 0;
+		m_Data.CircleVertexBufferPtr = m_Data.CircleVertexBufferBase;
+
 		m_Data.TextureSlotIndex = 1;
 	}
 
 	void Renderer2D::Flush()
 	{
-		if (m_Data.QuadIndexCount == 0)
+		if (m_Data.QuadIndexCount)
 		{
-			return;
+			uint32_t dataSize = (uint32_t)((uint8_t*)m_Data.QuadVertexBufferPtr - (uint8_t*)m_Data.QuadVertexBufferBase);
+			m_Data.QuadVertexBuffer->SetData(m_Data.QuadVertexBufferBase, dataSize);
+
+			// Bind textures
+			for (uint32_t i = 0; i < m_Data.TextureSlotIndex; i++)
+				m_Data.TextureSlots[i]->Bind(i);
+
+			m_Data.QuadShader->Bind();
+			RenderCommand::DrawIndexed(m_Data.QuadVertexArray, m_Data.QuadIndexCount);
+			m_Data.Stats.DrawCalls++;
 		}
 
-		uint32_t dataSize = (uint32_t)((uint8_t*)m_Data.QuadVertexBufferPtr - (uint8_t*)m_Data.QuadVertexBufferBase);
-		m_Data.QuadVertexBuffer->SetData(m_Data.QuadVertexBufferBase, dataSize);
-
-		for (uint32_t i = 0; i < m_Data.TextureSlotIndex; i++)
+		if (m_Data.CircleIndexCount)
 		{
-			m_Data.TextureSlots[i]->Bind(i);
+			uint32_t dataSize = (uint32_t)((uint8_t*)m_Data.CircleVertexBufferPtr - (uint8_t*)m_Data.CircleVertexBufferBase);
+			m_Data.CircleVertexBuffer->SetData(m_Data.CircleVertexBufferBase, dataSize);
+
+			m_Data.CircleShader->Bind();
+			RenderCommand::DrawIndexed(m_Data.CircleVertexArray, m_Data.CircleIndexCount);
+			m_Data.Stats.DrawCalls++;
 		}
-
-		m_Data.TextureShader->Bind();
-
-		RenderCommand::DrawIndexed(m_Data.QuadVertexArray, m_Data.QuadIndexCount);
-		m_Data.Stats.DrawCalls++;
 	}
 
 	void Renderer2D::NextBatch()
@@ -326,6 +373,26 @@ namespace Vox
 			* glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
 
 		DrawQuad(transform, texture, tilingFactor, tintColor);
+	}
+
+	void Renderer2D::DrawCircle(const glm::mat4& transform, const glm::vec4& color, float thickness, float fade, int entityId)
+	{
+		VOX_PROFILE_FUNCTION();
+
+		for (size_t i = 0; i < 4; i++)
+		{
+			m_Data.CircleVertexBufferPtr->WorldPosition = transform * m_Data.QuadVertexPositions[i];
+			m_Data.CircleVertexBufferPtr->LocalPosition = m_Data.QuadVertexPositions[i] * 2.0f;
+			m_Data.CircleVertexBufferPtr->Color = color;
+			m_Data.CircleVertexBufferPtr->Thickness = thickness;
+			m_Data.CircleVertexBufferPtr->Fade = fade;
+			m_Data.CircleVertexBufferPtr->_EntityId = entityId;
+			m_Data.CircleVertexBufferPtr++;
+		}
+
+		m_Data.CircleIndexCount += 6;
+
+		m_Data.Stats.QuadCount++;
 	}
 
 	void Renderer2D::DrawSprite(const glm::mat4& transform, SpriteRendererComponent& component, int entityId)
