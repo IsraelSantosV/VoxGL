@@ -1,35 +1,49 @@
-[16:57:43] [info] Vox: Creating window VoxGL-Editor (1600, 900)
-[16:57:44] [info] Vox: OpenGL Info:
-[16:57:44] [info] Vox:   Vendor: Intel
-[16:57:44] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
-[16:57:44] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
-[16:57:48] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Quad.glsl
-[16:57:48] [trace] Vox:     1 uniform buffers
-[16:57:48] [trace] Vox:     0 resources
-[16:57:48] [trace] Vox: Uniform buffers:
-[16:57:48] [trace] Vox:   _46_48
-[16:57:48] [trace] Vox:     Size = 64
-[16:57:48] [trace] Vox:     Binding = 0
-[16:57:48] [trace] Vox:     Members = 1
-[16:57:48] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Quad.glsl
-[16:57:48] [trace] Vox:     0 uniform buffers
-[16:57:48] [trace] Vox:     1 resources
-[16:57:48] [trace] Vox: Uniform buffers:
-[16:57:51] [warning] Vox: Shader creation took 7140.8 ms
-[16:57:53] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Circle.glsl
-[16:57:53] [trace] Vox:     1 uniform buffers
-[16:57:53] [trace] Vox:     0 resources
-[16:57:53] [trace] Vox: Uniform buffers:
-[16:57:53] [trace] Vox:   _47_49
-[16:57:53] [trace] Vox:     Size = 64
-[16:57:53] [trace] Vox:     Binding = 0
-[16:57:53] [trace] Vox:     Members = 1
-[16:57:53] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Circle.glsl
-[16:57:53] [trace] Vox:     0 uniform buffers
-[16:57:53] [trace] Vox:     0 resources
-[16:57:53] [trace] Vox: Uniform buffers:
-[16:57:56] [warning] Vox: Shader creation took 4959.58 ms
-[16:58:16] [trace] Vox: Deserializing scene 'Untitled'
-[16:58:16] [trace] Vox: Deserialized entity with ID = 15397533330315033756, name = Cube
-[16:58:16] [trace] Vox: Deserialized entity with ID = 5101846008079424324, name = Plane
-[16:58:16] [trace] Vox: Deserialized entity with ID = 17507861256407132180, name = MainCamera
+[17:09:54] [info] Vox: Creating window VoxGL-Editor (1600, 900)
+[17:09:54] [info] Vox: OpenGL Info:
+[17:09:54] [info] Vox:   Vendor: Intel
+[17:09:54] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[17:09:54] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[17:09:54] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Quad.glsl
+[17:09:54] [trace] Vox:     1 uniform buffers
+[17:09:54] [trace] Vox:     0 resources
+[17:09:54] [trace] Vox: Uniform buffers:
+[17:09:54] [trace] Vox:   _46_48
+[17:09:54] [trace] Vox:     Size = 64
+[17:09:54] [trace] Vox:     Binding = 0
+[17:09:54] [trace] Vox:     Members = 1
+[17:09:54] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Quad.glsl
+[17:09:54] [trace] Vox:     0 uniform buffers
+[17:09:54] [trace] Vox:     1 resources
+[17:09:54] [trace] Vox: Uniform buffers:
+[17:09:54] [warning] Vox: Shader creation took 115.197 ms
+[17:09:55] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Circle.glsl
+[17:09:55] [trace] Vox:     1 uniform buffers
+[17:09:55] [trace] Vox:     0 resources
+[17:09:55] [trace] Vox: Uniform buffers:
+[17:09:55] [trace] Vox:   _47_49
+[17:09:55] [trace] Vox:     Size = 64
+[17:09:55] [trace] Vox:     Binding = 0
+[17:09:55] [trace] Vox:     Members = 1
+[17:09:55] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Circle.glsl
+[17:09:55] [trace] Vox:     0 uniform buffers
+[17:09:55] [trace] Vox:     0 resources
+[17:09:55] [trace] Vox: Uniform buffers:
+[17:09:55] [warning] Vox: Shader creation took 58.2414 ms
+[17:09:58] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Line.glsl
+[17:09:58] [trace] Vox:     1 uniform buffers
+[17:09:58] [trace] Vox:     0 resources
+[17:09:58] [trace] Vox: Uniform buffers:
+[17:09:58] [trace] Vox:   _30_32
+[17:09:58] [trace] Vox:     Size = 64
+[17:09:58] [trace] Vox:     Binding = 0
+[17:09:58] [trace] Vox:     Members = 1
+[17:09:58] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Line.glsl
+[17:09:58] [trace] Vox:     0 uniform buffers
+[17:09:58] [trace] Vox:     0 resources
+[17:09:58] [trace] Vox: Uniform buffers:
+[17:10:00] [warning] Vox: Shader creation took 5396.32 ms
+[17:10:06] [trace] Vox: Deserializing scene 'Untitled'
+[17:10:06] [trace] Vox: Deserialized entity with ID = 13371936982824030946, name = Circle
+[17:10:06] [trace] Vox: Deserialized entity with ID = 17507861256407132180, name = MainCamera
+[17:10:06] [trace] Vox: Deserialized entity with ID = 5101846008079424324, name = Plane
+[17:10:06] [trace] Vox: Deserialized entity with ID = 15397533330315033756, name = Cube
