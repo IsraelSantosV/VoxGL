@@ -3,6 +3,7 @@
 #include "entt.hpp"
 
 #include "Vox/Core/Timestep.h"
+#include "Vox/Core/UUID.h"
 #include "Vox/Renderer/EditorCamera.h"
 
 #include "entt.hpp"
@@ -20,6 +21,7 @@ namespace Vox
 		~Scene();
 
 		Entity CreateEntity(const std::string& name = std::string());
+		Entity CreateEntityWithUUID(UUID id, const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
 		void OnRuntimeStart();

@@ -2,6 +2,7 @@
 #include "Vox/Scene/Scene.h"
 
 #include "Vox/Scene/Components.h"
+#include "Vox/Scene/ScriptableEntity.h"
 #include "Vox/Renderer/Renderer2D.h"
 
 #include <glm/glm.hpp>
@@ -38,7 +39,14 @@ namespace Vox
 
 	Entity Scene::CreateEntity(const std::string& name)
 	{
+		return CreateEntityWithUUID(UUID(), name);
+	}
+
+	Entity Scene::CreateEntityWithUUID(UUID id, const std::string& name)
+	{
 		Entity entity = { m_Registry.create(), this };
+
+		entity.AddComponent<IDComponent>(id);
 		entity.AddComponent<TransformComponent>();
 
 		auto& tag = entity.AddComponent<TagComponent>();
@@ -222,7 +230,11 @@ namespace Vox
 	template<typename T>
 	void Scene::OnComponentAdded(Entity entity, T& component)
 	{
-		static_assert(false);
+	}
+
+	template<>
+	void Scene::OnComponentAdded<IDComponent>(Entity entity, IDComponent& component)
+	{
 	}
 
 	template<>
