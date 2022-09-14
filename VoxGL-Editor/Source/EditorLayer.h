@@ -33,21 +33,23 @@ namespace Vox
 		void SaveScene();
 		void SaveSceneAs();
 
+		void SerializeScene(Ref<Scene> scene, const std::filesystem::path& path);
+
 		void OnScenePlay();
 		void OnSceneStop();
 
-		void UI_Toolbar();
+		void OnDuplicateEntity();
 
-		void SerializeScene(Ref<Scene> scene, const std::filesystem::path& path);
+		void UI_Toolbar();
 	private:
 		Ref<Framebuffer> m_Framebuffer;
 		Ref<Scene> m_ActiveScene;
+		Ref<Scene> m_EditorScene;
+		std::filesystem::path m_EditorScenePath;
 
 		EditorCamera m_EditorCamera;
 
 		Entity m_HoveredEntity;
-
-		std::filesystem::path m_EditorScenePath;
 
 		bool m_ViewportFocused = false, m_ViewportHovered = false;
 
