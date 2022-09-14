@@ -4,7 +4,7 @@
 
 #include "Vox/Core/Core.h"
 #include "Vox/Scene/Scene.h"
-#include "Vox/Scene/Components.h"
+#include "Vox/Scene/Entity.h"
 
 namespace Vox
 {

@@ -97,6 +97,11 @@ namespace Vox
 				entityDeleted = true;
 			}
 
+			if (ImGui::MenuItem("Duplicate Entity"))
+			{
+				m_Context->DuplicateEntity(m_SelectionContext);
+			}
+
 			ImGui::EndPopup();
 		}
 
@@ -255,7 +260,7 @@ namespace Vox
 			memset(buffer, 0, sizeof(buffer));
 			std::strncpy(buffer, tag.c_str(), sizeof(buffer));
 
-			if (ImGui::InputText("##Name", buffer, sizeof(buffer)))
+			if (ImGui::InputText("##Tag", buffer, sizeof(buffer)))
 			{
 				tag = std::string(buffer);
 			}
