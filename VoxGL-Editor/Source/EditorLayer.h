@@ -27,6 +27,8 @@ namespace Vox
 		bool OnKeyPressed(KeyPressedEvent& e);
 		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
+		void OnOverlayRender();
+
 		void NewScene();
 		void OpenScene();
 		void OpenScene(const std::filesystem::path& path);
@@ -56,6 +58,7 @@ namespace Vox
 		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
 		glm::vec2 m_ViewportBounds[2];
 
+		bool m_ShowPhysicsColliders = true;
 		int m_GizmosType = 0;
 		int m_GizmosSpace = 0;
 		float m_SnapValue = 0.5f;
