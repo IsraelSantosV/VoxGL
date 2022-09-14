@@ -1,18 +1,25 @@
 #pragma once
 
+#include "SceneCamera.h"
+#include "Vox/Core/UUID.h"
+#include "Vox/Renderer/Texture.h"
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/quaternion.hpp>
 
-#include "Vox/Scene/SceneCamera.h"
-#include "Vox/Scene/ScriptableEntity.h"
-
-#include "Vox/Renderer/Texture.h"
-
 namespace Vox
 {
+	struct IDComponent
+	{
+		UUID Id;
+
+		IDComponent() = default;
+		IDComponent(const IDComponent&) = default;
+	};
+
 	struct TagComponent
 	{
 		std::string Tag;
@@ -64,6 +71,8 @@ namespace Vox
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
 	};
+
+	class ScriptableEntity;
 
 	struct BehaviourComponent
 	{

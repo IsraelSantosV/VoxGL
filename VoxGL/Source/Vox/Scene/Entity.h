@@ -1,6 +1,8 @@
 #pragma once
 
+#include "Vox/Core/UUID.h"
 #include "Vox/Scene/Scene.h"
+#include "Vox/Scene/Components.h"
 
 #include "entt.hpp"
 
@@ -42,6 +44,7 @@ namespace Vox
 			m_Scene->m_Registry.remove<T>(m_EntityHandle);
 		}
 
+		UUID GetId() { return GetComponent<IDComponent>().Id; }
 		operator bool() const { return m_EntityHandle != entt::null; }
 		operator entt::entity() const { return m_EntityHandle; }
 		operator uint32_t() const { return (uint32_t)m_EntityHandle; }
