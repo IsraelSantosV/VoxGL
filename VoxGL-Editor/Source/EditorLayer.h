@@ -33,6 +33,11 @@ namespace Vox
 		void SaveScene();
 		void SaveSceneAs();
 
+		void OnScenePlay();
+		void OnSceneStop();
+
+		void UI_Toolbar();
+
 		void SerializeScene(Ref<Scene> scene, const std::filesystem::path& path);
 	private:
 		Ref<Framebuffer> m_Framebuffer;
@@ -53,6 +58,15 @@ namespace Vox
 		int m_GizmosSpace = 0;
 		float m_SnapValue = 0.5f;
 		float m_RotationSnap = 15.0f;
+
+		enum class SceneState
+		{
+			Edit = 0, 
+			Play = 1
+		};
+		SceneState m_SceneState = SceneState::Edit;
+
+		Ref<Texture2D> m_IconPlay, m_IconStop;
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 		ContentBrowserPanel m_ContentBrowserPanel;
