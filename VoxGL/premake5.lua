@@ -32,6 +32,7 @@ project "VoxGL"
 	{
 		"Source",
 		"ThirdParty/spdlog/include",
+		"%{IncludeDir.Box2D}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
@@ -45,6 +46,7 @@ project "VoxGL"
 
 	links
 	{
+		"Box2D",
 		"GLFW",
 		"Glad",
 		"ImGui",

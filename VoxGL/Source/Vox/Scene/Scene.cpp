@@ -8,8 +8,26 @@
 
 #include "Vox/Scene/Entity.h"
 
+#include "box2d/b2_world.h"
+#include "box2d/b2_body.h"
+#include "box2d/b2_fixture.h"
+#include "box2d/b2_polygon_shape.h"
+
 namespace Vox
 {
+	static b2BodyType Rigidbody2DTypeToBox2DBody(Rigidbody2DComponent::BodyType bodyType)
+	{
+		switch (bodyType)
+		{
+			case Rigidbody2DComponent::BodyType::Static: return b2_staticBody;
+			case Rigidbody2DComponent::BodyType::Dynamic: return b2_dynamicBody;
+			case Rigidbody2DComponent::BodyType::Kinematic: return b2_kinematicBody;
+		}
+
+		VOX_CORE_ASSERT(false, "Unknown body type");
+		return b2_staticBody;
+	}
+
 	Scene::Scene()
 	{
 	}
@@ -34,21 +52,56 @@ namespace Vox
 		m_Registry.destroy(entity);
 	}
 
+	void Scene::OnRuntimeStart()
+	{
+		m_PhysicsWorld = new b2World({ 0.0f, -9.8f });
+
+		auto view = m_Registry.view<Rigidbody2DComponent>();
+		for (auto e : view)
+		{
+			Entity entity = { e, this };
+			auto& transform = entity.GetComponent<TransformComponent>();
+			auto& rb2D = entity.GetComponent<Rigidbody2DComponent>();
+
+			b2BodyDef bodyDef;
+			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2D.Type);
+
+			bodyDef.position.Set(transform.Position.x, transform.Position.y);
+			bodyDef.angle = transform.Rotation.z;
+
+			b2Body* body = m_PhysicsWorld->CreateBody(&bodyDef);
+			body->SetFixedRotation(rb2D.FixedRotation);
+			rb2D.RuntimeBody = body;
+
+			if (entity.HasComponent<BoxCollider2DComponent>())
+			{
+				auto& bc2D = entity.GetComponent<BoxCollider2DComponent>();
+				b2PolygonShape boxShape;
+
+				boxShape.SetAsBox(bc2D.Size.x * transform.Scale.x, bc2D.Size.y * transform.Scale.y);
+				b2FixtureDef fixtureDef;
+
+				fixtureDef.shape = &boxShape;
+				fixtureDef.density = bc2D.Density;
+				fixtureDef.friction = bc2D.Friction;
+				fixtureDef.restitution = bc2D.Restitution;
+				fixtureDef.restitutionThreshold = bc2D.RestitutionThreshold;
+
+				body->CreateFixture(&fixtureDef);
+			}
+		}
+	}
+
+	void Scene::OnRuntimeStop()
+	{
+		delete m_PhysicsWorld;
+		m_PhysicsWorld = nullptr;
+	}
+
 	void Scene::OnUpdateRuntime(Timestep ts)
 	{
-		//Update Behaviours
-		m_Registry.view<BehaviourComponent>().each([=](auto entity, auto& behaviour)
-		{
-			if(!behaviour.Instance)
-			{
-				behaviour.Instance = behaviour.InstantiateScript();
-				behaviour.Instance->m_Entity = Entity{ entity, this };
-
-				behaviour.Instance->OnCreate();
-			}
-
-			behaviour.Instance->OnUpdate(ts);
-		});
+		UpdateBehaviours(ts);
+		UpdatePhysics(ts);
 
 		Camera* mainCamera = nullptr;
 		glm::mat4 cameraTransform;
@@ -128,6 +181,44 @@ namespace Vox
 		return {};
 	}
 
+	void Scene::UpdateBehaviours(Timestep ts)
+	{
+		m_Registry.view<BehaviourComponent>().each([=](auto entity, auto& behaviour)
+		{
+			if (!behaviour.Instance)
+			{
+				behaviour.Instance = behaviour.InstantiateScript();
+				behaviour.Instance->m_Entity = Entity{ entity, this };
+
+				behaviour.Instance->OnCreate();
+			}
+
+			behaviour.Instance->OnUpdate(ts);
+		});
+	}
+
+	void Scene::UpdatePhysics(Timestep ts)
+	{
+		const uint32_t velocityIterations = 6;
+		const uint32_t positionIterations = 2;
+		m_PhysicsWorld->Step(ts, velocityIterations, positionIterations);
+
+		auto view = m_Registry.view<Rigidbody2DComponent>();
+		for (auto e : view)
+		{
+			Entity entity = { e, this };
+			auto& transform = entity.GetComponent<TransformComponent>();
+			auto& rb2D = entity.GetComponent<Rigidbody2DComponent>();
+
+			b2Body* body = (b2Body*)rb2D.RuntimeBody;
+			const auto& position = body->GetPosition();
+			
+			transform.Position.x = position.x;
+			transform.Position.y = position.y;
+			transform.Rotation.z = body->GetAngle();
+		}
+	}
+
 	template<typename T>
 	void Scene::OnComponentAdded(Entity entity, T& component)
 	{
@@ -160,6 +251,16 @@ namespace Vox
 
 	template<>
 	void Scene::OnComponentAdded<BehaviourComponent>(Entity entity, BehaviourComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<Rigidbody2DComponent>(Entity entity, Rigidbody2DComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<BoxCollider2DComponent>(Entity entity, BoxCollider2DComponent& component)
 	{
 	}
 }
