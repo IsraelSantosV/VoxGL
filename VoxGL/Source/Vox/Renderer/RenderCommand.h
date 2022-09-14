@@ -27,9 +27,19 @@ namespace Vox
 			m_RendererAPI->Clear();
 		}
 
-		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
+		inline static void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0)
 		{
-			m_RendererAPI->DrawIndexed(vertexArray, count);
+			m_RendererAPI->DrawIndexed(vertexArray, indexCount);
+		}
+
+		static void DrawLines(const Ref<VertexArray>& vertexArray, uint32_t vertexCount)
+		{
+			m_RendererAPI->DrawLines(vertexArray, vertexCount);
+		}
+
+		static void SetLineWidth(float width)
+		{
+			m_RendererAPI->SetLineWidth(width);
 		}
 	private:
 		static Scope<RendererAPI> m_RendererAPI;
