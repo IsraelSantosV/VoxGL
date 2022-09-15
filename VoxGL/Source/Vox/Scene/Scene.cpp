@@ -4,6 +4,7 @@
 
 #include "Vox/Scene/Components.h"
 #include "Vox/Scene/ScriptableEntity.h"
+#include "Vox/Scripting/ScriptEngine.h"
 #include "Vox/Renderer/Renderer2D.h"
 
 #include <glm/glm.hpp>
@@ -118,22 +119,41 @@ namespace Vox
 		auto& tag = entity.AddComponent<TagComponent>();
 		tag.Tag = name.empty() ? "Entity" : name;
 
+		m_EntityMap[id] = entity;
 		return entity;
 	}
 
 	void Scene::DestroyEntity(Entity entity)
 	{
 		m_Registry.destroy(entity);
+		m_EntityMap.erase(entity.GetId());
 	}
 
 	void Scene::OnRuntimeStart()
 	{
+		m_IsRunning = true;
+
 		OnPhysics2DStart();
+
+		// Scripting
+		{
+			ScriptEngine::OnRuntimeStart(this);
+
+			auto view = m_Registry.view<ScriptComponent>();
+			for (auto e : view)
+			{
+				Entity entity = { e, this };
+				ScriptEngine::OnCreateEntity(entity);
+			}
+		}
 	}
 
 	void Scene::OnRuntimeStop()
 	{
+		m_IsRunning = false;
+
 		OnPhysics2DStop();
+		ScriptEngine::OnRuntimeStop();
 	}
 
 	void Scene::OnSimulationStart()
@@ -240,6 +260,14 @@ namespace Vox
 
 	void Scene::UpdateBehaviours(Timestep ts)
 	{
+		// C# Entity OnUpdate
+		auto view = m_Registry.view<ScriptComponent>();
+		for (auto e : view)
+		{
+			Entity entity = { e, this };
+			ScriptEngine::OnUpdateEntity(entity, ts);
+		}
+
 		m_Registry.view<BehaviourComponent>().each([=](auto entity, auto& behaviour)
 		{
 			if (!behaviour.Instance)
@@ -274,6 +302,16 @@ namespace Vox
 			transform.Position.y = position.y;
 			transform.Rotation.z = body->GetAngle();
 		}
+	}
+
+	Entity Scene::GetEntityByUUID(UUID uuid)
+	{
+		if (m_EntityMap.find(uuid) != m_EntityMap.end())
+		{
+			return { m_EntityMap.at(uuid), this };
+		}
+
+		return {};
 	}
 
 	void Scene::OnPhysics2DStart()
@@ -389,6 +427,11 @@ namespace Vox
 		{
 			component.Camera.SetViewportSize(m_ViewportWidth, m_ViewportHeight);
 		}
+	}
+
+	template<>
+	void Scene::OnComponentAdded<ScriptComponent>(Entity entity, ScriptComponent& component)
+	{
 	}
 
 	template<>

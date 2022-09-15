@@ -1,6 +1,7 @@
 **/bin/
 !ThirdParty/premake/bin/
 bin-int/
+Intermediates/
 
 *.log
 
@@ -9,6 +10,7 @@ bin-int/
 **.vcxproj
 **.vcxproj.user
 **.vcxproj.filters
+**.csproj
 
 VoxGL/ThirdParty/VulkanSDK
 VoxGL-Editor/Assets/Cache
