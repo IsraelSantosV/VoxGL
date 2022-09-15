@@ -1,9 +1,9 @@
 #pragma once
 #include "EditorPanel.h"
 
-#include <filesystem>
-
 #include "Vox/Renderer/Texture.h"
+
+#include <filesystem>
 
 namespace Vox 
 {

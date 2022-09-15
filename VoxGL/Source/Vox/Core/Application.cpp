@@ -6,21 +6,24 @@
 #include "Vox/Renderer/Renderer.h"
 
 #include "Vox/Core/Input.h"
-
-#include <GLFW/glfw3.h>
+#include "Vox/Tools/PlatformTools.h"
 
 namespace Vox
 {
 	Application* Application::m_Instance = nullptr; 
 	
-	Application::Application(const std::string& appName, AppCommandLineArgs args)
-		: m_CommandLineArgs(args)
+	Application::Application(const ApplicationSpec& spec) : m_Spec(spec)
 	{
 		VOX_PROFILE_FUNCTION();
 		VOX_CORE_ASSERT(!m_Instance, "Application aleady exists!");
 		m_Instance = this;
 
-		m_Window = Window::Create(WindowProps(appName));
+		if (!m_Spec.WorkingDirectory.empty())
+		{
+			std::filesystem::current_path(m_Spec.WorkingDirectory);
+		}
+
+		m_Window = Window::Create(WindowProps(m_Spec.Name));
 		m_Window->SetEventCallback(VOX_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
@@ -78,7 +81,7 @@ namespace Vox
 		{
 			VOX_PROFILE_SCOPE("RunLoop");
 
-			float time = (float)glfwGetTime(); //Platform::GetTime()
+			float time = Time::GetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 

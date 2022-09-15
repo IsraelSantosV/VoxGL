@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Vox/Core/Log.h"
+
 #include <algorithm>
 #include <chrono>
 #include <fstream>
@@ -8,8 +10,6 @@
 #include <thread>
 #include <mutex>
 #include <sstream>
-
-#include "Vox/Core/Log.h"
 
 namespace Vox 
 {

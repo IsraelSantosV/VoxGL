@@ -1,9 +1,9 @@
 #pragma once
 
-#include <sstream>
-
 #include "Vox/Core/Core.h"
 #include "Vox/Events/Event.h"
+
+#include <sstream>
 
 namespace Vox
 {

@@ -138,6 +138,9 @@
     <ClInclude Include="Source\Vox\Core\Timestep.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Core\UUID.h">
+      <Filter>Source\Vox\Core</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Core\Window.h">
       <Filter>Source\Vox\Core</Filter>
     </ClInclude>
@@ -1326,7 +1329,6 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Core\UUID.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1372,6 +1374,9 @@
       <Filter>Source\Vox\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Core\Log.cpp">
+      <Filter>Source\Vox\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Core\UUID.cpp">
       <Filter>Source\Vox\Core</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\Core\Window.cpp">
@@ -1449,6 +1454,5 @@
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Vox\Core\UUID.cpp" />
   </ItemGroup>
 </Project>

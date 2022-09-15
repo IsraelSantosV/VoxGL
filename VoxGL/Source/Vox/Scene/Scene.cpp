@@ -1,13 +1,12 @@
 #include "VoxPch.h"
 #include "Vox/Scene/Scene.h"
+#include "Vox/Scene/Entity.h"
 
 #include "Vox/Scene/Components.h"
 #include "Vox/Scene/ScriptableEntity.h"
 #include "Vox/Renderer/Renderer2D.h"
 
 #include <glm/glm.hpp>
-
-#include "Vox/Scene/Entity.h"
 
 #include "box2d/b2_world.h"
 #include "box2d/b2_body.h"
@@ -36,30 +35,47 @@ namespace Vox
 
 	Scene::~Scene()
 	{
+		delete m_PhysicsWorld;
 	}
 
-	template<typename Component>
+	template<typename... Component>
 	static void CopyComponent(entt::registry& dst, entt::registry& src, const std::unordered_map<UUID, entt::entity>& enttMap)
 	{
-		auto view = src.view<Component>();
-		for (auto e : view)
+		([&]()
 		{
-			UUID uuid = src.get<IDComponent>(e).Id;
-			VOX_CORE_ASSERT(enttMap.find(uuid) != enttMap.end());
-			entt::entity dstEnttID = enttMap.at(uuid);
+			auto view = src.view<Component>();
+			for (auto srcEntity : view)
+			{
+				entt::entity dstEntity = enttMap.at(src.get<IDComponent>(srcEntity).Id);
 
-			auto& component = src.get<Component>(e);
-			dst.emplace_or_replace<Component>(dstEnttID, component);
-		}
+				auto& srcComponent = src.get<Component>(srcEntity);
+				dst.emplace_or_replace<Component>(dstEntity, srcComponent);
+			}
+		}(), ...);
 	}
 
-	template<typename Component>
+	template<typename... Component>
+	static void CopyComponent(ComponentGroup<Component...>, entt::registry& dst, entt::registry& src, const std::unordered_map<UUID, entt::entity>& enttMap)
+	{
+		CopyComponent<Component...>(dst, src, enttMap);
+	}
+
+	template<typename... Component>
 	static void CopyComponentIfExists(Entity dst, Entity src)
 	{
-		if (src.HasComponent<Component>())
+		([&]()
 		{
-			dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
-		}
+			if (src.HasComponent<Component>())
+			{
+				dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
+			}
+		}(), ...);
+	}
+
+	template<typename... Component>
+	static void CopyComponentIfExists(ComponentGroup<Component...>, Entity dst, Entity src)
+	{
+		CopyComponentIfExists<Component...>(dst, src);
 	}
 
 	Ref<Scene> Scene::Copy(Ref<Scene> other)
@@ -83,16 +99,7 @@ namespace Vox
 			enttMap[uuid] = (entt::entity)newEntity;
 		}
 
-		// Copy components (except IDComponent and TagComponent)
-		CopyComponent<TransformComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-		CopyComponent<SpriteRendererComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-		CopyComponent<CircleRendererComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-		CopyComponent<CameraComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-		CopyComponent<BehaviourComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-		CopyComponent<Rigidbody2DComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-		CopyComponent<BoxCollider2DComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-		CopyComponent<CircleCollider2DComponent>(dstSceneRegistry, srcSceneRegistry, enttMap);
-
+		CopyComponent(AllComponents{}, dstSceneRegistry, srcSceneRegistry, enttMap);
 		return newScene;
 	}
 
@@ -121,64 +128,22 @@ namespace Vox
 
 	void Scene::OnRuntimeStart()
 	{
-		m_PhysicsWorld = new b2World({ 0.0f, -9.8f });
-
-		auto view = m_Registry.view<Rigidbody2DComponent>();
-		for (auto e : view)
-		{
-			Entity entity = { e, this };
-			auto& transform = entity.GetComponent<TransformComponent>();
-			auto& rb2D = entity.GetComponent<Rigidbody2DComponent>();
-
-			b2BodyDef bodyDef;
-			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2D.Type);
-
-			bodyDef.position.Set(transform.Position.x, transform.Position.y);
-			bodyDef.angle = transform.Rotation.z;
-
-			b2Body* body = m_PhysicsWorld->CreateBody(&bodyDef);
-			body->SetFixedRotation(rb2D.FixedRotation);
-			rb2D.RuntimeBody = body;
-
-			if (entity.HasComponent<BoxCollider2DComponent>())
-			{
-				auto& bc2D = entity.GetComponent<BoxCollider2DComponent>();
-				b2PolygonShape boxShape;
-				boxShape.SetAsBox(bc2D.Size.x * transform.Scale.x, bc2D.Size.y * transform.Scale.y);
-				
-				b2FixtureDef fixtureDef;
-				fixtureDef.shape = &boxShape;
-				fixtureDef.density = bc2D.Density;
-				fixtureDef.friction = bc2D.Friction;
-				fixtureDef.restitution = bc2D.Restitution;
-				fixtureDef.restitutionThreshold = bc2D.RestitutionThreshold;
-
-				body->CreateFixture(&fixtureDef);
-			}
-
-			if (entity.HasComponent<CircleCollider2DComponent>())
-			{
-				auto& cc2d = entity.GetComponent<CircleCollider2DComponent>();
-
-				b2CircleShape circleShape;
-				circleShape.m_p.Set(cc2d.Offset.x, cc2d.Offset.y);
-				circleShape.m_radius = transform.Scale.x * cc2d.Radius;
-
-				b2FixtureDef fixtureDef;
-				fixtureDef.shape = &circleShape;
-				fixtureDef.density = cc2d.Density;
-				fixtureDef.friction = cc2d.Friction;
-				fixtureDef.restitution = cc2d.Restitution;
-				fixtureDef.restitutionThreshold = cc2d.RestitutionThreshold;
-				body->CreateFixture(&fixtureDef);
-			}
-		}
+		OnPhysics2DStart();
 	}
 
 	void Scene::OnRuntimeStop()
 	{
-		delete m_PhysicsWorld;
-		m_PhysicsWorld = nullptr;
+		OnPhysics2DStop();
+	}
+
+	void Scene::OnSimulationStart()
+	{
+		OnPhysics2DStart();
+	}
+
+	void Scene::OnSimulationStop()
+	{
+		OnPhysics2DStop();
 	}
 
 	void Scene::OnUpdateRuntime(Timestep ts)
@@ -225,27 +190,15 @@ namespace Vox
 		}
 	}
 
+	void Scene::OnUpdateSimulation(Timestep ts, EditorCamera& camera)
+	{
+		UpdatePhysics(ts);
+		RenderScene(camera);
+	}
+
 	void Scene::OnUpdateEditor(Timestep ts, EditorCamera& camera)
 	{
-		Renderer2D::BeginScene(camera);
-
-		auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-		for (auto entity : group)
-		{
-			auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
-
-			Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
-		}
-
-		auto view = m_Registry.view<TransformComponent, CircleRendererComponent>();
-		for (auto entity : view)
-		{
-			auto [transform, circle] = view.get<TransformComponent, CircleRendererComponent>(entity);
-
-			Renderer2D::DrawCircle(transform.GetTransform(), circle.Color, circle.Thickness, circle.Fade, (int)entity);
-		}
-
-		Renderer2D::EndScene();
+		RenderScene(camera);
 	}
 
 	void Scene::OnViewportResize(uint32_t width, uint32_t height)
@@ -264,21 +217,6 @@ namespace Vox
 		}
 	}
 
-	void Scene::DuplicateEntity(Entity entity)
-	{
-		std::string name = entity.GetName();
-		Entity newEntity = CreateEntity(name);
-
-		CopyComponentIfExists<TransformComponent>(newEntity, entity);
-		CopyComponentIfExists<SpriteRendererComponent>(newEntity, entity);
-		CopyComponentIfExists<CircleRendererComponent>(newEntity, entity);
-		CopyComponentIfExists<CameraComponent>(newEntity, entity);
-		CopyComponentIfExists<BehaviourComponent>(newEntity, entity);
-		CopyComponentIfExists<Rigidbody2DComponent>(newEntity, entity);
-		CopyComponentIfExists<BoxCollider2DComponent>(newEntity, entity);
-		CopyComponentIfExists<CircleCollider2DComponent>(newEntity, entity);
-	}
-
 	Entity Scene::GetMainCameraEntity()
 	{
 		auto view = m_Registry.view<CameraComponent>();
@@ -292,6 +230,12 @@ namespace Vox
 		}
 
 		return {};
+	}
+
+	void Scene::DuplicateEntity(Entity entity)
+	{
+		Entity newEntity = CreateEntity(entity.GetName());
+		CopyComponentIfExists(AllComponents{}, newEntity, entity);
 	}
 
 	void Scene::UpdateBehaviours(Timestep ts)
@@ -332,9 +276,100 @@ namespace Vox
 		}
 	}
 
+	void Scene::OnPhysics2DStart()
+	{
+		m_PhysicsWorld = new b2World({ 0.0f, -9.8f });
+
+		auto view = m_Registry.view<Rigidbody2DComponent>();
+		for (auto e : view)
+		{
+			Entity entity = { e, this };
+			auto& transform = entity.GetComponent<TransformComponent>();
+			auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+
+			b2BodyDef bodyDef;
+			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2d.Type);
+			bodyDef.position.Set(transform.Position.x, transform.Position.y);
+			bodyDef.angle = transform.Rotation.z;
+
+			b2Body* body = m_PhysicsWorld->CreateBody(&bodyDef);
+			body->SetFixedRotation(rb2d.FixedRotation);
+			rb2d.RuntimeBody = body;
+
+			if (entity.HasComponent<BoxCollider2DComponent>())
+			{
+				auto& bc2d = entity.GetComponent<BoxCollider2DComponent>();
+
+				b2PolygonShape boxShape;
+				boxShape.SetAsBox(bc2d.Size.x * transform.Scale.x, bc2d.Size.y * transform.Scale.y);
+
+				b2FixtureDef fixtureDef;
+				fixtureDef.shape = &boxShape;
+				fixtureDef.density = bc2d.Density;
+				fixtureDef.friction = bc2d.Friction;
+				fixtureDef.restitution = bc2d.Restitution;
+				fixtureDef.restitutionThreshold = bc2d.RestitutionThreshold;
+				body->CreateFixture(&fixtureDef);
+			}
+
+			if (entity.HasComponent<CircleCollider2DComponent>())
+			{
+				auto& cc2d = entity.GetComponent<CircleCollider2DComponent>();
+
+				b2CircleShape circleShape;
+				circleShape.m_p.Set(cc2d.Offset.x, cc2d.Offset.y);
+				circleShape.m_radius = transform.Scale.x * cc2d.Radius;
+
+				b2FixtureDef fixtureDef;
+				fixtureDef.shape = &circleShape;
+				fixtureDef.density = cc2d.Density;
+				fixtureDef.friction = cc2d.Friction;
+				fixtureDef.restitution = cc2d.Restitution;
+				fixtureDef.restitutionThreshold = cc2d.RestitutionThreshold;
+				body->CreateFixture(&fixtureDef);
+			}
+		}
+	}
+
+	void Scene::OnPhysics2DStop()
+	{
+		delete m_PhysicsWorld;
+		m_PhysicsWorld = nullptr;
+	}
+
+	void Scene::RenderScene(EditorCamera& camera)
+	{
+		Renderer2D::BeginScene(camera);
+
+		// Draw sprites
+		{
+			auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+			for (auto entity : group)
+			{
+				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+
+				Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+			}
+		}
+
+		// Draw circles
+		{
+			auto view = m_Registry.view<TransformComponent, CircleRendererComponent>();
+			for (auto entity : view)
+			{
+				auto [transform, circle] = view.get<TransformComponent, CircleRendererComponent>(entity);
+
+				Renderer2D::DrawCircle(transform.GetTransform(), circle.Color, circle.Thickness, circle.Fade, (int)entity);
+			}
+		}
+
+		Renderer2D::EndScene();
+	}
+
 	template<typename T>
 	void Scene::OnComponentAdded(Entity entity, T& component)
 	{
+		static_assert(sizeof(T) == 0);
 	}
 
 	template<>
