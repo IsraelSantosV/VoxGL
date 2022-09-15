@@ -28,6 +28,7 @@ namespace Vox
 		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
 		void OnOverlayRender();
+		void RenderOutline();
 
 		void NewScene();
 		void OpenScene();
@@ -38,6 +39,7 @@ namespace Vox
 		void SerializeScene(Ref<Scene> scene, const std::filesystem::path& path);
 
 		void OnScenePlay();
+		void OnSceneSimulate();
 		void OnSceneStop();
 
 		void OnDuplicateEntity();
@@ -67,11 +69,12 @@ namespace Vox
 		enum class SceneState
 		{
 			Edit = 0, 
-			Play = 1
+			Play = 1, 
+			Simulate = 2
 		};
 		SceneState m_SceneState = SceneState::Edit;
 
-		Ref<Texture2D> m_IconPlay, m_IconStop;
+		Ref<Texture2D> m_IconPlay, m_IconStop, m_IconSimulate;
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 		ContentBrowserPanel m_ContentBrowserPanel;

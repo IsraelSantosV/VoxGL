@@ -91,9 +91,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PostBuildEvent>
-      <Command>xcopy /Q /E /Y /I "$(SolutionDir)\VoxGL\ThirdParty\VulkanSDK\Bin" "..\bin\Debug-windows-x86_64\VoxGL-Editor"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -156,10 +153,6 @@
     <ProjectReference Include="..\VoxGL\VoxGL.vcxproj">
       <Project>{7521520E-E135-7ABF-AAB7-1D1F168B76F0}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Shaders\Renderer2D_Circle.glsl" />
-    <None Include="Assets\Shaders\Renderer2D_Line.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

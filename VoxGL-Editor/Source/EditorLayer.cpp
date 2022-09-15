@@ -1,16 +1,15 @@
 #include "EditorLayer.h"
+
+#include "Vox/Scene/SceneSerializer.h"
+#include "Vox/Tools/PlatformTools.h"
+#include "Vox/Math/Math.h"
+
 #include <imgui/imgui.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Vox/Scene/SceneSerializer.h"
-
-#include "Vox/Tools/PlatformTools.h"
-
 #include "ImGuizmo.h"
-
-#include "Vox/Math/Math.h"
 
 namespace Vox 
 {
@@ -26,6 +25,7 @@ namespace Vox
 
 		m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
 		m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
+		m_IconSimulate = Texture2D::Create("Resources/Icons/SimulateButton.png");
 
 		FramebufferSpec fbSpec;
 		fbSpec.Attachments =
@@ -39,9 +39,10 @@ namespace Vox
 		fbSpec.Height = 720;
 		m_Framebuffer = Framebuffer::Create(fbSpec);
 
-		m_ActiveScene = CreateRef<Scene>();
+		m_EditorScene = CreateRef<Scene>();
+		m_ActiveScene = m_EditorScene;
 
-		auto commandLineArgs = Application::Get().GetCommandLineArgs();
+		auto commandLineArgs = Application::Get().GetSpec().CommandLineArgs;
 		if (commandLineArgs.Count > 1)
 		{
 			auto sceneFilePath = commandLineArgs[1];
@@ -50,7 +51,7 @@ namespace Vox
 		}
 
 		m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
-		Renderer2D::SetLineWidth(0.9f);
+		Renderer2D::SetLineWidth(0.99f);
 	}
 
 	void EditorLayer::OnDetach()
@@ -79,13 +80,17 @@ namespace Vox
 
 		switch (m_SceneState)
 		{
-		case SceneState::Edit:
-			m_EditorCamera.OnUpdate(ts);
-			m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
-			break;
-		case SceneState::Play:
-			m_ActiveScene->OnUpdateRuntime(ts);
-			break;
+			case SceneState::Edit:
+				m_EditorCamera.OnUpdate(ts);
+				m_ActiveScene->OnUpdateEditor(ts, m_EditorCamera);
+				break;
+			case SceneState::Play:
+				m_ActiveScene->OnUpdateRuntime(ts);
+				break;
+			case SceneState::Simulate:
+				m_EditorCamera.OnUpdate(ts);
+				m_ActiveScene->OnUpdateSimulation(ts, m_EditorCamera);
+				break;
 		}
 
 		MousePicking();
@@ -264,6 +269,7 @@ namespace Vox
 		Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
 		if (selectedEntity && m_GizmosType >= 0)
 		{
+			
 			ImGuizmo::SetOrthographic(false);
 			ImGuizmo::SetDrawlist();
 
@@ -307,31 +313,49 @@ namespace Vox
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 2));
 		ImGui::PushStyleVar(ImGuiStyleVar_ItemInnerSpacing, ImVec2(0, 0));
 		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
-
 		auto& colors = ImGui::GetStyle().Colors;
 		const auto& buttonHovered = colors[ImGuiCol_ButtonHovered];
 		ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(buttonHovered.x, buttonHovered.y, buttonHovered.z, 0.5f));
 		const auto& buttonActive = colors[ImGuiCol_ButtonActive];
 		ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(buttonActive.x, buttonActive.y, buttonActive.z, 0.5f));
 
-		ImGui::Begin("##toolbar", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+		ImGui::Begin("##toolbar", nullptr, ImGuiWindowFlags_NoDecoration | 
+			ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+
+		bool toolbarEnabled = (bool)m_ActiveScene;
+
+		ImVec4 tintColor = ImVec4(1, 1, 1, 1);
+		if (!toolbarEnabled)
+		{
+			tintColor.w = 0.5f;
+		}
+		const float baseIconSize = 32.0f;
 
 		float size = ImGui::GetWindowHeight() - 4.0f;
-		Ref<Texture2D> icon = m_SceneState == SceneState::Edit ? m_IconPlay : m_IconStop;
-
-		ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
-		if (ImGui::ImageButton((ImTextureID)icon->GetRendererId(), ImVec2(size, size), ImVec2(0, 1), ImVec2(1, 0), 0))
 		{
-			if (m_SceneState == SceneState::Edit)
+			Ref<Texture2D> icon = (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Simulate) ? m_IconPlay : m_IconStop;
+			ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
+			if (ImGui::ImageButton((ImTextureID)icon->GetRendererId(), ImVec2(baseIconSize, baseIconSize),
+				ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
 			{
-				OnScenePlay();
-			}
-			else if (m_SceneState == SceneState::Play)
-			{
-				OnSceneStop();
+				if (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Simulate)
+					OnScenePlay();
+				else if (m_SceneState == SceneState::Play)
+					OnSceneStop();
 			}
 		}
-
+		ImGui::SameLine();
+		{
+			Ref<Texture2D> icon = (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play) ? m_IconSimulate : m_IconStop;
+			if (ImGui::ImageButton((ImTextureID)icon->GetRendererId(), ImVec2(baseIconSize, baseIconSize),
+				ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
+			{
+				if (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play)
+					OnSceneSimulate();
+				else if (m_SceneState == SceneState::Simulate)
+					OnSceneStop();
+			}
+		}
 		ImGui::PopStyleVar(2);
 		ImGui::PopStyleColor(3);
 		ImGui::End();
@@ -339,7 +363,7 @@ namespace Vox
 
 	bool EditorLayer::OnKeyPressed(KeyPressedEvent& e)
 	{
-		if (e.GetRepeatCount() > 0)
+		if (e.IsRepeat())
 		{
 			return false;
 		}
@@ -424,6 +448,12 @@ namespace Vox
 		if (m_SceneState == SceneState::Play)
 		{
 			Entity camera = m_ActiveScene->GetMainCameraEntity();
+			if (!camera)
+			{
+				LOG_WARN("Scene does not have a main camera to render");
+				return;
+			}
+
 			Renderer2D::BeginScene(camera.GetComponent<CameraComponent>().Camera, 
 				camera.GetComponent<TransformComponent>().GetTransform());
 		}
@@ -470,7 +500,17 @@ namespace Vox
 			}
 		}
 
+		RenderOutline();
 		Renderer2D::EndScene();
+	}
+
+	void EditorLayer::RenderOutline()
+	{
+		if (Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity())
+		{
+			const TransformComponent& transform = selectedEntity.GetComponent<TransformComponent>();
+			Renderer2D::DrawRect(transform.GetTransform(), glm::vec4(1.0f, 0.5f, 0.0f, 1.0f));
+		}
 	}
 
 	void EditorLayer::NewScene()
@@ -547,6 +587,11 @@ namespace Vox
 
 	void EditorLayer::OnScenePlay()
 	{
+		if (m_SceneState == SceneState::Simulate)
+		{
+			OnSceneStop();
+		}
+
 		m_SceneState = SceneState::Play;
 
 		m_ActiveScene = Scene::Copy(m_EditorScene);
@@ -555,13 +600,36 @@ namespace Vox
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 	}
 
+	void EditorLayer::OnSceneSimulate()
+	{
+		if (m_SceneState == SceneState::Play)
+		{
+			OnSceneStop();
+		}
+
+		m_SceneState = SceneState::Simulate;
+		m_ActiveScene = Scene::Copy(m_EditorScene);
+		m_ActiveScene->OnSimulationStart();
+
+		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+	}
+
 	void EditorLayer::OnSceneStop()
 	{
+		VOX_CORE_ASSERT(m_SceneState == SceneState::Play || m_SceneState == SceneState::Simulate);
+
+		if (m_SceneState == SceneState::Play)
+		{
+			m_ActiveScene->OnRuntimeStop();
+		}
+		else if (m_SceneState == SceneState::Simulate)
+		{
+			m_ActiveScene->OnSimulationStop();
+		}
+
 		m_SceneState = SceneState::Edit;
 
-		m_ActiveScene->OnRuntimeStop();
 		m_ActiveScene = m_EditorScene;
-
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 	}
 

@@ -27,11 +27,17 @@ namespace Vox
 		}
 	};
 
+	struct ApplicationSpec
+	{
+		std::string Name = "VoxGL Application";
+		std::string WorkingDirectory;
+		AppCommandLineArgs CommandLineArgs;
+	};
+
 	class Application
 	{
 	public:
-		Application(const std::string& appName = "VoxGL Engine", 
-			AppCommandLineArgs args = AppCommandLineArgs());
+		Application(const ApplicationSpec& spec);
 		virtual ~Application();
 
 		void OnEvent(Event& e);
@@ -46,13 +52,13 @@ namespace Vox
 		inline static Application& Get() { return *m_Instance; }
 		inline Window& GetWindow() { return *m_Window; }
 
-		AppCommandLineArgs GetCommandLineArgs() const { return m_CommandLineArgs; }
+		const ApplicationSpec& GetSpec() const { return m_Spec; }
 	private:
 		void Run();
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
-		AppCommandLineArgs m_CommandLineArgs;
+		ApplicationSpec m_Spec;
 
 		Scope<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;

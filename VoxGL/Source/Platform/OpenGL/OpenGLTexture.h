@@ -17,6 +17,8 @@ namespace Vox
 		virtual uint32_t GetHeight() const override { return m_Height; }
 		virtual uint32_t GetRendererId() const override { return m_RendererId; }
 
+		virtual const std::string& GetPath() const override { return m_Path; }
+
 		virtual void SetData(void* data, uint32_t size) override;
 
 		virtual void Bind(uint32_t slot = 0) const override;
@@ -25,7 +27,7 @@ namespace Vox
 
 		virtual bool operator==(const Texture& other) const override
 		{
-			return m_RendererId == ((OpenGLTexture2D&)other).m_RendererId;
+			return m_RendererId == other.GetRendererId();
 		}
 	private:
 		std::string m_Path;

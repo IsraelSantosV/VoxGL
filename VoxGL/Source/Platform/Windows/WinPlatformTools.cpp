@@ -1,12 +1,11 @@
 #include "VoxPch.h"
 #include "Vox/Tools/PlatformTools.h"
+#include "Vox/Core/Application.h"
 
 #include <commdlg.h>
 #include <GLFW/glfw3.h>
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
-
-#include "Vox/Core/Application.h"
 
 namespace Vox 
 {
@@ -64,6 +63,11 @@ namespace Vox
 			return ofn.lpstrFile;
 		}
 		return std::string();
+	}
+
+	float Time::GetTime()
+	{
+		return glfwGetTime();
 	}
 
 }

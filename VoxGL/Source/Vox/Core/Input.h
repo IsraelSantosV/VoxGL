@@ -1,9 +1,9 @@
 #pragma once
 
-#include <glm/glm.hpp>
-
 #include "Vox/Core/KeyCodes.h"
 #include "Vox/Core/MouseCodes.h"
+
+#include <glm/glm.hpp>
 
 namespace Vox
 {

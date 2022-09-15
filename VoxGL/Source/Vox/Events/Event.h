@@ -1,9 +1,9 @@
 #pragma once
 
-#include <functional>
-
 #include "Vox/Debug/Instrumentor.h"
 #include "Vox/Core/Core.h"
+
+#include <functional>
 
 namespace Vox {
 

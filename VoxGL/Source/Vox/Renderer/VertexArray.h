@@ -1,7 +1,8 @@
 #pragma once
 
-#include <memory>
 #include "Vox/Renderer/Buffer.h"
+
+#include <memory>
 
 namespace Vox
 {

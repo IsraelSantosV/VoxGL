@@ -20,6 +20,9 @@ namespace Vox
 		void SetContext(const Ref<Scene>& scene);
 		virtual void OnRender() override;
 	private:
+		template<typename T>
+		void DisplayAddComponentEntry(const std::string& entryName);
+
 		void DrawEntityNode(Entity entity);
 		void DrawComponents(Entity entity);
 	private:

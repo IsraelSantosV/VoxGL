@@ -7,7 +7,7 @@
 class Sandbox : public Vox::Application
 {
 public:
-	Sandbox(Vox::AppCommandLineArgs args)
+	Sandbox(const Vox::ApplicationSpec& spec) : Vox::Application(spec)
 	{
 		//PushLayer(new ExampleLayer());
 		PushLayer(new Sandbox2D());
@@ -20,5 +20,10 @@ public:
 
 Vox::Application* Vox::CreateApplication(Vox::AppCommandLineArgs args)
 {
-	return new Sandbox(args);
+	ApplicationSpec spec;
+	spec.Name = "Sandbox";
+	spec.WorkingDirectory = "../Sandbox";
+	spec.CommandLineArgs = args;
+
+	return new Sandbox(spec);
 }

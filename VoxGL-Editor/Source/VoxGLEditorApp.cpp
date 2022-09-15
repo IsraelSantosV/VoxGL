@@ -8,18 +8,18 @@ namespace Vox
 	class VoxGLEditorApp : public Application
 	{
 	public:
-		VoxGLEditorApp(AppCommandLineArgs args) : Application("VoxGL-Editor", args)
+		VoxGLEditorApp(const ApplicationSpec& spec) : Application(spec)
 		{
 			PushLayer(new EditorLayer());
-		}
-
-		~VoxGLEditorApp()
-		{
 		}
 	};
 
 	Application* CreateApplication(AppCommandLineArgs args)
 	{
-		return new VoxGLEditorApp(args);
+		ApplicationSpec spec;
+		spec.Name = "VoxGL Editor";
+		spec.CommandLineArgs = args;
+
+		return new VoxGLEditorApp(spec);
 	}
 }
