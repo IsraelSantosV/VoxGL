@@ -37,6 +37,9 @@
     <Filter Include="Source\Vox\Scene">
       <UniqueIdentifier>{5F5FAB50-4B58-CAA2-748A-AF2760E2A9AE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Scripting">
+      <UniqueIdentifier>{44B80D4A-3047-9713-D965-AB0EC5D3A7B9}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Vox\Tools">
       <UniqueIdentifier>{C236C450-AE2F-E3A2-D761-C827C3B9C2AE}</UniqueIdentifier>
     </Filter>
@@ -227,6 +230,12 @@
     </ClInclude>
     <ClInclude Include="Source\Vox\Scene\ScriptableEntity.h">
       <Filter>Source\Vox\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Scripting\ScriptEngine.h">
+      <Filter>Source\Vox\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Scripting\ScriptGlue.h">
+      <Filter>Source\Vox\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Tools\PlatformTools.h">
       <Filter>Source\Vox\Tools</Filter>
@@ -1444,6 +1453,12 @@
     </ClCompile>
     <ClCompile Include="Source\Vox\Scene\SceneSerializer.cpp">
       <Filter>Source\Vox\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Scripting\ScriptEngine.cpp">
+      <Filter>Source\Vox\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Scripting\ScriptGlue.cpp">
+      <Filter>Source\Vox\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="Source\VoxPch.cpp">
       <Filter>Source</Filter>

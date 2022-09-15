@@ -31,9 +31,17 @@ group "Dependencies"
 	include "VoxGL/ThirdParty/Glad"
 	include "VoxGL/ThirdParty/imgui"
 	include "VoxGL/ThirdParty/yaml-cpp"
-
 group ""
 
-include "VoxGL"
-include "Sandbox"
-include "VoxGL-Editor"
+group "Core"
+	include "VoxGL"
+	include "VoxGL-Scripting"
+group ""
+
+group "Tools"
+	include "VoxGL-Editor"
+group ""
+
+group "Misc"
+	include "Sandbox"
+group ""

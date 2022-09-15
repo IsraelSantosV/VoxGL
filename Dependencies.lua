@@ -10,6 +10,7 @@ IncludeDir["ImGui"] = "%{wks.location}/VoxGL/ThirdParty/ImGui"
 IncludeDir["ImGuizmo"] = "%{wks.location}/VoxGL/ThirdParty/ImGuizmo"
 IncludeDir["glm"] = "%{wks.location}/VoxGL/ThirdParty/glm"
 IncludeDir["entt"] = "%{wks.location}/VoxGL/ThirdParty/entt/include"
+IncludeDir["mono"] = "%{wks.location}/VoxGL/ThirdParty/mono/include"
 IncludeDir["shaderc"] = "%{wks.location}/VoxGL/ThirdParty/shaderc/include"
 IncludeDir["SPIRV_Cross"] = "%{wks.location}/VoxGL/ThirdParty/SPIRV-Cross"
 IncludeDir["VulkanSDK"] = "%{VULKAN_SDK}/Include"
@@ -17,8 +18,10 @@ IncludeDir["VulkanSDK"] = "%{VULKAN_SDK}/Include"
 LibraryDir = {}
 
 LibraryDir["VulkanSDK"] = "%{VULKAN_SDK}/Lib"
+LibraryDir["mono"] = "%{wks.location}/VoxGL/ThirdParty/mono/lib/%{cfg.buildcfg}"
 
 Library = {}
+Library["mono"] = "%{LibraryDir.mono}/libmono-static-sgen.lib"
 Library["Vulkan"] = "%{LibraryDir.VulkanSDK}/vulkan-1.lib"
 Library["VulkanUtils"] = "%{LibraryDir.VulkanSDK}/VkLayer_utils.lib"
 
@@ -30,3 +33,9 @@ Library["SPIRV_Tools_Debug"] = "%{LibraryDir.VulkanSDK}/SPIRV-Toolsd.lib"
 Library["ShaderC_Release"] = "%{LibraryDir.VulkanSDK}/shaderc_shared.lib"
 Library["SPIRV_Cross_Release"] = "%{LibraryDir.VulkanSDK}/spirv-cross-core.lib"
 Library["SPIRV_Cross_GLSL_Release"] = "%{LibraryDir.VulkanSDK}/spirv-cross-glsl.lib"
+
+-- Windows
+Library["WinSock"] = "Ws2_32.lib"
+Library["WinMM"] = "Winmm.lib"
+Library["WinVersion"] = "Version.lib"
+Library["BCrypt"] = "Bcrypt.lib"

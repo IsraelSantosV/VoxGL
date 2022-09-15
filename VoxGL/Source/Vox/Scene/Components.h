@@ -82,6 +82,14 @@ namespace Vox
 		CameraComponent(const CameraComponent&) = default;
 	};
 
+	struct ScriptComponent
+	{
+		std::string ClassName;
+
+		ScriptComponent() = default;
+		ScriptComponent(const ScriptComponent&) = default;
+	};
+
 	class ScriptableEntity;
 
 	struct BehaviourComponent
@@ -156,6 +164,7 @@ namespace Vox
 
 	using AllComponents =
 		ComponentGroup<TransformComponent, SpriteRendererComponent,
-		CircleRendererComponent, CameraComponent, BehaviourComponent,
-		Rigidbody2DComponent, BoxCollider2DComponent, CircleCollider2DComponent>;
+		CircleRendererComponent, CameraComponent, ScriptComponent,
+		BehaviourComponent, Rigidbody2DComponent, BoxCollider2DComponent,
+		CircleCollider2DComponent>;
 }

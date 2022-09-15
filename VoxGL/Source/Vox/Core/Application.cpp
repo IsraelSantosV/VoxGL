@@ -4,6 +4,7 @@
 #include "Vox/Core/Log.h"
 
 #include "Vox/Renderer/Renderer.h"
+#include "Vox/Scripting/ScriptEngine.h"
 
 #include "Vox/Core/Input.h"
 #include "Vox/Tools/PlatformTools.h"
@@ -27,6 +28,7 @@ namespace Vox
 		m_Window->SetEventCallback(VOX_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
+		ScriptEngine::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
@@ -35,6 +37,7 @@ namespace Vox
 	Application::~Application()
 	{
 		VOX_PROFILE_FUNCTION();
+		ScriptEngine::Shutdown();
 		Renderer::Shutdown();
 	}
 
