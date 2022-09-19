@@ -11,6 +11,8 @@
 
 #include "Platform/OpenGL/OpenGLContext.h"
 
+#include "stb_image.h"
+
 namespace Vox
 {
 	float Window::m_HighDpiScaleFactor = 1.0f;
@@ -84,6 +86,7 @@ namespace Vox
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
+		SetWindowIcon();
 
 		//GLFW Callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
@@ -215,6 +218,11 @@ namespace Vox
 	bool WinWindow::IsVSync() const
 	{
 		return m_Data.VSync;
+	}
+
+	void WinWindow::SetWindowIcon() const
+	{
+		
 	}
 
 

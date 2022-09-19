@@ -60,6 +60,7 @@ namespace Vox
 		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
 		glm::vec2 m_ViewportBounds[2];
 
+		bool m_ShowStyleDemo = false;
 		bool m_ShowPhysicsColliders = true;
 		int m_GizmosType = 0;
 		int m_GizmosSpace = 0;

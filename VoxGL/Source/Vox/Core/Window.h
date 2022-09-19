@@ -36,6 +36,8 @@ namespace Vox
 
 		virtual void* GetNativeWindow() const = 0;
 
+		virtual void SetWindowIcon() const = 0;
+
 		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	public:
 		static float m_HighDpiScaleFactor;

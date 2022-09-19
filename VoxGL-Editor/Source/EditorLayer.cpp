@@ -174,7 +174,24 @@ namespace Vox
 				ImGui::EndMenu();
 			}
 
+			if (ImGui::BeginMenu("Settings"))
+			{
+				if (ImGui::MenuItem("Theme Settings"))
+				{
+					m_ShowStyleDemo = true;
+				}
+
+				ImGui::EndMenu();
+			}
+
 			ImGui::EndMenuBar();
+		}
+
+		if (m_ShowStyleDemo)
+		{
+			ImGui::Begin("Style Editor");
+			ImGui::ShowStyleEditor();
+			ImGui::End();
 		}
 
 		m_SceneHierarchyPanel.OnRender();
