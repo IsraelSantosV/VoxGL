@@ -1,62 +1,62 @@
-[17:15:48] [info] Vox: Creating window VoxGL Editor (1600, 900)
-[17:15:48] [info] Vox: OpenGL Info:
-[17:15:48] [info] Vox:   Vendor: Intel
-[17:15:48] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
-[17:15:48] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
-[17:15:48] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Quad.glsl
-[17:15:48] [trace] Vox:     1 uniform buffers
-[17:15:48] [trace] Vox:     0 resources
-[17:15:48] [trace] Vox: Uniform buffers:
-[17:15:48] [trace] Vox:   _46_48
-[17:15:48] [trace] Vox:     Size = 64
-[17:15:48] [trace] Vox:     Binding = 0
-[17:15:48] [trace] Vox:     Members = 1
-[17:15:48] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Quad.glsl
-[17:15:48] [trace] Vox:     0 uniform buffers
-[17:15:48] [trace] Vox:     1 resources
-[17:15:48] [trace] Vox: Uniform buffers:
-[17:15:48] [warning] Vox: Shader creation took 81.2441 ms
-[17:15:48] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Circle.glsl
-[17:15:48] [trace] Vox:     1 uniform buffers
-[17:15:48] [trace] Vox:     0 resources
-[17:15:48] [trace] Vox: Uniform buffers:
-[17:15:48] [trace] Vox:   _47_49
-[17:15:48] [trace] Vox:     Size = 64
-[17:15:48] [trace] Vox:     Binding = 0
-[17:15:48] [trace] Vox:     Members = 1
-[17:15:48] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Circle.glsl
-[17:15:48] [trace] Vox:     0 uniform buffers
-[17:15:48] [trace] Vox:     0 resources
-[17:15:48] [trace] Vox: Uniform buffers:
-[17:15:48] [warning] Vox: Shader creation took 45.5601 ms
-[17:15:48] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Line.glsl
-[17:15:48] [trace] Vox:     1 uniform buffers
-[17:15:48] [trace] Vox:     0 resources
-[17:15:48] [trace] Vox: Uniform buffers:
-[17:15:48] [trace] Vox:   _30_32
-[17:15:48] [trace] Vox:     Size = 64
-[17:15:48] [trace] Vox:     Binding = 0
-[17:15:48] [trace] Vox:     Members = 1
-[17:15:48] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Line.glsl
-[17:15:48] [trace] Vox:     0 uniform buffers
-[17:15:48] [trace] Vox:     0 resources
-[17:15:48] [trace] Vox: Uniform buffers:
-[17:15:48] [warning] Vox: Shader creation took 64.663 ms
-[17:15:48] [warning] Vox: Camera has 1 fields:
-[17:15:48] [error] Vox: Unknown type: Vox.Entity
-[17:15:48] [warning] Vox:   OtherEntity (None)
-[17:15:48] [warning] Vox: Player has 4 fields:
-[17:15:48] [warning] Vox:   Speed (Float)
-[17:15:48] [warning] Vox:   Time (Float)
-[17:15:48] [error] Vox: Could not find component type Vox.SpriteRendererComponent
-[17:15:48] [error] Vox: Could not find component type Vox.CircleRendererComponent
-[17:15:48] [error] Vox: Could not find component type Vox.CameraComponent
-[17:15:48] [error] Vox: Could not find component type Vox.ScriptComponent
-[17:15:48] [error] Vox: Could not find component type Vox.BehaviourComponent
-[17:15:48] [error] Vox: Could not find component type Vox.BoxCollider2DComponent
-[17:15:48] [error] Vox: Could not find component type Vox.CircleCollider2DComponent
-[17:15:53] [trace] Vox: Deserializing scene 'Untitled'
-[17:15:53] [trace] Vox: Deserialized entity with ID = 15397533330315033756, name = Cube
-[17:15:53] [trace] Vox: Deserialized entity with ID = 5101846008079424324, name = Plane
-[17:15:53] [trace] Vox: Deserialized entity with ID = 17507861256407132180, name = MainCamera
-[17:15:53] [trace] Vox: Deserialized entity with ID = 13371936982824030946, name = Circle
+[10:46:35] [info] Vox: Creating window VoxGL Editor (1600, 900)
+[10:46:35] [info] Vox: OpenGL Info:
+[10:46:35] [info] Vox:   Vendor: Intel
+[10:46:35] [info] Vox:   Renderer: Intel(R) Iris(R) Xe Graphics
+[10:46:35] [info] Vox:   Version: 4.6.0 - Build 30.0.101.1692
+[10:46:36] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Quad.glsl
+[10:46:36] [trace] Vox:     1 uniform buffers
+[10:46:36] [trace] Vox:     0 resources
+[10:46:36] [trace] Vox: Uniform buffers:
+[10:46:36] [trace] Vox:   _46_48
+[10:46:36] [trace] Vox:     Size = 64
+[10:46:36] [trace] Vox:     Binding = 0
+[10:46:36] [trace] Vox:     Members = 1
+[10:46:36] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Quad.glsl
+[10:46:36] [trace] Vox:     0 uniform buffers
+[10:46:36] [trace] Vox:     1 resources
+[10:46:36] [trace] Vox: Uniform buffers:
+[10:46:36] [warning] Vox: Shader creation took 194.087 ms
+[10:46:36] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Circle.glsl
+[10:46:36] [trace] Vox:     1 uniform buffers
+[10:46:36] [trace] Vox:     0 resources
+[10:46:36] [trace] Vox: Uniform buffers:
+[10:46:36] [trace] Vox:   _47_49
+[10:46:36] [trace] Vox:     Size = 64
+[10:46:36] [trace] Vox:     Binding = 0
+[10:46:36] [trace] Vox:     Members = 1
+[10:46:36] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Circle.glsl
+[10:46:36] [trace] Vox:     0 uniform buffers
+[10:46:36] [trace] Vox:     0 resources
+[10:46:36] [trace] Vox: Uniform buffers:
+[10:46:36] [warning] Vox: Shader creation took 109.077 ms
+[10:46:36] [trace] Vox: OpenGLShader::Reflect - GL_VERTEX_SHADER Assets/Shaders/Renderer2D_Line.glsl
+[10:46:36] [trace] Vox:     1 uniform buffers
+[10:46:36] [trace] Vox:     0 resources
+[10:46:36] [trace] Vox: Uniform buffers:
+[10:46:36] [trace] Vox:   _30_32
+[10:46:36] [trace] Vox:     Size = 64
+[10:46:36] [trace] Vox:     Binding = 0
+[10:46:36] [trace] Vox:     Members = 1
+[10:46:36] [trace] Vox: OpenGLShader::Reflect - GL_FRAGMENT_SHADER Assets/Shaders/Renderer2D_Line.glsl
+[10:46:36] [trace] Vox:     0 uniform buffers
+[10:46:36] [trace] Vox:     0 resources
+[10:46:36] [trace] Vox: Uniform buffers:
+[10:46:36] [warning] Vox: Shader creation took 85.7288 ms
+[10:46:36] [warning] Vox: Camera has 1 fields:
+[10:46:36] [error] Vox: Unknown type: Vox.Entity
+[10:46:36] [warning] Vox:   OtherEntity (None)
+[10:46:36] [warning] Vox: Player has 4 fields:
+[10:46:36] [warning] Vox:   Speed (Float)
+[10:46:36] [warning] Vox:   Time (Float)
+[10:46:36] [error] Vox: Could not find component type Vox.SpriteRendererComponent
+[10:46:36] [error] Vox: Could not find component type Vox.CircleRendererComponent
+[10:46:36] [error] Vox: Could not find component type Vox.CameraComponent
+[10:46:36] [error] Vox: Could not find component type Vox.ScriptComponent
+[10:46:36] [error] Vox: Could not find component type Vox.BehaviourComponent
+[10:46:36] [error] Vox: Could not find component type Vox.BoxCollider2DComponent
+[10:46:36] [error] Vox: Could not find component type Vox.CircleCollider2DComponent
+[10:47:46] [trace] Vox: Deserializing scene 'Untitled'
+[10:47:46] [trace] Vox: Deserialized entity with ID = 13371936982824030946, name = Circle
+[10:47:46] [trace] Vox: Deserialized entity with ID = 17507861256407132180, name = MainCamera
+[10:47:46] [trace] Vox: Deserialized entity with ID = 5101846008079424324, name = Plane
+[10:47:46] [trace] Vox: Deserialized entity with ID = 15397533330315033756, name = Cube

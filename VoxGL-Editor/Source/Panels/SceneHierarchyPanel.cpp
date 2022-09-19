@@ -345,30 +345,30 @@ namespace Vox
 			if (camera.GetProjectionType() == SceneCamera::ProjectionType::Perspective)
 			{
 				float verticalFov = glm::degrees(camera.GetPerspectiveVerticalFov());
-				if (ImGui::DragFloat("FOV", &verticalFov))
+				if (ImGui::DragFloat("FOV", &verticalFov, 0.1f, 0.0f, 0.0f, "%.2f"))
 					camera.SetPerspectiveVerticalFov(glm::radians(verticalFov));
 
 				float perspectiveNear = camera.GetPerspectiveNearClip();
-				if (ImGui::DragFloat("Near", &perspectiveNear))
+				if (ImGui::DragFloat("Near", &perspectiveNear, 0.1f, 0.0f, 0.0f, "%.2f"))
 					camera.SetPerspectiveNearClip(perspectiveNear);
 
 				float perspectiveFar = camera.GetPerspectiveFarClip();
-				if (ImGui::DragFloat("Far", &perspectiveFar))
+				if (ImGui::DragFloat("Far", &perspectiveFar, 0.1f, 0.0f, 0.0f, "%.2f"))
 					camera.SetPerspectiveFarClip(perspectiveFar);
 			}
 
 			if (camera.GetProjectionType() == SceneCamera::ProjectionType::Orthographic)
 			{
 				float orthoSize = camera.GetOrthographicSize();
-				if (ImGui::DragFloat("Size", &orthoSize))
+				if (ImGui::DragFloat("Size", &orthoSize, 0.1f, 0.0f, 0.0f, "%.2f"))
 					camera.SetOrthographicSize(orthoSize);
 
 				float orthoNear = camera.GetOrthographicNearClip();
-				if (ImGui::DragFloat("Near", &orthoNear))
+				if (ImGui::DragFloat("Near", &orthoNear, 0.1f, 0.0f, 0.0f, "%.2f"))
 					camera.SetOrthographicNearClip(orthoNear);
 
 				float orthoFar = camera.GetOrthographicFarClip();
-				if (ImGui::DragFloat("Far", &orthoFar))
+				if (ImGui::DragFloat("Far", &orthoFar, 0.1f, 0.0f, 0.0f, "%.2f"))
 					camera.SetOrthographicFarClip(orthoFar);
 
 				ImGui::Checkbox("Fixed Aspect Ratio", &component.FixedAspectRatio);
@@ -401,7 +401,7 @@ namespace Vox
 						if (field.Type == ScriptFieldType::Float)
 						{
 							float data = scriptInstance->GetFieldValue<float>(name);
-							if (ImGui::DragFloat(name.c_str(), &data))
+							if (ImGui::DragFloat(name.c_str(), &data, 0.1f, 0.0f, 0.0f, "%.2f"))
 							{
 								scriptInstance->SetFieldValue(name, data);
 							}
@@ -428,7 +428,7 @@ namespace Vox
 							if (field.Type == ScriptFieldType::Float)
 							{
 								float data = scriptField.GetValue<float>();
-								if (ImGui::DragFloat(name.c_str(), &data))
+								if (ImGui::DragFloat(name.c_str(), &data, 0.1f, 0.0f, 0.0f, "%.2f"))
 									scriptField.SetValue(data);
 							}
 						}
@@ -438,7 +438,7 @@ namespace Vox
 							if (field.Type == ScriptFieldType::Float)
 							{
 								float data = 0.0f;
-								if (ImGui::DragFloat(name.c_str(), &data))
+								if (ImGui::DragFloat(name.c_str(), &data, 0.1f, 0.0f, 0.0f, "%.2f"))
 								{
 									ScriptFieldInstance& fieldInstance = entityFields[name];
 									fieldInstance.Field = field;
@@ -479,14 +479,14 @@ namespace Vox
 				ImGui::EndDragDropTarget();
 			}
 
-			ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f);
+			ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f, "%.2f");
 		});
 	
 		DrawComponent<CircleRendererComponent>("Circle Renderer", entity, [](auto& component)
 		{
 			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
-			ImGui::DragFloat("Thickness", &component.Thickness, 0.025f, 0.0f, 1.0f);
-			ImGui::DragFloat("Fade", &component.Fade, 0.00025f, 0.0f, 1.0f);
+			ImGui::DragFloat("Thickness", &component.Thickness, 0.025f, 0.0f, 1.0f, "%.2f");
+			ImGui::DragFloat("Fade", &component.Fade, 0.00025f, 0.0f, 1.0f, "%.2f");
 		});
 
 		DrawComponent<Rigidbody2DComponent>("Rigidbody2D", entity, [](auto& component)
@@ -521,20 +521,20 @@ namespace Vox
 		{
 			ImGui::DragFloat2("Offset", glm::value_ptr(component.Offset));
 			ImGui::DragFloat2("Size", glm::value_ptr(component.Size));
-			ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f);
-			ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f);
-			ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f);
-			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f);
+			ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f, "%.2f");
+			ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f, "%.2f");
+			ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f, "%.2f");
+			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f, 0.0f, "%.2f");
 		});
 	
 		DrawComponent<CircleCollider2DComponent>("CircleCollider2D", entity, [](auto& component)
 		{
 			ImGui::DragFloat2("Offset", glm::value_ptr(component.Offset));
 			ImGui::DragFloat("Radius", &component.Radius);
-			ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f);
-			ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f);
-			ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f);
-			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f);
+			ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f, "%.2f");
+			ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f, "%.2f");
+			ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f, "%.2f");
+			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f, 0.0f, "%.2f");
 		});
 	}
 }

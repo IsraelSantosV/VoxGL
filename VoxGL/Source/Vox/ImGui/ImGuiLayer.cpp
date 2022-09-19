@@ -29,11 +29,9 @@ namespace Vox
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
-		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
-		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
 		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Bold.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
 		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Italic.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
@@ -51,6 +49,14 @@ namespace Vox
 			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
 		}
 
+		style.FrameRounding = 5.0f;
+		style.GrabRounding = 6.0f;
+		style.PopupRounding = 6.0f;
+		style.PopupBorderSize = 0.0f;
+		style.TabRounding = 1.0f;
+		style.WindowMenuButtonPosition = ImGuiDir_None;
+		style.WindowRounding = 6.0f;
+
 		SetThemeColors();
 
 		Application& app = Application::Get();
@@ -65,6 +71,8 @@ namespace Vox
 	{
 		auto& colors = ImGui::GetStyle().Colors;
 		colors[ImGuiCol_WindowBg] = Vox::Theme::WindowColor;
+		colors[ImGuiCol_PopupBg] = Vox::Theme::DarkBackgroundColor;
+		colors[ImGuiCol_Border] = Vox::Theme::BorderColor;
 
 		colors[ImGuiCol_Header] = Vox::Theme::HeaderColor;
 		colors[ImGuiCol_HeaderHovered] = Vox::Theme::HeaderHoveredColor;
