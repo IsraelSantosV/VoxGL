@@ -29,12 +29,24 @@ namespace Vox
 		TagComponent(const std::string& tag) : Tag(tag) {}
 	};
 
+	struct RelationshipComponent
+	{
+		UUID ParentHandle = 0;
+		std::vector<UUID> Children;
+
+		RelationshipComponent() = default;
+		RelationshipComponent(const RelationshipComponent& other) = default;
+		RelationshipComponent(UUID parent) : ParentHandle(parent) {}
+	};
+
 	struct TransformComponent
 	{
 		glm::vec3 Position { 0.0f, 0.0f, 0.0f };
-		glm::vec3 Rotation { 0.0f, 0.0f, 0.0f };
 		glm::vec3 Scale { 1.0f, 1.0f, 1.0f };
-
+	private:
+		glm::vec3 RotationEuler = { 0.0f, 0.0f, 0.0f };
+		glm::quat Rotation = { 1.0f, 0.0f, 0.0f, 0.0f };
+	public:
 		TransformComponent() = default;
 		TransformComponent(const TransformComponent&) = default;
 		TransformComponent(const glm::vec3& position) : Position(position) {}
@@ -47,6 +59,36 @@ namespace Vox
 
 			return position * rotation * scale;
 		}
+
+		void SetTransform(const glm::mat4& transform)
+		{
+			//Math::DecomposeTransform(transform, Position, Rotation, Scale);
+			//RotationEuler = glm::eulerAngles(Rotation);
+		}
+
+		glm::vec3 GetRotationEuler() const
+		{
+			return RotationEuler;
+		}
+
+		void SetRotationEuler(const glm::vec3& euler)
+		{
+			RotationEuler = euler;
+			Rotation = glm::quat(RotationEuler);
+		}
+
+		glm::quat GetRotation() const
+		{
+			return Rotation;
+		}
+
+		void SetRotation(const glm::quat& quat)
+		{
+			Rotation = quat;
+			RotationEuler = glm::eulerAngles(Rotation);
+		}
+
+		friend class SceneSerializer;
 	};
 
 	struct SpriteRendererComponent
