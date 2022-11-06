@@ -20,7 +20,8 @@ project "VoxGL-Editor"
 		"%{wks.location}/VoxGL/ThirdParty",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.entt}",
-		"%{IncludeDir.ImGuizmo}"
+		"%{IncludeDir.ImGuizmo}",
+		"%{IncludeDir.choc}"
 	}
 
 	links

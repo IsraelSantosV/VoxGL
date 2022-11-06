@@ -49,7 +49,7 @@ namespace Vox
 		static const char* GetCacheDirectory()
 		{
 			// TODO: make sure the assets directory is valid
-			return "Assets/Cache/Shader/Opengl";
+			return "Resources/Cache/Shader/Opengl";
 		}
 
 		static void CreateCacheDirectoryIfNeeded()

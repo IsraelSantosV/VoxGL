@@ -170,9 +170,9 @@ namespace Vox
 			samplers[i] = i;
 		}
 			
-		m_Data.QuadShader = Shader::Create("Assets/Shaders/Renderer2D_Quad.glsl");
-		m_Data.CircleShader = Shader::Create("Assets/Shaders/Renderer2D_Circle.glsl");
-		m_Data.LineShader = Shader::Create("Assets/Shaders/Renderer2D_Line.glsl");
+		m_Data.QuadShader = Shader::Create("Resources/Shaders/Renderer2D_Quad.glsl");
+		m_Data.CircleShader = Shader::Create("Resources/Shaders/Renderer2D_Circle.glsl");
+		m_Data.LineShader = Shader::Create("Resources/Shaders/Renderer2D_Line.glsl");
 		m_Data.TextureSlots[0] = m_Data.WhiteTexture;
 
 		m_Data.QuadVertexPositions[0] = { -0.5f, -0.5f, 0.0f, 1.0f };

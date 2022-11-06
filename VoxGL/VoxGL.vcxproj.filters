@@ -22,6 +22,9 @@
     <Filter Include="Source\Vox\Debug">
       <UniqueIdentifier>{B8FC9C4F-A4F5-BBA1-CD27-A126B97F9BAD}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Editor">
+      <UniqueIdentifier>{B8778345-248E-81DB-6D05-0DFDD95A5263}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Vox\Events">
       <UniqueIdentifier>{66E6C646-D2FC-C4DC-1B74-50FE87C99564}</UniqueIdentifier>
     </Filter>
@@ -150,6 +153,9 @@
     <ClInclude Include="Source\Vox\Debug\Instrumentor.h">
       <Filter>Source\Vox\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Editor\SelectionManager.h">
+      <Filter>Source\Vox\Editor</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Events\AplicationEvent.h">
       <Filter>Source\Vox\Events</Filter>
     </ClInclude>
@@ -162,7 +168,13 @@
     <ClInclude Include="Source\Vox\Events\MouseEvent.h">
       <Filter>Source\Vox\Events</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Events\SceneEvents.h">
+      <Filter>Source\Vox\Events</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h">
+      <Filter>Source\Vox\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\ImGui\ImGuiWidgets.h">
       <Filter>Source\Vox\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Math\Math.h">
@@ -238,6 +250,9 @@
       <Filter>Source\Vox\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Tools\PlatformTools.h">
+      <Filter>Source\Vox\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Tools\StringUtils.h">
       <Filter>Source\Vox\Tools</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Tools\ThemePalette.h">
@@ -1338,6 +1353,8 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Editor\FontAwesome6.h" />
+    <ClInclude Include="Source\Vox\Editor\UITools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1390,6 +1407,9 @@
     </ClCompile>
     <ClCompile Include="Source\Vox\Core\Window.cpp">
       <Filter>Source\Vox\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Editor\SelectionManager.cpp">
+      <Filter>Source\Vox\Editor</Filter>
     </ClCompile>
     <ClCompile Include="Source\Vox\ImGui\ImGuiBuild.cpp">
       <Filter>Source\Vox\ImGui</Filter>
@@ -1459,6 +1479,9 @@
     </ClCompile>
     <ClCompile Include="Source\Vox\Scripting\ScriptGlue.cpp">
       <Filter>Source\Vox\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Vox\Tools\StringUtils.cpp">
+      <Filter>Source\Vox\Tools</Filter>
     </ClCompile>
     <ClCompile Include="Source\VoxPch.cpp">
       <Filter>Source</Filter>

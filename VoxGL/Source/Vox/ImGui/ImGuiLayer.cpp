@@ -7,6 +7,7 @@
 #include "Vox/Core/Application.h"
 
 #include "Vox/Tools/ThemePalette.h"
+#include "Vox/Editor/FontAwesome6.h"
 
 //Temporary
 #include <GLFW/glfw3.h>
@@ -33,9 +34,16 @@ namespace Vox
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
 
-		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Bold.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
-		io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Italic.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
-		io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-Regular.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
+		//io.Fonts->AddFontFromFileTTF("Resources/Fonts/Gintronic.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
+		io.Fonts->AddFontFromFileTTF("Resources/Fonts/OpenSans-Italic.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
+		io.FontDefault = io.Fonts->AddFontFromFileTTF("Resources/Fonts/OpenSans-Regular.ttf", Window::m_HighDpiScaleFactor * Vox::Theme::FontSize);
+
+		static const ImWchar icons_ranges[] = { ICON_MIN_FA, ICON_MAX_16_FA, 0 };
+		ImFontConfig icons_config;
+		icons_config.MergeMode = true;
+		icons_config.PixelSnapH = true;
+		const std::string fontPath = "Resources/Fonts/FontAwesome/" FONT_ICON_FILE_NAME_FAS;
+		io.Fonts->AddFontFromFileTTF(fontPath.c_str(), Window::m_HighDpiScaleFactor * Vox::Theme::FontSize, &icons_config, icons_ranges);
 
 		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();

@@ -14,6 +14,7 @@ IncludeDir["mono"] = "%{wks.location}/VoxGL/ThirdParty/mono/include"
 IncludeDir["shaderc"] = "%{wks.location}/VoxGL/ThirdParty/shaderc/include"
 IncludeDir["SPIRV_Cross"] = "%{wks.location}/VoxGL/ThirdParty/SPIRV-Cross"
 IncludeDir["VulkanSDK"] = "%{VULKAN_SDK}/Include"
+IncludeDir["choc"] = "%{wks.location}/VoxGL/ThirdParty/choc"
 
 LibraryDir = {}
 

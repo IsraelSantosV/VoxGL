@@ -22,6 +22,7 @@ namespace Vox
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
 	private:
+		void RenderGrid();
 		void MousePicking();
 		void DrawGizmos();
 		bool OnKeyPressed(KeyPressedEvent& e);
@@ -45,6 +46,7 @@ namespace Vox
 		void OnDuplicateEntity();
 
 		void UI_Toolbar();
+		void UI_Settings();	
 	private:
 		Ref<Framebuffer> m_Framebuffer;
 		Ref<Scene> m_ActiveScene;
@@ -60,7 +62,11 @@ namespace Vox
 		glm::vec2 m_ViewportSize = { 0.0f, 0.0f };
 		glm::vec2 m_ViewportBounds[2];
 
+		bool m_EnableGizmosInRuntime = false;
+
+		bool m_EnableGrid = true;
 		bool m_ShowStyleDemo = false;
+		bool m_ShowImGuiDrawDemo = false;
 		bool m_ShowPhysicsColliders = true;
 		int m_GizmosType = 0;
 		int m_GizmosSpace = 0;

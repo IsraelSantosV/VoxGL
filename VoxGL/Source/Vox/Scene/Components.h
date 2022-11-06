@@ -3,6 +3,7 @@
 #include "SceneCamera.h"
 #include "Vox/Core/UUID.h"
 #include "Vox/Renderer/Texture.h"
+#include "Vox/Math/Math.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -20,6 +21,28 @@ namespace Vox
 		IDComponent(const IDComponent&) = default;
 	};
 
+	struct LayerComponent
+	{
+		int Layer = 0;
+
+		LayerComponent() = default;
+		LayerComponent(const LayerComponent&) = default;
+
+		operator int& () { return Layer; }
+		operator const int& () const { return Layer; }
+	};
+
+	struct VisibilityComponent
+	{
+		bool IsActive = true;
+
+		VisibilityComponent() = default;
+		VisibilityComponent(const VisibilityComponent&) = default;
+
+		operator bool& () { return IsActive; }
+		operator const bool& () const { return IsActive; }
+	};
+
 	struct TagComponent
 	{
 		std::string Tag;
@@ -27,14 +50,29 @@ namespace Vox
 		TagComponent() = default;
 		TagComponent(const TagComponent&) = default;
 		TagComponent(const std::string& tag) : Tag(tag) {}
+
+		operator std::string& () { return Tag; }
+		operator const std::string& () const { return Tag; }
+	};
+
+	struct RelationshipComponent
+	{
+		UUID ParentHandle = 0;
+		std::vector<UUID> Children;
+
+		RelationshipComponent() = default;
+		RelationshipComponent(const RelationshipComponent& other) = default;
+		RelationshipComponent(UUID parent) : ParentHandle(parent) {}
 	};
 
 	struct TransformComponent
 	{
 		glm::vec3 Position { 0.0f, 0.0f, 0.0f };
-		glm::vec3 Rotation { 0.0f, 0.0f, 0.0f };
 		glm::vec3 Scale { 1.0f, 1.0f, 1.0f };
-
+	private:
+		glm::vec3 RotationEuler = { 0.0f, 0.0f, 0.0f };
+		glm::quat Rotation = { 1.0f, 0.0f, 0.0f, 0.0f };
+	public:
 		TransformComponent() = default;
 		TransformComponent(const TransformComponent&) = default;
 		TransformComponent(const glm::vec3& position) : Position(position) {}
@@ -47,6 +85,36 @@ namespace Vox
 
 			return position * rotation * scale;
 		}
+
+		void SetTransform(const glm::mat4& transform)
+		{
+			Math::DecomposeTransform(transform, Position, Rotation, Scale);
+			RotationEuler = glm::eulerAngles(Rotation);
+		}
+
+		glm::vec3 GetRotationEuler() const
+		{
+			return RotationEuler;
+		}
+
+		void SetRotationEuler(const glm::vec3& euler)
+		{
+			RotationEuler = euler;
+			Rotation = glm::quat(RotationEuler);
+		}
+
+		glm::quat GetRotation() const
+		{
+			return Rotation;
+		}
+
+		void SetRotation(const glm::quat& quat)
+		{
+			Rotation = quat;
+			RotationEuler = glm::eulerAngles(Rotation);
+		}
+
+		friend class SceneSerializer;
 	};
 
 	struct SpriteRendererComponent
@@ -80,6 +148,9 @@ namespace Vox
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
+
+		operator SceneCamera& () { return Camera; }
+		operator const SceneCamera& () const { return Camera; }
 	};
 
 	struct ScriptComponent
@@ -163,7 +234,8 @@ namespace Vox
 	};
 
 	using AllComponents =
-		ComponentGroup<TransformComponent, SpriteRendererComponent,
+		ComponentGroup<TransformComponent, RelationshipComponent, 
+		SpriteRendererComponent, LayerComponent, VisibilityComponent,
 		CircleRendererComponent, CameraComponent, ScriptComponent,
 		BehaviourComponent, Rigidbody2DComponent, BoxCollider2DComponent,
 		CircleCollider2DComponent>;

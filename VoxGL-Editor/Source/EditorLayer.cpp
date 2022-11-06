@@ -10,6 +10,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "ImGuizmo.h"
+#include <imgui/imgui.cpp>
 
 namespace Vox 
 {
@@ -97,6 +98,42 @@ namespace Vox
 		m_Framebuffer->Unbind();
 	}
 
+	void EditorLayer::RenderGrid()
+	{
+		static ImVector<ImVec2> points;
+		static ImVec2 scrolling(0.0f, 0.0f);
+
+		ImVec2 canvas_p0 = ImGui::GetCursorScreenPos();
+		ImVec2 canvas_sz = ImGui::GetContentRegionAvail();
+		if (canvas_sz.x < 50.0f) canvas_sz.x = 50.0f;
+		if (canvas_sz.y < 50.0f) canvas_sz.y = 50.0f;
+		ImVec2 canvas_p1 = ImVec2(canvas_p0.x + canvas_sz.x, canvas_p0.y + canvas_sz.y);
+
+		// Draw border and background color
+		ImGuiIO& io = ImGui::GetIO();
+		ImDrawList* draw_list = ImGui::GetWindowDrawList();
+		draw_list->AddRectFilled(canvas_p0, canvas_p1, IM_COL32(50, 50, 50, 255));
+		draw_list->AddRect(canvas_p0, canvas_p1, IM_COL32(255, 255, 255, 255));
+
+		// Draw grid + all lines in the canvas
+		draw_list->PushClipRect(canvas_p0, canvas_p1, true);
+
+		if (m_EnableGrid)
+		{
+			const float GRID_STEP = 64.0f;
+			for (float x = fmodf(scrolling.x, GRID_STEP); x < canvas_sz.x; x += GRID_STEP)
+			{
+				draw_list->AddLine(ImVec2(canvas_p0.x + x, canvas_p0.y), ImVec2(canvas_p0.x + x, canvas_p1.y), IM_COL32(200, 200, 200, 40));
+			}
+			for (float y = fmodf(scrolling.y, GRID_STEP); y < canvas_sz.y; y += GRID_STEP)
+			{
+				draw_list->AddLine(ImVec2(canvas_p0.x, canvas_p0.y + y), ImVec2(canvas_p1.x, canvas_p0.y + y), IM_COL32(200, 200, 200, 40));
+			}
+		}
+
+		draw_list->PopClipRect();
+	}
+
 	void EditorLayer::OnImGuiRender()
 	{
 		VOX_PROFILE_FUNCTION();
@@ -174,11 +211,22 @@ namespace Vox
 				ImGui::EndMenu();
 			}
 
+			if (ImGui::BeginMenu("Edit", m_SceneHierarchyPanel.InValidContext(m_ActiveScene)))
+			{
+				m_SceneHierarchyPanel.DrawSelectedEntityActions();
+				ImGui::EndMenu();
+			}
+
 			if (ImGui::BeginMenu("Settings"))
 			{
 				if (ImGui::MenuItem("Theme Settings"))
 				{
 					m_ShowStyleDemo = true;
+				}
+
+				if (ImGui::MenuItem("Help"))
+				{
+					m_ShowImGuiDrawDemo = true;
 				}
 
 				ImGui::EndMenu();
@@ -194,12 +242,15 @@ namespace Vox
 			ImGui::End();
 		}
 
+		if (m_ShowImGuiDrawDemo)
+		{
+			ImGui::ShowDemoWindow();
+		}
+
 		m_SceneHierarchyPanel.OnRender();
 		m_ContentBrowserPanel.OnRender();
 
-		ImGui::Begin("Settings");
-		ImGui::Checkbox("Show physics colliders", &m_ShowPhysicsColliders);
-		ImGui::End();
+		UI_Settings();
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
 		ImGui::Begin("Scene");
@@ -233,6 +284,7 @@ namespace Vox
 		}
 
 		DrawGizmos();
+		//RenderGrid();
 		
 		ImGui::End();
 		ImGui::PopStyleVar();
@@ -282,21 +334,36 @@ namespace Vox
 
 	void EditorLayer::DrawGizmos()
 	{
-		Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
+		Entity selectedEntity = m_ActiveScene->GetEntityWithId(SelectionManager::GetSelection(0));
 		if (selectedEntity && m_GizmosType >= 0)
 		{
 			
 			ImGuizmo::SetOrthographic(false);
 			ImGuizmo::SetDrawlist();
 
-			ImGuizmo::SetRect(m_ViewportBounds[0].x, m_ViewportBounds[0].y, 
-				m_ViewportBounds[1].x - m_ViewportBounds[0].x, m_ViewportBounds[1].y - m_ViewportBounds[0].y);
+			ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
 
-			const glm::mat4& cameraProjection = m_EditorCamera.GetProjection();
-			glm::mat4 cameraView = m_EditorCamera.GetViewMatrix();
+			TransformComponent& entityTransform = selectedEntity.Transform();
+			glm::mat4 transform = m_ActiveScene->GetWorldSpaceTransformMatrix(selectedEntity);
 
-			auto& tc = selectedEntity.GetComponent<TransformComponent>();
-			glm::mat4 transform = tc.GetTransform();
+			glm::mat4 projectionMatrix, viewMatrix;
+			if (m_ActiveScene->IsRunning() && m_EnableGizmosInRuntime)
+			{
+				Entity cameraEntity = m_ActiveScene->GetMainCameraEntity();
+				if (!cameraEntity)
+				{
+					return;
+				}
+
+				SceneCamera& camera = cameraEntity.GetComponent<CameraComponent>();
+				projectionMatrix = camera.GetProjection();
+				viewMatrix = glm::inverse(m_ActiveScene->GetWorldSpaceTransformMatrix(cameraEntity));
+			}
+			else
+			{
+				projectionMatrix = m_EditorCamera.GetProjection();
+				viewMatrix = m_EditorCamera.GetViewMatrix();
+			}
 
 			float snapValue = m_SnapValue;
 			bool snap = Input::IsKeyPressed(Key::LeftControl);
@@ -307,19 +374,48 @@ namespace Vox
 
 			float snapValues[3] = { snapValue, snapValue, snapValue };
 
-			ImGuizmo::Manipulate(glm::value_ptr(cameraView), glm::value_ptr(cameraProjection),
+			ImGuizmo::Manipulate(glm::value_ptr(viewMatrix), glm::value_ptr(projectionMatrix),
 				(ImGuizmo::OPERATION)m_GizmosType, (ImGuizmo::MODE)m_GizmosSpace, glm::value_ptr(transform),
 				nullptr, snap ? snapValues : nullptr);
 
 			if (ImGuizmo::IsUsing())
 			{
-				glm::vec3 position, rotation, scale;
+				Entity parent = m_ActiveScene->FindEntityWithId(selectedEntity.GetParentId());
+				if (parent)
+				{
+					glm::mat4 parentTransform = m_ActiveScene->GetWorldSpaceTransformMatrix(parent);
+					transform = glm::inverse(parentTransform) * transform;
+				}
+
+				glm::vec3 position, scale;
+				glm::quat rotation;
 				Math::DecomposeTransform(transform, position, rotation, scale);
 
-				glm::vec3 deltaRotation = rotation - tc.Rotation;
-				tc.Position = position;
-				tc.Rotation += deltaRotation;
-				tc.Scale = scale;
+				switch (m_GizmosType)
+				{
+					case ImGuizmo::TRANSLATE:
+						entityTransform.Position = position;
+						break;
+					case ImGuizmo::ROTATE:
+						glm::vec3 originalRotationEuler = entityTransform.GetRotationEuler();
+
+						originalRotationEuler.x = fmodf(originalRotationEuler.x + glm::pi<float>(), glm::two_pi<float>()) - glm::pi<float>();
+						originalRotationEuler.y = fmodf(originalRotationEuler.y + glm::pi<float>(), glm::two_pi<float>()) - glm::pi<float>();
+						originalRotationEuler.z = fmodf(originalRotationEuler.z + glm::pi<float>(), glm::two_pi<float>()) - glm::pi<float>();
+
+						glm::vec3 deltaRotationEuler = glm::eulerAngles(rotation) - originalRotationEuler;
+
+						if (fabs(deltaRotationEuler.x) < 0.001) deltaRotationEuler.x = 0.0f;
+						if (fabs(deltaRotationEuler.y) < 0.001) deltaRotationEuler.y = 0.0f;
+						if (fabs(deltaRotationEuler.z) < 0.001) deltaRotationEuler.z = 0.0f;
+
+						glm::vec3 targetEulerRot = entityTransform.GetRotationEuler() += deltaRotationEuler;
+						entityTransform.SetRotationEuler(targetEulerRot);
+						break;
+					case ImGuizmo::SCALE:
+						entityTransform.Scale = scale;
+						break;
+				}
 			}
 		}
 	}
@@ -374,6 +470,35 @@ namespace Vox
 		}
 		ImGui::PopStyleVar(2);
 		ImGui::PopStyleColor(3);
+		ImGui::End();
+	}
+
+	void EditorLayer::UI_Settings()
+	{
+		ImGui::Begin("Settings");
+
+		const ImGuiTreeNodeFlags treeNodeFlags = ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_Framed |
+			ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_FramePadding;
+
+		ImVec2 contentRegionAvail = ImGui::GetContentRegionAvail();
+
+		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4, 4 });
+		float lineHeight = GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.0f;
+		ImGui::Separator();
+
+		bool open = ImGui::TreeNodeEx((void*)"##EditorSetting", treeNodeFlags, "Editor Settings");
+		ImGui::PopStyleVar();
+
+		if (open)
+		{
+			ImGui::Checkbox("Show physics colliders", &m_ShowPhysicsColliders);
+			ImGui::Checkbox("Enable Gizmos In Runtime", &m_EnableGizmosInRuntime);
+			ImGui::Checkbox("Enable Grid", &m_EnableGrid);
+			ImGui::DragFloat("SnapAmount", &m_SnapValue, 0.1f, 0.0f, 0.0f, "%.2f");
+
+			ImGui::TreePop();
+		}
+
 		ImGui::End();
 	}
 
@@ -450,7 +575,14 @@ namespace Vox
 		{
 			if (m_ViewportHovered && !ImGuizmo::IsOver() && !Input::IsKeyPressed(Key::LeftAlt))
 			{
-				m_SceneHierarchyPanel.SelectEntity(m_HoveredEntity);
+				if (m_HoveredEntity)
+				{
+					SelectionManager::Select(m_HoveredEntity.GetId());
+				}
+				else
+				{
+					SelectionManager::DeselectAll();
+				}
 			}
 
 			return false;
@@ -491,7 +623,7 @@ namespace Vox
 					glm::vec3 scale = tc.Scale * glm::vec3(bc2d.Size * 2.0f, 1.0f);
 
 					glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
-						* glm::rotate(glm::mat4(1.0f), tc.Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f))
+						* glm::rotate(glm::mat4(1.0f), tc.GetRotationEuler().z, glm::vec3(0.0f, 0.0f, 1.0f))
 						* glm::scale(glm::mat4(1.0f), scale);
 
 					Renderer2D::DrawRect(transform, glm::vec4(0, 1, 0, 1));
@@ -522,10 +654,11 @@ namespace Vox
 
 	void EditorLayer::RenderOutline()
 	{
-		if (Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity())
+		Entity selectedEntity = m_ActiveScene->GetEntityWithId(SelectionManager::GetSelection(0));
+		if (selectedEntity && selectedEntity.IsActive())
 		{
-			const TransformComponent& transform = selectedEntity.GetComponent<TransformComponent>();
-			Renderer2D::DrawRect(transform.GetTransform(), glm::vec4(1.0f, 0.5f, 0.0f, 1.0f));
+			const glm::mat4 transform = m_ActiveScene->GetWorldSpaceTransformMatrix(selectedEntity);
+			Renderer2D::DrawRect(transform, glm::vec4(1.0f, 0.5f, 0.0f, 1.0f));
 		}
 	}
 
@@ -656,7 +789,7 @@ namespace Vox
 			return;
 		}
 
-		Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
+		Entity selectedEntity = m_ActiveScene->GetEntityWithId(SelectionManager::GetSelection(0));
 		if (selectedEntity)
 		{
 			m_EditorScene->DuplicateEntity(selectedEntity);

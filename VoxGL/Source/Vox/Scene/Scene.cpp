@@ -30,7 +30,7 @@ namespace Vox
 		return b2_staticBody;
 	}
 
-	Scene::Scene()
+	Scene::Scene(std::string name) : m_Name(name)
 	{
 	}
 
@@ -96,37 +96,12 @@ namespace Vox
 		{
 			UUID uuid = srcSceneRegistry.get<IDComponent>(e).Id;
 			const auto& name = srcSceneRegistry.get<TagComponent>(e).Tag;
-			Entity newEntity = newScene->CreateEntityWithUUID(uuid, name);
+			Entity newEntity = newScene->CreateEntityWithId(uuid, name);
 			enttMap[uuid] = (entt::entity)newEntity;
 		}
 
 		CopyComponent(AllComponents{}, dstSceneRegistry, srcSceneRegistry, enttMap);
 		return newScene;
-	}
-
-	Entity Scene::CreateEntity(const std::string& name)
-	{
-		return CreateEntityWithUUID(UUID(), name);
-	}
-
-	Entity Scene::CreateEntityWithUUID(UUID id, const std::string& name)
-	{
-		Entity entity = { m_Registry.create(), this };
-
-		entity.AddComponent<IDComponent>(id);
-		entity.AddComponent<TransformComponent>();
-
-		auto& tag = entity.AddComponent<TagComponent>();
-		tag.Tag = name.empty() ? "Entity" : name;
-
-		m_EntityMap[id] = entity;
-		return entity;
-	}
-
-	void Scene::DestroyEntity(Entity entity)
-	{
-		m_Registry.destroy(entity);
-		m_EntityMap.erase(entity.GetId());
 	}
 
 	void Scene::OnRuntimeStart()
@@ -191,21 +166,40 @@ namespace Vox
 		{
 			Renderer2D::BeginScene(*mainCamera, cameraTransform);
 
-			auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-			for (auto entity : group)
+			// Draw sprites
 			{
-				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
-
-				Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+				auto group = m_Registry.group<IDComponent>(entt::get<SpriteRendererComponent>);
+				for (auto entity : group)
+				{
+					auto [idComponent, sprite] = group.get<IDComponent, SpriteRendererComponent>(entity);
+					Entity entity = GetEntityWithId(idComponent.Id);
+					bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
+					
+					if (entity && canDrawEntity)
+					{
+						glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
+						Renderer2D::DrawSprite(transform, sprite, (int)entity);
+					}
+				}
 			}
 
-			auto view = m_Registry.view<TransformComponent, CircleRendererComponent>();
-			for (auto entity : view)
+			// Draw circles
 			{
-				auto [transform, circle] = view.get<TransformComponent, CircleRendererComponent>(entity);
+				auto view = m_Registry.view<IDComponent, CircleRendererComponent>();
+				for (auto entity : view)
+				{
+					auto [idComponent, circle] = view.get<IDComponent, CircleRendererComponent>(entity);
+					Entity entity = GetEntityWithId(idComponent.Id);
+					bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
 
-				Renderer2D::DrawCircle(transform.GetTransform(), circle.Color, circle.Thickness, circle.Fade, (int)entity);
+					if (entity && canDrawEntity)
+					{
+						glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
+						Renderer2D::DrawCircle(transform, circle.Color, circle.Thickness, circle.Fade, (int)entity);
+					}
+				}
 			}
+
 			Renderer2D::EndScene();
 		}
 	}
@@ -252,10 +246,266 @@ namespace Vox
 		return {};
 	}
 
-	void Scene::DuplicateEntity(Entity entity)
+	Entity Scene::CreateEntity(const std::string& name)
 	{
+		return CreateChildEntity({}, name);
+	}
+
+	Entity Scene::CreateEntityWithId(UUID id, const std::string& name)
+	{
+		Entity entity = { m_Registry.create(), this };
+
+		entity.AddComponent<IDComponent>(id);
+		entity.AddComponent<TransformComponent>();
+		entity.AddComponent<VisibilityComponent>(true);
+		entity.AddComponent<LayerComponent>();
+
+		auto& tag = entity.AddComponent<TagComponent>();
+		tag.Tag = name.empty() ? "New Entity" : name;
+
+		entity.AddComponent<RelationshipComponent>();
+
+		m_EntityMap[id] = entity;
+		//SortEntities();
+		return entity;
+	}
+
+	Entity Scene::CreateChildEntity(Entity parent, const std::string& name)
+	{
+		Entity entity = CreateEntityWithId(UUID(), name);
+
+		if (parent)
+		{
+			entity.SetParent(parent);
+		}
+
+		return entity;
+	}
+
+	void Scene::DestroyEntity(Entity entity, bool excludeChildren, bool first)
+	{
+		//if (IsRunning())
+		{
+			if (entity.HasComponent<Rigidbody2DComponent>())
+			{
+				b2Body* body = (b2Body*)entity.GetComponent<Rigidbody2DComponent>().RuntimeBody;
+				m_PhysicsWorld->DestroyBody(body);
+			}
+		}
+
+		if (!excludeChildren)
+		{
+			for (size_t i = 0; i < entity.Children().size(); i++)
+			{
+				auto childId = entity.Children()[i];
+				Entity child = GetEntityWithId(childId);
+				DestroyEntity(child, excludeChildren, false);
+			}
+		}
+
+		if (first)
+		{
+			if (auto parent = entity.GetParent(); parent)
+			{
+				parent.RemoveChild(entity);
+			}
+		}
+
+		UUID id = entity.GetId();
+
+		m_Registry.destroy(entity);
+		m_EntityMap.erase(id);
+
+		//SortEntities();
+	}
+
+	Entity Scene::DuplicateEntity(Entity entity)
+	{
+		auto parentNewEntity = [&entity, scene = this](Entity newEntity)
+		{
+			if (auto parent = entity.GetParent(); parent)
+			{
+				newEntity.SetParentId(parent.GetId());
+				parent.Children().push_back(newEntity.GetId());
+			}
+		};
+
 		Entity newEntity = CreateEntity(entity.GetName());
 		CopyComponentIfExists(AllComponents{}, newEntity, entity);
+
+		auto childrenId = entity.Children();
+		for (auto childId : childrenId)
+		{
+			Entity childDuplicate = DuplicateEntity(GetEntityWithId(childId));
+			UnparentEntity(childDuplicate, false);
+
+			childDuplicate.SetParentId(newEntity.GetId());
+			newEntity.Children().push_back(childDuplicate.GetId());
+		}
+
+		parentNewEntity(newEntity);
+		return newEntity;
+	}
+
+	Entity Scene::GetEntityWithId(UUID id) const
+	{
+		if (m_EntityMap.find(id) == m_EntityMap.end())
+		{
+			//LOG_CORE_WARN("Invalid entity ID or entity doesn't exist in scene!");
+			return {};
+		}
+
+		return m_EntityMap.at(id);
+	}
+
+	Entity Scene::FindEntityWithId(UUID id) const
+	{
+		if (const auto iter = m_EntityMap.find(id); iter != m_EntityMap.end())
+		{
+			return iter->second;
+		}
+		return Entity{};
+	}
+
+	Entity Scene::FindEntityWithTag(const std::string& tag)
+	{
+		auto entities = GetAllEntitiesWith<TagComponent>();
+		for (auto e : entities)
+		{
+			if (entities.get<TagComponent>(e).Tag == tag)
+			{
+				return Entity(e, const_cast<Scene*>(this));
+			}
+		}
+
+		return Entity{};
+	}
+
+	Entity Scene::FindChildEntityWithTag(Entity entity, const std::string& tag)
+	{
+		if (entity)
+		{
+			if (entity.GetComponent<TagComponent>().Tag == tag)
+			{
+				return entity;
+			}
+
+			for (const auto childId : entity.Children())
+			{
+				Entity descendant = FindChildEntityWithTag(GetEntityWithId(childId), tag);
+				if (descendant)
+				{
+					return descendant;
+				}
+			}
+		}
+		return {};
+	}
+
+	void Scene::SortEntities()
+	{
+		m_Registry.sort<IDComponent>([&](const auto lhs, const auto rhs)
+		{
+			auto lhsEntity = m_EntityMap.find(lhs.Id);
+			auto rhsEntity = m_EntityMap.find(rhs.Id);
+			return static_cast<uint32_t>(lhsEntity->second) < static_cast<uint32_t>(rhsEntity->second);
+		});
+	}
+
+	void Scene::ConvertToLocalSpace(Entity entity)
+	{
+		Entity parent = FindEntityWithId(entity.GetParentId());
+
+		if (!parent)
+		{
+			return;
+		}
+
+		auto& transform = entity.Transform();
+		glm::mat4 parentTransform = GetWorldSpaceTransformMatrix(parent);
+		glm::mat4 localTransform = glm::inverse(parentTransform) * transform.GetTransform();
+		transform.SetTransform(localTransform);
+	}
+
+	void Scene::ConvertToWorldSpace(Entity entity)
+	{
+		Entity parent = FindEntityWithId(entity.GetParentId());
+
+		if (!parent)
+		{
+			return;
+		}
+
+		glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
+		auto& entityTransform = entity.Transform();
+		entityTransform.SetTransform(transform);
+	}
+
+	glm::mat4 Scene::GetWorldSpaceTransformMatrix(Entity entity)
+	{
+		glm::mat4 transform(1.0f);
+
+		Entity parent = FindEntityWithId(entity.GetParentId());
+		if (parent)
+		{
+			transform = GetWorldSpaceTransformMatrix(parent);
+		}
+
+		return transform * entity.Transform().GetTransform();
+	}
+
+	TransformComponent Scene::GetWorldSpaceTransform(Entity entity)
+	{
+		glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
+		TransformComponent transformComponent;
+		transformComponent.SetTransform(transform);
+		return transformComponent;
+	}
+
+	void Scene::SetParentEntity(Entity entity, Entity parent)
+	{
+		if (parent.IsChildOf(entity))
+		{
+			UnparentEntity(parent);
+
+			Entity newParent = FindEntityWithId(entity.GetParentId());
+			if (newParent)
+			{
+				UnparentEntity(entity);
+				SetParentEntity(parent, newParent);
+			}
+		}
+		else
+		{
+			Entity previousParent = FindEntityWithId(entity.GetParentId());
+
+			if (previousParent)
+				UnparentEntity(entity);
+		}
+
+		entity.SetParentId(parent.GetId());
+		parent.Children().push_back(entity.GetId());
+
+		ConvertToLocalSpace(entity);
+	}
+
+	void Scene::UnparentEntity(Entity entity, bool convertToWorldSpace)
+	{
+		Entity parent = FindEntityWithId(entity.GetParentId());
+		if (!parent)
+		{
+			return;
+		}
+
+		auto& parentChildren = parent.Children();
+		parentChildren.erase(std::remove(parentChildren.begin(), parentChildren.end(), entity.GetId()), parentChildren.end());
+
+		if (convertToWorldSpace)
+		{
+			ConvertToWorldSpace(entity);
+		}
+
+		entity.SetParentId(0);
 	}
 
 	void Scene::UpdateBehaviours(Timestep ts)
@@ -297,21 +547,14 @@ namespace Vox
 
 			b2Body* body = (b2Body*)rb2D.RuntimeBody;
 			const auto& position = body->GetPosition();
+
 			
 			transform.Position.x = position.x;
 			transform.Position.y = position.y;
-			transform.Rotation.z = body->GetAngle();
+			glm::vec3 rotation = transform.GetRotationEuler();
+			rotation.z = body->GetAngle();
+			transform.SetRotationEuler(rotation);
 		}
-	}
-
-	Entity Scene::GetEntityByUUID(UUID uuid)
-	{
-		if (m_EntityMap.find(uuid) != m_EntityMap.end())
-		{
-			return { m_EntityMap.at(uuid), this };
-		}
-
-		return {};
 	}
 
 	void Scene::OnPhysics2DStart()
@@ -328,7 +571,7 @@ namespace Vox
 			b2BodyDef bodyDef;
 			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2d.Type);
 			bodyDef.position.Set(transform.Position.x, transform.Position.y);
-			bodyDef.angle = transform.Rotation.z;
+			bodyDef.angle = transform.GetRotationEuler().z;
 
 			b2Body* body = m_PhysicsWorld->CreateBody(&bodyDef);
 			body->SetFixedRotation(rb2d.FixedRotation);
@@ -381,23 +624,35 @@ namespace Vox
 
 		// Draw sprites
 		{
-			auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
+			auto group = m_Registry.group<IDComponent>(entt::get<SpriteRendererComponent>);
 			for (auto entity : group)
 			{
-				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
+				auto [idComponent, sprite] = group.get<IDComponent, SpriteRendererComponent>(entity);
+				Entity entity = GetEntityWithId(idComponent.Id);
+				bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
 
-				Renderer2D::DrawSprite(transform.GetTransform(), sprite, (int)entity);
+				if (entity && canDrawEntity)
+				{
+					glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
+					Renderer2D::DrawSprite(transform, sprite, (int)entity);
+				}
 			}
 		}
 
 		// Draw circles
 		{
-			auto view = m_Registry.view<TransformComponent, CircleRendererComponent>();
+			auto view = m_Registry.view<IDComponent, CircleRendererComponent>();
 			for (auto entity : view)
 			{
-				auto [transform, circle] = view.get<TransformComponent, CircleRendererComponent>(entity);
-
-				Renderer2D::DrawCircle(transform.GetTransform(), circle.Color, circle.Thickness, circle.Fade, (int)entity);
+				auto [idComponent, circle] = view.get<IDComponent, CircleRendererComponent>(entity);
+				Entity entity = GetEntityWithId(idComponent.Id);
+				bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
+				
+				if (entity && canDrawEntity)
+				{
+					glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
+					Renderer2D::DrawCircle(transform, circle.Color, circle.Thickness, circle.Fade, (int)entity);
+				}
 			}
 		}
 
@@ -412,6 +667,21 @@ namespace Vox
 
 	template<>
 	void Scene::OnComponentAdded<IDComponent>(Entity entity, IDComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<VisibilityComponent>(Entity entity, VisibilityComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<LayerComponent>(Entity entity, LayerComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<RelationshipComponent>(Entity entity, RelationshipComponent& component)
 	{
 	}
 

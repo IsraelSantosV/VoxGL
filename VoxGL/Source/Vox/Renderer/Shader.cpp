@@ -14,7 +14,7 @@ namespace Vox
 				VOX_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
 				return nullptr;
 			case RendererAPI::API::OpenGL:
-				return std::make_shared<OpenGLShader>(filepath);
+				return CreateRef<OpenGLShader>(filepath);
 		}
 
 		VOX_CORE_ASSERT(false, "Unknown RendererApi!");
@@ -29,7 +29,7 @@ namespace Vox
 				VOX_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
 				return nullptr;
 			case RendererAPI::API::OpenGL:
-				return std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+				return CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		VOX_CORE_ASSERT(false, "Unknown RendererApi!");
