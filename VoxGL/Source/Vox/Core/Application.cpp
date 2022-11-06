@@ -37,6 +37,7 @@ namespace Vox
 	Application::~Application()
 	{
 		VOX_PROFILE_FUNCTION();
+		m_EventCallbacks.clear();
 		ScriptEngine::Shutdown();
 		Renderer::Shutdown();
 	}
@@ -55,11 +56,35 @@ namespace Vox
 
 		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
 		{
+			(*it)->OnEvent(e);
 			if (e.Handled)
 			{
 				break;
 			}
-			(*it)->OnEvent(e);
+		}
+
+		if (e.Handled)
+			return;
+
+		for (auto& eventCallback : m_EventCallbacks)
+		{
+			eventCallback(e);
+
+			if (e.Handled)
+				break;
+		}
+	}
+
+	void Application::ProcessEvents()
+	{
+		std::scoped_lock<std::mutex> lock(m_EventQueueMutex);
+
+		// Process custom event queue
+		while (m_EventQueue.size() > 0)
+		{
+			auto& func = m_EventQueue.front();
+			func();
+			m_EventQueue.pop();
 		}
 	}
 
@@ -83,6 +108,7 @@ namespace Vox
 		while (m_Running)
 		{
 			VOX_PROFILE_SCOPE("RunLoop");
+			ProcessEvents();
 
 			float time = Time::GetTime();
 			Timestep timestep = time - m_LastFrameTime;

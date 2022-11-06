@@ -6,7 +6,7 @@
 
 namespace Vox::Math 
 {
-	bool DecomposeTransform(const glm::mat4& transform, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale)
+	bool DecomposeTransform(const glm::mat4& transform, glm::vec3& position, glm::quat& rotation, glm::vec3& scale)
 	{
 		// From glm::decompose in matrix_decompose.inl
 		using namespace glm;
@@ -52,16 +52,33 @@ namespace Vox::Math
 		scale.z = length(Row[2]);
 		Row[2] = detail::scale(Row[2], static_cast<T>(1));
 
-		rotation.y = asin(-Row[0][2]);
-		if (cos(rotation.y) != 0) 
+		int i, j, k = 0;
+		T root, trace = Row[0].x + Row[1].y + Row[2].z;
+		if (trace > static_cast<T>(0))
 		{
-			rotation.x = atan2(Row[1][2], Row[2][2]);
-			rotation.z = atan2(Row[0][1], Row[0][0]);
+			root = sqrt(trace + static_cast<T>(1));
+			rotation.w = static_cast<T>(0.5) * root;
+			root = static_cast<T>(0.5) / root;
+			rotation.x = root * (Row[1].z - Row[2].y);
+			rotation.y = root * (Row[2].x - Row[0].z);
+			rotation.z = root * (Row[0].y - Row[1].x);
 		}
-		else 
+		else
 		{
-			rotation.x = atan2(-Row[2][0], Row[1][1]);
-			rotation.z = 0;
+			static int Next[3] = { 1, 2, 0 };
+			i = 0;
+			if (Row[1].y > Row[0].x) i = 1;
+			if (Row[2].z > Row[i][i]) i = 2;
+			j = Next[i];
+			k = Next[j];
+
+			root = sqrt(Row[i][i] - Row[j][j] - Row[k][k] + static_cast<T>(1.0));
+
+			rotation[i] = static_cast<T>(0.5) * root;
+			root = static_cast<T>(0.5) / root;
+			rotation[j] = root * (Row[i][j] + Row[j][i]);
+			rotation[k] = root * (Row[i][k] + Row[k][i]);
+			rotation.w = root * (Row[j][k] - Row[k][j]);
 		}
 
 		return true;

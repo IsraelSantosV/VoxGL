@@ -13,7 +13,9 @@ project "VoxGL"
 	files
 	{
 		"Source/**.h",
+		"Source/**.c",
 		"Source/**.cpp",
+		"Source/**.hpp",
 		"ThirdParty/stb_image/**.h",
 		"ThirdParty/stb_image/**.cpp",
 		"ThirdParty/glm/glm/**.hpp",
@@ -31,6 +33,7 @@ project "VoxGL"
 	includedirs
 	{
 		"Source",
+		"ThirdParty",
 		"ThirdParty/spdlog/include",
 		"%{IncludeDir.Box2D}",
 		"%{IncludeDir.GLFW}",
@@ -42,7 +45,8 @@ project "VoxGL"
 		"%{IncludeDir.mono}",
 		"%{IncludeDir.yaml_cpp}",
 		"%{IncludeDir.ImGuizmo}",
-		"%{IncludeDir.VulkanSDK}"
+		"%{IncludeDir.VulkanSDK}",
+		"%{IncludeDir.choc}"
 	}
 
 	links

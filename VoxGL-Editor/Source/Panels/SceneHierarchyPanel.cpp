@@ -2,9 +2,12 @@
 
 #include "Vox/Scene/Components.h"
 #include "Vox/Scripting/ScriptEngine.h"
+#include "Vox/ImGui/ImGuiWidgets.h"
+#include "Vox/Core/Input.h"
 
 #include <imgui/imgui.h>
 #include <imgui/imgui_internal.h>
+
 
 #include <glm/gtc/type_ptr.hpp>
 
@@ -28,7 +31,7 @@ namespace Vox
 	void SceneHierarchyPanel::SetContext(const Ref<Scene>& context)
 	{
 		m_Context = context;
-		m_SelectionContext = {};
+		SelectionManager::DeselectAll();
 	}
 
 	void SceneHierarchyPanel::OnRender()
@@ -45,16 +48,13 @@ namespace Vox
 
 			if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
 			{
-				m_SelectionContext = {};
+				SelectionManager::DeselectAll();
 			}
 
 			if (ImGui::BeginPopupContextWindow(0, 1, false))
 			{
-				if (ImGui::MenuItem("Create Entity"))
-				{
-					m_Context->CreateEntity("Empty Entity");
-				}
-
+				Entity entity = m_Context->GetEntityWithId(SelectionManager::GetSelection(0));
+				DrawEntityCreateMenu("Create", entity);
 				ImGui::EndPopup();
 			}
 		}
@@ -63,36 +63,92 @@ namespace Vox
 
 		ImGui::Begin("Properties");
 
-		if (m_SelectionContext)
+		if (SelectionManager::GetSelectionCount() > 0)
 		{
-			DrawComponents(m_SelectionContext);
+			Entity entity = m_Context->GetEntityWithId(SelectionManager::GetSelection(0));
+			DrawComponents(entity);
 		}
 
 		ImGui::End();
 	}
 
-	void SceneHierarchyPanel::SelectEntity(Entity entity)
+	void SceneHierarchyPanel::DrawSelectedEntityActions()
 	{
-		m_SelectionContext = entity;
+		Entity entity = m_Context->GetEntityWithId(SelectionManager::GetSelection(0));
+		DrawEntityCreateMenu("Create", entity);
+
+		if (SelectionManager::GetSelectionCount() > 0)
+		{
+			ImGui::Separator();
+
+			/*if (ImGui::MenuItem("Delete Entity"))
+			{
+				entityDeleted = true;
+			}*/
+
+			if (ImGui::MenuItem("Duplicate Entity"))
+			{
+				m_Context->DuplicateEntity(entity);
+			}
+		}
 	}
 
-	void SceneHierarchyPanel::DrawEntityNode(Entity entity)
+	void SceneHierarchyPanel::DrawEntityNode(Entity entity, const std::string& searchFilter)
 	{
-		auto& tag = entity.GetComponent<TagComponent>().Tag;
+		const char* name = "New Entity";
+		if (entity.HasComponent<TagComponent>())
+		{
+			name = entity.GetName().c_str();
+		}
 
-		ImGuiTreeNodeFlags flags = ((m_SelectionContext == entity) ?
-			ImGuiTreeNodeFlags_Selected : 0) | ImGuiTreeNodeFlags_OpenOnArrow;
+		const uint32_t maxSearchDepth = 10;
+		bool hasChildMatchingSearch = TagSearchRecursive(entity, searchFilter, maxSearchDepth);
+
+		if (!UI::IsMatchingSearch(name, searchFilter) && !hasChildMatchingSearch)
+		{
+			return;
+		}
+
+		const float rowHeight = 21.0f;
+
+		auto* window = ImGui::GetCurrentWindow();
+		window->DC.CurrLineSize.y = rowHeight;
+		window->DC.CurrLineTextBaseOffset = 3.0f;
+
+		const bool isSelected = SelectionManager::IsSelected(entity.GetId());
+		ImGuiTreeNodeFlags flags = (isSelected ? ImGuiTreeNodeFlags_Selected : 0) | ImGuiTreeNodeFlags_OpenOnArrow;
 		flags |= ImGuiTreeNodeFlags_SpanAvailWidth;
 
-		bool opened = ImGui::TreeNodeEx((void*)(uint64_t)(uint32_t)entity, flags, tag.c_str());
+		if (hasChildMatchingSearch)
+		{
+			flags |= ImGuiTreeNodeFlags_DefaultOpen;
+		}
+
+		if (entity.Children().empty())
+		{
+			flags |= ImGuiTreeNodeFlags_Leaf;
+		}
+
+		const std::string strId = fmt::format("{0}{1}", name, (uint64_t)entity.GetId());
+		bool opened = ImGui::TreeNodeEx(strId.c_str(), flags, name);
+
 		if (ImGui::IsItemClicked())
 		{
-			m_SelectionContext = entity;
+			bool shiftDown = Input::IsKeyPressed(Key::LeftShift) || Input::IsKeyPressed(Key::RightShift);
+			if (!shiftDown)
+			{
+				SelectionManager::DeselectAll();
+				
+			}
+			
+			SelectionManager::Select(entity.GetId());
 		}
 
 		bool entityDeleted = false;
 		if (ImGui::BeginPopupContextItem())
 		{
+			DrawEntityCreateMenu("Create", entity);
+			ImGui::Separator();
 			if (ImGui::MenuItem("Delete Entity"))
 			{
 				entityDeleted = true;
@@ -100,19 +156,62 @@ namespace Vox
 
 			if (ImGui::MenuItem("Duplicate Entity"))
 			{
-				m_Context->DuplicateEntity(m_SelectionContext);
+				m_Context->DuplicateEntity(entity);
+			}
+			
+			ImGui::EndPopup();
+		}
+
+		if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_SourceAllowNullID))
+		{
+			const auto& selectedEntities = SelectionManager::GetSelections();
+			UUID entityID = entity.GetId();
+
+			if (!SelectionManager::IsSelected(entityID))
+			{
+				const char* name = entity.GetName().c_str();
+				ImGui::TextUnformatted(name);
+				ImGui::SetDragDropPayload("scene_entity_hierarchy", &entityID, 1 * sizeof(UUID));
+			}
+			else
+			{
+				for (const auto& selectedEntity : selectedEntities)
+				{
+					Entity e = m_Context->GetEntityWithId(selectedEntity);
+					const char* name = e.GetName().c_str();
+					ImGui::TextUnformatted(name);
+				}
+
+				ImGui::SetDragDropPayload("scene_entity_hierarchy", selectedEntities.data(), selectedEntities.size() * sizeof(UUID));
 			}
 
-			ImGui::EndPopup();
+			ImGui::EndDragDropSource();
+		}
+
+		if (ImGui::BeginDragDropTarget())
+		{
+			const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("scene_entity_hierarchy", ImGuiDragDropFlags_AcceptNoDrawDefaultRect);
+
+			if (payload)
+			{
+				size_t count = payload->DataSize / sizeof(UUID);
+
+				for (size_t i = 0; i < count; i++)
+				{
+					UUID droppedEntityID = *(((UUID*)payload->Data) + i);
+					Entity droppedEntity = m_Context->GetEntityWithId(droppedEntityID);
+					m_Context->SetParentEntity(droppedEntity, entity);
+				}
+			}
+
+			ImGui::EndDragDropTarget();
 		}
 
 		if (opened)
 		{
-			ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth;
-			bool opened = ImGui::TreeNodeEx((void*)123456, flags, tag.c_str());
-			if (opened)
+			for (auto child : entity.Children())
 			{
-				ImGui::TreePop();
+				DrawEntityNode(m_Context->GetEntityWithId(child), "");
 			}
 
 			ImGui::TreePop();
@@ -120,21 +219,55 @@ namespace Vox
 
 		if (entityDeleted)
 		{
-			m_Context->DestroyEntity(entity);
-			if (m_SelectionContext == entity)
+			auto selectedEntities = SelectionManager::GetSelections();
+			for (auto entityID : selectedEntities)
 			{
-				m_SelectionContext = {};
+				m_Context->DestroyEntity(m_Context->GetEntityWithId(entityID));
+				if (SelectionManager::IsSelected(entityID))
+				{
+					SelectionManager::Deselect(entityID);
+				}
 			}
+				
 		}
 	}
 
+	bool SceneHierarchyPanel::TagSearchRecursive(Entity entity, std::string_view searchFilter, uint32_t maxSearchDepth, uint32_t currentDepth)
+	{
+		if (searchFilter.empty())
+		{
+			return false;
+		}
+
+		for (auto child : entity.Children())
+		{
+			Entity e = m_Context->GetEntityWithId(child);
+			if (e.HasComponent<TagComponent>())
+			{
+				if (UI::IsMatchingSearch(e.GetComponent<TagComponent>().Tag, searchFilter))
+				{
+					return true;
+				}
+			}
+
+			bool found = TagSearchRecursive(e, searchFilter, maxSearchDepth, currentDepth + 1);
+			if (found)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	template<typename T>
-	void SceneHierarchyPanel::DisplayAddComponentEntry(const std::string& entryName) {
-		if (!m_SelectionContext.HasComponent<T>())
+	void SceneHierarchyPanel::DisplayAddComponentEntry(const std::string& entryName, bool canAddMultiples) {
+		Entity entity = m_Context->GetEntityWithId(SelectionManager::GetSelection(0));
+		if (!entity.HasComponent<T>() || canAddMultiples)
 		{
 			if (ImGui::MenuItem(entryName.c_str()))
 			{
-				m_SelectionContext.AddComponent<T>();
+				entity.AddComponent<T>();
 				ImGui::CloseCurrentPopup();
 			}
 		}
@@ -206,6 +339,82 @@ namespace Vox
 		ImGui::PopID();
 	}
 
+	void SceneHierarchyPanel::DrawEntityCreateMenu(const std::string& title, Entity parent)
+	{
+		if (!ImGui::BeginMenu(title.c_str()))
+			return;
+
+		Entity newEntity;
+
+		if (ImGui::MenuItem("Empty Entity"))
+		{
+			newEntity = m_Context->CreateEntity("Empty Entity");
+		}
+
+		if (ImGui::MenuItem("Camera"))
+		{
+			newEntity = m_Context->CreateEntity("Camera");
+			newEntity.AddComponent<CameraComponent>();
+		}
+
+		ImGui::Separator();
+
+		if (ImGui::BeginMenu("2D Renderer"))
+		{
+			if (ImGui::MenuItem("Quad"))
+			{
+				newEntity = m_Context->CreateEntity("Quad");
+				newEntity.AddComponent<SpriteRendererComponent>();
+			}
+
+			if (ImGui::MenuItem("Circle"))
+			{
+				newEntity = m_Context->CreateEntity("Circle");
+				newEntity.AddComponent<CircleRendererComponent>();
+			}
+
+			ImGui::EndMenu();
+		}
+
+		ImGui::Separator();
+
+		if (ImGui::BeginMenu("2D Physics"))
+		{
+			if (ImGui::MenuItem("Kinemactic Object"))
+			{
+				newEntity = m_Context->CreateEntity("Physics Object");
+				newEntity.AddComponent<SpriteRendererComponent>();
+				auto& rb = newEntity.AddComponent<Rigidbody2DComponent>();
+				auto& col = newEntity.AddComponent<BoxCollider2DComponent>();
+				rb.Type = Rigidbody2DComponent::BodyType::Kinematic;
+			}
+
+			if (ImGui::MenuItem("Dynamic Object"))
+			{
+				newEntity = m_Context->CreateEntity("Physics Object");
+				newEntity.AddComponent<SpriteRendererComponent>();
+				auto& rb = newEntity.AddComponent<Rigidbody2DComponent>();
+				auto& col = newEntity.AddComponent<BoxCollider2DComponent>();
+				rb.Type = Rigidbody2DComponent::BodyType::Dynamic;
+			}
+
+			ImGui::EndMenu();
+		}
+
+		if (newEntity)
+		{
+			if (parent)
+			{
+				m_Context->SetParentEntity(newEntity, parent);
+			}
+
+			SelectionManager::DeselectAll();
+			SelectionManager::Select(newEntity.GetId());
+		}
+
+		ImGui::EndMenu();
+	}
+
 	template<typename T, typename DrawFunction>
 	static void DrawComponent(const std::string& title, Entity entity, DrawFunction drawFunction, bool canDelete = true)
 	{
@@ -265,6 +474,12 @@ namespace Vox
 
 	void SceneHierarchyPanel::DrawComponents(Entity entity)
 	{
+		bool isActive = entity.IsActive();
+		entity.SetActive(ImGui::Checkbox("##Enable", &isActive));
+		
+		ImGui::SameLine();
+		ImGui::PushItemWidth(-1);
+
 		if (entity.HasComponent<TagComponent>())
 		{
 			auto& tag = entity.GetComponent<TagComponent>().Tag;
@@ -279,36 +494,15 @@ namespace Vox
 			}
 		}
 
-		ImGui::SameLine();
-		ImGui::PushItemWidth(-1);
-
-		if (ImGui::Button("Add Component"))
-		{
-			ImGui::OpenPopup("AddComponent");
-		}
-
-		if (ImGui::BeginPopup("AddComponent"))
-		{
-			DisplayAddComponentEntry<CameraComponent>("Camera");
-			DisplayAddComponentEntry<SpriteRendererComponent>("SpriteRenderer");
-			DisplayAddComponentEntry<CircleRendererComponent>("CircleRenderer");
-			DisplayAddComponentEntry<Rigidbody2DComponent>("Rigidbody2D");
-			DisplayAddComponentEntry<BoxCollider2DComponent>("BoxCollider2D");
-			DisplayAddComponentEntry<CircleCollider2DComponent>("CircleCollider2D");
-			DisplayAddComponentEntry<ScriptComponent>("Script");
-
-			ImGui::EndPopup();
-		}
-
 		ImGui::PopItemWidth();
 
 		DrawComponent<TransformComponent>("Transform", entity, [](auto& component)
 		{
 			DrawVec3Control("Position", component.Position);
 
-			glm::vec3 rotation = glm::degrees(component.Rotation);
+			glm::vec3 rotation = glm::degrees(component.GetRotationEuler());
 			DrawVec3Control("Rotation", rotation);
-			component.Rotation = glm::radians(rotation);
+			component.SetRotationEuler(glm::radians(rotation));
 
 			DrawVec3Control("Scale", component.Scale, 1.0f);
 		}, false);
@@ -458,7 +652,7 @@ namespace Vox
 		{
 			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
 
-			ImGui::Button("Sprite", ImVec2(280.0f, 0.0f));
+			ImGui::Button("Sprite", ImVec2(64.0f, 64.0f));
 			if (ImGui::BeginDragDropTarget())
 			{
 				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
@@ -479,6 +673,7 @@ namespace Vox
 				ImGui::EndDragDropTarget();
 			}
 
+			ImGui::SameLine();
 			ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f, "%.2f");
 		});
 	
@@ -536,5 +731,44 @@ namespace Vox
 			ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f, "%.2f");
 			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f, 0.0f, "%.2f");
 		});
+
+		ImGui::Separator();
+		const float cornerSize = 100.0f;
+		float currentY = ImGui::GetCursorPosY();
+		ImVec2 buttonSize = ImVec2(ImGui::GetWindowWidth() - cornerSize, 25.0f);
+		ImGui::SetCursorPos(ImVec2(cornerSize / 2.0f, currentY + 25.0f));
+		
+		if (ImGui::Button("Add Component", buttonSize))
+		{
+			ImGui::OpenPopup("AddComponent");
+		}
+
+		if (ImGui::BeginPopup("AddComponent"))
+		{
+			if (ImGui::BeginMenu("Core"))
+			{
+				DisplayAddComponentEntry<CameraComponent>("Camera");
+				DisplayAddComponentEntry<ScriptComponent>("Script", true);
+
+				ImGui::EndMenu();
+			}
+			if (ImGui::BeginMenu("Renderer"))
+			{
+				DisplayAddComponentEntry<SpriteRendererComponent>("SpriteRenderer");
+				DisplayAddComponentEntry<CircleRendererComponent>("CircleRenderer");
+
+				ImGui::EndMenu();
+			}
+			if (ImGui::BeginMenu("Physics"))
+			{
+				DisplayAddComponentEntry<Rigidbody2DComponent>("Rigidbody2D");
+				DisplayAddComponentEntry<BoxCollider2DComponent>("BoxCollider2D", true);
+				DisplayAddComponentEntry<CircleCollider2DComponent>("CircleCollider2D", true);
+
+				ImGui::EndMenu();
+			}
+			
+			ImGui::EndPopup();
+		}
 	}
 }

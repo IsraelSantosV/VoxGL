@@ -3,6 +3,7 @@
 #include "SceneCamera.h"
 #include "Vox/Core/UUID.h"
 #include "Vox/Renderer/Texture.h"
+#include "Vox/Math/Math.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -27,6 +28,9 @@ namespace Vox
 		TagComponent() = default;
 		TagComponent(const TagComponent&) = default;
 		TagComponent(const std::string& tag) : Tag(tag) {}
+
+		operator std::string& () { return Tag; }
+		operator const std::string& () const { return Tag; }
 	};
 
 	struct RelationshipComponent
@@ -62,8 +66,8 @@ namespace Vox
 
 		void SetTransform(const glm::mat4& transform)
 		{
-			//Math::DecomposeTransform(transform, Position, Rotation, Scale);
-			//RotationEuler = glm::eulerAngles(Rotation);
+			Math::DecomposeTransform(transform, Position, Rotation, Scale);
+			RotationEuler = glm::eulerAngles(Rotation);
 		}
 
 		glm::vec3 GetRotationEuler() const
@@ -122,6 +126,9 @@ namespace Vox
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
+
+		operator SceneCamera& () { return Camera; }
+		operator const SceneCamera& () const { return Camera; }
 	};
 
 	struct ScriptComponent
@@ -205,7 +212,7 @@ namespace Vox
 	};
 
 	using AllComponents =
-		ComponentGroup<TransformComponent, SpriteRendererComponent,
+		ComponentGroup<TransformComponent, RelationshipComponent, SpriteRendererComponent,
 		CircleRendererComponent, CameraComponent, ScriptComponent,
 		BehaviourComponent, Rigidbody2DComponent, BoxCollider2DComponent,
 		CircleCollider2DComponent>;

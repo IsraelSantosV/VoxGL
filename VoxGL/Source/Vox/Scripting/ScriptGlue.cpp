@@ -44,7 +44,7 @@ namespace Vox
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
 		VOX_CORE_ASSERT(scene);
-		Entity entity = scene->GetEntityByUUID(entityId);
+		Entity entity = scene->GetEntityWithId(entityId);
 		VOX_CORE_ASSERT(entity);
 
 		MonoType* managedType = mono_reflection_type_get_type(componentType);
@@ -56,7 +56,7 @@ namespace Vox
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
 		VOX_CORE_ASSERT(scene);
-		Entity entity = scene->GetEntityByUUID(entityId);
+		Entity entity = scene->GetEntityWithId(entityId);
 		VOX_CORE_ASSERT(entity);
 
 		*outPosition = entity.GetComponent<TransformComponent>().Position;
@@ -66,7 +66,7 @@ namespace Vox
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
 		VOX_CORE_ASSERT(scene);
-		Entity entity = scene->GetEntityByUUID(entityId);
+		Entity entity = scene->GetEntityWithId(entityId);
 		VOX_CORE_ASSERT(entity);
 
 		entity.GetComponent<TransformComponent>().Position = *position;
@@ -76,7 +76,7 @@ namespace Vox
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
 		VOX_CORE_ASSERT(scene);
-		Entity entity = scene->GetEntityByUUID(entityId);
+		Entity entity = scene->GetEntityWithId(entityId);
 		VOX_CORE_ASSERT(entity);
 
 		auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
@@ -88,7 +88,7 @@ namespace Vox
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
 		VOX_CORE_ASSERT(scene);
-		Entity entity = scene->GetEntityByUUID(entityId);
+		Entity entity = scene->GetEntityWithId(entityId);
 		VOX_CORE_ASSERT(entity);
 
 		auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();

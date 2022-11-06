@@ -40,7 +40,20 @@ namespace Vox
 		}
 
 		template<typename T>
+		T& GetComponent() const
+		{
+			VOX_CORE_ASSERT(HasComponent<T>(), "Entity does not have component!");
+			return m_Scene->m_Registry.get<T>(m_EntityHandle);
+		}
+
+		template<typename T>
 		bool HasComponent()
+		{
+			return m_Scene->m_Registry.any_of<T>(m_EntityHandle);
+		}
+
+		template<typename T>
+		bool HasComponent() const
 		{
 			return m_Scene->m_Registry.any_of<T>(m_EntityHandle);
 		}
@@ -53,7 +66,94 @@ namespace Vox
 		}
 
 		UUID GetId() { return GetComponent<IDComponent>().Id; }
-		const std::string& GetName() { return GetComponent<TagComponent>().Tag; }
+		std::string& GetName() { return HasComponent<TagComponent>() ? GetComponent<TagComponent>().Tag : EmptyName; }
+		const std::string& GetName() const { return HasComponent<TagComponent>() ? GetComponent<TagComponent>().Tag : EmptyName; }
+
+		TransformComponent& Transform() { return m_Scene->m_Registry.get<TransformComponent>(m_EntityHandle); }
+		const glm::mat4& Transform() const { return m_Scene->m_Registry.get<TransformComponent>(m_EntityHandle).GetTransform(); }
+
+		void SetParentId(UUID parent) { GetComponent<RelationshipComponent>().ParentHandle = parent; }
+		UUID GetParentId() const { return GetComponent<RelationshipComponent>().ParentHandle; }
+		std::vector<UUID>& Children() { return GetComponent<RelationshipComponent>().Children; }
+		const std::vector<UUID>& Children() const { return GetComponent<RelationshipComponent>().Children; }
+
+		Entity GetParent() const
+		{
+			return m_Scene->GetEntityWithId(GetParentId());
+		}
+
+		void SetParent(Entity parent)
+		{
+			Entity currentParent = GetParent();
+			if (currentParent == parent)
+			{
+				return;
+			}
+
+			if (currentParent)
+			{
+				currentParent.RemoveChild(*this);
+			}
+
+			SetParentId(parent.GetId());
+
+			if (parent)
+			{
+				auto& parentChildren = parent.Children();
+				UUID uuid = GetId();
+				if (std::find(parentChildren.begin(), parentChildren.end(), uuid) == parentChildren.end())
+				{
+					parentChildren.emplace_back(GetId());
+				}
+			}
+		}
+
+		bool RemoveChild(Entity child)
+		{
+			UUID childId = child.GetId();
+			std::vector<UUID>& children = Children();
+			auto it = std::find(children.begin(), children.end(), childId);
+			if (it != children.end())
+			{
+				children.erase(it);
+				return true;
+			}
+
+			return false;
+		}
+
+		bool IsParentOf(Entity entity) const
+		{
+			const auto& children = Children();
+
+			if (children.empty())
+			{
+				return false;
+			}
+
+			for (UUID child : children)
+			{
+				if (child == entity.GetId())
+				{
+					return true;
+				}
+			}
+
+			for (UUID child : children)
+			{
+				if (m_Scene->GetEntityWithId(child).IsParentOf(entity))
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		bool IsChildOf(Entity entity) const { return entity.IsParentOf(*this); }
+
+		bool IsActive() { return m_IsActive; }
+		void SetActive(bool enable) { m_IsActive = enable; }
 
 		operator bool() const { return m_EntityHandle != entt::null; }
 		operator entt::entity() const { return m_EntityHandle; }
@@ -70,6 +170,9 @@ namespace Vox
 		}
 	private:
 		entt::entity m_EntityHandle{ entt::null };
+		inline static std::string EmptyName = "Empty Entity";
+
+		bool m_IsActive = true;
 		Scene* m_Scene = nullptr;
 	};
 }

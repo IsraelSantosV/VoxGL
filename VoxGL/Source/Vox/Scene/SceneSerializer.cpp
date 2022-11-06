@@ -196,7 +196,7 @@ namespace Vox
 
 			auto& tc = entity.GetComponent<TransformComponent>();
 			out << YAML::Key << "Position" << YAML::Value << tc.Position;
-			out << YAML::Key << "Rotation" << YAML::Value << tc.Rotation;
+			out << YAML::Key << "Rotation" << YAML::Value << tc.GetRotationEuler();
 			out << YAML::Key << "Scale" << YAML::Value << tc.Scale;
 
 			out << YAML::EndMap; // TransformComponent
@@ -420,14 +420,14 @@ namespace Vox
 
 				LOG_CORE_TRACE("Deserialized entity with ID = {0}, name = {1}", uuid, name);
 
-				Entity deserializedEntity = m_Scene->CreateEntityWithUUID(uuid, name);
+				Entity deserializedEntity = m_Scene->CreateEntityWithId(uuid, name);
 
 				auto transformComponent = entity["TransformComponent"];
 				if (transformComponent)
 				{
 					auto& tc = deserializedEntity.GetComponent<TransformComponent>();
 					tc.Position = transformComponent["Position"].as<glm::vec3>();
-					tc.Rotation = transformComponent["Rotation"].as<glm::vec3>();
+					tc.SetRotationEuler(transformComponent["Rotation"].as<glm::vec3>());
 					tc.Scale = transformComponent["Scale"].as<glm::vec3>();
 				}
 

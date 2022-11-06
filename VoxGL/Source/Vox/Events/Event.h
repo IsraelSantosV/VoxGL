@@ -24,7 +24,13 @@ namespace Vox {
 		MouseButtonPressed, 
 		MouseButtonReleased, 
 		MouseMoved, 
-		MouseScrolled
+		MouseScrolled,
+		ScenePreStart, 
+		ScenePostStart, 
+		ScenePreStop, 
+		ScenePostStop,
+		EditorExitPlayMode,
+		SelectionChanged
 	};
 
 	enum EventCategory
@@ -35,7 +41,8 @@ namespace Vox {
 		EventCategoryKeyboard = BIT(2),
 		EventCategoryMouse = BIT(3),
 		EventCategoryMouseButton = BIT(4),
-		EventCategoryEditor = BIT(5)
+		EventCategoryEditor = BIT(5),
+		EventCategoryScene = BIT(6)
 	};
 
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
