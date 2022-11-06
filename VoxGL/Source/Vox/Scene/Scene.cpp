@@ -173,7 +173,9 @@ namespace Vox
 				{
 					auto [idComponent, sprite] = group.get<IDComponent, SpriteRendererComponent>(entity);
 					Entity entity = GetEntityWithId(idComponent.Id);
-					if (entity && entity.IsActive())
+					bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
+					
+					if (entity && canDrawEntity)
 					{
 						glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 						Renderer2D::DrawSprite(transform, sprite, (int)entity);
@@ -188,7 +190,9 @@ namespace Vox
 				{
 					auto [idComponent, circle] = view.get<IDComponent, CircleRendererComponent>(entity);
 					Entity entity = GetEntityWithId(idComponent.Id);
-					if (entity && entity.IsActive())
+					bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
+
+					if (entity && canDrawEntity)
 					{
 						glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 						Renderer2D::DrawCircle(transform, circle.Color, circle.Thickness, circle.Fade, (int)entity);
@@ -253,6 +257,8 @@ namespace Vox
 
 		entity.AddComponent<IDComponent>(id);
 		entity.AddComponent<TransformComponent>();
+		entity.AddComponent<VisibilityComponent>(true);
+		entity.AddComponent<LayerComponent>();
 
 		auto& tag = entity.AddComponent<TagComponent>();
 		tag.Tag = name.empty() ? "New Entity" : name;
@@ -623,7 +629,9 @@ namespace Vox
 			{
 				auto [idComponent, sprite] = group.get<IDComponent, SpriteRendererComponent>(entity);
 				Entity entity = GetEntityWithId(idComponent.Id);
-				if (entity && entity.IsActive())
+				bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
+
+				if (entity && canDrawEntity)
 				{
 					glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 					Renderer2D::DrawSprite(transform, sprite, (int)entity);
@@ -638,7 +646,9 @@ namespace Vox
 			{
 				auto [idComponent, circle] = view.get<IDComponent, CircleRendererComponent>(entity);
 				Entity entity = GetEntityWithId(idComponent.Id);
-				if (entity && entity.IsActive())
+				bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
+				
+				if (entity && canDrawEntity)
 				{
 					glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 					Renderer2D::DrawCircle(transform, circle.Color, circle.Thickness, circle.Fade, (int)entity);
@@ -657,6 +667,16 @@ namespace Vox
 
 	template<>
 	void Scene::OnComponentAdded<IDComponent>(Entity entity, IDComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<VisibilityComponent>(Entity entity, VisibilityComponent& component)
+	{
+	}
+
+	template<>
+	void Scene::OnComponentAdded<LayerComponent>(Entity entity, LayerComponent& component)
 	{
 	}
 

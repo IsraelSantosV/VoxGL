@@ -72,6 +72,14 @@ namespace Vox
 		TransformComponent& Transform() { return m_Scene->m_Registry.get<TransformComponent>(m_EntityHandle); }
 		const glm::mat4& Transform() const { return m_Scene->m_Registry.get<TransformComponent>(m_EntityHandle).GetTransform(); }
 
+		VisibilityComponent& GetVisibilityComponent() { return m_Scene->m_Registry.get<VisibilityComponent>(m_EntityHandle); }
+		const bool& IsActive() const { return m_Scene->m_Registry.get<VisibilityComponent>(m_EntityHandle).IsActive; }
+		void SetActive(bool enable) { GetVisibilityComponent().IsActive = enable; }
+
+		LayerComponent& GetLayer() { return m_Scene->m_Registry.get<LayerComponent>(m_EntityHandle); }
+		const int& GetLayer() const { return m_Scene->m_Registry.get<LayerComponent>(m_EntityHandle).Layer; }
+		void SetLayer(int layer) { GetLayer().Layer = layer; }
+
 		void SetParentId(UUID parent) { GetComponent<RelationshipComponent>().ParentHandle = parent; }
 		UUID GetParentId() const { return GetComponent<RelationshipComponent>().ParentHandle; }
 		std::vector<UUID>& Children() { return GetComponent<RelationshipComponent>().Children; }
@@ -151,9 +159,6 @@ namespace Vox
 		}
 
 		bool IsChildOf(Entity entity) const { return entity.IsParentOf(*this); }
-
-		bool IsActive() { return m_IsActive; }
-		void SetActive(bool enable) { m_IsActive = enable; }
 
 		operator bool() const { return m_EntityHandle != entt::null; }
 		operator entt::entity() const { return m_EntityHandle; }

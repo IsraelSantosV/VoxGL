@@ -1,5 +1,43 @@
 Scene: Untitled
 Entities:
+  - Entity: 3396739529741680764
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFov: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      MainCamera: true
+      FixedAspectRatio: false
+  - Entity: 9792784986102911169
+    TagComponent:
+      Tag: Floor
+    TransformComponent:
+      Position: [-0.12400917, -1.62967408, 0]
+      Rotation: [0, 0, 0]
+      Scale: [15.8000002, 1, 1]
+    SpriteRendererComponent:
+      Color: [0.36300841, 0.818532825, 0.360280842, 1]
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: true
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
   - Entity: 11473488433941771750
     TagComponent:
       Tag: Mario
@@ -7,17 +45,26 @@ Entities:
       Position: [0.177156493, 0.0442888141, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Player
+      ScriptFields:
+        - Name: Speed
+          Type: Float
+          Data: 3.70000005
+        - Name: Time
+          Type: Float
+          Data: 0
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
       TexturePath: Assets\Textures\Mario.png
       TilingFactor: 1
-  - Entity: 9792784986102911169
-    TagComponent:
-      Tag: Cube
-    TransformComponent:
-      Position: [-1.6741271, -0.292307585, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5

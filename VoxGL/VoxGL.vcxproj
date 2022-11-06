@@ -170,7 +170,9 @@
     <ClInclude Include="Source\Vox\Core\UUID.h" />
     <ClInclude Include="Source\Vox\Core\Window.h" />
     <ClInclude Include="Source\Vox\Debug\Instrumentor.h" />
+    <ClInclude Include="Source\Vox\Editor\FontAwesome6.h" />
     <ClInclude Include="Source\Vox\Editor\SelectionManager.h" />
+    <ClInclude Include="Source\Vox\Editor\UITools.h" />
     <ClInclude Include="Source\Vox\Events\AplicationEvent.h" />
     <ClInclude Include="Source\Vox\Events\Event.h" />
     <ClInclude Include="Source\Vox\Events\KeyEvent.h" />

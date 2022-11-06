@@ -12,9 +12,9 @@ namespace Vox::Theme
 	inline static ImVec4& LightColor = RgbColor(ImVec4{ 183, 183, 183, 1 });
 	inline static ImVec4& SemiLightColor = RgbColor(ImVec4{ 122, 122, 122, 1 });
 	inline static ImVec4& MediumColor = RgbColor(ImVec4{ 92, 92, 92, 1 });
-	inline static ImVec4& ContrastColor = RgbColor(ImVec4{ 50, 13, 109, 1 });
+	inline static ImVec4& ContrastColor = RgbColor(ImVec4{ 50, 50, 50, 1 });
 	inline static ImVec4& SemiBackgroundColor = RgbColor(ImVec4{ 40, 40, 40, 1 });
-	inline static ImVec4& DarkBackgroundColor = RgbColor(ImVec4{ 25, 25, 25, 1 });
+	inline static ImVec4& DarkBackgroundColor = RgbColor(ImVec4{ 80, 80, 80, 1 });
 	inline static ImVec4& BackgroundColor = RgbColor(ImVec4{ 31, 31, 31, 1 });
 	inline static ImVec4& BorderColor = RgbColor(ImVec4{ 43, 43, 43, 1 });
 

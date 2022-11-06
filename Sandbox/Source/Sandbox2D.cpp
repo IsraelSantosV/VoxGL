@@ -13,7 +13,7 @@ void Sandbox2D::OnAttach()
 {
 	VOX_PROFILE_FUNCTION();
 
-	m_CheckerboardTexture = Vox::Texture2D::Create("Assets/Textures/Checkerboard.png");
+	m_CheckerboardTexture = Vox::Texture2D::Create("Resources/Textures/Checkerboard.png");
 }
 
 void Sandbox2D::OnDetach()

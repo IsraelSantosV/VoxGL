@@ -21,6 +21,28 @@ namespace Vox
 		IDComponent(const IDComponent&) = default;
 	};
 
+	struct LayerComponent
+	{
+		int Layer = 0;
+
+		LayerComponent() = default;
+		LayerComponent(const LayerComponent&) = default;
+
+		operator int& () { return Layer; }
+		operator const int& () const { return Layer; }
+	};
+
+	struct VisibilityComponent
+	{
+		bool IsActive = true;
+
+		VisibilityComponent() = default;
+		VisibilityComponent(const VisibilityComponent&) = default;
+
+		operator bool& () { return IsActive; }
+		operator const bool& () const { return IsActive; }
+	};
+
 	struct TagComponent
 	{
 		std::string Tag;
@@ -212,7 +234,8 @@ namespace Vox
 	};
 
 	using AllComponents =
-		ComponentGroup<TransformComponent, RelationshipComponent, SpriteRendererComponent,
+		ComponentGroup<TransformComponent, RelationshipComponent, 
+		SpriteRendererComponent, LayerComponent, VisibilityComponent,
 		CircleRendererComponent, CameraComponent, ScriptComponent,
 		BehaviourComponent, Rigidbody2DComponent, BoxCollider2DComponent,
 		CircleCollider2DComponent>;

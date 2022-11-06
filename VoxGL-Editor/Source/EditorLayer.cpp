@@ -10,6 +10,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "ImGuizmo.h"
+#include <imgui/imgui.cpp>
 
 namespace Vox 
 {
@@ -97,6 +98,42 @@ namespace Vox
 		m_Framebuffer->Unbind();
 	}
 
+	void EditorLayer::RenderGrid()
+	{
+		static ImVector<ImVec2> points;
+		static ImVec2 scrolling(0.0f, 0.0f);
+
+		ImVec2 canvas_p0 = ImGui::GetCursorScreenPos();
+		ImVec2 canvas_sz = ImGui::GetContentRegionAvail();
+		if (canvas_sz.x < 50.0f) canvas_sz.x = 50.0f;
+		if (canvas_sz.y < 50.0f) canvas_sz.y = 50.0f;
+		ImVec2 canvas_p1 = ImVec2(canvas_p0.x + canvas_sz.x, canvas_p0.y + canvas_sz.y);
+
+		// Draw border and background color
+		ImGuiIO& io = ImGui::GetIO();
+		ImDrawList* draw_list = ImGui::GetWindowDrawList();
+		draw_list->AddRectFilled(canvas_p0, canvas_p1, IM_COL32(50, 50, 50, 255));
+		draw_list->AddRect(canvas_p0, canvas_p1, IM_COL32(255, 255, 255, 255));
+
+		// Draw grid + all lines in the canvas
+		draw_list->PushClipRect(canvas_p0, canvas_p1, true);
+
+		if (m_EnableGrid)
+		{
+			const float GRID_STEP = 64.0f;
+			for (float x = fmodf(scrolling.x, GRID_STEP); x < canvas_sz.x; x += GRID_STEP)
+			{
+				draw_list->AddLine(ImVec2(canvas_p0.x + x, canvas_p0.y), ImVec2(canvas_p0.x + x, canvas_p1.y), IM_COL32(200, 200, 200, 40));
+			}
+			for (float y = fmodf(scrolling.y, GRID_STEP); y < canvas_sz.y; y += GRID_STEP)
+			{
+				draw_list->AddLine(ImVec2(canvas_p0.x, canvas_p0.y + y), ImVec2(canvas_p1.x, canvas_p0.y + y), IM_COL32(200, 200, 200, 40));
+			}
+		}
+
+		draw_list->PopClipRect();
+	}
+
 	void EditorLayer::OnImGuiRender()
 	{
 		VOX_PROFILE_FUNCTION();
@@ -174,7 +211,7 @@ namespace Vox
 				ImGui::EndMenu();
 			}
 
-			if (ImGui::BeginMenu("Edit", m_EditorScene != nullptr))
+			if (ImGui::BeginMenu("Edit", m_SceneHierarchyPanel.InValidContext(m_ActiveScene)))
 			{
 				m_SceneHierarchyPanel.DrawSelectedEntityActions();
 				ImGui::EndMenu();
@@ -185,6 +222,11 @@ namespace Vox
 				if (ImGui::MenuItem("Theme Settings"))
 				{
 					m_ShowStyleDemo = true;
+				}
+
+				if (ImGui::MenuItem("Help"))
+				{
+					m_ShowImGuiDrawDemo = true;
 				}
 
 				ImGui::EndMenu();
@@ -200,14 +242,15 @@ namespace Vox
 			ImGui::End();
 		}
 
+		if (m_ShowImGuiDrawDemo)
+		{
+			ImGui::ShowDemoWindow();
+		}
+
 		m_SceneHierarchyPanel.OnRender();
 		m_ContentBrowserPanel.OnRender();
 
-		ImGui::Begin("Settings");
-		ImGui::Checkbox("Show physics colliders", &m_ShowPhysicsColliders);
-		ImGui::Checkbox("Enable Gizmos In Runtime", &m_EnableGizmosInRuntime);
-		ImGui::DragFloat("SnapAmount", &m_SnapValue, 0.1f, 0.0f, 0.0f, "%.2f");
-		ImGui::End();
+		UI_Settings();
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
 		ImGui::Begin("Scene");
@@ -241,6 +284,7 @@ namespace Vox
 		}
 
 		DrawGizmos();
+		//RenderGrid();
 		
 		ImGui::End();
 		ImGui::PopStyleVar();
@@ -426,6 +470,35 @@ namespace Vox
 		}
 		ImGui::PopStyleVar(2);
 		ImGui::PopStyleColor(3);
+		ImGui::End();
+	}
+
+	void EditorLayer::UI_Settings()
+	{
+		ImGui::Begin("Settings");
+
+		const ImGuiTreeNodeFlags treeNodeFlags = ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_Framed |
+			ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_FramePadding;
+
+		ImVec2 contentRegionAvail = ImGui::GetContentRegionAvail();
+
+		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4, 4 });
+		float lineHeight = GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.0f;
+		ImGui::Separator();
+
+		bool open = ImGui::TreeNodeEx((void*)"##EditorSetting", treeNodeFlags, "Editor Settings");
+		ImGui::PopStyleVar();
+
+		if (open)
+		{
+			ImGui::Checkbox("Show physics colliders", &m_ShowPhysicsColliders);
+			ImGui::Checkbox("Enable Gizmos In Runtime", &m_EnableGizmosInRuntime);
+			ImGui::Checkbox("Enable Grid", &m_EnableGrid);
+			ImGui::DragFloat("SnapAmount", &m_SnapValue, 0.1f, 0.0f, 0.0f, "%.2f");
+
+			ImGui::TreePop();
+		}
+
 		ImGui::End();
 	}
 
