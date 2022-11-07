@@ -73,7 +73,14 @@ namespace Vox
 		const glm::mat4& Transform() const { return m_Scene->m_Registry.get<TransformComponent>(m_EntityHandle).GetTransform(); }
 
 		VisibilityComponent& GetVisibilityComponent() { return m_Scene->m_Registry.get<VisibilityComponent>(m_EntityHandle); }
-		const bool& IsActive() const { return m_Scene->m_Registry.get<VisibilityComponent>(m_EntityHandle).IsActive; }
+		const bool& IsActive() const
+		{
+			auto& visibility = m_Scene->m_Registry.get<VisibilityComponent>(m_EntityHandle);
+			if (!visibility.IsActive) return false;
+			if (GetParent() && !GetParent().IsActive()) return false;
+
+			return true;
+		}
 		void SetActive(bool enable) { GetVisibilityComponent().IsActive = enable; }
 
 		LayerComponent& GetLayer() { return m_Scene->m_Registry.get<LayerComponent>(m_EntityHandle); }

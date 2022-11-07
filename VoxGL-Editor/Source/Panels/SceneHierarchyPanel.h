@@ -22,6 +22,7 @@ namespace Vox
 		virtual void OnRender() override;
 
 		void DrawSelectedEntityActions();
+		void OnUnparentEntity(Entity entity);
 	private:
 		bool HasDrawedChild(Entity entity);
 		const std::string GetEntityNameWithIcon(Entity entity);

@@ -249,6 +249,7 @@ namespace Vox
 
 		m_SceneHierarchyPanel.OnRender();
 		m_ContentBrowserPanel.OnRender();
+		m_EditorConsolePanel.OnRender();
 
 		UI_Settings();
 
@@ -304,6 +305,8 @@ namespace Vox
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<KeyPressedEvent>(VOX_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
 		dispatcher.Dispatch<MouseButtonPressedEvent>(VOX_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
+
+		m_EditorConsolePanel.OnEvent(e);
 	}
 
 	void EditorLayer::MousePicking()
@@ -599,6 +602,7 @@ namespace Vox
 			if (!camera)
 			{
 				LOG_WARN("Scene does not have a main camera to render");
+				CONSOLE_WARN("Scene does not have a main camera to render");
 				return;
 			}
 
@@ -690,6 +694,7 @@ namespace Vox
 		if (path.extension().string() != ".scene")
 		{
 			LOG_WARN("Could not load {0} - not a scene file", path.filename().string());
+			CONSOLE_WARN("Could not load {0} - not a scene file", path.filename().string());
 			return;
 		}
 

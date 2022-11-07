@@ -41,7 +41,3 @@ group ""
 group "Tools"
 	include "VoxGL-Editor"
 group ""
-
-group "Misc"
-	include "Sandbox"
-group ""
