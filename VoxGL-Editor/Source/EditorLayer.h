@@ -4,6 +4,7 @@
 
 #include "Panels/SceneHierarchyPanel.h"
 #include "Panels/ContentBrowserPanel.h"
+#include "Panels/EditorConsolePanel.h"
 
 #include "Vox/Renderer/EditorCamera.h"
 
@@ -85,5 +86,6 @@ namespace Vox
 
 		SceneHierarchyPanel m_SceneHierarchyPanel;
 		ContentBrowserPanel m_ContentBrowserPanel;
+		EditorConsolePanel m_EditorConsolePanel;
 	};
 }

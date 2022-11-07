@@ -102,6 +102,14 @@ namespace Vox
 		{
 			ImGui::Separator();
 
+			if (ImGui::MenuItem(UI::GetText(ICON_FA_PERSON_WALKING_ARROW_LOOP_LEFT, "Unparent Entity").c_str()))
+			{
+				m_Context->UnparentEntity(entity);
+				OnUnparentEntity(entity);
+			}
+
+			ImGui::Separator();
+
 			/*if (ImGui::MenuItem("Delete Entity"))
 			{
 				entityDeleted = true;
@@ -111,6 +119,14 @@ namespace Vox
 			{
 				m_Context->DuplicateEntity(entity);
 			}
+		}
+	}
+
+	void SceneHierarchyPanel::OnUnparentEntity(Entity entity)
+	{
+		if (HasDrawedChild(entity))
+		{
+			m_DrawedChildren.erase(entity.GetId());
 		}
 	}
 
@@ -196,6 +212,16 @@ namespace Vox
 
 			DrawEntityCreateMenu(ICON_FA_SQUARE_PLUS, "Create Child", entity);
 			ImGui::Separator();
+
+			if (ImGui::MenuItem(UI::GetText(ICON_FA_PERSON_WALKING_ARROW_LOOP_LEFT, "Unparent Entity").c_str(),
+				"", false, entity.GetParent()))
+			{
+				m_Context->UnparentEntity(entity);
+				OnUnparentEntity(entity);
+			}
+
+			ImGui::Separator();
+
 			if (ImGui::MenuItem(UI::GetText(ICON_FA_TRASH, "Delete Entity").c_str()))
 			{
 				entityDeleted = true;
@@ -690,29 +716,37 @@ namespace Vox
 		{
 			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
 
-			ImGui::Button("Sprite", ImVec2(64.0f, 64.0f));
+			if (component.Texture)
+			{
+				const bool clicked = ImGui::ImageButton((ImTextureID)component.Texture->GetRendererId(),
+					ImVec2(64.0f, 64.0f), ImVec2(0, 1), ImVec2(1, 0));
+
+				if (clicked)
+				{
+					component.SetSprite("");
+				}
+			}
+			else
+			{
+				ImGui::Button("Sprite", ImVec2(64.0f, 64.0f));
+			}
+
 			if (ImGui::BeginDragDropTarget())
 			{
 				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
 				{
 					const wchar_t* path = (const wchar_t*)payload->Data;
 					std::filesystem::path texturePath = std::filesystem::path(m_AssetPath) / path;
-					
-					Ref<Texture2D> texture = Texture2D::Create(texturePath.string());
-					if (texture->IsLoaded())
-					{
-						component.Texture = texture;
-					}
-					else
-					{
-						LOG_WARN("Could not load texture {0}", texturePath.filename().string());
-					}
+					component.SetSprite(texturePath.string());
 				}
 				ImGui::EndDragDropTarget();
 			}
 
-			ImGui::SameLine();
-			ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f, "%.2f");
+			if (component.Texture)
+			{
+				ImGui::SameLine();
+				ImGui::DragFloat("Tiling", &component.TilingFactor, 0.1f, 0.0f, 100.0f, "%.2f");
+			}
 		});
 	
 		DrawComponent<CircleRendererComponent>(ICON_FA_CIRCLE_NOTCH, "Circle Renderer", entity, [](auto& component)
@@ -781,7 +815,7 @@ namespace Vox
 		ImVec2 buttonSize = ImVec2(ImGui::GetWindowWidth() - cornerSize, 25.0f);
 		ImGui::SetCursorPos(ImVec2(cornerSize / 2.0f, currentY + 25.0f));
 
-		if (ImGui::Button("Add Component", buttonSize))
+		if (ImGui::Button(UI::GetText(ICON_FA_PLUS, "Add Component").c_str(), buttonSize))
 		{
 			ImGui::OpenPopup("AddComponent");
 		}

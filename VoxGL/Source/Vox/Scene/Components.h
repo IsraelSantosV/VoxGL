@@ -127,6 +127,31 @@ namespace Vox
 		SpriteRendererComponent() = default;
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;
 		SpriteRendererComponent(const glm::vec4& color) : Color(color) {}
+
+		void SetSprite(const char* spritePath)
+		{
+			SetSprite(std::string(spritePath));
+		}
+
+		void SetSprite(std::string& spritePath)
+		{
+			if (spritePath.empty())
+			{
+				Texture = nullptr;
+				return;
+			}
+
+			Ref<Texture2D> texture = Texture2D::Create(spritePath);
+			if (texture->IsLoaded())
+			{
+				Texture = texture;
+			}
+			else
+			{
+				LOG_WARN("Could not load texture {0}", spritePath);
+				CONSOLE_WARN("Could not load texture {0}", spritePath);
+			}
+		}
 	};
 
 	struct CircleRendererComponent

@@ -25,6 +25,9 @@
     <Filter Include="Source\Vox\Editor">
       <UniqueIdentifier>{B8778345-248E-81DB-6D05-0DFDD95A5263}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Vox\Editor\Console">
+      <UniqueIdentifier>{DAC6033B-4689-37C5-8F39-C651FB3A10A3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Vox\Events">
       <UniqueIdentifier>{66E6C646-D2FC-C4DC-1B74-50FE87C99564}</UniqueIdentifier>
     </Filter>
@@ -153,7 +156,19 @@
     <ClInclude Include="Source\Vox\Debug\Instrumentor.h">
       <Filter>Source\Vox\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Editor\Console\ConsoleMessage.h">
+      <Filter>Source\Vox\Editor\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Editor\Console\EditorMessageSync.h">
+      <Filter>Source\Vox\Editor\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Editor\FontAwesome6.h">
+      <Filter>Source\Vox\Editor</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Vox\Editor\SelectionManager.h">
+      <Filter>Source\Vox\Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Vox\Editor\UITools.h">
       <Filter>Source\Vox\Editor</Filter>
     </ClInclude>
     <ClInclude Include="Source\Vox\Events\AplicationEvent.h">
@@ -1353,8 +1368,6 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Vox\Editor\FontAwesome6.h" />
-    <ClInclude Include="Source\Vox\Editor\UITools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">

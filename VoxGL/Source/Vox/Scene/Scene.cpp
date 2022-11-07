@@ -21,9 +21,9 @@ namespace Vox
 	{
 		switch (bodyType)
 		{
-			case Rigidbody2DComponent::BodyType::Static: return b2_staticBody;
-			case Rigidbody2DComponent::BodyType::Dynamic: return b2_dynamicBody;
-			case Rigidbody2DComponent::BodyType::Kinematic: return b2_kinematicBody;
+		case Rigidbody2DComponent::BodyType::Static: return b2_staticBody;
+		case Rigidbody2DComponent::BodyType::Dynamic: return b2_dynamicBody;
+		case Rigidbody2DComponent::BodyType::Kinematic: return b2_kinematicBody;
 		}
 
 		VOX_CORE_ASSERT(false, "Unknown body type");
@@ -43,16 +43,16 @@ namespace Vox
 	static void CopyComponent(entt::registry& dst, entt::registry& src, const std::unordered_map<UUID, entt::entity>& enttMap)
 	{
 		([&]()
-		{
-			auto view = src.view<Component>();
-			for (auto srcEntity : view)
 			{
-				entt::entity dstEntity = enttMap.at(src.get<IDComponent>(srcEntity).Id);
+				auto view = src.view<Component>();
+				for (auto srcEntity : view)
+				{
+					entt::entity dstEntity = enttMap.at(src.get<IDComponent>(srcEntity).Id);
 
-				auto& srcComponent = src.get<Component>(srcEntity);
-				dst.emplace_or_replace<Component>(dstEntity, srcComponent);
-			}
-		}(), ...);
+					auto& srcComponent = src.get<Component>(srcEntity);
+					dst.emplace_or_replace<Component>(dstEntity, srcComponent);
+				}
+			}(), ...);
 	}
 
 	template<typename... Component>
@@ -65,12 +65,12 @@ namespace Vox
 	static void CopyComponentIfExists(Entity dst, Entity src)
 	{
 		([&]()
-		{
-			if (src.HasComponent<Component>())
 			{
-				dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
-			}
-		}(), ...);
+				if (src.HasComponent<Component>())
+				{
+					dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
+				}
+			}(), ...);
 	}
 
 	template<typename... Component>
@@ -149,15 +149,16 @@ namespace Vox
 		Camera* mainCamera = nullptr;
 		glm::mat4 cameraTransform;
 
-		auto view = m_Registry.view<TransformComponent, CameraComponent>();
+		auto view = m_Registry.view<IDComponent, CameraComponent>();
 		for (auto entity : view)
 		{
-			auto& [transform, camera] = view.get<TransformComponent, CameraComponent>(entity);
+			auto& [idComponent, camera] = view.get<IDComponent, CameraComponent>(entity);
+			Entity cameraEntity = GetEntityWithId(idComponent.Id);
 
-			if (camera.MainCamera)
+			if (camera.MainCamera && cameraEntity.IsActive())
 			{
 				mainCamera = &camera.Camera;
-				cameraTransform = transform.GetTransform();
+				cameraTransform = cameraEntity.Transform().GetTransform();
 				break;
 			}
 		}
@@ -173,9 +174,8 @@ namespace Vox
 				{
 					auto [idComponent, sprite] = group.get<IDComponent, SpriteRendererComponent>(entity);
 					Entity entity = GetEntityWithId(idComponent.Id);
-					bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
-					
-					if (entity && canDrawEntity)
+
+					if (entity && entity.IsActive())
 					{
 						glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 						Renderer2D::DrawSprite(transform, sprite, (int)entity);
@@ -190,9 +190,8 @@ namespace Vox
 				{
 					auto [idComponent, circle] = view.get<IDComponent, CircleRendererComponent>(entity);
 					Entity entity = GetEntityWithId(idComponent.Id);
-					bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
 
-					if (entity && canDrawEntity)
+					if (entity && entity.IsActive())
 					{
 						glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 						Renderer2D::DrawCircle(transform, circle.Color, circle.Thickness, circle.Fade, (int)entity);
@@ -236,10 +235,13 @@ namespace Vox
 		auto view = m_Registry.view<CameraComponent>();
 		for (auto entity : view)
 		{
+			Entity currentEntity = Entity{ entity, this };
+			if (!currentEntity.IsActive()) continue;
+
 			const auto& camera = view.get<CameraComponent>(entity);
 			if (camera.MainCamera)
 			{
-				return Entity{ entity, this };
+				return currentEntity;
 			}
 		}
 
@@ -405,11 +407,11 @@ namespace Vox
 	void Scene::SortEntities()
 	{
 		m_Registry.sort<IDComponent>([&](const auto lhs, const auto rhs)
-		{
-			auto lhsEntity = m_EntityMap.find(lhs.Id);
-			auto rhsEntity = m_EntityMap.find(rhs.Id);
-			return static_cast<uint32_t>(lhsEntity->second) < static_cast<uint32_t>(rhsEntity->second);
-		});
+			{
+				auto lhsEntity = m_EntityMap.find(lhs.Id);
+				auto rhsEntity = m_EntityMap.find(rhs.Id);
+				return static_cast<uint32_t>(lhsEntity->second) < static_cast<uint32_t>(rhsEntity->second);
+			});
 	}
 
 	void Scene::ConvertToLocalSpace(Entity entity)
@@ -515,21 +517,26 @@ namespace Vox
 		for (auto e : view)
 		{
 			Entity entity = { e, this };
+			if (!entity.IsActive()) continue;
 			ScriptEngine::OnUpdateEntity(entity, ts);
 		}
 
 		m_Registry.view<BehaviourComponent>().each([=](auto entity, auto& behaviour)
-		{
-			if (!behaviour.Instance)
 			{
-				behaviour.Instance = behaviour.InstantiateScript();
-				behaviour.Instance->m_Entity = Entity{ entity, this };
+				auto targetEntity = Entity{ entity, this };
+				if (!behaviour.Instance)
+				{
+					behaviour.Instance = behaviour.InstantiateScript();
+					behaviour.Instance->m_Entity = targetEntity;
 
-				behaviour.Instance->OnCreate();
-			}
+					behaviour.Instance->OnCreate();
+				}
 
-			behaviour.Instance->OnUpdate(ts);
-		});
+				if (targetEntity.IsActive())
+				{
+					behaviour.Instance->OnUpdate(ts);
+				}
+			});
 	}
 
 	void Scene::UpdatePhysics(Timestep ts)
@@ -542,13 +549,14 @@ namespace Vox
 		for (auto e : view)
 		{
 			Entity entity = { e, this };
+			if (!entity.IsActive()) continue;
+
 			auto& transform = entity.GetComponent<TransformComponent>();
 			auto& rb2D = entity.GetComponent<Rigidbody2DComponent>();
 
 			b2Body* body = (b2Body*)rb2D.RuntimeBody;
 			const auto& position = body->GetPosition();
 
-			
 			transform.Position.x = position.x;
 			transform.Position.y = position.y;
 			glm::vec3 rotation = transform.GetRotationEuler();
@@ -629,9 +637,8 @@ namespace Vox
 			{
 				auto [idComponent, sprite] = group.get<IDComponent, SpriteRendererComponent>(entity);
 				Entity entity = GetEntityWithId(idComponent.Id);
-				bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
 
-				if (entity && canDrawEntity)
+				if (entity && entity.IsActive())
 				{
 					glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 					Renderer2D::DrawSprite(transform, sprite, (int)entity);
@@ -646,9 +653,8 @@ namespace Vox
 			{
 				auto [idComponent, circle] = view.get<IDComponent, CircleRendererComponent>(entity);
 				Entity entity = GetEntityWithId(idComponent.Id);
-				bool canDrawEntity = entity.IsActive() && (!entity.GetParent() || entity.GetParent().IsActive());
-				
-				if (entity && canDrawEntity)
+
+				if (entity && entity.IsActive())
 				{
 					glm::mat4 transform = GetWorldSpaceTransformMatrix(entity);
 					Renderer2D::DrawCircle(transform, circle.Color, circle.Thickness, circle.Fade, (int)entity);

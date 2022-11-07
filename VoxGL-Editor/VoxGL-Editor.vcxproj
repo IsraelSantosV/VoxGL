@@ -139,6 +139,7 @@
     <ClInclude Include="Source\EditorLayer.h" />
     <ClInclude Include="Source\EditorTools.h" />
     <ClInclude Include="Source\Panels\ContentBrowserPanel.h" />
+    <ClInclude Include="Source\Panels\EditorConsolePanel.h" />
     <ClInclude Include="Source\Panels\EditorPanel.h" />
     <ClInclude Include="Source\Panels\SceneHierarchyPanel.h" />
   </ItemGroup>
@@ -146,6 +147,7 @@
     <ClCompile Include="Source\EditorLayer.cpp" />
     <ClCompile Include="Source\EditorTools.cpp" />
     <ClCompile Include="Source\Panels\ContentBrowserPanel.cpp" />
+    <ClCompile Include="Source\Panels\EditorConsolePanel.cpp" />
     <ClCompile Include="Source\Panels\SceneHierarchyPanel.cpp" />
     <ClCompile Include="Source\VoxGLEditorApp.cpp" />
   </ItemGroup>

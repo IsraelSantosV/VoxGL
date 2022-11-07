@@ -19,10 +19,11 @@ namespace Vox
 
 		inline static Ref<spdlog::logger>& GetCoreLogger() { return m_CoreLogger; }
 		inline static Ref<spdlog::logger>& GetClientLogger() { return m_ClientLogger; }
-		
+		inline static Ref<spdlog::logger>& GetConsoleLogger() { return m_ConsoleLogger; }
 	private:
 		static Ref<spdlog::logger> m_CoreLogger;
 		static Ref<spdlog::logger> m_ClientLogger;
+		static Ref<spdlog::logger> m_ConsoleLogger;
 	};
 }
 
@@ -55,4 +56,10 @@ inline OStream& operator<<(OStream& os, glm::qua<T, Q> quaternion)
 #define LOG_WARN(...) ::Vox::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define LOG_ERROR(...) ::Vox::Log::GetClientLogger()->error(__VA_ARGS__)
 #define LOG_FATAL(...) ::Vox::Log::GetClientLogger()->critical(__VA_ARGS__)
+
+#define CONSOLE_TRACE(...) ::Vox::Log::GetConsoleLogger()->trace(__VA_ARGS__)
+#define CONSOLE_INFO(...) ::Vox::Log::GetConsoleLogger()->info(__VA_ARGS__)
+#define CONSOLE_WARN(...) ::Vox::Log::GetConsoleLogger()->warn(__VA_ARGS__)
+#define CONSOLE_ERROR(...) ::Vox::Log::GetConsoleLogger()->error(__VA_ARGS__)
+#define CONSOLE_FATAL(...) ::Vox::Log::GetConsoleLogger()->critical(__VA_ARGS__)
 

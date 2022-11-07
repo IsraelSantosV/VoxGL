@@ -24,11 +24,11 @@ namespace Vox
 		{ "System.UInt32", ScriptFieldType::UInt },
 		{ "System.UInt64", ScriptFieldType::ULong },
 
-		{ "Hazel.Vector2", ScriptFieldType::Vector2 },
-		{ "Hazel.Vector3", ScriptFieldType::Vector3 },
-		{ "Hazel.Vector4", ScriptFieldType::Vector4 },
+		{ "Vox.Vector2", ScriptFieldType::Vector2 },
+		{ "Vox.Vector3", ScriptFieldType::Vector3 },
+		{ "Vox.Vector4", ScriptFieldType::Vector4 },
 
-		{ "Hazel.Entity", ScriptFieldType::Entity },
+		{ "Vox.Entity", ScriptFieldType::Entity },
 	};
 
 	namespace Utils 
