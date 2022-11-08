@@ -331,8 +331,6 @@ namespace Vox
 			out << YAML::Key << "Size" << YAML::Value << bc2dComponent.Size;
 			out << YAML::Key << "Density" << YAML::Value << bc2dComponent.Density;
 			out << YAML::Key << "Friction" << YAML::Value << bc2dComponent.Friction;
-			out << YAML::Key << "Restitution" << YAML::Value << bc2dComponent.Restitution;
-			out << YAML::Key << "RestitutionThreshold" << YAML::Value << bc2dComponent.RestitutionThreshold;
 
 			out << YAML::EndMap; // BoxCollider2DComponent
 		}
@@ -347,8 +345,6 @@ namespace Vox
 			out << YAML::Key << "Radius" << YAML::Value << cc2dComponent.Radius;
 			out << YAML::Key << "Density" << YAML::Value << cc2dComponent.Density;
 			out << YAML::Key << "Friction" << YAML::Value << cc2dComponent.Friction;
-			out << YAML::Key << "Restitution" << YAML::Value << cc2dComponent.Restitution;
-			out << YAML::Key << "RestitutionThreshold" << YAML::Value << cc2dComponent.RestitutionThreshold;
 
 			out << YAML::EndMap; // CircleCollider2DComponent
 		}
@@ -541,8 +537,6 @@ namespace Vox
 					bc2d.Size = boxCollider2DComponent["Size"].as<glm::vec2>();
 					bc2d.Density = boxCollider2DComponent["Density"].as<float>();
 					bc2d.Friction = boxCollider2DComponent["Friction"].as<float>();
-					bc2d.Restitution = boxCollider2DComponent["Restitution"].as<float>();
-					bc2d.RestitutionThreshold = boxCollider2DComponent["RestitutionThreshold"].as<float>();
 				}
 
 				auto circleCollider2DComponent = entity["CircleCollider2DComponent"];
@@ -553,8 +547,6 @@ namespace Vox
 					cc2d.Radius = circleCollider2DComponent["Radius"].as<float>();
 					cc2d.Density = circleCollider2DComponent["Density"].as<float>();
 					cc2d.Friction = circleCollider2DComponent["Friction"].as<float>();
-					cc2d.Restitution = circleCollider2DComponent["Restitution"].as<float>();
-					cc2d.RestitutionThreshold = circleCollider2DComponent["RestitutionThreshold"].as<float>();
 				}
 			}
 		}

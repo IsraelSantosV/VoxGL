@@ -404,8 +404,12 @@ namespace Vox
 
 	MonoObject* ScriptEngine::GetManagedInstance(UUID id)
 	{
-		LOG_CORE_TRACE("Search by entity with id: {0}", id);
-		VOX_CORE_ASSERT(m_Data->EntityInstances.find(id) != m_Data->EntityInstances.end());
+		if (m_Data->EntityInstances.find(id) == m_Data->EntityInstances.end())
+		{
+			return nullptr;
+		}
+
+		//VOX_CORE_ASSERT(m_Data->EntityInstances.find(id) != m_Data->EntityInstances.end());
 		return m_Data->EntityInstances.at(id)->GetManagedObject();
 	}
 

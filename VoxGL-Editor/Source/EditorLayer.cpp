@@ -350,6 +350,11 @@ namespace Vox
 
 	void EditorLayer::DrawGizmos()
 	{
+		if (m_ActiveScene->IsRunning() && !m_EnableGizmosInRuntime)
+		{
+			return;
+		}
+
 		Entity selectedEntity = m_ActiveScene->GetEntityWithId(SelectionManager::GetSelection(0));
 		if (selectedEntity && m_GizmosType >= 0)
 		{
@@ -363,7 +368,7 @@ namespace Vox
 			glm::mat4 transform = m_ActiveScene->GetWorldSpaceTransformMatrix(selectedEntity);
 
 			glm::mat4 projectionMatrix, viewMatrix;
-			if (m_ActiveScene->IsRunning() && m_EnableGizmosInRuntime)
+			if (m_ActiveScene->IsRunning() && m_UseRuntimeCameraToGizmos)
 			{
 				Entity cameraEntity = m_ActiveScene->GetMainCameraEntity();
 				if (!cameraEntity)
@@ -540,18 +545,30 @@ namespace Vox
 			ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_FramePadding;
 
 		ImVec2 contentRegionAvail = ImGui::GetContentRegionAvail();
-
-		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4, 4 });
 		float lineHeight = GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.0f;
 		ImGui::Separator();
 
-		bool open = ImGui::TreeNodeEx((void*)"##EditorSetting", treeNodeFlags, "Editor Settings");
+		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4, 4 });
+
+		bool gizmosOpen = ImGui::TreeNodeEx((void*)"##GizmosSettings", treeNodeFlags, "Gizmos Settings");
 		ImGui::PopStyleVar();
 
-		if (open)
+		if (gizmosOpen)
 		{
 			ImGui::Checkbox("Show physics colliders", &m_ShowPhysicsColliders);
 			ImGui::Checkbox("Enable Gizmos In Runtime", &m_EnableGizmosInRuntime);
+			ImGui::Checkbox("Use Runtime Camera To Gizmos", &m_UseRuntimeCameraToGizmos);
+
+			ImGui::TreePop();
+		}
+
+		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2{ 4, 4 });
+
+		bool gridOpen = ImGui::TreeNodeEx((void*)"##GridSettings", treeNodeFlags, "Grid Settings");
+		ImGui::PopStyleVar();
+
+		if (gridOpen)
+		{
 			ImGui::Checkbox("Enable Grid", &m_EnableGrid);
 			ImGui::DragFloat("SnapAmount", &m_SnapValue, 0.1f, 0.0f, 0.0f, "%.2f");
 
@@ -559,6 +576,50 @@ namespace Vox
 		}
 
 		ImGui::End();
+	}
+
+	void EditorLayer::UI_GizmosToolbar()
+	{
+		if (!m_EnableGizmosInRuntime && m_ActiveScene->IsRunning())
+		{
+			return;
+		}
+
+		ImGui::PushID(0);
+
+		ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0, 0));
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 4.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+
+		const float buttonSize = 18.0f;
+		const float edgeOffset = 4.0f;
+		const float windowHeight = 32.0f;
+		const float numberOfButtons = 4.0f;
+		const float backgroundWidth = edgeOffset * 6.0f + buttonSize * numberOfButtons + edgeOffset * (numberOfButtons - 1.0f) * 2.0f;
+
+		ImGui::SetNextWindowPos(ImVec2(m_ViewportBounds[0].x + 14, m_ViewportBounds[0].y + edgeOffset));
+		ImGui::SetNextWindowSize(ImVec2(backgroundWidth, windowHeight));
+		ImGui::SetNextWindowBgAlpha(0.0f);
+		ImGui::Begin("##viewport_tools", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoDocking);
+
+		// A hack to make icon panel appear smaller than minimum allowed by ImGui size
+		// Filling the background for the desired 26px height
+		const float desiredHeight = 26.0f;
+
+		ImRect background = ImGui::GetCurrentWindow()->Rect();
+		background.Min.x -= 0.0f;
+		background.Min.y -= -(windowHeight - desiredHeight) / 2.0f;
+		background.Max.x += 0.0f;
+		background.Max.y += -(windowHeight - desiredHeight) / 2.0f;
+
+		ImGui::GetWindowDrawList()->AddRectFilled(background.Min, background.Max, IM_COL32(15, 15, 15, 127), 4.0f);
+
+		//Draw Gizmos Toolbar
+
+		ImGui::End();
+
+		ImGui::PopID();
 	}
 
 	bool EditorLayer::OnKeyPressed(KeyPressedEvent& e)
@@ -677,6 +738,11 @@ namespace Vox
 			Renderer2D::BeginScene(m_EditorCamera);
 		}
 
+		if (m_ActiveScene->IsRunning() && !m_EnableGizmosInRuntime)
+		{
+			return;
+		}
+
 		if (m_ShowPhysicsColliders)
 		{
 			// Box Colliders
@@ -721,6 +787,11 @@ namespace Vox
 
 	void EditorLayer::RenderOutline()
 	{
+		if (m_ActiveScene->IsRunning() && !m_EnableGizmosInRuntime)
+		{
+			return;
+		}
+
 		Entity selectedEntity = m_ActiveScene->GetEntityWithId(SelectionManager::GetSelection(0));
 		if (selectedEntity && selectedEntity.IsActive())
 		{

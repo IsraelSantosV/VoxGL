@@ -234,8 +234,6 @@ namespace Vox
 
 		float Density = 1.0f;
 		float Friction = 0.5f;
-		float Restitution = 0.0f;
-		float RestitutionThreshold = 0.5f;
 
 		void* RuntimeFixture = nullptr;
 
@@ -250,8 +248,6 @@ namespace Vox
 
 		float Density = 1.0f;
 		float Friction = 0.5f;
-		float Restitution = 0.0f;
-		float RestitutionThreshold = 0.5f;
 
 		void* RuntimeFixture = nullptr;
 

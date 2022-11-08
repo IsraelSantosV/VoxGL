@@ -7,6 +7,7 @@ namespace Vox
 	void ContactListener2D::BeginContact(b2Contact* contact)
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
+		if (scene == nullptr) return;
 
 		if (!scene->IsRunning())
 		{
@@ -42,6 +43,7 @@ namespace Vox
 	void ContactListener2D::EndContact(b2Contact* contact)
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
+		if (scene == nullptr) return;
 
 		if (!scene->IsRunning())
 		{

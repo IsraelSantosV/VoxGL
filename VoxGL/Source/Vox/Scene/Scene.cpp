@@ -71,16 +71,16 @@ namespace Vox
 	static void CopyComponent(entt::registry& dst, entt::registry& src, const std::unordered_map<UUID, entt::entity>& enttMap)
 	{
 		([&]()
+		{
+			auto view = src.view<Component>();
+			for (auto srcEntity : view)
 			{
-				auto view = src.view<Component>();
-				for (auto srcEntity : view)
-				{
-					entt::entity dstEntity = enttMap.at(src.get<IDComponent>(srcEntity).Id);
+				entt::entity dstEntity = enttMap.at(src.get<IDComponent>(srcEntity).Id);
 
-					auto& srcComponent = src.get<Component>(srcEntity);
-					dst.emplace_or_replace<Component>(dstEntity, srcComponent);
-				}
-			}(), ...);
+				auto& srcComponent = src.get<Component>(srcEntity);
+				dst.emplace_or_replace<Component>(dstEntity, srcComponent);
+			}
+		}(), ...);
 	}
 
 	template<typename... Component>
@@ -93,12 +93,12 @@ namespace Vox
 	static void CopyComponentIfExists(Entity dst, Entity src)
 	{
 		([&]()
+		{
+			if (src.HasComponent<Component>())
 			{
-				if (src.HasComponent<Component>())
-				{
-					dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
-				}
-			}(), ...);
+				dst.AddOrReplaceComponent<Component>(src.GetComponent<Component>());
+			}
+		}(), ...);
 	}
 
 	template<typename... Component>
@@ -668,8 +668,6 @@ namespace Vox
 				fixtureDef.shape = &boxShape;
 				fixtureDef.density = bc2d.Density;
 				fixtureDef.friction = bc2d.Friction;
-				fixtureDef.restitution = bc2d.Restitution;
-				fixtureDef.restitutionThreshold = bc2d.RestitutionThreshold;
 				body->CreateFixture(&fixtureDef);
 			}
 
@@ -685,8 +683,6 @@ namespace Vox
 				fixtureDef.shape = &circleShape;
 				fixtureDef.density = cc2d.Density;
 				fixtureDef.friction = cc2d.Friction;
-				fixtureDef.restitution = cc2d.Restitution;
-				fixtureDef.restitutionThreshold = cc2d.RestitutionThreshold;
 				body->CreateFixture(&fixtureDef);
 			}
 		}

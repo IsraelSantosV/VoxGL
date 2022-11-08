@@ -48,7 +48,8 @@ namespace Vox
 		void OnDuplicateEntity();
 
 		void UI_Toolbar();
-		void UI_Settings();	
+		void UI_Settings();
+		void UI_GizmosToolbar();
 	private:
 		Ref<Framebuffer> m_Framebuffer;
 		Ref<Scene> m_ActiveScene;
@@ -70,6 +71,8 @@ namespace Vox
 		bool m_ShowStyleDemo = false;
 		bool m_ShowImGuiDrawDemo = false;
 		bool m_ShowPhysicsColliders = true;
+		bool m_UseRuntimeCameraToGizmos = false;
+
 		int m_GizmosType = 0;
 		int m_GizmosSpace = 0;
 		float m_SnapValue = 0.5f;

@@ -793,8 +793,6 @@ namespace Vox
 			ImGui::DragFloat2("Size", glm::value_ptr(component.Size));
 			ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f, "%.2f");
 			ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f, "%.2f");
-			ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f, "%.2f");
-			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f, 0.0f, "%.2f");
 		});
 	
 		DrawComponent<CircleCollider2DComponent>(ICON_FA_CIRCLE_NODES, "CircleCollider2D", entity, [](auto& component)
@@ -803,8 +801,6 @@ namespace Vox
 			ImGui::DragFloat("Radius", &component.Radius);
 			ImGui::DragFloat("Density", &component.Density, 0.01f, 0.0f, 1.0f, "%.2f");
 			ImGui::DragFloat("Friction", &component.Friction, 0.01f, 0.0f, 1.0f, "%.2f");
-			ImGui::DragFloat("Restitution", &component.Restitution, 0.01f, 0.0f, 1.0f, "%.2f");
-			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f, 0.0f, "%.2f");
 		});
 		
 		DrawAddComponentPopup(entity);
