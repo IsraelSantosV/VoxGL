@@ -52,6 +52,28 @@ namespace Vox
 		return m_EntityHasComponentFuncs.at(managedType)(entity);
 	}
 
+	static MonoObject* GetScriptInstance(UUID entityId)
+	{
+		return ScriptEngine::GetManagedInstance(entityId);
+	}
+
+	static uint64_t Entity_FindEntityByName(MonoString* name)
+	{
+		char* nameCStr = mono_string_to_utf8(name);
+
+		Scene* scene = ScriptEngine::GetSceneContext();
+		VOX_CORE_ASSERT(scene);
+		Entity entity = scene->FindEntityWithTag(nameCStr);
+		mono_free(nameCStr);
+
+		if (!entity)
+		{
+			return 0;
+		}
+
+		return entity.GetId();
+	}
+
 	static void TransformComponent_GetPosition(UUID entityId, glm::vec3* outPosition)
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
@@ -129,6 +151,7 @@ namespace Vox
 
 	void ScriptGlue::RegisterComponents()
 	{
+		m_EntityHasComponentFuncs.clear();
 		RegisterComponent(AllComponents{});
 	}
 
@@ -139,6 +162,9 @@ namespace Vox
 		VOX_ADD_INTERNAL_CALL(NativeLog_VectorDot);
 
 		VOX_ADD_INTERNAL_CALL(Entity_HasComponent);
+		VOX_ADD_INTERNAL_CALL(GetScriptInstance);
+		VOX_ADD_INTERNAL_CALL(Entity_FindEntityByName);
+
 		VOX_ADD_INTERNAL_CALL(TransformComponent_GetPosition);
 		VOX_ADD_INTERNAL_CALL(TransformComponent_SetPosition);
 

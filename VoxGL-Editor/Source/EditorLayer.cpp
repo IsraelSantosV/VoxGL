@@ -3,6 +3,7 @@
 #include "Vox/Scene/SceneSerializer.h"
 #include "Vox/Tools/PlatformTools.h"
 #include "Vox/Math/Math.h"
+#include "Vox/Scripting/ScriptEngine.h"
 
 #include <imgui/imgui.h>
 
@@ -27,6 +28,8 @@ namespace Vox
 		m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
 		m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 		m_IconSimulate = Texture2D::Create("Resources/Icons/SimulateButton.png");
+		m_IconPause = Texture2D::Create("Resources/Icons/PauseButton.png");
+		m_IconStep = Texture2D::Create("Resources/Icons/StepButton.png");
 
 		FramebufferSpec fbSpec;
 		fbSpec.Attachments =
@@ -206,6 +209,16 @@ namespace Vox
 				if (ImGui::MenuItem("Exit"))
 				{
 					Application::Get().Close();
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Scripting"))
+			{
+				if (ImGui::MenuItem("Reload Assembly", "Ctrl+R"))
+				{
+					ScriptEngine::ReloadAssembly();
 				}
 
 				ImGui::EndMenu();
@@ -447,9 +460,16 @@ namespace Vox
 		const float baseIconSize = 32.0f;
 
 		float size = ImGui::GetWindowHeight() - 4.0f;
+		ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
+
+		bool hasPlayButton = m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play;
+		bool hasSimulateButton = m_SceneState == SceneState::Edit || m_SceneState == SceneState::Simulate;
+		bool hasPauseButton = m_SceneState != SceneState::Edit;
+
+		if(hasPlayButton)
 		{
 			Ref<Texture2D> icon = (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Simulate) ? m_IconPlay : m_IconStop;
-			ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
+			
 			if (ImGui::ImageButton((ImTextureID)icon->GetRendererId(), ImVec2(baseIconSize, baseIconSize),
 				ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
 			{
@@ -459,8 +479,14 @@ namespace Vox
 					OnSceneStop();
 			}
 		}
-		ImGui::SameLine();
+
+		if(hasSimulateButton)
 		{
+			if (hasPlayButton)
+			{
+				ImGui::SameLine();
+			}
+
 			Ref<Texture2D> icon = (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play) ? m_IconSimulate : m_IconStop;
 			if (ImGui::ImageButton((ImTextureID)icon->GetRendererId(), ImVec2(baseIconSize, baseIconSize),
 				ImVec2(0, 1), ImVec2(1, 0), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
@@ -471,6 +497,36 @@ namespace Vox
 					OnSceneStop();
 			}
 		}
+
+		if (hasPauseButton)
+		{
+			bool isPaused = m_ActiveScene->IsPaused();
+			ImGui::SameLine();
+			{
+				Ref<Texture2D> icon = m_IconPause;
+				if (ImGui::ImageButton((ImTextureID)icon->GetRendererId(), ImVec2(baseIconSize, baseIconSize), ImVec2(0, 0),
+					ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
+				{
+					m_ActiveScene->SetPaused(!isPaused);
+				}
+			}
+
+			// Step button
+			if (isPaused)
+			{
+				ImGui::SameLine();
+				{
+					Ref<Texture2D> icon = m_IconStep;
+					bool isPaused = m_ActiveScene->IsPaused();
+					if (ImGui::ImageButton((ImTextureID)icon->GetRendererId(), ImVec2(baseIconSize, baseIconSize), ImVec2(0, 0),
+						ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
+					{
+						m_ActiveScene->Step();
+					}
+				}
+			}
+		}
+
 		ImGui::PopStyleVar(2);
 		ImGui::PopStyleColor(3);
 		ImGui::End();
@@ -564,8 +620,15 @@ namespace Vox
 					m_GizmosType = ImGuizmo::OPERATION::ROTATE;
 				break;
 			case Key::R:
-				if (!ImGuizmo::IsUsing())
-					m_GizmosType = ImGuizmo::OPERATION::SCALE;
+				if (control)
+				{
+					ScriptEngine::ReloadAssembly();
+				}
+				else
+				{
+					if (!ImGuizmo::IsUsing())
+						m_GizmosType = ImGuizmo::OPERATION::SCALE;
+				}
 				break;
 		}
 
@@ -668,7 +731,8 @@ namespace Vox
 
 	void EditorLayer::NewScene()
 	{
-		m_ActiveScene = CreateRef<Scene>();
+		m_ActiveScene = CreateRef<Scene>("New Scene", true);
+		m_EditorScene = m_ActiveScene;
 		m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
@@ -698,7 +762,7 @@ namespace Vox
 			return;
 		}
 
-		Ref<Scene> newScene = CreateRef<Scene>();
+		Ref<Scene> newScene = CreateRef<Scene>("New Scene", true);
 		SceneSerializer serializer(newScene);
 		if (serializer.Deserialize(path.string()))
 		{
@@ -785,6 +849,16 @@ namespace Vox
 
 		m_ActiveScene = m_EditorScene;
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+	}
+
+	void EditorLayer::OnScenePause()
+	{
+		if (m_SceneState == SceneState::Edit)
+		{
+			return;
+		}
+
+		m_ActiveScene->SetPaused(true);
 	}
 
 	void EditorLayer::OnDuplicateEntity()

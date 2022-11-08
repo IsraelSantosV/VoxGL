@@ -8,6 +8,11 @@
 #include "mono/metadata/object.h"
 #include "mono/metadata/tabledefs.h"
 
+#include "FileWatch.h"
+
+#include "Vox/Core/Application.h"
+#include "Vox/Core/Timer.h"
+
 namespace Vox 
 {
 	static std::unordered_map<std::string, ScriptFieldType> s_ScriptFieldTypeMap =
@@ -124,11 +129,17 @@ namespace Vox
 		MonoAssembly* AppAssembly = nullptr;
 		MonoImage* AppAssemblyImage = nullptr;
 
+		std::filesystem::path CoreAssemblyFilepath;
+		std::filesystem::path AppAssemblyFilepath;
+
 		ScriptClass EntityClass;
 
 		std::unordered_map<std::string, Ref<ScriptClass>> EntityClasses;
 		std::unordered_map<UUID, Ref<ScriptInstance>> EntityInstances;
 		std::unordered_map<UUID, ScriptFieldMap> EntityScriptFields;
+
+		Scope<filewatch::FileWatch<std::string>> AppAssemblyFileWatcher;
+		bool AssemblyReloadPending = false;
 
 		// Runtime
 		Scene* SceneContext = nullptr;
@@ -136,17 +147,32 @@ namespace Vox
 
 	static ScriptEngineData* m_Data = nullptr;
 
+	static void OnAppAssemblyFileSystemEvent(const std::string& path, const filewatch::Event change_type)
+	{
+		if (!m_Data->AssemblyReloadPending && change_type == filewatch::Event::modified)
+		{
+			m_Data->AssemblyReloadPending = true;
+
+			Application::Get().SubmitToMainThread([]()
+			{
+				m_Data->AppAssemblyFileWatcher.reset();
+				ScriptEngine::ReloadAssembly();
+			});
+		}
+	}
+
 	void ScriptEngine::Init()
 	{
 		m_Data = new ScriptEngineData();
 
 		InitMono();
+		ScriptGlue::RegisterFunctions();
+
 		LoadAssembly("Resources/Scripts/VoxGL-Scripting.dll");
 		LoadAppAssembly("SandboxProject/Assets/Scripts/Binaries/Sandbox.dll");
 		LoadAssemblyClasses();
 
 		ScriptGlue::RegisterComponents();
-		ScriptGlue::RegisterFunctions();
 
 		// Retrieve and instantiate class
 		m_Data->EntityClass = ScriptClass("Vox", "Entity", true);
@@ -171,7 +197,12 @@ namespace Vox
 
 	void ScriptEngine::ShutdownMono()
 	{
+		mono_domain_set(mono_get_root_domain(), false);
+
+		mono_domain_unload(m_Data->AppDomain);
 		m_Data->AppDomain = nullptr;
+
+		mono_jit_cleanup(m_Data->RootDomain);
 		m_Data->RootDomain = nullptr;
 	}
 
@@ -180,6 +211,7 @@ namespace Vox
 		m_Data->AppDomain = mono_domain_create_appdomain("VoxScriptRuntime", nullptr);
 		mono_domain_set(m_Data->AppDomain, true);
 
+		m_Data->CoreAssemblyFilepath = filepath;
 		m_Data->CoreAssembly = Utils::LoadMonoAssembly(filepath);
 		m_Data->CoreAssemblyImage = mono_assembly_get_image(m_Data->CoreAssembly);
 		// Utils::PrintAssemblyTypes(m_Data->CoreAssembly);
@@ -187,11 +219,30 @@ namespace Vox
 
 	void ScriptEngine::LoadAppAssembly(const std::filesystem::path& filepath)
 	{
-		// Move this maybe
+		m_Data->AppAssemblyFilepath = filepath;
 		m_Data->AppAssembly = Utils::LoadMonoAssembly(filepath);
 		auto assemb = m_Data->AppAssembly;
 		m_Data->AppAssemblyImage = mono_assembly_get_image(m_Data->AppAssembly);
 		auto assembi = m_Data->AppAssemblyImage;
+
+		m_Data->AppAssemblyFileWatcher = CreateScope<filewatch::FileWatch<std::string>>(filepath.string(), OnAppAssemblyFileSystemEvent);
+		m_Data->AssemblyReloadPending = false;
+	}
+
+	void ScriptEngine::ReloadAssembly()
+	{
+		mono_domain_set(mono_get_root_domain(), false);
+
+		mono_domain_unload(m_Data->AppDomain);
+
+		LoadAssembly(m_Data->CoreAssemblyFilepath);
+		LoadAppAssembly(m_Data->AppAssemblyFilepath);
+		LoadAssemblyClasses();
+
+		ScriptGlue::RegisterComponents();
+
+		// Retrieve and instantiate class
+		m_Data->EntityClass = ScriptClass("Vox", "Entity", true);
 	}
 
 	void ScriptEngine::OnRuntimeStart(Scene* scene)
@@ -213,14 +264,18 @@ namespace Vox
 
 			Ref<ScriptInstance> instance = CreateRef<ScriptInstance>(m_Data->EntityClasses[sc.ClassName], entity);
 			m_Data->EntityInstances[entityID] = instance;
+			LOG_CORE_TRACE("Script entity has been created: {0}", entity.GetName());
 
 			if (m_Data->EntityScriptFields.find(entityID) != m_Data->EntityScriptFields.end())
 			{
 				const ScriptFieldMap& fieldMap = m_Data->EntityScriptFields.at(entityID);
 				for (const auto& [name, fieldInstance] : fieldMap)
+				{
 					instance->SetFieldValueInternal(name, fieldInstance.m_Buffer);
+				}
+
+				instance->InvokeOnCreate();
 			}
-			instance->InvokeOnCreate();
 		}
 	}
 
@@ -242,7 +297,9 @@ namespace Vox
 	{
 		auto it = m_Data->EntityInstances.find(entityID);
 		if (it == m_Data->EntityInstances.end())
+		{
 			return nullptr;
+		}
 
 		return it->second;
 	}
@@ -250,7 +307,9 @@ namespace Vox
 	Ref<ScriptClass> ScriptEngine::GetEntityClass(const std::string& name)
 	{
 		if (m_Data->EntityClasses.find(name) == m_Data->EntityClasses.end())
+		{
 			return nullptr;
+		}
 
 		return m_Data->EntityClasses.at(name);
 	}
@@ -258,7 +317,6 @@ namespace Vox
 	void ScriptEngine::OnRuntimeStop()
 	{
 		m_Data->SceneContext = nullptr;
-
 		m_Data->EntityInstances.clear();
 	}
 
@@ -344,6 +402,13 @@ namespace Vox
 		return m_Data->CoreAssemblyImage;
 	}
 
+	MonoObject* ScriptEngine::GetManagedInstance(UUID id)
+	{
+		LOG_CORE_TRACE("Search by entity with id: {0}", id);
+		VOX_CORE_ASSERT(m_Data->EntityInstances.find(id) != m_Data->EntityInstances.end());
+		return m_Data->EntityInstances.at(id)->GetManagedObject();
+	}
+
 	MonoObject* ScriptEngine::InstantiateClass(MonoClass* monoClass)
 	{
 		MonoObject* instance = mono_object_new(m_Data->AppDomain, monoClass);
@@ -392,7 +457,9 @@ namespace Vox
 	void ScriptInstance::InvokeOnCreate()
 	{
 		if (m_OnCreateMethod)
+		{
 			m_ScriptClass->InvokeMethod(m_Instance, m_OnCreateMethod);
+		}
 	}
 
 	void ScriptInstance::InvokeOnUpdate(float ts)
@@ -409,7 +476,9 @@ namespace Vox
 		const auto& fields = m_ScriptClass->GetFields();
 		auto it = fields.find(name);
 		if (it == fields.end())
+		{
 			return false;
+		}
 
 		const ScriptField& field = it->second;
 		mono_field_get_value(m_Instance, field.ClassField, buffer);
@@ -421,7 +490,9 @@ namespace Vox
 		const auto& fields = m_ScriptClass->GetFields();
 		auto it = fields.find(name);
 		if (it == fields.end())
+		{
 			return false;
+		}
 
 		const ScriptField& field = it->second;
 		mono_field_set_value(m_Instance, field.ClassField, (void*)value);

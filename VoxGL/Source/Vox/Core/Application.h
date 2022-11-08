@@ -82,11 +82,14 @@ namespace Vox
 		inline Window& GetWindow() { return *m_Window; }
 
 		const ApplicationSpec& GetSpec() const { return m_Spec; }
+		void SubmitToMainThread(const std::function<void()>& function);
 	private:
 		void ProcessEvents();
 		void Run();
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
+
+		void ExecuteMainThreadQueue();
 	private:
 		ApplicationSpec m_Spec;
 
@@ -96,6 +99,9 @@ namespace Vox
 		bool m_Minimized = false;
 		LayerStack m_LayerStack;
 		float m_LastFrameTime = 0.0f;
+
+		std::vector<std::function<void()>> m_MainThreadQueue;
+		std::mutex m_MainThreadQueueMutex;
 
 		std::mutex m_EventQueueMutex;
 		std::queue<std::function<void()>> m_EventQueue;

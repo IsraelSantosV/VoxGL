@@ -58,8 +58,11 @@ namespace Vox
 			m_Context->m_Registry.each([&](auto entityId)
 			{
 				Entity entity{ entityId, m_Context.get() };
-				bool hasValidParent = entity.GetParent() && !HasDrawedChild(entity);
-				DrawEntityNode(entity, hasValidParent);
+				if (!m_Context->EntityIsScene(entity))
+				{
+					bool hasValidParent = entity.GetParent() && !HasDrawedChild(entity);
+					DrawEntityNode(entity, hasValidParent);
+				}
 			});
 
 			if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())

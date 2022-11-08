@@ -215,6 +215,12 @@ namespace Vox
 		BodyType Type = BodyType::Static;
 		bool FixedRotation = false;
 
+		float Mass = 1.0f;
+		float LinearDrag = 0.01f;
+		float AngularDrag = 0.05f;
+		float GravityScale = 1.0f;
+		bool IsBullet = false;
+
 		void* RuntimeBody = nullptr;
 
 		Rigidbody2DComponent() = default;

@@ -1368,6 +1368,8 @@
     <ClInclude Include="ThirdParty\stb_image\stb_image.h">
       <Filter>ThirdParty\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Vox\Physics\2D\Physics2D.h" />
+    <ClInclude Include="Source\Vox\Physics\2D\ContactListener2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1505,5 +1507,7 @@
     <ClCompile Include="ThirdParty\stb_image\stb_image.cpp">
       <Filter>ThirdParty\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Vox\Physics\2D\ContactListener2D.cpp" />
+    <ClCompile Include="Source\Vox\Physics\2D\Physics2D.cpp" />
   </ItemGroup>
 </Project>

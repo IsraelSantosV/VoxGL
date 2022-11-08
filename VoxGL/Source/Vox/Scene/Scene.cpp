@@ -7,6 +7,8 @@
 #include "Vox/Scripting/ScriptEngine.h"
 #include "Vox/Renderer/Renderer2D.h"
 
+#include "Vox/Physics/2D/Physics2D.h"
+
 #include <glm/glm.hpp>
 
 #include "box2d/b2_world.h"
@@ -30,13 +32,39 @@ namespace Vox
 		return b2_staticBody;
 	}
 
-	Scene::Scene(std::string name) : m_Name(name)
+	std::unordered_map<UUID, Scene*> m_ActiveScenes;
+
+	struct SceneComponent
 	{
+		UUID SceneId;
+	};
+
+	Scene::Scene(std::string name, bool isEditorScene, bool initialize) 
+		: m_Name(name), m_EditorScene(isEditorScene)
+	{
+		m_SceneEntity = m_Registry.create();
+		m_Registry.emplace<SceneComponent>(m_SceneEntity, m_SceneID);
+		m_ActiveScenes[m_SceneID] = this;
+
+		if (!initialize)
+		{
+			return;
+		}
+
+		Box2DWorldComponent& b2dWorld = m_Registry.emplace<Box2DWorldComponent>(m_SceneEntity, CreateScope<b2World>(b2Vec2{ 0.0f, -9.8f }));
+		b2dWorld.World->SetContactListener(&b2dWorld.ContactListener);
+
+		Init();
 	}
 
 	Scene::~Scene()
 	{
-		delete m_PhysicsWorld;
+		m_Registry.clear();
+		m_ActiveScenes.erase(m_SceneID);
+	}
+
+	void Scene::Init()
+	{
 	}
 
 	template<typename... Component>
@@ -143,8 +171,11 @@ namespace Vox
 
 	void Scene::OnUpdateRuntime(Timestep ts)
 	{
-		UpdateBehaviours(ts);
-		UpdatePhysics(ts);
+		if (!m_IsPaused || m_StepFrames-- > 0)
+		{
+			UpdateBehaviours(ts);
+			UpdatePhysics(ts);
+		}
 
 		Camera* mainCamera = nullptr;
 		glm::mat4 cameraTransform;
@@ -205,7 +236,11 @@ namespace Vox
 
 	void Scene::OnUpdateSimulation(Timestep ts, EditorCamera& camera)
 	{
-		UpdatePhysics(ts);
+		if (!m_IsPaused || m_StepFrames-- > 0)
+		{
+			UpdatePhysics(ts);
+		}
+
 		RenderScene(camera);
 	}
 
@@ -216,6 +251,11 @@ namespace Vox
 
 	void Scene::OnViewportResize(uint32_t width, uint32_t height)
 	{
+		if (m_ViewportWidth == width && m_ViewportHeight == height)
+		{
+			return;
+		}
+
 		m_ViewportWidth = width;
 		m_ViewportHeight = height;
 
@@ -286,12 +326,13 @@ namespace Vox
 
 	void Scene::DestroyEntity(Entity entity, bool excludeChildren, bool first)
 	{
-		//if (IsRunning())
+		if (!m_EditorScene)
 		{
 			if (entity.HasComponent<Rigidbody2DComponent>())
 			{
+				auto& world = m_Registry.get<Box2DWorldComponent>(m_SceneEntity).World;
 				b2Body* body = (b2Body*)entity.GetComponent<Rigidbody2DComponent>().RuntimeBody;
-				m_PhysicsWorld->DestroyBody(body);
+				world->DestroyBody(body);
 			}
 		}
 
@@ -315,7 +356,7 @@ namespace Vox
 
 		UUID id = entity.GetId();
 
-		m_Registry.destroy(entity);
+		m_Registry.destroy(entity.m_EntityHandle);
 		m_EntityMap.erase(id);
 
 		//SortEntities();
@@ -349,38 +390,44 @@ namespace Vox
 		return newEntity;
 	}
 
-	Entity Scene::GetEntityWithId(UUID id) const
+	Entity Scene::GetEntityWithId(UUID id)
 	{
-		if (m_EntityMap.find(id) == m_EntityMap.end())
+		if (m_EntityMap.find(id) != m_EntityMap.end())
 		{
-			//LOG_CORE_WARN("Invalid entity ID or entity doesn't exist in scene!");
-			return {};
+			return { m_EntityMap.at(id), this };
 		}
 
-		return m_EntityMap.at(id);
+		return {};
 	}
 
-	Entity Scene::FindEntityWithId(UUID id) const
+	Entity Scene::FindEntityWithId(UUID id)
 	{
-		if (const auto iter = m_EntityMap.find(id); iter != m_EntityMap.end())
+		auto view = m_Registry.view<IDComponent>();
+		for (auto entity : view)
 		{
-			return iter->second;
+			const IDComponent& tc = view.get<IDComponent>(entity);
+			if (tc.Id == id)
+			{
+				return Entity { entity, this };
+			}
 		}
-		return Entity{};
+
+		return {};
 	}
 
 	Entity Scene::FindEntityWithTag(const std::string& tag)
 	{
-		auto entities = GetAllEntitiesWith<TagComponent>();
-		for (auto e : entities)
+		auto view = m_Registry.view<TagComponent>();
+		for (auto entity : view)
 		{
-			if (entities.get<TagComponent>(e).Tag == tag)
+			const TagComponent& tc = view.get<TagComponent>(entity);
+			if (tc.Tag == tag)
 			{
-				return Entity(e, const_cast<Scene*>(this));
+				return Entity { entity, this };
 			}
 		}
 
-		return Entity{};
+		return {};
 	}
 
 	Entity Scene::FindChildEntityWithTag(Entity entity, const std::string& tag)
@@ -510,6 +557,11 @@ namespace Vox
 		entity.SetParentId(0);
 	}
 
+	void Scene::Step(int frames)
+	{
+		m_StepFrames = frames;
+	}
+
 	void Scene::UpdateBehaviours(Timestep ts)
 	{
 		// C# Entity OnUpdate
@@ -522,28 +574,31 @@ namespace Vox
 		}
 
 		m_Registry.view<BehaviourComponent>().each([=](auto entity, auto& behaviour)
+		{
+			if (!behaviour.Instance)
 			{
-				auto targetEntity = Entity{ entity, this };
-				if (!behaviour.Instance)
-				{
-					behaviour.Instance = behaviour.InstantiateScript();
-					behaviour.Instance->m_Entity = targetEntity;
+				//auto targetEntity = Entity{ entity, this };
+				behaviour.Instance = behaviour.InstantiateScript();
+				behaviour.Instance->m_Entity = Entity{ entity, this };
 
-					behaviour.Instance->OnCreate();
-				}
+				behaviour.Instance->OnCreate();
+			}
 
-				if (targetEntity.IsActive())
-				{
-					behaviour.Instance->OnUpdate(ts);
-				}
-			});
+			//if (targetEntity.IsActive())
+			//{
+			behaviour.Instance->OnUpdate(ts);
+			//}
+		});
 	}
 
 	void Scene::UpdatePhysics(Timestep ts)
 	{
+		auto sceneView = m_Registry.view<Box2DWorldComponent>();
+		auto& box2DWorld = m_Registry.get<Box2DWorldComponent>(sceneView.front()).World;
 		const uint32_t velocityIterations = 6;
 		const uint32_t positionIterations = 2;
-		m_PhysicsWorld->Step(ts, velocityIterations, positionIterations);
+
+		box2DWorld->Step(ts, velocityIterations, positionIterations);
 
 		auto view = m_Registry.view<Rigidbody2DComponent>();
 		for (auto e : view)
@@ -551,11 +606,15 @@ namespace Vox
 			Entity entity = { e, this };
 			if (!entity.IsActive()) continue;
 
-			auto& transform = entity.GetComponent<TransformComponent>();
 			auto& rb2D = entity.GetComponent<Rigidbody2DComponent>();
+			if (rb2D.RuntimeBody == nullptr)
+			{
+				continue;
+			}
 
-			b2Body* body = (b2Body*)rb2D.RuntimeBody;
-			const auto& position = body->GetPosition();
+			b2Body* body = static_cast<b2Body*>(rb2D.RuntimeBody);
+			auto& transform = entity.GetComponent<TransformComponent>();
+			auto& position = body->GetPosition();
 
 			transform.Position.x = position.x;
 			transform.Position.y = position.y;
@@ -567,12 +626,14 @@ namespace Vox
 
 	void Scene::OnPhysics2DStart()
 	{
-		m_PhysicsWorld = new b2World({ 0.0f, -9.8f });
+		auto sceneView = m_Registry.view<Box2DWorldComponent>();
+		auto& world = m_Registry.get<Box2DWorldComponent>(sceneView.front()).World;
 
 		auto view = m_Registry.view<Rigidbody2DComponent>();
 		for (auto e : view)
 		{
 			Entity entity = { e, this };
+			UUID entityId = entity.GetId();
 			auto& transform = entity.GetComponent<TransformComponent>();
 			auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
 
@@ -581,8 +642,18 @@ namespace Vox
 			bodyDef.position.Set(transform.Position.x, transform.Position.y);
 			bodyDef.angle = transform.GetRotationEuler().z;
 
-			b2Body* body = m_PhysicsWorld->CreateBody(&bodyDef);
+			b2Body* body = world->CreateBody(&bodyDef);
 			body->SetFixedRotation(rb2d.FixedRotation);
+
+			b2MassData massData;
+			body->GetMassData(&massData);
+			massData.mass = rb2d.Mass;
+			body->SetMassData(&massData);
+			body->SetGravityScale(rb2d.GravityScale);
+			body->SetLinearDamping(rb2d.LinearDrag);
+			body->SetAngularDamping(rb2d.AngularDrag);
+			body->SetBullet(rb2d.IsBullet);
+			body->GetUserData().pointer = (uintptr_t)entityId;
 			rb2d.RuntimeBody = body;
 
 			if (entity.HasComponent<BoxCollider2DComponent>())
@@ -590,7 +661,8 @@ namespace Vox
 				auto& bc2d = entity.GetComponent<BoxCollider2DComponent>();
 
 				b2PolygonShape boxShape;
-				boxShape.SetAsBox(bc2d.Size.x * transform.Scale.x, bc2d.Size.y * transform.Scale.y);
+				boxShape.SetAsBox(bc2d.Size.x * transform.Scale.x, bc2d.Size.y * transform.Scale.y, 
+					b2Vec2(bc2d.Offset.x, bc2d.Offset.y), 0.0f);
 
 				b2FixtureDef fixtureDef;
 				fixtureDef.shape = &boxShape;
@@ -622,8 +694,6 @@ namespace Vox
 
 	void Scene::OnPhysics2DStop()
 	{
-		delete m_PhysicsWorld;
-		m_PhysicsWorld = nullptr;
 	}
 
 	void Scene::RenderScene(EditorCamera& camera)
@@ -663,6 +733,16 @@ namespace Vox
 		}
 
 		Renderer2D::EndScene();
+	}
+
+	bool Scene::EntityIsScene(Entity entity)
+	{
+		if (entity)
+		{
+			return entity.HasComponent<SceneComponent>();
+		}
+
+		return false;
 	}
 
 	template<typename T>

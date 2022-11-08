@@ -1,0 +1,67 @@
+Scene: Untitled
+Entities:
+  - Entity: 2265369742852419157
+    TagComponent:
+      Tag: Plane
+    TransformComponent:
+      Position: [-0.00885794964, -1.20982337, 0]
+      Rotation: [0, 0, 0]
+      Scale: [12.5626154, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Kinematic
+      FixedRotation: true
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 1953123295444422020
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Position: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFov: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      MainCamera: true
+      FixedAspectRatio: false
+  - Entity: 13209670172521860777
+    TagComponent:
+      Tag: Player
+    TransformComponent:
+      Position: [4.76837158e-07, 1.1920929e-07, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Player
+      ScriptFields:
+        - Name: Speed
+          Type: Float
+          Data: 3.79999995
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: Assets\Textures\Mario.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5

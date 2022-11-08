@@ -10,10 +10,23 @@ namespace Sandbox
 {
 	public class Camera : Entity
 	{
-		public Entity OtherEntity;
+		public float DistanceFromPlayer = 5.0f;
+
+		private Entity m_Player;
+
+		void OnCreate()
+		{
+			Console.WriteLine($"Camera.OnCreate - {Id}");
+			m_Player = FindEntityByName("Player");
+		}
 
 		void OnUpdate(float ts)
 		{
+			if (m_Player != null)
+			{
+				Position = new Vector3(m_Player.Position.XY, DistanceFromPlayer);
+			}
+
 			float speed = 1.0f;
 			Vector3 velocity = Vector3.Zero;
 

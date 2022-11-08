@@ -4,6 +4,7 @@ IncludeDir = {}
 IncludeDir["stb_image"] = "%{wks.location}/VoxGL/ThirdParty/stb_image"
 IncludeDir["yaml_cpp"] = "%{wks.location}/VoxGL/ThirdParty/yaml-cpp/include"
 IncludeDir["Box2D"] = "%{wks.location}/VoxGL/ThirdParty/Box2D/include"
+IncludeDir["filewatch"] = "%{wks.location}/VoxGL/ThirdParty/filewatch"
 IncludeDir["GLFW"] = "%{wks.location}/VoxGL/ThirdParty/GLFW/include"
 IncludeDir["Glad"] = "%{wks.location}/VoxGL/ThirdParty/Glad/include"
 IncludeDir["ImGui"] = "%{wks.location}/VoxGL/ThirdParty/ImGui"

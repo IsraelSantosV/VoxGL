@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;VOX_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty;ThirdParty\spdlog\include;ThirdParty\Box2D\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\ImGui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\mono\include;ThirdParty\yaml-cpp\include;ThirdParty\ImGuizmo;C:\VulkanSDK\1.3.204.1\Include;ThirdParty\choc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty;ThirdParty\spdlog\include;ThirdParty\Box2D\include;ThirdParty\filewatch;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\ImGui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\mono\include;ThirdParty\yaml-cpp\include;ThirdParty\ImGuizmo;C:\VulkanSDK\1.3.204.1\Include;ThirdParty\choc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -99,7 +99,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;VOX_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty;ThirdParty\spdlog\include;ThirdParty\Box2D\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\ImGui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\mono\include;ThirdParty\yaml-cpp\include;ThirdParty\ImGuizmo;C:\VulkanSDK\1.3.204.1\Include;ThirdParty\choc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty;ThirdParty\spdlog\include;ThirdParty\Box2D\include;ThirdParty\filewatch;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\ImGui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\mono\include;ThirdParty\yaml-cpp\include;ThirdParty\ImGuizmo;C:\VulkanSDK\1.3.204.1\Include;ThirdParty\choc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -124,7 +124,7 @@
       <PrecompiledHeaderFile>VoxPch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;VOX_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>Source;ThirdParty;ThirdParty\spdlog\include;ThirdParty\Box2D\include;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\ImGui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\mono\include;ThirdParty\yaml-cpp\include;ThirdParty\ImGuizmo;C:\VulkanSDK\1.3.204.1\Include;ThirdParty\choc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Source;ThirdParty;ThirdParty\spdlog\include;ThirdParty\Box2D\include;ThirdParty\filewatch;ThirdParty\GLFW\include;ThirdParty\Glad\include;ThirdParty\ImGui;ThirdParty\glm;ThirdParty\stb_image;ThirdParty\entt\include;ThirdParty\mono\include;ThirdParty\yaml-cpp\include;ThirdParty\ImGuizmo;C:\VulkanSDK\1.3.204.1\Include;ThirdParty\choc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -183,6 +183,8 @@
     <ClInclude Include="Source\Vox\ImGui\ImGuiLayer.h" />
     <ClInclude Include="Source\Vox\ImGui\ImGuiWidgets.h" />
     <ClInclude Include="Source\Vox\Math\Math.h" />
+    <ClInclude Include="Source\Vox\Physics\2D\ContactListener2D.h" />
+    <ClInclude Include="Source\Vox\Physics\2D\Physics2D.h" />
     <ClInclude Include="Source\Vox\Renderer\Buffer.h" />
     <ClInclude Include="Source\Vox\Renderer\Camera.h" />
     <ClInclude Include="Source\Vox\Renderer\EditorCamera.h" />
@@ -597,6 +599,8 @@
     <ClCompile Include="Source\Vox\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="Source\Vox\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="Source\Vox\Math\Math.cpp" />
+    <ClCompile Include="Source\Vox\Physics\2D\ContactListener2D.cpp" />
+    <ClCompile Include="Source\Vox\Physics\2D\Physics2D.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Vox\Renderer\EditorCamera.cpp" />
     <ClCompile Include="Source\Vox\Renderer\Framebuffer.cpp" />

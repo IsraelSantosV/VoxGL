@@ -186,5 +186,7 @@ namespace Vox
 
 		bool m_IsActive = true;
 		Scene* m_Scene = nullptr;
+
+		friend class Scene;
 	};
 }

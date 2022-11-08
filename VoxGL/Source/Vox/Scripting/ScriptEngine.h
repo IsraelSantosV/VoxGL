@@ -129,6 +129,8 @@ namespace Vox
 
 			SetFieldValueInternal(name, &value);
 		}
+
+		MonoObject* GetManagedObject() { return m_Instance; }
 	private:
 		bool GetFieldValueInternal(const std::string& name, void* buffer);
 		bool SetFieldValueInternal(const std::string& name, const void* value);
@@ -154,6 +156,7 @@ namespace Vox
 
 		static void LoadAssembly(const std::filesystem::path& filepath);
 		static void LoadAppAssembly(const std::filesystem::path& filepath);
+		static void ReloadAssembly();
 
 		static void OnRuntimeStart(Scene* scene);
 		static void OnRuntimeStop();
@@ -170,6 +173,7 @@ namespace Vox
 		static ScriptFieldMap& GetScriptFieldMap(Entity entity);
 
 		static MonoImage* GetCoreAssemblyImage();
+		static MonoObject* GetManagedInstance(UUID id);
 	private:
 		static void InitMono();
 		static void ShutdownMono();
